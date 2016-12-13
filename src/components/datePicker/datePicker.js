@@ -1,5 +1,7 @@
+require ('components/datePicker/datePicker.css')
 import React from 'react';
 import { DatePicker } from 'antd';
+
 
 class DatePickerComponent extends React.Component {
     constructor(props) {

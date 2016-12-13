@@ -1,5 +1,7 @@
+require ('components/uploader/uploader.css')
 import React from 'react';
 import { Upload, Icon, Modal } from 'antd';
+
 
 class PicturesWall extends React.Component {
     state = {
