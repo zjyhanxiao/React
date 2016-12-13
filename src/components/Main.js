@@ -1,22 +1,27 @@
-require('normalize.css/normalize.css');
-require('styles/App.css');
-
 import React from 'react';
+import ReactDOM from 'react-dom';
+import { DatePicker } from 'antd';
 
-let yeomanImage = require('../images/yeoman.png');
-
-class AppComponent extends React.Component {
-  render() {
-    return (
-      <div className="index">
-        <img src={yeomanImage} alt="Yeoman Generator" />
-        <div className="notice">Please edit <code>src/components/Main.js</code> to get started!</div>
-      </div>
-    );
-  }
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            date: '',
+        };
+    }
+    handleChange(date) {
+        this.setState({ date });
+    }
+    render() {
+        return (
+            <div style={{ width: 400}}>
+              <DatePicker onChange={value => this.handleChange(value)} />
+            </div>
+        );
+    }
 }
 
-AppComponent.defaultProps = {
+App.defaultProps = {
 };
 
-export default AppComponent;
+export default App;
