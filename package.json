@@ -22,6 +22,7 @@
   "keywords": [],
   "author": "Your name here",
   "devDependencies": {
+    "antd": "^2.5.2",
     "antd-init": "^2.0.3",
     "babel-core": "^6.0.0",
     "babel-eslint": "^6.0.0",

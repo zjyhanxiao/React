@@ -1,27 +1,20 @@
+require ('../../node_modules/antd/dist/antd.min.css')
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { DatePicker } from 'antd';
+import DatePickerComponent from 'components/datePicker'
+import PicturesWall from 'components/uploader'
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            date: '',
-        };
-    }
-    handleChange(date) {
-        this.setState({ date });
-    }
+class AppComponent extends React.Component {
     render() {
         return (
-            <div style={{ width: 400}}>
-              <DatePicker onChange={value => this.handleChange(value)} />
+            <div>
+                <DatePickerComponent />
+                <PicturesWall />
             </div>
         );
     }
 }
 
-App.defaultProps = {
+AppComponent.defaultProps = {
 };
 
-export default App;
+export default AppComponent;
