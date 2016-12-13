@@ -1,4 +1,4 @@
-require ('components/datePicker/datePicker.css')
+require ('components/datePicker/index.css')
 import React from 'react';
 import { DatePicker } from 'antd';
 

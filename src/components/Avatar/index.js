@@ -1,6 +1,6 @@
 require ('components/Avatar/index.css')
 import React from 'react';
-import { Upload, Icon, message } from 'antd';
+import { Upload } from 'antd';
 
 function getBase64(img, callback) {
   const reader = new FileReader();
@@ -21,7 +21,11 @@ function beforeUpload(file) {
 }
 
 class Avatar extends React.Component {
-  state = {};
+  state = {
+    fileList: {
+      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    }
+  };
 
   handleChange = (info) => {
     if (info.file.status === 'done') {
@@ -41,11 +45,10 @@ class Avatar extends React.Component {
         beforeUpload={beforeUpload}
         onChange={this.handleChange}
       >
-        {
-          imageUrl ?
-            <img src={imageUrl} role="presentation" className="avatar" /> :
-            <Icon type="plus" className="avatar-uploader-trigger" />
-        }
+
+            <img src={imageUrl} role="presentation" className="avatar"/> :
+            <div type="plus" className="avatar-uploader-trigger" >上传证件
+            </div>
       </Upload>
     );
   }

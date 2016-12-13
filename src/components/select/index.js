@@ -5,7 +5,7 @@
 
 
 
-require ('components/select/select.css')
+require ('components/select/index.css')
 import React from 'react';
 import { Select } from 'antd';
 const Option = Select.Option;

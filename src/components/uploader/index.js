@@ -1,4 +1,4 @@
-require ('components/uploader/uploader.css')
+require ('components/uploader/index.css')
 import React from 'react';
 import { Upload, Icon, Modal } from 'antd';
 
