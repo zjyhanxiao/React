@@ -2,6 +2,7 @@
 .avatar {
   width: 344px;
   height: 166px;
+  margin-bottom: 34px;
 }
 .avatar-uploader {
   display: block;
