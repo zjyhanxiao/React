@@ -7,6 +7,7 @@ class Signature extends React.Component {
     sigPad = {}
     clear = () => {
         this.sigPad.clear()
+        this.setState({trimmedDataURL:null})
     }
     getCanvas = () => {
         this.sigPad.getCanvas()
