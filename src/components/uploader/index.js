@@ -1,4 +1,4 @@
-import 'components/uploader/index.css'
+require('components/uploader/index.css')
 import React from 'react';
 import {Upload, message} from 'antd';
 
@@ -25,7 +25,6 @@ class Avatar extends React.Component {
 
     handleChange = (info) => {
         if (info.file.status === 'done') {
-            console.log(info.fileList[0].response.body);
             this.setState({fileList:{url:info.fileList[0].response.body}})
             // Get this url from response in real world.
             getBase64(info.file.originFileObj, imageUrl => this.setState({imageUrl}));
