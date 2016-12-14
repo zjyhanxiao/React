@@ -1,58 +1,58 @@
-require ('components/uploader/index.css')
+import 'components/uploader/index.css'
 import React from 'react';
-import { Upload, Icon, Modal } from 'antd';
+import {Upload, message} from 'antd';
 
+function getBase64(img, callback) {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => callback(reader.result));
+    reader.readAsDataURL(img);
+}
 
-class PicturesWall extends React.Component {
+function beforeUpload(file) {
+    const isLt8M = file.size / 1024 / 1024 < 8;
+    if (!isLt8M) {
+        message.error('Image must smaller than 8MB!');
+    }
+    return isLt8M;
+}
+
+class Avatar extends React.Component {
     state = {
-        previewVisible: false,
-        previewImage: '',
-        fileList: [{
-            uid: -1,
-            name: 'xxx.png',
-            status: 'done',
-            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        }],
+        fileList: {
+            url: 'https://s1.meixinglobal.com/static/version_1.6/dist/meixin_invest/img/upload_id_placeholder_518x348.png',
+        }
     };
 
-    handleCancel = () => this.setState({ previewVisible: false })
-
-    handlePreview = (file) => {
-        this.setState({
-            previewImage: file.url || file.thumbUrl,
-            previewVisible: true,
-        });
+    handleChange = (info) => {
+        if (info.file.status === 'done') {
+            console.log(info.fileList[0].response.body);
+            this.setState({fileList:{url:info.fileList[0].response.body}})
+            // Get this url from response in real world.
+            getBase64(info.file.originFileObj, imageUrl => this.setState({imageUrl}));
+        }
     }
 
-    handleChange = ({ fileList }) => this.setState({ fileList })
-
     render() {
-        const { previewVisible, previewImage, fileList } = this.state;
-        const uploadButton = (
-            <div>
-                <Icon type="plus" />
-                <div className="ant-upload-text">Upload</div>
-            </div>
-        );
+        const imageUrl = this.state.imageUrl;
         return (
-            <div className="clearfix">
-                <Upload
-                    action="https://api1.meixinglobal.com/web/upload/private"
-                    listType="picture-card"
-                    fileList={fileList}
-                    onPreview={this.handlePreview}
-                    onChange={this.handleChange}
-                >
-                    {fileList.length >= 1 ? null : uploadButton}
-                </Upload>
-                <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
-                    <img alt="example" style={{ width: '100%' }} src={previewImage} />
-                </Modal>
-            </div>
+            <Upload
+                className="avatar-uploader"
+                name="file"
+                showUploadList={false}
+                action="https://api1.meixinglobal.com/web/upload/private"
+                beforeUpload={beforeUpload}
+                onChange={this.handleChange}
+            >
+                {
+                    imageUrl ? <img src={imageUrl} role="presentation" className="avatar"/> :
+                        <img src={this.state.fileList.url} role="presentation" className="avatar"/>}
+                <div type="plus" className="avatar-uploader-trigger">上传证件
+                </div>
+            </Upload>
         );
     }
 }
-PicturesWall.defaultProps = {
-};
 
-export default PicturesWall;
+Avatar.defaultProps = {};
+
+export default Avatar;

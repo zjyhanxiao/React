@@ -1,16 +1,14 @@
-require ('../../node_modules/antd/dist/antd.min.css')
+import 'antd/dist/antd.min.css';
 import React from 'react';
 import DatePickerComponent from 'components/datePicker/index'
-import PicturesWall from 'components/uploader/index'
-import Avatar from 'components/Avatar/index'
-import select from 'components/select/index'
+import Avatar from 'components/uploader/index'
 
 class AppComponent extends React.Component {
     render() {
         return (
             <div>
+                <DatePickerComponent />
                 <Avatar />
-                <select />
             </div>
         );
     }
