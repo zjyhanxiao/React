@@ -1,4 +1,4 @@
-require ('components/Avatar/index.css')
+require ('components/uploder/index.css')
 import React from 'react';
 import { Upload } from 'antd';
 
@@ -46,7 +46,7 @@ class Avatar extends React.Component {
         onChange={this.handleChange}
       >
 
-            <img src={imageUrl} role="presentation" className="avatar"/> :
+            <img src={imageUrl} role="presentation" className="avatar"/>
             <div type="plus" className="avatar-uploader-trigger" >上传证件
             </div>
       </Upload>
