@@ -19,7 +19,8 @@ function beforeUpload(file) {
 class Avatar extends React.Component {
     state = {
         fileList: {
-            url: 'https://s1.meixinglobal.com/static/version_1.6/dist/meixin_invest/img/upload_id_placeholder_518x348.png',
+            //url: 'https://s1.meixinglobal.com/static/version_1.6/dist/meixin_invest/img/upload_id_placeholder_518x348.png',
+          url:'images/shengfenzhen.png'
         }
     };
 

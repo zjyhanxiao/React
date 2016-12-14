@@ -1,4 +1,11 @@
 .ant-calendar-picker{
   width: 240px;
-  height: 35px;
+  height: 32px;
+}
+.ant-input{
+  height: 32px!important;
+  border-radius: inherit!important;
+}
+.ant-select-selection {
+  border-radius: inherit;
 }
