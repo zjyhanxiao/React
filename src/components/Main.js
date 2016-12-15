@@ -3,6 +3,7 @@ import React from 'react';
 import { Row, Col,Button,Input,Select} from 'antd';
 import DatePickerComponent from 'components/datePicker/index'
 import Avatar from 'components/uploader/index'
+import Signature from 'components/signature/index'
 
 const Option = Select.Option;
 
@@ -14,7 +15,7 @@ class AppComponent extends React.Component {
   render() {
     return (
       <div style={{ width: 900 ,background:'#fff'}}>
-
+        <Signature></Signature>
         <Row style={{paddingTop:'30px'}}>
           <Col span={2} offset={2}><h2 style={{color: '#159bd6',fontFamily:'宋体'}}>个人信息</h2></Col>
           <Col span={11} offset={1}><p style={{color: '#ff6600',fontFamily:'宋体',marginTop:'5px'}}>投资人姓名必须与汇款银行帐号上的姓名一致,且一旦提交不可修改。</p></Col>
@@ -110,7 +111,8 @@ class AppComponent extends React.Component {
           <Col span={12} offset={6} style={{color:'#999999',fontFamily:'宋体',textAlign:'center'}}>并于证件下方签名, 拍照或扫描上传。证件必须为原件, 不能为复印件。</Col>
         </Row>
         <Row style={{marginTop:'50px',paddingBottom:'40px'}}>
-          <Col span={4} offset={10}><Button style={{width: '100%',height:'50px',borderRadius:'30px',background:'#223976',color:'#fff',fontSize:'18px'}}>下一步</Button></Col>
+          <Col span={4} offset={10}>
+            <Button onClick={} style={{width: '100%',height:'50px',borderRadius:'30px',background:'#223976',color:'#fff',fontSize:'18px'}}>下一步</Button></Col>
         </Row>
       </div>
     );

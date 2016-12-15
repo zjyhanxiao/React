@@ -1,5 +1,6 @@
 require('components/signature/index.css');
 import React from 'react';
+import { Button } from 'antd';
 import SignaturePad from 'react-signature-canvas'
 
 class Signature extends React.Component {
@@ -28,10 +29,9 @@ class Signature extends React.Component {
 
                     />
                 </div>
-                <div>
-                    <button className='buttons' onClick={this.clear}>
-                        Clear
-                    </button>
+                <div className='sigContainer_button'>
+
+                  <Button className='buttons' onClick={this.clear}>重新签名</Button>
                 </div>
             </div>
         );
