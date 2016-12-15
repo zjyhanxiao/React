@@ -112,7 +112,7 @@ class AppComponent extends React.Component {
         </Row>
         <Row style={{marginTop:'50px',paddingBottom:'40px'}}>
           <Col span={4} offset={10}>
-            <Button onClick={} style={{width: '100%',height:'50px',borderRadius:'30px',background:'#223976',color:'#fff',fontSize:'18px'}}>下一步</Button></Col>
+            <Button style={{width: '100%',height:'50px',borderRadius:'30px',background:'#223976',color:'#fff',fontSize:'18px'}}>下一步</Button></Col>
         </Row>
       </div>
     );
