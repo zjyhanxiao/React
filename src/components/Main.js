@@ -1,97 +1,110 @@
-import 'antd/dist/antd.min.css';
+require('components/Main.css');
+
+import 'antd/dist/antd.min.css'
 import React from 'react';
 import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button } from 'antd';
 import DatePickerComponent from 'components/datePicker/index'
 import Avatar from 'components/uploader/index'
 import Signature from 'components/signature/index'
 
-class AppComponent extends React.Component {
+const FormItem = Form.Item;
+const Option = Select.Option;
 
-  const FormItem = Form.Item;
-  const Option = Select.Option;
+function handleChange(value) {
+  console.log(`selected ${value}`);
+}
 
-  const residences = [{
-    value: 'zhejiang',
-    label: 'Zhejiang',
+const residences = [{
+  value: 'zhejiang',
+  label: 'Zhejiang',
+  children: [{
+    value: 'hangzhou',
+    label: 'Hangzhou',
     children: [{
-      value: 'hangzhou',
-      label: 'Hangzhou',
-      children: [{
-        value: 'xihu',
-        label: 'West Lake',
-      }],
+      value: 'xihu',
+      label: 'West Lake',
     }],
-  }, {
-    value: 'jiangsu',
-    label: 'Jiangsu',
+  }],
+}, {
+  value: 'jiangsu',
+  label: 'Jiangsu',
+  children: [{
+    value: 'nanjing',
+    label: 'Nanjing',
     children: [{
-      value: 'nanjing',
-      label: 'Nanjing',
-      children: [{
-        value: 'zhonghuamen',
-        label: 'Zhong Hua Men',
-      }],
+      value: 'zhonghuamen',
+      label: 'Zhong Hua Men',
     }],
-  }];
+  }],
+}];
 
-  const RegistrationForm = Form.create()(React.createClass({
-    getInitialState() {
-      return {
-        passwordDirty: false,
-      };
-    },
-    handleSubmit(e) {
-      e.preventDefault();
-      this.props.form.validateFieldsAndScroll((err, values) => {
-        if (!err) {
-          console.log('Received values of form: ', values);
-        }
-      });
-    },
-    handlePasswordBlur(e) {
-      const value = e.target.value;
-      this.setState({ passwordDirty: this.state.passwordDirty || !!value });
-    },
-    checkPassowrd(rule, value, callback) {
-      const form = this.props.form;
-      if (value && value !== form.getFieldValue('password')) {
-        callback('Two passwords that you enter is inconsistent!');
-      } else {
-        callback();
+const RegistrationForm = Form.create()(React.createClass({
+  getInitialState() {
+    return {
+      passwordDirty: false,
+    };
+  },
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.form.validateFieldsAndScroll((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
       }
-    },
-    checkConfirm(rule, value, callback) {
-      const form = this.props.form;
-      if (value && this.state.passwordDirty) {
-        form.validateFields(['confirm'], { force: true });
-      }
+    });
+  },
+  handlePasswordBlur(e) {
+    const value = e.target.value;
+    this.setState({ passwordDirty: this.state.passwordDirty || !!value });
+  },
+  checkPassowrd(rule, value, callback) {
+    const form = this.props.form;
+    if (value && value !== form.getFieldValue('password')) {
+      callback('Two passwords that you enter is inconsistent!');
+    } else {
       callback();
-    },
+    }
+  },
+  checkConfirm(rule, value, callback) {
+    const form = this.props.form;
+    if (value && this.state.passwordDirty) {
+      form.validateFields(['confirm'], { force: true });
+    }
+    callback();
+  },
+  render() {
+    const { getFieldDecorator } = this.props.form;
+    const formItemLayout = {
+      labelCol: { span: 6 },
+      wrapperCol: { span: 14 },
+    };
+    const tailFormItemLayout = {
+      wrapperCol: {
+        span: 14,
+        offset: 6,
+      },
+    };
+    const prefixSelector = getFieldDecorator('prefix', {
+      initialValue: '86',
+    })(
+      <Select className="icp-selector">
+        <Option value="86">+86</Option>
+      </Select>
+    );
+    return (
 
-    render() {
-      const { getFieldDecorator } = this.props.form;
-      const formItemLayout = {
-        labelCol: { span: 6 },
-        wrapperCol: { span: 14 },
-      };
-      const tailFormItemLayout = {
-        wrapperCol: {
-          span: 14,
-          offset: 6,
-        },
-      };
-      const prefixSelector = getFieldDecorator('prefix', {
-        initialValue: '86',
-      })(
-        <Select className="icp-selector">
-          <Option value="86">+86</Option>
-        </Select>
-      );
-      return (
+      <div style={{ width: 900 ,background:'#fff',overflow:'hidden'}}>
+
+
         <Form horizontal onSubmit={this.handleSubmit}>
+
+          <Row style={{paddingTop:'30px',paddingBottom:'30px'}}>
+            <Col span={2} offset={2}><h2 style={{color: '#159bd6',fontFamily:'宋体'}}>个人信息</h2></Col>
+            <Col span={11} offset={1}><p style={{color: '#ff6600',fontFamily:'宋体',marginTop:'5px'}}>投资人姓名必须与汇款银行帐号上的姓名一致,且一旦提交不可修改。</p></Col>
+          </Row>
+
           <FormItem
             {...formItemLayout}
-            label="E-mail"
+            label="姓氏"
             hasFeedback
           >
             {getFieldDecorator('email', {
@@ -104,9 +117,11 @@ class AppComponent extends React.Component {
               <Input />
             )}
           </FormItem>
+
+
           <FormItem
             {...formItemLayout}
-            label="Password"
+            label="名"
             hasFeedback
           >
             {getFieldDecorator('password', {
@@ -121,7 +136,54 @@ class AppComponent extends React.Component {
           </FormItem>
           <FormItem
             {...formItemLayout}
-            label="Confirm Password"
+            label="出生日期"
+            hasFeedback
+          >
+            {getFieldDecorator('confirm', {
+              rules: [{
+                required: true, message: 'Please confirm your password!',
+              }, {
+                validator: this.checkPassowrd,
+              }],
+            })(
+              <DatePickerComponent></DatePickerComponent>
+            )}
+          </FormItem>
+          <FormItem
+            {...formItemLayout}
+            label="出生国家"
+            hasFeedback
+          >
+            {getFieldDecorator('confirm', {
+              initialValue:'jack',
+              rules: [{
+                required: true, message: 'Please confirm your password!',
+              }, {
+                validator: this.checkPassowrd,
+              }],
+            })(
+
+            )}
+          </FormItem>
+          <FormItem
+            {...formItemLayout}
+            label="纳税国"
+            labelCol='{span: 3, offset: 12}'
+            hasFeedback
+          >
+            {getFieldDecorator('confirm', {
+              rules: [{
+                required: true, message: 'Please confirm your password!',
+              }, {
+                validator: this.checkPassowrd,
+              }],
+            })(
+              <Input type="text" />
+            )}
+          </FormItem>
+          <FormItem
+            {...formItemLayout}
+            label="国籍"
             hasFeedback
           >
             {getFieldDecorator('confirm', {
@@ -136,83 +198,109 @@ class AppComponent extends React.Component {
           </FormItem>
           <FormItem
             {...formItemLayout}
-            label={(
-            <span>
-              Nickname&nbsp;
-              <Tooltip title="What do you want other to call you?">
-                <Icon type="question-circle-o" />
-              </Tooltip>
-            </span>
-          )}
+            label="行业"
             hasFeedback
           >
-            {getFieldDecorator('nickname', {
-              rules: [{ required: true, message: 'Please input your nickname!' }],
+            {getFieldDecorator('confirm', {
+              rules: [{
+                required: true, message: 'Please confirm your password!',
+              }, {
+                validator: this.checkPassowrd,
+              }],
             })(
-              <Input />
+              <DatePickerComponent></DatePickerComponent>
             )}
           </FormItem>
           <FormItem
             {...formItemLayout}
-            label="Habitual Residence"
+            label="职业"
+            hasFeedback
           >
-            {getFieldDecorator('residence', {
-              initialValue: ['zhejiang', 'hangzhou', 'xihu'],
-              rules: [{ type: 'array', required: true, message: 'Please select your habitual residence!' }],
+            {getFieldDecorator('confirm', {
+              rules: [{
+                required: true, message: 'Please confirm your password!',
+              }, {
+                validator: this.checkPassowrd,
+              }],
             })(
-              <Cascader options={residences} />
+              <DatePickerComponent></DatePickerComponent>
             )}
           </FormItem>
           <FormItem
             {...formItemLayout}
-            label="Phone Number"
+            label="资金来源"
+            hasFeedback
           >
-            {getFieldDecorator('phone', {
-              rules: [{ required: true, message: 'Please input your phone number!' }],
+            {getFieldDecorator('confirm', {
+              rules: [{
+                required: true, message: 'Please confirm your password!',
+              }, {
+                validator: this.checkPassowrd,
+              }],
             })(
-              <Input addonBefore={prefixSelector} />
+              <DatePickerComponent></DatePickerComponent>
+            )}
+          </FormItem>
+          <Row style={{marginTop:'30px',paddingBottom:'30px'}}>
+            <Col span={2} offset={2} style={{width:'900px'}}><h2 style={{color: '#159bd6',fontFamily:'宋体',height:'30px'}}>证件上传</h2></Col>
+          </Row>
+          <FormItem
+            {...formItemLayout}
+            label="护照号"
+            hasFeedback
+          >
+            {getFieldDecorator('confirm', {
+              rules: [{
+                required: true, message: 'Please confirm your password!',
+              }, {
+                validator: this.checkPassowrd,
+              }],
+            })(
+              <DatePickerComponent></DatePickerComponent>
             )}
           </FormItem>
           <FormItem
             {...formItemLayout}
-            label="Captcha"
-            extra="We must make sure that your are a human."
+            label="有效期"
+            hasFeedback
           >
-            <Row gutter={8}>
-              <Col span={12}>
-                {getFieldDecorator('captcha', {
-                  rules: [{ required: true, message: 'Please input the captcha you got!' }],
-                })(
-                  <Input size="large" />
-                )}
-              </Col>
-              <Col span={12}>
-                <Button size="large">Get captcha</Button>
-              </Col>
-            </Row>
-          </FormItem>
-          <FormItem {...tailFormItemLayout} style={{ marginBottom: 8 }}>
-            {getFieldDecorator('agreement', {
-              valuePropName: 'checked',
+            {getFieldDecorator('confirm', {
+              rules: [{
+                required: true, message: 'Please confirm your password!',
+              }, {
+                validator: this.checkPassowrd,
+              }],
             })(
-              <Checkbox>I had read the <a>agreement</a></Checkbox>
+              <DatePickerComponent></DatePickerComponent>
             )}
           </FormItem>
+          <Row style={{marginTop:'80px'}}>
+            <Col span={10} offset={7}><Avatar></Avatar></Col>
+          </Row>
+          <Row style={{marginTop:'20px'}}>
+            <Col span={12} offset={6} style={{color:'#999999',fontFamily:'宋体',textAlign:'center'}}>如果您的护照证件 (例如:旧版中国护照) 不包含签名部分,请将证件置于白纸之上,</Col>
+          </Row>
+          <Row>
+            <Col span={12} offset={6} style={{color:'#999999',fontFamily:'宋体',textAlign:'center'}}>并于证件下方签名, 拍照或扫描上传。证件必须为原件, 不能为复印件。</Col>
+          </Row>
+
           <FormItem {...tailFormItemLayout}>
             <Button type="primary" htmlType="submit" size="large">Register</Button>
           </FormItem>
         </Form>
-      );
-    }
 
-  }
-
-  AppComponent.defaultProps = {
+      </div>
+    );
+  },
+}));
+RegistrationForm.defaultProps = {
 };
 
-  export default AppComponent;
+export default RegistrationForm;
 
-/*******************************************************************
+
+
+/*************************************************
  import 'antd/dist/antd.min.css'
  import React from 'react';
  import { Row, Col,Button,Input,Select} from 'antd';
@@ -338,4 +426,4 @@ class AppComponent extends React.Component {
 };
 
  export default AppComponent;
- *****************************************************************************/
+***********************************************************/
