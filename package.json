@@ -43,6 +43,7 @@
     "glob": "^7.0.0",
     "immutable": "^3.8.1",
     "isparta-instrumenter-loader": "^1.0.0",
+    "jquery": "^1.11.3",
     "karma": "^1.0.0",
     "karma-chai": "^0.1.0",
     "karma-coverage": "^1.0.0",
