@@ -3,8 +3,7 @@ require('components/Main.css');
 import 'antd/dist/antd.min.css'
 import React from 'react';
 import $ from 'jquery';
-import {Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button} from 'antd';
-import DatePickerComponent from 'components/datePicker/index'
+import {Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button,DatePicker} from 'antd';
 import Avatar from 'components/uploader/index'
 import Signature from 'components/signature/index'
 
@@ -50,11 +49,10 @@ class RegistrationForm extends React.Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
-                let data=values;/*
-                data=$.extend({},data,{mx_token:'dcce91f6a09f4888170fde606ec6bae7',mx_secret:'6f22f5e20a888325716d4def4e463e12'})*/
+                let data=values;
+                data.date_of_birth.format('YYYY-MM-DD')
                 data.mx_token='dcce91f6a09f4888170fde606ec6bae7'
                 data.mx_secret='6f22f5e20a888325716d4def4e463e12'
-                console.log(data);
                 $.ajax({
                     type:'post',
                     url:'https://api.meixinglobal.com/web/profile/update',
@@ -140,14 +138,9 @@ class RegistrationForm extends React.Component {
                         hasFeedback
                     >
                         {getFieldDecorator('date_of_birth', {
-                            initialValue:'1988-11-19',
-                            rules: [{
-                                //required: true, message: '请输入您的出生日期！',
-                            }, {
-                                //validator: this.checkPassowrd,
-                            }],
+                            rules: [{ type: 'object', required: true, message: 'Please select date!' }],
                         })(
-                            <DatePickerComponent></DatePickerComponent>
+                            <DatePicker></DatePicker>
                         )}
                     </FormItem>
                     <FormItem
@@ -311,7 +304,7 @@ class RegistrationForm extends React.Component {
                                 //validator: this.checkPassowrd,
                             }],
                         })(
-                            <DatePickerComponent></DatePickerComponent>
+                            <DatePicker></DatePicker>
                         )}
                     </FormItem>
                     <FormItem>
