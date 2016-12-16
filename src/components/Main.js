@@ -54,10 +54,12 @@ class RegistrationForm extends React.Component {
                 data=$.extend({},data,{mx_token:'dcce91f6a09f4888170fde606ec6bae7',mx_secret:'6f22f5e20a888325716d4def4e463e12'})*/
                 data.mx_token='dcce91f6a09f4888170fde606ec6bae7'
                 data.mx_secret='6f22f5e20a888325716d4def4e463e12'
+                console.log(data);
                 $.ajax({
                     type:'post',
                     url:'https://api.meixinglobal.com/web/profile/update',
                     data:JSON.stringify(data),
+                    contentType: "application/json; charset=utf-8",
                     success:function (d) {
                         console.log(JSON.stringify(d));
                     }
@@ -108,6 +110,7 @@ class RegistrationForm extends React.Component {
                             initialValue:'yang',
                             rules: [{
                                 required: true, message: '请输入您的姓的汉语拼音!',
+                                pattern: /^[a-z \,\.\-\']+$/i,
                             }, {
                                 validator: this.checkConfirm,
                             }],
@@ -115,7 +118,7 @@ class RegistrationForm extends React.Component {
                             <Input type="text" onBlur={this.handlePasswordBlur}/>
                         )}
                     </FormItem>
-                    {/*<FormItem
+                    <FormItem
                         {...formItemLayout}
                         label="名"
                         hasFeedback
@@ -327,7 +330,7 @@ class RegistrationForm extends React.Component {
                             <Col span={12} offset={6} style={{color: '#999999', fontFamily: '宋体', textAlign: 'center'}}>并于证件下方签名,
                                 拍照或扫描上传。证件必须为原件, 不能为复印件。</Col>
                         </Row>
-                    </FormItem>*/}
+                    </FormItem>
                     <FormItem {...tailFormItemLayout}>
                         <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
                             <Col span={8} offset={7}>
