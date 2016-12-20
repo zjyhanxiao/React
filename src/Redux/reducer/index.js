@@ -29,6 +29,8 @@ function posts(state = {
                 didInvalidate: false
             })
         case RECEIVE_POSTS:
+            console.log("******************************"+JSON.stringify(action.posts));
+            console.log("******************************"+action.posts.body.first_name);
             return Object.assign({}, state, {
                 isFetching: false,
                 didInvalidate: false,

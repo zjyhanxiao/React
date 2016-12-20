@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { selectSubreddit, fetchPostsIfNeeded, invalidateSubreddit } from '../Redux/actions/index'
+import { selectSubreddit, fetchPostsIfNeeded, invalidateSubreddit ,fetchPosts} from '../Redux/actions/index'
 import BasicInfo from './BasicInfo/index'
 
 class AsyncApp extends Component {
@@ -36,6 +36,7 @@ class AsyncApp extends Component {
 
     render () {
         const { selectedSubreddit,postsBySubreddit, posts, isFetching, lastUpdated } = this.props
+
         return (
             <div>
                 <BasicInfo></BasicInfo>

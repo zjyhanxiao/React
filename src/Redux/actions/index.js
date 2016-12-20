@@ -30,12 +30,12 @@ function receivePosts(subreddit, json) {
     return {
         type: RECEIVE_POSTS,
         subreddit,
-        posts: json.data.children.map(child => child.data),
+        posts: json,
         receivedAt: Date.now()
     }
 }
 
-function fetchPosts(subreddit) {
+export function fetchPosts(subreddit) {
     return dispatch => {
         dispatch(requestPosts(subreddit))
         return fetch(`https://api.meixinglobal.com/web/profile/get?mx_token=b7e28d4e08e416ff3114572331ef3d84&mx_secret=05e52a4ad7e07d0cafa344ae55238729`)

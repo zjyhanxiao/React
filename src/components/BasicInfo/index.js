@@ -54,6 +54,9 @@ class BasicInfo extends React.Component {
       labelCol: {span: 6},
       wrapperCol: {span: 14},
     };
+    const mapPropsToFields={
+
+    }
     const tailFormItemLayout = {
       wrapperCol: {
         span: 14,
