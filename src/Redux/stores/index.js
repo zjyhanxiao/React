@@ -1,12 +1,15 @@
-import {createStore, combineReducers, applyMiddleware} from 'redux';
-import * as reducer from '../Reducer/Index';
-import thunk from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux'
+import thunkMiddleware from 'redux-thunk'
+import createLogger from 'redux-logger'
+import rootReducer from '../reducer/index'
 
-//创建一个 Redux store 来以存放应用中所有的 state，应用中应有且仅有一个 store。
+const loggerMiddleware = createLogger()
 
-var store = createStore(
-    combineReducers(reducer),
-    applyMiddleware(thunk)
-);
+const createStoreWithMiddleware = applyMiddleware(
+    thunkMiddleware,
+    loggerMiddleware
+)(createStore)
 
-export default store;
+export default function configureStore(initialState) {
+    return createStoreWithMiddleware(rootReducer, initialState)
+}
