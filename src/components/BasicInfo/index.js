@@ -24,6 +24,7 @@ class BasicInfo extends React.Component {
     }
   }
 
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
@@ -374,7 +375,16 @@ class BasicInfo extends React.Component {
     );
   }
 }
-BasicInfo = Form.create({})(BasicInfo);
+BasicInfo = Form.create({
+    mapPropsToFields(props) {
+        return {
+            last_name: {
+                ...props.last_name,
+                value: props.last_name,
+            },
+        };
+    }
+})(BasicInfo);
 
 BasicInfo.defaultProps = {};
 
