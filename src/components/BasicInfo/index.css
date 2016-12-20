@@ -1,17 +1,3 @@
-/*.ant-form-item{*/
-  /*width: 50%;*/
-  /*float: left;*/
-/*}*/
-
-/*.ant-input-lg{*/
-  /*width: 240px;*/
-/*}*/
-/*.ant-form-item-label{*/
-  /*text-align: right;*/
-/*}*/
-/*.ant-btn-lg{*/
-  /*margin: 40px 122%;*/
-/*}*/
 .has-error.has-feedback:after{
   content: ''
 }
