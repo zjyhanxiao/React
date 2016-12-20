@@ -38,7 +38,7 @@ function receivePosts(subreddit, json) {
 export function fetchPosts(subreddit) {
     return dispatch => {
         dispatch(requestPosts(subreddit))
-        return fetch(`https://api.meixinglobal.com/web/profile/get?mx_token=b7e28d4e08e416ff3114572331ef3d84&mx_secret=05e52a4ad7e07d0cafa344ae55238729`)
+        return fetch(`https://api.meixinglobal.com/web/profile/get?mx_token=25b6ca3901730fba2cb6098d34912f34&mx_secret=da9d83c022637e7eda9fb59299026e7c`)
             .then(response => response.json())
             .then(json => dispatch(receivePosts(subreddit, json)))
     }
