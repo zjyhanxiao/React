@@ -3,9 +3,15 @@ require('components/Main.css');
 import 'antd/dist/antd.min.css'
 import React from 'react';
 import $ from 'jquery';
-import {Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button,DatePicker} from 'antd';
+import {Form, Input,Select, Row, Col, Button,DatePicker} from 'antd';
 import Avatar from 'components/uploader/index'
-import Signature from 'components/signature/index'
+import Address from 'components/AddressPublic/index'
+import AddressChina from 'components/AddressChina/index'
+import AddressOther from 'components/AddressOther/index'
+import BankPublic from 'components/bankPublic/index'
+import Bank from 'components/bank/index'
+import IntermediaryBank from 'components/intermediaryBank/index'
+
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -83,6 +89,11 @@ class RegistrationForm extends React.Component {
         return (
 
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
+
+              <BankPublic></BankPublic>
+              <Bank></Bank>
+              <IntermediaryBank></IntermediaryBank>
+
                 <Form horizontal>
                     <FormItem>
                         <Row style={{paddingTop: '30px'}}>
@@ -102,11 +113,9 @@ class RegistrationForm extends React.Component {
                         wrapperCol={{span: 14}}
                       >
                         {getFieldDecorator('last_name', {
-                          initialValue:'yang',
                           rules: [{
                             required: true, message: '请输入您的姓的汉语拼音!',
-                            pattern: /^[a-z \,\.\-\']+$/i,
-                          }, {
+                          },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',} ,{
                             validator: this.checkConfirm,
                           }],
                         })(
@@ -123,10 +132,10 @@ class RegistrationForm extends React.Component {
                         wrapperCol={{span: 14}}
                       >
                         {getFieldDecorator('first_name', {
-                          initialValue:'yang',
+                          //initialValue:'yang',
                           rules: [{
                             required: true, message: '请输入您的名的汉语拼音!',
-                          }, {
+                          },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',} ,{
                             validator: this.checkConfirm,
                           }],
                         })(
