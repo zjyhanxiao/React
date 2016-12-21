@@ -106,7 +106,7 @@ class CompliancePubllic extends React.Component {
 
 
 
-
+          <ComplianceSpouse></ComplianceSpouse>
 
 
 

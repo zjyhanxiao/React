@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { selectSubreddit, fetchPostsIfNeeded, invalidateSubreddit ,fetchPosts} from '../Redux/actions/index'
-import BasicInfo from './BasicInfo/index'
+import BasicInfo from './basicInfo/index'
+import Basicidcard from './basicIdcard/index'
+import Basicpassport from './basicPassport/index'
 
 class AsyncApp extends Component {
     constructor(props) {
@@ -40,6 +42,7 @@ class AsyncApp extends Component {
         return (
             <div>
                 <BasicInfo></BasicInfo>
+              <Basicpassport></Basicpassport>
             </div>
         )
     }

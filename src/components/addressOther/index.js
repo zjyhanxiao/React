@@ -44,13 +44,7 @@ class AddressOther extends React.Component {
         <Form horizontal>
           <FormItem>
             <Row>
-              <Col span={14} offset={5}><p style={{textAlign:'center',lineHeight:'14px',color:"#ff6600"}}>Please note: you must use your residence address</p></Col>
-            </Row>
-            <Row>
-              <Col span={14} offset={5}><p style={{textAlign:'center',lineHeight:'14px',color:"#ff6600"}}>do not use a P.O. box or in-care-of address.</p></Col>
-            </Row>
-            <Row style={{paddingTop: '20px'}}>
-              <Col span={22} offset={1}><p style={{width:'100%',height:'1px',backgroundColor:'#223976'}}></p></Col>
+              <Col span={14} offset={5}><p style={{textAlign:'center',lineHeight:'14px',color:"#ff6600"}}>请注意：您必须填写您的住宅地址（非 P.O.BOX 或 in-care-of 地址）</p></Col>
             </Row>
           </FormItem>
           <Row>

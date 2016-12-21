@@ -12,7 +12,7 @@ const Option = Select.Option;
 function handleChange(value) {
   console.log(`selected ${value}`);
 }
-class Address extends React.Component {
+class AddressPublic extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -98,7 +98,7 @@ class Address extends React.Component {
         </Row>
           <FormItem>
             <Row style={{paddingTop: '30px'}}>
-                <Col span={10} offset={7}><Avatar></Avatar></Col>
+                <Col span={8} offset={8}><Avatar></Avatar></Col>
             </Row>
             <Row style={{marginTop: '10px'}}>
               <Col span={12} offset={6} style={{color: '#999999', fontFamily: '宋体', textAlign: 'center'}}>请在下面区域填写您地址证明上的地址，务必与证件上的地址确保一致。</Col>
@@ -117,11 +117,11 @@ class Address extends React.Component {
   }
 }
 
-Address = Form.create({})(Address);
+AddressPublic = Form.create({})(AddressPublic);
 
-Address.defaultProps = {};
+AddressPublic.defaultProps = {};
 
-export default Address;
+export default AddressPublic;
 
 
 

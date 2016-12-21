@@ -42,11 +42,7 @@ class AddressChina extends React.Component {
     return (
       <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
         <Form horizontal>
-          <FormItem>
-            <Row style={{paddingTop: '30px'}}>
-              <Col span={22} offset={1}><p style={{width:'100%',height:'1px',backgroundColor:'#223976'}}></p></Col>
-            </Row>
-          </FormItem>
+
           <Row>
             <Col span={12}>
              <Row> <FormItem

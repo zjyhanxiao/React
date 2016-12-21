@@ -4,6 +4,9 @@
 import React from 'react';
 import CompliancePubllic from './compliancePubllic/index';
 import ComplianceSpouse from './complianceSpouse/index';
+import Topbar from './topBar/index';
+import Navbar from './navBar/index';
+import Disagree from './disagree/index';
 
 class ComplianceInformation extends React.Component {
   constructor() {
@@ -16,12 +19,9 @@ class ComplianceInformation extends React.Component {
   render() {
     return (
       <div>
-
-
-
-        <CompliancePubllic></CompliancePubllic>
-        <ComplianceSpouse></ComplianceSpouse>
-
+        <Disagree></Disagree>
+        <Topbar></Topbar>
+        <Navbar></Navbar>
 
       </div>
     );

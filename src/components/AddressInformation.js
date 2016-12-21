@@ -2,6 +2,11 @@
  * Created by robot on 2016/12/20.
  */
 import React from 'react';
+import Disagree from './disagree/index';
+import AddressOther from './addressOther/index';
+import AddressChina from './addressChina/index';
+import AddressPublic from './addressPublic/index';
+
 
 class AddressInformation extends React.Component {
   constructor() {
@@ -14,7 +19,9 @@ class AddressInformation extends React.Component {
   render() {
     return (
       <div>
-        地址
+        <AddressOther></AddressOther>
+        <AddressChina></AddressChina>
+        <AddressPublic></AddressPublic>
       </div>
     );
   }
