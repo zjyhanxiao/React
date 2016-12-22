@@ -1,64 +1,71 @@
 import fetch from 'isomorphic-fetch'
+import *as types from './ActionTypes'
 
-export const REQUEST_POSTS = 'REQUEST_POSTS'
-export const RECEIVE_POSTS = 'RECEIVE_POSTS'
-export const SELECT_SUBREDDIT = 'SELECT_SUBREDDIT'
-export const INVALIDATE_SUBREDDIT  = 'INVALIDATE_SUBREDDIT '
+export const getProfile = () => {
 
-export function selectSubreddit(subreddit) {
+}
+
+
+//开始获取数据
+const requestPosts = (base_profile) => {
     return {
-        type: SELECT_SUBREDDIT,
-        subreddit
+        type: types.GET_PROFILE,
+        base_profile
     }
 }
 
-export function invalidateSubreddit(subreddit) {
+//获取数据成功
+const receivePosts = (base_profile,json) => {
     return {
-        type: INVALIDATE_SUBREDDIT ,
-        subreddit
+        type: types.GET_PROFILE_SUCCESS,
+        base_profile,
+        json
     }
 }
 
-function requestPosts(subreddit) {
-    return {
-        type: REQUEST_POSTS,
-        subreddit
-    }
-}
-
-function receivePosts(subreddit, json) {
-    return {
-        type: RECEIVE_POSTS,
-        subreddit,
-        posts: json,
-        receivedAt: Date.now()
-    }
-}
-
-export function fetchPosts(subreddit) {
+export const fetchPosts = (base_profile) => {
+    let url = 'https://api.meixinglobal.com/web/profile/get?mx_token=25b6ca3901730fba2cb6098d34912f34&mx_secret=da9d83c022637e7eda9fb59299026e7c';
     return dispatch => {
-        dispatch(requestPosts(subreddit))
-        return fetch(`https://api.meixinglobal.com/web/profile/get?mx_token=25b6ca3901730fba2cb6098d34912f34&mx_secret=da9d83c022637e7eda9fb59299026e7c`)
+        dispatch(requestPosts(base_profile))
+        return fetch(url)
             .then(response => response.json())
-            .then(json => dispatch(receivePosts(subreddit, json)))
+            .then(json => dispatch(receivePosts(base_profile,json)))
     }
 }
 
-function shouldFetchPosts(state, subreddit) {
-    const posts = state.postsBySubreddit[subreddit]
-    if (!posts) {
-        return true
-    } else if (posts.isFetching) {
-        return false
-    } else {
-        return posts.didInvalidate
+
+/*const getDataStart = path => {
+    return {
+        type: GET_DATA_START,
+        path
     }
 }
 
-export function fetchPostsIfNeeded(subreddit) {
-    return (dispatch, getState) => {
-        if (shouldFetchPosts(getState(), subreddit)) {
-            return dispatch(fetchPosts(subreddit))
-        }
+
+const getDataSuccess = (path, json, success, name) => {
+    return {
+        type: GET_DATA_SUCCESS,
+        path,
+        json,
+        success,
+        name
     }
 }
+
+export const getData = (path, postData, success, name) => {
+    let url = 'https://api.meixinglobal.com/web/profile/get?mx_token=25b6ca3901730fba2cb6098d34912f34&mx_secret=da9d83c022637e7eda9fb59299026e7c';
+    return dispatch => {
+        dispatch(getDataStart(postData))
+        return fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            mode: 'no-cors'
+        })
+            .then(response => response.json())
+            .then(json => dispatch(getDataSuccess(path, json, success, name)))
+            .catch(error => console.log(error))
+    }
+}*/
+
