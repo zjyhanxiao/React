@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-
+import {Form, Input, Select, Row, Col, Button }from 'antd';
 import { InputNumber } from 'antd';
 
 class Disagree extends React.Component {
@@ -23,7 +23,7 @@ class Disagree extends React.Component {
   render() {
     return (
       <div>
-        <InputNumber min={5000} defaultValue={5000} step={5000} onChange={this.onChange} />
+
       </div>
     );
   }

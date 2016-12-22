@@ -7,7 +7,7 @@ import {Form, Input, Select, Row, Col, Button,DatePicker} from 'antd';
 
 const FormItem = Form.Item;
 
-class Bank extends React.Component {
+class BankUSA extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -90,7 +90,7 @@ class Bank extends React.Component {
           <Row>
           <FormItem
             {...formItemLayout}
-            label="Swiftcode"
+            label="ABA / Routing number"
             hasFeedback
             labelCol={{span: 4,offset: 2}}
             wrapperCol={{span: 16}}
@@ -125,15 +125,30 @@ class Bank extends React.Component {
               )}
             </FormItem>
           </Row>
+          <FormItem>
+            <Row>
+              <Col span={4} offset={2}>账户类型 / Account</Col>
+              <Col span={16}>
+                <Col span={10}>
+                  <Button type="ghost"  style={{width:'100%',height:'32px',borderRadius:'32px',border:'1px solid #223976',color:'#223976'}}>Checking</Button>
+                </Col>
+                <Col span={10} offset={4}>
+                  <Button type="ghost"  style={{width:'100%',height:'32px',borderRadius:'32px',border:'1px solid #cccccc',color:'#cccccc'}}>Savings</Button>
+                </Col>
+              </Col>
+            </Row>
+          </FormItem>
+
+
         </Form>
       </div>
     );
   }
 }
 
-Bank = Form.create({})(Bank);
+BankUSA = Form.create({})(BankUSA);
 
-Bank.defaultProps = {};
+BankUSA.defaultProps = {};
 
-export default Bank;
+export default BankUSA;
 
