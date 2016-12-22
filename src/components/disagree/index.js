@@ -17,8 +17,6 @@ class Disagree extends React.Component {
   onChange(value) {
     console.log('changed', value);
     if(value%5000!=0){
-      alert('5000整数倍没写完')
-      value=5000;
     }
   }
 

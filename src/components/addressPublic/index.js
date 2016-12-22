@@ -51,7 +51,7 @@ class AddressPublic extends React.Component {
         <FormItem>
           <Row style={{paddingTop: '30px'}}>
             <Col span={3} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体'}}>地址证明上传</h2></Col>
-            <Col span={10} offset={1}><p style={{color: '#ff6600', fontFamily: '宋体', marginTop: '2px'}}></p></Col>
+            <Col span={10} offset={1}><p style={{color: '#ff6600', fontFamily: '宋体', marginTop: '2px'}}>你的账单必须包含姓名与地址，并且账单日起为三个月内。</p></Col>
           </Row>
         </FormItem>
         <Row>
@@ -104,13 +104,6 @@ class AddressPublic extends React.Component {
               <Col span={12} offset={6} style={{color: '#999999', fontFamily: '宋体', textAlign: 'center'}}>请在下面区域填写您地址证明上的地址，务必与证件上的地址确保一致。</Col>
             </Row>
           </FormItem>
-          <FormItem>
-            <Row style={{paddingTop: '30px'}}>
-              <Col span={6} offset={5}><Button type="ghost" style={{width:'100%',height:'32px',borderRadius:'32px',border:'1px solid #223976',color:'#223976'}}>中国大陆地址</Button></Col>
-              <Col span={2} style={{textAlign:'center',lineHeight:'32px'}}>OR</Col>
-              <Col span={6}><Button type="ghost"  style={{width:'100%',height:'32px',borderRadius:'32px',border:'1px solid #cccccc',color:'#cccccc'}}>其他地址</Button></Col>
-            </Row>
-          </FormItem>
           </Form>
       </div>
     );
@@ -156,3 +149,12 @@ export default AddressPublic;
  <Col span={6}><Button type="其他地址"  style={{width:'100%',height:'32px',borderRadius:'32px',border:'1px solid #cccccc',color:'#cccccc'}}>其他地址</Button></Col>
  </Row>
  *************************************************************/
+/**********************************************
+ <FormItem>
+ <Row style={{paddingTop: '30px'}}>
+ <Col span={6} offset={5}><Button type="ghost" style={{width:'100%',height:'32px',borderRadius:'32px',border:'1px solid #223976',color:'#223976'}}>中国大陆地址</Button></Col>
+ <Col span={2} style={{textAlign:'center',lineHeight:'32px'}}>OR</Col>
+ <Col span={6}><Button type="ghost"  style={{width:'100%',height:'32px',borderRadius:'32px',border:'1px solid #cccccc',color:'#cccccc'}}>其他地址</Button></Col>
+ </Row>
+ </FormItem>
+ *********************************************/

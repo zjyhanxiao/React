@@ -6,6 +6,7 @@ import Disagree from './disagree/index';
 import AddressOther from './addressOther/index';
 import AddressChina from './addressChina/index';
 import AddressPublic from './addressPublic/index';
+import AddressProve from './addressProve/index';
 
 
 class AddressInformation extends React.Component {
@@ -19,9 +20,8 @@ class AddressInformation extends React.Component {
   render() {
     return (
       <div>
-        <AddressOther></AddressOther>
-        <AddressChina></AddressChina>
-        <AddressPublic></AddressPublic>
+        <Disagree></Disagree>
+        <AddressProve></AddressProve>
       </div>
     );
   }
