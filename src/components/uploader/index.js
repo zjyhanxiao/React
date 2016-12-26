@@ -1,4 +1,5 @@
-require('components/uploader/index.css')
+
+require('../uploader/index.css')
 import React from 'react';
 import {Upload, message} from 'antd';
 

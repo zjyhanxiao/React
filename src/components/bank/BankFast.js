@@ -19,7 +19,7 @@ class BankFast extends React.Component {
     return (
       <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
         <ul style={{width: 860, background: '#fff', overflow: 'hidden',margin:'0 auto'}}>
-          <li style={{width: 260,height:80, float:'left',marginLeft:'20px',marginTop:'20px',borderRadius:'5px',position:'relative',border:'1px solid #cccccc'}}>
+          <li style={{width: 260,height:80, float:'left',marginLeft:'20px',marginTop:'20px',borderRadius:'5px',position:'relative',border:'1px solid #223976'}}>
             <div style={{width: 50,height:50,position: 'absolute',top:'15px',left:'15px',lineHeight:'50px'}}>
               <img style={{width:'100%',}} src="../images/bank-hua.png" alt=""/>
             </div>

@@ -1,7 +1,9 @@
 /**
  * Created by robot on 2016/12/20.
  */
+
 import React from 'react';
+import Bank from './bank/index';
 
 class BankInformation extends React.Component {
   constructor() {
@@ -14,7 +16,7 @@ class BankInformation extends React.Component {
   render() {
     return (
       <div>
-        银行
+        <Bank></Bank>
       </div>
     );
   }

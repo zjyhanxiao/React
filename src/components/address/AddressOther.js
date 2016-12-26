@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import {Form, Input, Select, Row, Col,Button,DatePicker} from 'antd';
-import Avatar from 'components/uploader/index'
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -157,7 +156,7 @@ class AddressOther extends React.Component {
           <Row>
             <FormItem
               {...formItemLayout}
-              label="邮编 / Po"
+              label="邮编 / Postal code"
               hasFeedback
               labelCol={{span: 5,offset: 2}}
               wrapperCol={{span: 15}}

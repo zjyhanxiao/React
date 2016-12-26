@@ -1,9 +1,9 @@
 /**
  * Created by robot on 2016/12/19.
  */
+
 import React from 'react';
 import {Form, Input, Select, Row, Col, Button,DatePicker} from 'antd';
-import Avatar from 'components/uploader/index'
 
 const FormItem = Form.Item;
 const Option = Select.Option;

@@ -4,7 +4,7 @@
 
 import React from 'react';
 import {Form, Input, Select, Row, Col, Button,DatePicker} from 'antd';
-import Avatar from 'components/uploader/index'
+import Avatar from '../uploader/index'
 
 const FormItem = Form.Item;
 const Option = Select.Option;

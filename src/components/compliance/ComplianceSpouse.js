@@ -45,7 +45,7 @@ class ComplianceSpouse extends React.Component {
     };
     return (
       <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
-        <Form horizontal>
+
           <FormItem>
             <Row style={{paddingTop: '0px'}}>
               <Col span={20} offset={2}><p style={{color:'#223976',textAlign:'center'}}>请完成一下配偶相关信息</p></Col>
@@ -143,7 +143,7 @@ class ComplianceSpouse extends React.Component {
             </Col>
           </Row>
 
-        </Form>
+
       </div>
     );
   }

@@ -1,4 +1,4 @@
-require('components/signature/index.css');
+require('components/signature/BasicInfo.css');
 import React from 'react';
 import { Button } from 'antd';
 import SignaturePad from 'react-signature-canvas'

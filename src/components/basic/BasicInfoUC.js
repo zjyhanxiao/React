@@ -1,12 +1,9 @@
 /**
- * Created by robot on 2016/12/20.
+ * Created by robot on 2016/12/26.
  */
-require('components/basicInfo/index.css');
-
-import 'antd/dist/antd.min.css'
 import React from 'react';
 import {Form, Input,Select, Row, Col, Button,DatePicker} from 'antd';
-import Avatar from 'components/uploader/index'
+
 
 
 const FormItem = Form.Item;
@@ -15,10 +12,11 @@ const Option = Select.Option;
 function handleChange(value) {
   console.log(`selected ${value}`);
 }
-class BasicInfo extends React.Component {
+class BasicInfoUC extends React.Component {
   constructor() {
     super();
     this.state = {
+      a:false,
       profile:{}
     }
   }
@@ -143,59 +141,100 @@ class BasicInfo extends React.Component {
               </FormItem>
             </Col>
           </Row>
-          <Row>
-            <Col span={12}>
-              <FormItem
-                {...formItemLayout}
-                label="国籍"
-                labelCol={{span: 4,offset: 4}}
-                wrapperCol={{span: 14}}
-              >
-                {getFieldDecorator('nationality', {
-                  initialValue:'CN',
-                  rules: [{
-                    type: 'string',
-                    required: false,
-                    message: 'Please select your habitual residence!'
-                  }],
-                })(
-                  //<Cascader options={residences} />
-                  <Select size="large" style={{width: 240}} onChange={handleChange}>
-                    <Option value="jack">Jack</Option>
-                    <Option value="CN">中国</Option>
-                    <Option value="disabled">Disabled</Option>
-                    <Option value="yiminghe">Yiminghe</Option>
-                  </Select>
-                )}
-              </FormItem>
-            </Col>
-            <Col span={12}>
-              <FormItem
-                {...formItemLayout}
-                label="资金来源"
-                labelCol={{span: 4,offset: 2}}
-                wrapperCol={{span: 14}}
-              >
-                {getFieldDecorator('source_of_income', {
-                  initialValue:'savings',
-                  rules: [{
-                    type: 'string',
-                    required: false,
-                    message: 'Please select your habitual residence!'
-                  }],
-                })(
-                  //<Cascader options={residences} />
-                  <Select size="large" style={{width: 240}}>
-                    <Option value="jack">Jack</Option>
-                    <Option value="savings">存款</Option>
-                    <Option value="disabled">Disabled</Option>
-                    <Option value="yiminghe">Yiminghe</Option>
-                  </Select>
-                )}
 
-              </FormItem>
-            </Col>
-          </Row>
+          {this.state.a ?
+
+            <Row>
+              <Col span={12}>
+                <FormItem
+                  {...formItemLayout}
+                  label="SSN"
+                  hasFeedback
+                  labelCol={{span: 4,offset: 4}}
+                  wrapperCol={{span: 14}}
+                >
+                  {getFieldDecorator('last_name', {
+                    rules: [{
+                      required: true, message: '请输入您的姓的汉语拼音!',
+                    },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',} ,{
+                      validator: this.checkConfirm,
+                    }],
+                  })(
+                    <Input type="text" size="large" style={{width: 240}} onBlur={this.handlePasswordBlur}/>
+                  )}
+                </FormItem>
+              </Col>
+              <Col span={12}>
+                <FormItem
+                  {...formItemLayout}
+                  label="国籍"
+                  labelCol={{span: 4,offset: 2}}
+                  wrapperCol={{span: 14}}
+                >
+                  {getFieldDecorator('nationality', {
+                    initialValue:'CN',
+                    rules: [{
+                      type: 'string',
+                      required: false,
+                      message: 'Please select your habitual residence!'
+                    }],
+                  })(
+                    //<Cascader options={residences} />
+                    <Select size="large" style={{width: 240}} onChange={handleChange}>
+                      <Option value="jack">Jack</Option>
+                      <Option value="CN">中国</Option>
+                      <Option value="disabled">Disabled</Option>
+                      <Option value="yiminghe">Yiminghe</Option>
+                    </Select>
+                  )}
+                </FormItem>
+              </Col>
+            </Row>
+
+            :
+
+            <Row>
+              <Col span={12}>
+
+              </Col>
+              <Col span={12}>
+                <FormItem
+                  {...formItemLayout}
+                  label="资金来源"
+                  labelCol={{span: 4,offset: 2}}
+                  wrapperCol={{span: 14}}
+                >
+                  {getFieldDecorator('nationality', {
+                    initialValue:'CN',
+                    rules: [{
+                      type: 'string',
+                      required: false,
+                      message: 'Please select your habitual residence!'
+                    }],
+                  })(
+                    //<Cascader options={residences} />
+                    <Select size="large" style={{width: 240}} onChange={handleChange}>
+                      <Option value="jack">Jack</Option>
+                      <Option value="CN">中国</Option>
+                      <Option value="disabled">Disabled</Option>
+                      <Option value="yiminghe">Yiminghe</Option>
+                    </Select>
+                  )}
+                </FormItem>
+              </Col>
+            </Row>
+            }
+
+
+
+
+
+
+
+
+
+
+
           <Row>
             <Col span={12}>
               <FormItem
@@ -248,36 +287,6 @@ class BasicInfo extends React.Component {
               </FormItem>
             </Col>
           </Row>
-          <Row>
-            <Col span={12}>
-              <FormItem
-                {...formItemLayout}
-                label="纳税国"
-                labelCol={{span: 4,offset: 4}}
-                wrapperCol={{span: 14}}
-              >
-                {getFieldDecorator('tax_country', {
-                  initialValue:'CN',
-                  rules: [{
-                    type: 'string',
-                    required: false,
-                    message: 'Please select your habitual residence!'
-                  }],
-                })(
-                  //<Cascader options={residences} />
-                  <Select size="large" style={{width: 240}} onChange={handleChange}>
-                    <Option value="jack">Jack</Option>
-                    <Option value="CN">中国</Option>
-                    <Option value="disabled">Disabled</Option>
-                    <Option value="yiminghe">Yiminghe</Option>
-                  </Select>
-                )}
-              </FormItem>
-            </Col>
-            <Col span={12}>
-            </Col>
-          </Row>
-
 
 
         </Form>
@@ -285,35 +294,17 @@ class BasicInfo extends React.Component {
     );
   }
 }
-BasicInfo = Form.create({
-    mapPropsToFields(props) {
-        return {
-            last_name: {
-                ...props.last_name,
-                value: props.last_name,
-            },
-        };
-    }
-})(BasicInfo);
+BasicInfoUC = Form.create({
+  mapPropsToFields(props) {
+    return {
+      last_name: {
+        ...props.last_name,
+        value: props.last_name,
+      },
+    };
+  }
+})(BasicInfoUC);
 
-BasicInfo.defaultProps = {};
+BasicInfoUC.defaultProps = {};
 
-export default BasicInfo;
-
-
-/********************
-<FormItem {...tailFormItemLayout}>
-  <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
-    <Col span={8} offset={7}>
-      <Button style={{
-        width: '120px',
-        height: '50px',
-        borderRadius: '30px',
-        background: '#223976',
-        color: '#fff',
-        fontSize: '18px'
-      }} type="primary" htmlType="submit" onClick= {this.handleSubmit.bind(this)} size="large">下一步</Button>
-    </Col>
-  </Row>
-</FormItem>
- *********************/
+export default BasicInfoUC;

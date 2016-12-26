@@ -1,4 +1,4 @@
-import 'antd/dist/antd.min.css'
+
 import React from 'react';
 import {Form, Input,Select, Row, Col, Button,DatePicker} from 'antd';
 import Avatar from 'components/uploader/index'

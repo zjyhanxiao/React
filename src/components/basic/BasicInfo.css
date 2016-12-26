@@ -1,21 +1,21 @@
 .has-error.has-feedback:after{
-  content: ''
+  content: '' !important;
 }
 .ant-form-item-required:before{
-  content: '';
+  content: ''!important;
 }
 .ant-form-item-label label:after{
-  content: '';
+  content: ''!important;
 }
 .has-success.has-feedback:after{
-  content: '';
+  content: ''!important;
 }
 .dis_in{
-  display: inline-block;
+  display: inline-block!important;
 }
 .ant-form-item-label{
-  text-align: left;
+  text-align: left!important;
 }
 .ant-input,.ant-select-selection{
-  border-radius: 0;
+  border-radius: 0!important;
 }
