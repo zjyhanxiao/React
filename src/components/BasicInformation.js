@@ -1,10 +1,10 @@
 import 'antd/dist/antd.css';
-import '../components/basic/BasicInfo.css';
+import './basic/BasicInfo.css';
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { fetchPosts} from '../Redux/actions/index'
 
-import BasicInfo from '../components/basic/index'
+import BasicInfo from './basic/index'
 
 
 
