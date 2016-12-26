@@ -1,4 +1,4 @@
-require('components/signature/BasicInfo.css');
+require('components/signature/index.css');
 import React from 'react';
 import { Button } from 'antd';
 import SignaturePad from 'react-signature-canvas'
@@ -22,7 +22,7 @@ class Signature extends React.Component {
         let {trimmedDataURL} = this.state;
         return (
             <div className='container'>
-                <p style={{color:'#898a8b',fontWeight:'500',fontSize:'14px',marginBottom:'10px'}}>投资人(<span style={{fontWeight:'600',fontSize:'14px',color:'#898000'}}>zhao yue cheng</span>)签名</p>
+                <p style={{color:'#898a8b',fontWeight:'500',fontSize:'14px',paddingBottom:'10px',background:'#ffffff'}}>投资人(<span style={{fontWeight:'600',fontSize:'14px',color:'#898000'}}>zhao yue cheng</span>)签名</p>
                 <div className='sigContainer'>
                     <SignaturePad canvasProps={{width: 900, height: 200,className: 'sigPad'}}
                                   ref={(ref) => { this.sigPad = ref }}

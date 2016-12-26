@@ -9,13 +9,12 @@ import {Row,Col,Button} from 'antd';
 
 import ItemAmount from './ItemAmount';
 import ItemName from './ItemName';
-import AddressPlate from './AddressPlate';
-import BankPlate from './BankPlate';
-import BasicPlate from './BasicPlate';
-import CompliancePlate from './CompliancePlate';
+import Docs from './docs';
+import Signature from '../signature/index';
 
 
-class InfoPages extends React.Component {
+
+class FilePages extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -44,12 +43,17 @@ class InfoPages extends React.Component {
             </div>
           </div>
         </div>
-        <div style={{width:'98%',margin:'0 auto'}}>
-          <BasicPlate></BasicPlate>
-          <AddressPlate></AddressPlate>
-          <BankPlate></BankPlate>
-          <CompliancePlate></CompliancePlate>
+        <div style={{width:'98%',margin:'0 auto',background:'#ffffff'}}>
+          <Docs></Docs>
         </div>
+        <div style={{width:'98%',margin:'0 auto',background:'#ffffff'}}>
+          <Row style={{paddingTop: '10px', paddingBottom: '10px'}}>
+            <Col span={20} offset={2}>
+              <Signature></Signature>
+            </Col>
+          </Row>
+        </div>
+
         <div style={{width:'98%',margin:'0 auto',textAlign:'center',background:'#ffffff'}}>
           <Row style={{paddingTop: '50px', paddingBottom: '40px'}}>
             <Col span={8} offset={8}>
@@ -69,6 +73,6 @@ class InfoPages extends React.Component {
   }
 }
 
-InfoPages .defaultProps = {};
+FilePages .defaultProps = {};
 
-export default InfoPages ;
+export default FilePages ;

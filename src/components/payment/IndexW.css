@@ -1,0 +1,13 @@
+.ant-tabs-bar{
+  margin: 0;
+}
+.ant-tabs-tab{
+  width:900px;
+  text-align: center;
+}
+
+.ant-tabs.ant-tabs-card>.ant-tabs-bar .ant-tabs-tab-active{
+  color: #335095;
+  font-size: 18px;
+  border-top: 3px solid #335095;
+}

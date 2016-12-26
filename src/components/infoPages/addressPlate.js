@@ -3,7 +3,7 @@
  */
 import React from 'react';
 
-import {Row, Col, Checkbox} from 'antd';
+import {Row, Col} from 'antd';
 
 
 
@@ -19,7 +19,7 @@ class AddressPlate extends React.Component {
 
   render() {
     return (
-      <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
+      <div style={{width: '100%', background: '#fff', overflow: 'hidden'}}>
         <Row style={{paddingTop:'30px'}}>
           <Col span={4} offset={2}>
             <p style={{fontWeight:'900',fontSize:'16px'}}>地址</p>
