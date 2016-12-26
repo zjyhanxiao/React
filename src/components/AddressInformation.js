@@ -1,12 +1,10 @@
 /**
  * Created by robot on 2016/12/20.
  */
+
+
 import React from 'react';
-import Disagree from './disagree/index';
-import AddressOther from './addressOther/index';
-import AddressChina from './addressChina/index';
-import AddressPublic from './addressPublic/index';
-import AddressProve from './addressProve/index';
+import Address from './address/index';
 
 
 class AddressInformation extends React.Component {
@@ -20,8 +18,7 @@ class AddressInformation extends React.Component {
   render() {
     return (
       <div>
-        <Disagree></Disagree>
-        <AddressProve></AddressProve>
+        <Address></Address>
       </div>
     );
   }

@@ -1,4 +1,4 @@
-require('components/signature/index.css');
+require('components/signature/BasicInfo.css');
 import React from 'react';
 import { Button } from 'antd';
 import SignaturePad from 'react-signature-canvas'
@@ -22,6 +22,7 @@ class Signature extends React.Component {
         let {trimmedDataURL} = this.state;
         return (
             <div className='container'>
+                <p style={{color:'#898a8b',fontWeight:'500',fontSize:'14px',marginBottom:'10px'}}>投资人(<span style={{fontWeight:'600',fontSize:'14px',color:'#898000'}}>zhao yue cheng</span>)签名</p>
                 <div className='sigContainer'>
                     <SignaturePad canvasProps={{width: 900, height: 200,className: 'sigPad'}}
                                   ref={(ref) => { this.sigPad = ref }}
@@ -29,8 +30,8 @@ class Signature extends React.Component {
 
                     />
                 </div>
+              <p style={{float:'left',color:'#ff6600',lineHeight:'35px'}}>请注意：您的签名必须与已上传的证件上所提供的签名一致</p>
                 <div className='sigContainer_button'>
-
                   <Button className='buttons' onClick={this.clear}>重新签名</Button>
                 </div>
             </div>

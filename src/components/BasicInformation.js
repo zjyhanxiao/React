@@ -1,7 +1,13 @@
+import 'antd/dist/antd.css';
+require('./basic/BasicInfo.css');
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { fetchPosts} from '../Redux/actions/index'
-import BasicInfo from './BasicInfo/index'
+
+import BasicInfo from './basic/BasicInfo'
+
+
+
 
 class AsyncApp extends Component {
     constructor(props) {

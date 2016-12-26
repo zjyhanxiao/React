@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import {Form, Row, Col,DatePicker,Checkbox,Button} from 'antd';
-import ComplianceSpouse from 'components/complianceSpouse/index'
+import ComplianceSpouse from './complianceSpouse'
 
 const FormItem = Form.Item;
 
@@ -11,7 +11,7 @@ function onChange(e) {
   console.log(`checked = ${e.target.checked}`);
 }
 
-class CompliancePubllic extends React.Component {
+class CompliancePublic extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -142,9 +142,9 @@ class CompliancePubllic extends React.Component {
   }
 }
 
-CompliancePubllic = Form.create({})(CompliancePubllic);
+CompliancePublic = Form.create({})(CompliancePublic);
 
-CompliancePubllic.defaultProps = {};
+CompliancePublic.defaultProps = {};
 
-export default CompliancePubllic;
+export default CompliancePublic;
 
