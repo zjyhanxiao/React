@@ -16,7 +16,7 @@ class AsyncApp extends Component {
         const { baseProfile } = this.props
         return (
             <div>
-                <BasicInfo options={this.props}></BasicInfo>
+                <BasicInfo {...this.props}></BasicInfo>
             </div>
         )
     }

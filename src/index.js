@@ -10,7 +10,7 @@ import AddressInformation from './components/AddressInformation'
 // Render the main component into the dom
 ReactDOM.render(
   <div>
-    <AddressInformation></AddressInformation>
+    <App/>
   </div>
 
   , document.getElementById('app'));

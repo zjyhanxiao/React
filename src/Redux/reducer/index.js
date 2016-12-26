@@ -6,7 +6,9 @@ function getsByProfile(state = { }, action) {
     switch (action.type) {
         case types.GET_PROFILE_SUCCESS:
             return Object.assign({}, state, {
-                base_profile: action.json.body
+                first_name: action.json.body.first_name,
+                email: action.json.body.email
+                // base_profile: action.json.body
             })
         default:
             return state
