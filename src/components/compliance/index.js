@@ -20,7 +20,7 @@ class Compliance extends React.Component {
     return (
       <div>
         <CompliancePublic></CompliancePublic>
-        <ComplianceSpouse></ComplianceSpouse>
+        {/*<ComplianceSpouse></ComplianceSpouse>*/}
       </div>
     );
   }

@@ -21,10 +21,10 @@ class Bank extends React.Component {
   render() {
     return (
       <div>
-        <BankFast></BankFast>
-        <BanknoUSA></BanknoUSA>
         <BankPublic></BankPublic>
         <BankUSA></BankUSA>
+        <BanknoUSA></BanknoUSA>
+        <BankFast></BankFast>
       </div>
     );
   }

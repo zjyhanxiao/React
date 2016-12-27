@@ -2,7 +2,7 @@
  * Created by robot on 2016/12/19.
  */
 import React from 'react';
-import {Form, Input, Select, Row, Col, Button,DatePicker} from 'antd';
+import {Form, Input, Select, Row, Col, Button,Radio} from 'antd';
 import Avatar from 'components/uploader/index'
 
 const FormItem = Form.Item;
@@ -15,9 +15,20 @@ class BankPublic extends React.Component {
   constructor() {
     super();
     this.state = {
-      profile:{}
+      profile:{},
+      size: '非美国银行'
     }
   }
+
+
+
+  handleSizeChange = (e) => {
+    this.setState({ size: e.target.value });
+    console.log(e.target.value)
+  }
+
+
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
@@ -30,6 +41,7 @@ class BankPublic extends React.Component {
 
 
   render() {
+    const size = this.state.size;
     const {getFieldDecorator} = this.props.form;
     console.log(getFieldDecorator)
     const formItemLayout = {
@@ -55,13 +67,28 @@ class BankPublic extends React.Component {
               请注意：您的汇款与收款银行必须一致，而且银行账户上的姓名应当为投资人姓名。请仔细填写以下信息，以免回款时给您带来不便。</p></Col>
           </Row>
           </FormItem>
-          <FormItem>
-            <Row style={{paddingTop: '30px'}}>
-              <Col span={6} offset={5}><Button type="ghost" style={{width:'100%',height:'32px',borderRadius:'32px',border:'1px solid #223976',color:'#223976'}}>非美国银行</Button></Col>
-              <Col span={2} style={{textAlign:'center',lineHeight:'32px'}}>OR</Col>
-              <Col span={6}><Button type="ghost"  style={{width:'100%',height:'32px',borderRadius:'32px',border:'1px solid #cccccc',color:'#cccccc'}}>美国银行</Button></Col>
-            </Row>
-          </FormItem>
+
+
+
+
+
+          <Row style={{paddingTop: '10px'}}>
+            <Col span={6} offset={5}>
+              <Radio.Group value={size} onChange={this.handleSizeChange} style={{width:'100%',height:'32px'}}>
+                <Radio.Button value="非美国银行" style={{width:'100%',height:'32px',borderRadius:'32px',textAlign:'center'}}>非美国银行</Radio.Button>
+              </Radio.Group>
+            </Col>
+            <Col span={2} style={{textAlign:'center',lineHeight:'32px'}}>OR</Col>
+            <Col span={6}>
+              <Radio.Group value={size} onChange={this.handleSizeChange} style={{width:'100%',height:'32px'}}>
+                <Radio.Button value="美国银行" style={{width:'100%',height:'32px',borderRadius:'32px',textAlign:'center'}}>美国银行</Radio.Button>
+              </Radio.Group>
+            </Col>
+
+          </Row>
+
+
+          {/*#223976*/}
 
         </Form>
       </div>

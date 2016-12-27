@@ -4,6 +4,7 @@
 import React from 'react';
 import FilePages from './infoPages/indexFile';
 import InfoPages from './infoPages/index';
+import IndexButton from './Capacity/indexButton';
 
 class SynthesisShow extends React.Component {
   constructor() {
