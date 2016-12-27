@@ -16,7 +16,7 @@ class Wire extends React.Component {
 
   render() {
     return (
-      <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
+      <div style={{width: "100%", background: '#fff', overflow: 'hidden'}}>
         <Row style={{paddingTop:'30px'}}>
           <Col span={20} offset={2}>
             <p style={{color:'#159bd6'}}>请注意：请使用您之前选择的银行账户完成支付（<span>Bank of America</span>, <span>************2809</span>)。</p>

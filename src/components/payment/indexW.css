@@ -2,7 +2,8 @@
   margin: 0;
 }
 .ant-tabs-tab{
-  width:900px;
+  font-size: 18px;
+  box-sizing: border-box;
   text-align: center;
 }
 

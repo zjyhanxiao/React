@@ -19,6 +19,7 @@ class InfoPages extends React.Component {
   constructor() {
     super();
     this.state = {
+      a:true,
       profile:{}
     }
   }
@@ -44,26 +45,51 @@ class InfoPages extends React.Component {
             </div>
           </div>
         </div>
-        <div style={{width:'98%',margin:'0 auto'}}>
-          <BasicPlate></BasicPlate>
-          <AddressPlate></AddressPlate>
-          <BankPlate></BankPlate>
-          <CompliancePlate></CompliancePlate>
-        </div>
-        <div style={{width:'98%',margin:'0 auto',textAlign:'center',background:'#ffffff'}}>
-          <Row style={{paddingTop: '50px', paddingBottom: '40px'}}>
-            <Col span={8} offset={8}>
-              <Button style={{
-                width: '120px',
-                height: '50px',
-                borderRadius: '30px',
-                background: '#223976',
-                color: '#fff',
-                fontSize: '18px'
-              }} type="primary" htmlType="submit" size="large">下一步</Button>
-            </Col>
-          </Row>
-        </div>
+
+
+
+
+          {this.state.a ?
+            <div style={{width:'98%',margin:'0 auto'}}>
+              <p style={{width:'100%',textAlign:'center',background:'#ffffff',padding:'40px 0',color:'#223976',fontSize:'16px'}}>你的信息不完善,请完善个人信息！</p>
+              <div style={{width:'100%',margin:'0 auto',textAlign:'center',background:'#ffffff'}}>
+                <Row style={{paddingTop: '30px', paddingBottom: '40px'}}>
+                  <Col span={8} offset={8}>
+                    <Button style={{
+                    width: '120px',
+                    height: '50px',
+                    borderRadius: '30px',
+                    background: '#223976',
+                    color: '#fff',
+                    fontSize: '18px'
+                  }} type="primary" htmlType="submit" size="large">完善信息</Button>
+                  </Col>
+                </Row>
+              </div>
+            </div>
+
+            :
+
+            <div style={{width:'98%',margin:'0 auto'}}>
+              <BasicPlate></BasicPlate>
+              <AddressPlate></AddressPlate>
+              <BankPlate></BankPlate>
+              <CompliancePlate></CompliancePlate>
+              <Row style={{paddingTop: '50px', paddingBottom: '40px',margin:'0 auto',textAlign:'center',background:'#ffffff'}}>
+                <Col span={8} offset={8}>
+                  <Button style={{
+                    width: '120px',
+                    height: '50px',
+                    borderRadius: '30px',
+                    background: '#223976',
+                    color: '#fff',
+                    fontSize: '18px'
+                  }} type="primary" htmlType="submit" size="large">下一步</Button>
+                </Col>
+              </Row>
+            </div>
+          }
+
       </div>
     );
   }

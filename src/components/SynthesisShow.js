@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import FilePages from './infoPages/indexFile';
+import InfoPages from './infoPages/index';
 
 class SynthesisShow extends React.Component {
   constructor() {
@@ -14,9 +15,9 @@ class SynthesisShow extends React.Component {
 
   render() {
     return (
-      <div style={{width:'100%', background:'#ccc'}}>
+      <div style={{width:'100%',paddingBottom:'100px', background:'#ccc'}}>
         <div style={{width:'1000px',margin:'0 auto'}}>
-          <FilePages></FilePages>
+          <InfoPages></InfoPages>
         </div>
       </div>
     );

@@ -1,16 +1,32 @@
-import 'core-js/fn/object/assign';
+/**
+ * Created by robot on 2016/12/23.
+ */
+import 'antd/dist/antd.css';
+require('./BasicInfo.css');
+
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/Main'
-import ComplianceInformation from './components/ComplianceInformation'
-import AddressInformation from './components/AddressInformation'
-import SynthesisShow from './components/SynthesisShow'
-import Pay from './components/pay'
+import BasicInfoUC from './BasicInfoUC';
+import Basicpassport from './Basicpassport';
 
-// Render the main component into the dom
-ReactDOM.render(
-  <div>
-    <Pay></Pay>
-  </div>
+class Basic extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      profile:{}
+    }
+  }
 
-  , document.getElementById('app'));
+  render() {
+    return (
+      <div>
+
+        <BasicInfoUC></BasicInfoUC>
+        <Basicpassport></Basicpassport>
+      </div>
+    );
+  }
+}
+
+Basic.defaultProps = {};
+
+export default Basic;

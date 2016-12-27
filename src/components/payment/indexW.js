@@ -4,8 +4,10 @@
 require('components/payment/indexW.css');
 
 import React from 'react';
-import {Row, Col,Tabs} from 'antd';
+import {Row, Col,Tabs,Button} from 'antd';
 import Wire from './Wire'
+import ACH from './ACH'
+import Check from './Check'
 
 const TabPane = Tabs.TabPane;
 
@@ -23,15 +25,30 @@ class IndexW extends React.Component {
 
   render() {
     return (
-      <div style={{width:'10%', background:'#ccc'}}>
-        <div className="card-container">
-          <Tabs type="card">
-            <TabPane tab="Tab 1" key="1">Content of Tab Pane 1</TabPane>
-            <TabPane tab="Tab 2" key="2">Content of Tab Pane 2</TabPane>
-            <TabPane tab="Tab 3" key="3">Content of Tab Pane 3</TabPane>
-          </Tabs>
+      <div>
+        <Tabs onChange={callback} type="card">
+          <TabPane tab="银行电汇 / Wire" key="1"><Wire></Wire></TabPane>
+          <TabPane tab="自动扣款 / ACH" key="2"><ACH></ACH></TabPane>
+          <TabPane tab="支票 / Check" key="3"><Check></Check></TabPane>
+        </Tabs>
+
+        <div style={{width:'100%',margin:'0 auto',textAlign:'center',background:'#ffffff'}}>
+          <Row style={{paddingTop: '50px', paddingBottom: '40px'}}>
+            <Col span={8} offset={8}>
+              <Button style={{
+                width: '120px',
+                height: '50px',
+                borderRadius: '30px',
+                background: '#223976',
+                color: '#fff',
+                fontSize: '18px'
+              }} type="primary" htmlType="submit" size="large">下一步</Button>
+            </Col>
+          </Row>
         </div>
+
       </div>
+
     );
   }
 }
