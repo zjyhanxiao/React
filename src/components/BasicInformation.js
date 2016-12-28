@@ -27,7 +27,8 @@ class AsyncApp extends Component {
     render () {
         return (
             <div>
-                <BasicInfo {...this.props.getsProfile}></BasicInfo>
+                {/*{JSON.stringify(this.props.getsProfile.base_profile)}*/}
+                <BasicInfo {...this.props.getsProfile.base_profile}></BasicInfo>
             </div>
         )
     }
