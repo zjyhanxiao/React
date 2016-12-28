@@ -12,8 +12,10 @@ class BasicInfo extends React.Component {
     }
 
 
-    componentDidUpdate() {
-        // console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'+JSON.stringify(this.props))
+    componentDidMount() {
+    }
+    componentWillReceiveProps(nextProps){
+
     }
 
     handleSubmit(e) {
@@ -28,6 +30,7 @@ class BasicInfo extends React.Component {
 
     render() {
         const {getFieldDecorator} = this.props.form
+        // this.props.form.setFieldsValue('passport_photo', this.state.passport_photo);
         return (
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
                 {'@@@@@@@@@@@@@@' + JSON.stringify(this.props)}
@@ -68,7 +71,16 @@ class BasicInfo extends React.Component {
         );
     }
 }
-BasicInfo = Form.create({})(BasicInfo);
+BasicInfo = Form.create({
+    mapPropsToFields(props) {
+        return {
+            passport_photo: {
+                ...props.passport_photo,
+                value: props.passport_photo,
+            },
+        };
+    }
+})(BasicInfo);
 
 BasicInfo.defaultProps = {};
 

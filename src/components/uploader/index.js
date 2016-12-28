@@ -33,7 +33,7 @@ class Avatar extends React.Component {
 
 
     handleChange = (info) => {
-        console.log(JSON.stringify(this.props.value))
+        console.log(JSON.stringify(this.props))
         const { dispatch } = this.props
         if (info.file.status === 'done') {
             let resData=info.fileList[0].response.body
