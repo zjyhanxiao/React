@@ -28,6 +28,6 @@
 .ant-upload img{
   border-radius: 5px 5px 0 0;
   border: none!important;
-  border: 1px solid #999988!important;
+  /*border: 1px solid #999988!important;*/
 }
 

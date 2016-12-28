@@ -13,16 +13,21 @@ class AsyncApp extends Component {
     constructor(props) {
         super(props)
     }
-
     componentDidMount() {
         const { dispatch } = this.props
         dispatch(fetchPosts())
     }
+/*    shouldComponentUpdate(nextProps, nextState) {
+        // 进行判断，当数据发生改变时，Component重新渲染
+        if (propsChanged || mapStateProducedChange || dispatchPropsChanged) {
+            this.updateState(nextProps)
+            return true
+        }
+    }*/
     render () {
-        const { baseProfile } = this.props
         return (
             <div>
-                <BasicInfo {...this.props}></BasicInfo>
+                <BasicInfo {...this.props.getsProfile}></BasicInfo>
             </div>
         )
     }
@@ -33,13 +38,11 @@ AsyncApp.propTypes = {
     dispatch: PropTypes.func.isRequired
 }
 
-function mapStateToProps(state) {
-    const { getsByProfile } = state
-
-
+const mapStateToProps=(state) =>{
     return {
-        getsByProfile
+        getsProfile:state.getsProfile
     }
 }
+
 
 export default connect(mapStateToProps)(AsyncApp)

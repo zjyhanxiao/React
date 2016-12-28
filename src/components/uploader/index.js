@@ -1,7 +1,9 @@
-
 require('../uploader/index.css')
 import React from 'react';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import {Upload, message} from 'antd';
+import { updateUploader } from '../../Redux/actions/index'
 
 function getBase64(img, callback) {
     const reader = new FileReader();
@@ -18,23 +20,35 @@ function beforeUpload(file) {
 }
 
 class Avatar extends React.Component {
-    state = {
-        fileList: {
-            //url: 'https://s1.meixinglobal.com/static/version_1.6/dist/meixin_invest/img/upload_id_placeholder_518x348.png',
-          url:'images/shengfenzhen.png'
-        }
-    };
+    constructor(props) {
+        super(props)
+        this.state = {
+            fileList: {
+                //url: 'https://s1.meixinglobal.com/static/version_1.6/dist/meixin_invest/img/upload_id_placeholder_518x348.png',
+                url: 'images/shengfenzhen.png',
+                thumbUrl:''
+            }
+        };
+    }
+
 
     handleChange = (info) => {
+        console.log(JSON.stringify(this.props.value))
+        const { dispatch } = this.props
         if (info.file.status === 'done') {
-            this.setState({fileList:{url:info.fileList[0].response.body}})
+            let resData=info.fileList[0].response.body
+            this.setState({fileList: {thumbUrl: resData}})
+            dispatch(updateUploader(this.props.id,resData))
             // Get this url from response in real world.
             getBase64(info.file.originFileObj, imageUrl => this.setState({imageUrl}));
+            // console.log(this.props.id)
         }
     }
 
     render() {
-        const imageUrl = this.state.imageUrl;
+        // console.log(JSON.stringify(this.props))
+        const imageUrl = this.state.fileList.imageUrl
+        const newImage = this.state.fileList.thumbUrl?this.state.fileList.thumbUrl:this.props.value ? this.props.value : this.state.fileList.url;
         return (
             <Upload
                 className="avatar-uploader"
@@ -46,7 +60,7 @@ class Avatar extends React.Component {
             >
                 {
                     imageUrl ? <img src={imageUrl} role="presentation" className="avatar"/> :
-                        <img src={this.state.fileList.url} role="presentation" className="avatar"/>}
+                        <img src={newImage} role="presentation" className="avatar"/>}
                 <div type="plus" className="avatar-uploader-trigger">上传证件
                 </div>
             </Upload>
@@ -55,5 +69,9 @@ class Avatar extends React.Component {
 }
 
 Avatar.defaultProps = {};
-
-export default Avatar;
+function mapDispatchToProps(dispatch) {
+    return {
+        updateUploader: bindActionCreators(updateUploader, dispatch)
+    }
+}
+export default connect( mapDispatchToProps)(Avatar);
