@@ -2,6 +2,7 @@
  * Created by robot on 2016/12/27.
  */
 import React from 'react';
+import Identity from './identity/identity'
 
 
 class CapacityShow extends React.Component {
@@ -15,7 +16,7 @@ class CapacityShow extends React.Component {
   render() {
     return (
       <div>
-
+        <Identity></Identity>
 
 
       </div>

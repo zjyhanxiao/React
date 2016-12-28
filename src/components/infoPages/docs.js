@@ -31,7 +31,8 @@ class Docs extends React.Component {
               <Col span={20} offset={2}><p style={{color:'#aaaaaa'}}>请认真查看以下文件并核对所填写的信息和已勾选的选项。</p></Col>
           </Row>
           <Row style={{paddingTop: '15px'}}>
-            <Col span={20} offset={2}><Checkbox onChange={onChange} style={{color:'#159bd6'}}>安心定期四期认购协议 / Subscription Document</Checkbox></Col>
+            <Col span={20} offset={2}><Checkbox onChange={onChange} style={{color:'#159bd6'}}></Checkbox><a
+              href="">安心定期四期认购协议 / Subscription Document</a> </Col>
           </Row>
         <Row style={{paddingTop: '15px'}}>
           <Col span={20} offset={2}><Checkbox onChange={onChange} style={{color:'#159bd6'}}>基金备忘录 / Private Placement Memorandum</Checkbox></Col>
@@ -40,7 +41,7 @@ class Docs extends React.Component {
           <Col span={20} offset={2}><Checkbox onChange={onChange} style={{color:'#159bd6'}}>个人投资人身份信息表 / Due Diligence Request Form</Checkbox></Col>
         </Row>
         <Row style={{paddingTop: '15px'}}>
-          <Col span={20} offset={2}><Checkbox onChange={onChange} style={{color:'#159bd6'}}>美国海外账户税收遵从法个人认证表 / Indivdual Self Certification</Checkbox></Col>
+          <Col span={20} offset={2}><Checkbox onChange={onChange} style={{color:'#159bd6'}}></Checkbox> <a href="">美国海外账户税收遵从法个人认证表 / Indivdual Self Certification</a></Col>
         </Row>
         <Row style={{paddingTop: '15px'}}>
           <Col span={20} offset={2}><Checkbox onChange={onChange} style={{color:'#159bd6'}}>美国预提税及申报收益所有人之外国人身份证明 / w-8BEN</Checkbox></Col>

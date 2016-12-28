@@ -1,24 +1,33 @@
 /**
  * Created by robot on 2016/12/20.
  */
+
+require('components/compliance/CompliancePublic.css');
 import React from 'react';
 import {Form, Row, Col,DatePicker,Checkbox,Button,Radio} from 'antd';
 import ComplianceSpouse from './complianceSpouse'
 
 const FormItem = Form.Item;
 
-function onChange(e) {
-  console.log(`checked = ${e.target.checked}`);
-}
+// function onChange(e) {
+//   console.log(`checked = ${e.target.checked}`);
+// }
 
 class CompliancePublic extends React.Component {
   constructor() {
     super();
     this.state = {
+      a:false,
       profile:{},
       size: '收入审查'
     }
   }
+
+  onChange = (e) => {
+    this.setState({ a: e.target.checked });
+    console.log(e.target.checked)
+  }
+
 
   handleSizeChange = (e) => {
     this.setState({ size: e.target.value });
@@ -38,6 +47,8 @@ class CompliancePublic extends React.Component {
 
 
   render() {
+
+
     const {getFieldDecorator} = this.props.form;
     console.log(getFieldDecorator)
     const formItemLayout = {
@@ -97,25 +108,38 @@ class CompliancePublic extends React.Component {
           <FormItem>
             <Row style={{paddingTop: '10px'}}>
               <Col span={9} offset={2}>
-                <div style={{width: '100%',height:'125px',lineHeight:'20px',color:'#ccc'}}>
+                <div style={{width:'100%',height:'125px',lineHeight:'20px',color:'#cccccc'}} className={this.state.size=='收入审查'?'show':'hide'}>
                   注：请向美信金融递交过去两年的Form W-2, Form 1099, Schedule K-1 of Form 1065或已填完的Form 1040，来证明您的收入或与配偶的合计收入。您可以修改上述文件非必要部分以免泄露个人身份信息。
 
                 </div>
               </Col>
               <Col span={2}></Col>
               <Col span={9}>
-                <div style={{width: '100%',height:'125px',lineHeight:'20px',color:'#ccc'}}>
-                  注：请确认您的全部个人负债或您与您的配偶的全部共同负债                ，并且向美信金融递交以下文件。
-                  (i) 银行账单、券商账单、证券增持、存款证明、税务评估和/或 第三方出具的评估报告。账单与报告应当显示您的个人资产或与配偶的共同资产或
-                  (ii) 由TransUnion, EquiFax或Experian为您或您与配偶出具的顾客信用报告的复印件。
+                <div style={{width:'100%',height:'125px',lineHeight:'20px',color:'#cccccc'}} className={this.state.size=='净值审查'?'show':'hide'}>
+                  <Row>
+                    <Col span={8}>
+                      <p style={{fontSize:'19px',color:'#223976',lineHeight:'40px',textAlign:'center'}}>负债金额</p>
+                    </Col>
 
+                    <Col  span={16}>
+                      <span style={{display:'inline-block',width:'220px',height:'40px',color:'#223976',fontSize:'20px',border:'1px solid #cccccc',borderRadius:'5px'}}>
+                        $ <input type="numner"  style={{display:'inline',width:'200px',height:'37px',fontSize:'20px',color:'#ff6600',border:'none',outline:'none'}} />
+                      </span>
+                    </Col>
+                  </Row>
+
+                  <p>
+                    注：请确认您的全部个人负债或您与您的配偶的全部共同负债，并且向美信金融递交以下文件。
+                    (i) 银行账单、券商账单、证券增持、存款证明、税务评估和/或 第三方出具的评估报告。账单与报告应当显示您的个人资产或与配偶的共同资产或
+                    (ii) 由TransUnion, EquiFax或Experian为您或您与配偶出具的顾客信用报告的复印件。
+                  </p>
                 </div>
               </Col>
             </Row>
           </FormItem>
           <FormItem>
             <Row style={{paddingTop: '30px'}}>
-              <Col span={20} offset={2}><Checkbox style={{color:'#223976'}} onChange={onChange}>我的审查资料包括配偶信息</Checkbox></Col>
+              <Col span={20} offset={2}><Checkbox style={{color:'#223976'}} onChange={this.onChange}>我的审查资料包括配偶信息</Checkbox></Col>
             </Row>
           </FormItem>
           <FormItem>
@@ -126,10 +150,13 @@ class CompliancePublic extends React.Component {
 
 
 
+          {this.state.a?
+            <ComplianceSpouse></ComplianceSpouse>
+          :
+          ''
+          }
 
 
-
-          <ComplianceSpouse></ComplianceSpouse>
 
 
 

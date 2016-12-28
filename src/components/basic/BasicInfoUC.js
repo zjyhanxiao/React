@@ -16,7 +16,7 @@ class BasicInfoUC extends React.Component {
   constructor() {
     super();
     this.state = {
-      a:false,
+      a:true,
       profile:{}
     }
   }
@@ -53,52 +53,15 @@ class BasicInfoUC extends React.Component {
           <FormItem>
             <Row style={{paddingTop: '30px'}}>
               <Col span={2} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体'}}>个人信息</h2></Col>
-              <Col span={11} offset={1}><p style={{color: '#ff6600', fontFamily: '宋体', marginTop: '2px'}}>
-                投资人姓名必须与汇款银行帐号上的姓名一致,且一旦提交不可修改。</p></Col>
+              <Col span={11} offset={1}><p style={{ fontFamily: '宋体', marginTop: '2px'}}>
+                (Yue Chen Zhao 美国投资人)</p></Col>
             </Row>
           </FormItem>
 
-          <Row>
-            <Col span={12}>
-              <FormItem
-                {...formItemLayout}
-                label="姓氏"
-                hasFeedback
-                labelCol={{span: 4,offset: 4}}
-                wrapperCol={{span: 14}}
-              >
-                {getFieldDecorator('last_name', {
-                  rules: [{
-                    required: true, message: '请输入您的姓的汉语拼音!',
-                  },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',} ,{
-                    validator: this.checkConfirm,
-                  }],
-                })(
-                  <Input type="text" size="large" style={{width: 240}} onBlur={this.handlePasswordBlur}/>
-                )}
-              </FormItem>
-            </Col>
-            <Col span={12}>
-              <FormItem
-                {...formItemLayout}
-                label="名"
-                hasFeedback
-                labelCol={{span: 4,offset: 2}}
-                wrapperCol={{span: 14}}
-              >
-                {getFieldDecorator('first_name', {
-                  //initialValue:'yang',
-                  rules: [{
-                    required: true, message: '请输入您的名的汉语拼音!',
-                  },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',} ,{
-                    validator: this.checkConfirm,
-                  }],
-                })(
-                  <Input type="text" size="large" style={{width: 240}} onBlur={this.handlePasswordBlur}/>
-                )}
-              </FormItem>
-            </Col>
-          </Row>
+
+
+
+
           <Row>
             <Col span={12}>
               <FormItem
@@ -142,92 +105,59 @@ class BasicInfoUC extends React.Component {
             </Col>
           </Row>
 
-          {this.state.a ?
 
-            <Row>
-              <Col span={12}>
-                <FormItem
-                  {...formItemLayout}
-                  label="SSN"
-                  hasFeedback
-                  labelCol={{span: 4,offset: 4}}
-                  wrapperCol={{span: 14}}
-                >
-                  {getFieldDecorator('last_name', {
-                    rules: [{
-                      required: true, message: '请输入您的姓的汉语拼音!',
-                    },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',} ,{
-                      validator: this.checkConfirm,
-                    }],
-                  })(
-                    <Input type="text" size="large" style={{width: 240}} onBlur={this.handlePasswordBlur}/>
-                  )}
-                </FormItem>
-              </Col>
-              <Col span={12}>
-                <FormItem
-                  {...formItemLayout}
-                  label="国籍"
-                  labelCol={{span: 4,offset: 2}}
-                  wrapperCol={{span: 14}}
-                >
-                  {getFieldDecorator('nationality', {
-                    initialValue:'CN',
-                    rules: [{
-                      type: 'string',
-                      required: false,
-                      message: 'Please select your habitual residence!'
-                    }],
-                  })(
-                    //<Cascader options={residences} />
-                    <Select size="large" style={{width: 240}} onChange={handleChange}>
-                      <Option value="jack">Jack</Option>
-                      <Option value="CN">中国</Option>
-                      <Option value="disabled">Disabled</Option>
-                      <Option value="yiminghe">Yiminghe</Option>
-                    </Select>
-                  )}
-                </FormItem>
-              </Col>
-            </Row>
-
+          {this.state.a?
+            <div>
+              <Row>
+                <Col span={12}>
+                  <FormItem
+                    {...formItemLayout}
+                    label="SSN"
+                    hasFeedback
+                    labelCol={{span: 4,offset: 4}}
+                    wrapperCol={{span: 14}}
+                  >
+                    {getFieldDecorator('last_name', {
+                      rules: [{
+                        required: true, message: '请输入您的姓的汉语拼音!',
+                      },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',} ,{
+                        validator: this.checkConfirm,
+                      }],
+                    })(
+                      <Input type="text" size="large" style={{width: 240}} onBlur={this.handlePasswordBlur}/>
+                    )}
+                  </FormItem>
+                </Col>
+                <Col span={12}>
+                  <FormItem
+                    {...formItemLayout}
+                    label="国籍"
+                    labelCol={{span: 4,offset: 2}}
+                    wrapperCol={{span: 14}}
+                  >
+                    {getFieldDecorator('nationality', {
+                      initialValue:'CN',
+                      rules: [{
+                        type: 'string',
+                        required: false,
+                        message: 'Please select your habitual residence!'
+                      }],
+                    })(
+                      //<Cascader options={residences} />
+                      <Select size="large" style={{width: 240}} onChange={handleChange}>
+                        <Option value="jack">Jack</Option>
+                        <Option value="CN">中国</Option>
+                        <Option value="disabled">Disabled</Option>
+                        <Option value="yiminghe">Yiminghe</Option>
+                      </Select>
+                    )}
+                  </FormItem>
+                </Col>
+              </Row>
+            </div>
             :
-
-            <Row>
-              <Col span={12}>
-
-              </Col>
-              <Col span={12}>
-                <FormItem
-                  {...formItemLayout}
-                  label="资金来源"
-                  labelCol={{span: 4,offset: 2}}
-                  wrapperCol={{span: 14}}
-                >
-                  {getFieldDecorator('nationality', {
-                    initialValue:'CN',
-                    rules: [{
-                      type: 'string',
-                      required: false,
-                      message: 'Please select your habitual residence!'
-                    }],
-                  })(
-                    //<Cascader options={residences} />
-                    <Select size="large" style={{width: 240}} onChange={handleChange}>
-                      <Option value="jack">Jack</Option>
-                      <Option value="CN">中国</Option>
-                      <Option value="disabled">Disabled</Option>
-                      <Option value="yiminghe">Yiminghe</Option>
-                    </Select>
-                  )}
-                </FormItem>
-              </Col>
-            </Row>
-            }
-
-
-
-
+            ''
+          }
 
 
 
@@ -287,6 +217,45 @@ class BasicInfoUC extends React.Component {
               </FormItem>
             </Col>
           </Row>
+
+
+
+
+          {this.state.a?
+          ''
+          :
+            <Row>
+              <Col span={12}>
+                <FormItem
+                  {...formItemLayout}
+                  label="资金来源"
+                  labelCol={{span: 4,offset: 4}}
+                  wrapperCol={{span: 14}}
+                >
+                  {getFieldDecorator('nationality', {
+                    initialValue:'CN',
+                    rules: [{
+                      type: 'string',
+                      required: false,
+                      message: 'Please select your habitual residence!'
+                    }],
+                  })(
+                    //<Cascader options={residences} />
+                    <Select size="large" style={{width: 240}} onChange={handleChange}>
+                      <Option value="jack">Jack</Option>
+                      <Option value="CN">中国</Option>
+                      <Option value="disabled">Disabled</Option>
+                      <Option value="yiminghe">Yiminghe</Option>
+                    </Select>
+                  )}
+                </FormItem>
+              </Col>
+              <Col span={12}>
+
+              </Col>
+            </Row>
+          }
+
 
 
         </Form>

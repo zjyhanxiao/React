@@ -2,7 +2,9 @@
  * Created by robot on 2016/12/26.
  */
 import React from 'react';
+import IndexAWC from './payment/indexAWC'
 import IndexW from './payment/indexW'
+import IndexAW from './payment/indexAW'
 
 class Pay extends React.Component {
   constructor() {
@@ -17,9 +19,15 @@ class Pay extends React.Component {
       <div style={{width:'100%', background:'#ccc'}}>
         <p style={{fontSize:'20px',textAlign:'center',padding:'20px 0'}}>入金方式</p>
         <div style={{width:'1000px',margin:'0 auto'}}>
-          <IndexW></IndexW>
+
+          <IndexAWC></IndexAWC>
+
+          {/*<IndexAW></IndexAW>*/}
+
+          {/*<IndexW></IndexW>*/}
+
         </div>
-        <p style={{textAlign:'center',padding:'30px 0'}}>如有疑问，请邮件联系invest@meixinfinance.com。
+        <p style={{textAlign:'center',padding:'30px 0 100px'}}>如有疑问，请邮件联系invest@meixinfinance.com。
         </p>
       </div>
     );

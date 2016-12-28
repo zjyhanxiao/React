@@ -7,6 +7,7 @@ require('../basic/BasicInfo.css');
 import React from 'react';
 import {Row,Col,Button} from 'antd';
 
+import AmountShow from './amountShow';
 import ItemAmount from './ItemAmount';
 import ItemName from './ItemName';
 import Docs from './docs';

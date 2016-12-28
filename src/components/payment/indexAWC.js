@@ -15,7 +15,7 @@ function callback(key) {
   console.log(key);
 }
 
-class IndexW extends React.Component {
+class IndexAWC extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -27,7 +27,9 @@ class IndexW extends React.Component {
     return (
       <div>
         <Tabs onChange={callback} type="card" animated={false}>
-          <TabPane tab="银行电汇 / Wire" key="1"><Wire></Wire></TabPane>
+          <TabPane tab="自动扣款 / ACH" key="1"><ACH></ACH></TabPane>
+          <TabPane tab="银行电汇 / Wire" key="2"><Wire></Wire></TabPane>
+          <TabPane tab="支票 / Check" key="3"><Check></Check></TabPane>
         </Tabs>
 
         <div style={{width:'100%',margin:'0 auto',textAlign:'center',background:'#ffffff'}}>
@@ -51,6 +53,6 @@ class IndexW extends React.Component {
   }
 }
 
-IndexW.defaultProps = {};
+IndexAWC.defaultProps = {};
 
-export default IndexW;
+export default IndexAWC;

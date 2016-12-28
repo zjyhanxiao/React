@@ -1,5 +1,5 @@
 /**
- * Created by robot on 2016/12/26.
+ * Created by robot on 2016/12/27.
  */
 require('components/payment/indexAWC.css');
 
@@ -15,7 +15,7 @@ function callback(key) {
   console.log(key);
 }
 
-class IndexW extends React.Component {
+class IndexAW extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -27,7 +27,8 @@ class IndexW extends React.Component {
     return (
       <div>
         <Tabs onChange={callback} type="card" animated={false}>
-          <TabPane tab="银行电汇 / Wire" key="1"><Wire></Wire></TabPane>
+          <TabPane tab="自动扣款 / ACH" key="1"><ACH></ACH></TabPane>
+          <TabPane tab="银行电汇 / Wire" key="2"><Wire></Wire></TabPane>
         </Tabs>
 
         <div style={{width:'100%',margin:'0 auto',textAlign:'center',background:'#ffffff'}}>
@@ -51,6 +52,6 @@ class IndexW extends React.Component {
   }
 }
 
-IndexW.defaultProps = {};
+IndexAW.defaultProps = {};
 
-export default IndexW;
+export default IndexAW;
