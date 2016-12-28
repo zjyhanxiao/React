@@ -2,7 +2,10 @@ import 'antd/dist/antd.min.css'
 import React from 'react';
 import {Form, Input, Button, DatePicker} from 'antd';
 import moment from 'moment'
+
 import Uploader from '../uploader/index'
+import { connect } from 'react-redux'
+import { updateProfile} from '../../Redux/actions/index'
 const FormItem = Form.Item;
 // const Option = Select.Option;
 
@@ -23,7 +26,17 @@ class BasicInfo extends React.Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 values.date_of_birth = values.date_of_birth.format('YYYY-MM-DD')
+                values.mx_token='25b6ca3901730fba2cb6098d34912f34'
+                values.mx_secret='da9d83c022637e7eda9fb59299026e7c'
                 console.log(values)
+                /*$.ajax({
+                    type:'post',
+                    url:'https://api.meixinglobal.com/web/profile/update',
+                    data:JSON.stringify(values),
+                    "contentType": "application/json; charset=utf-8",
+                })*/
+                const { dispatch } = this.props
+                dispatch(updateProfile(values))
             }
         });
     }
@@ -35,16 +48,16 @@ class BasicInfo extends React.Component {
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
                 {'@@@@@@@@@@@@@@' + JSON.stringify(this.props)}
                 <Form inline>
+                    <FormItem label='last_name'>
+                        {getFieldDecorator('last_name', {
+                            initialValue: this.props.last_name,
+                            rules: [{required: true, message: 'last_name is required!'}]
+                        })(<Input />)}
+                    </FormItem>
                     <FormItem label='first_name'>
                         {getFieldDecorator('first_name', {
                             initialValue: this.props.first_name,
-                            rules: [{required: true, message: 'first_name is required!'}]
-                        })(<Input />)}
-                    </FormItem>
-                    <FormItem label='email'>
-                        {getFieldDecorator('email', {
-                            initialValue: this.props.email,
-                            rules: [{type: 'email', required: true, message: 'email is required!'}]
+                            rules: [{ required: true, message: 'first_name is required!'}]
                         })(<Input />)}
                     </FormItem>
                     <FormItem label='date_of_birth'>
@@ -84,7 +97,14 @@ BasicInfo = Form.create({
 
 BasicInfo.defaultProps = {};
 
-export default BasicInfo;
+const mapStateToProps=(state) =>{
+    return {
+        getsProfile:state.getsProfile
+    }
+}
+
+
+export default connect(mapStateToProps)(BasicInfo)
 
 
 /********************
