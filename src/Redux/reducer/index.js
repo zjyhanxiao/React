@@ -6,11 +6,11 @@ const getsProfile = (state = {}, action) => {
     switch (action.type) {
         case types.GET_PROFILE_SUCCESS:
             return Object.assign({}, state, {
-                first_name: action.json.body.first_name,
+                /*first_name: action.json.body.first_name,
                 email: action.json.body.email,
                 date_of_birth: action.json.body.date_of_birth,
-                passport_photo: null
-                // base_profile: action.json.body
+                passport_photo: null*/
+                base_profile: action.json.body
             });
         case types.UPDATE_UPLOADER:
             return Object.assign({}, state, {
