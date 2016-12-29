@@ -1,7 +1,6 @@
 /**
- * Created by robot on 2016/12/26.
+ * Created by robot on 2016/12/29.
  */
-
 import React from 'react';
 import {Form, Input,Select, Row, Col, Button,DatePicker} from 'antd';
 
@@ -11,7 +10,7 @@ const Option = Select.Option;
 function handleChange(value) {
   console.log(`selected ${value}`);
 }
-class BasicInfoUC extends React.Component {
+class BasicInfoH extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -53,7 +52,7 @@ class BasicInfoUC extends React.Component {
             <Row style={{paddingTop: '30px'}}>
               <Col span={2} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体'}}>个人信息</h2></Col>
               <Col span={11} offset={1}><p style={{ fontFamily: '宋体', marginTop: '2px'}}>
-                (Yue Chen Zhao 美国投资人)</p></Col>
+                (Yue Chen Zhao 非美国-其他国家 / 港澳台地区投资人)</p></Col>
             </Row>
           </FormItem>
 
@@ -105,32 +104,37 @@ class BasicInfoUC extends React.Component {
           </Row>
 
 
-          {this.state.a?
             <div>
               <Row>
                 <Col span={12}>
                   <FormItem
                     {...formItemLayout}
-                    label="SSN"
-                    hasFeedback
+                    label="国籍"
                     labelCol={{span: 4,offset: 4}}
                     wrapperCol={{span: 14}}
                   >
-                    {getFieldDecorator('last_name', {
+                    {getFieldDecorator('nationality', {
+                      initialValue:'CN',
                       rules: [{
-                        required: true, message: '请输入您的姓的汉语拼音!',
-                      },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',} ,{
-                        validator: this.checkConfirm,
+                        type: 'string',
+                        required: false,
+                        message: 'Please select your habitual residence!'
                       }],
                     })(
-                      <Input type="text" size="large" style={{width: 240}} onBlur={this.handlePasswordBlur}/>
+                      //<Cascader options={residences} />
+                      <Select size="large" style={{width: 240}} onChange={handleChange}>
+                        <Option value="jack">Jack</Option>
+                        <Option value="CN">中国</Option>
+                        <Option value="disabled">Disabled</Option>
+                        <Option value="yiminghe">Yiminghe</Option>
+                      </Select>
                     )}
                   </FormItem>
                 </Col>
                 <Col span={12}>
                   <FormItem
                     {...formItemLayout}
-                    label="国籍"
+                    label="资金来源"
                     labelCol={{span: 4,offset: 2}}
                     wrapperCol={{span: 14}}
                   >
@@ -154,9 +158,7 @@ class BasicInfoUC extends React.Component {
                 </Col>
               </Row>
             </div>
-            :
-            ''
-          }
+
 
 
 
@@ -220,14 +222,12 @@ class BasicInfoUC extends React.Component {
 
 
 
-          {this.state.a?
-          ''
-          :
-            <Row>
+
+            <Row style={{paddingBottom: '30px'}}>
               <Col span={12}>
                 <FormItem
                   {...formItemLayout}
-                  label="资金来源"
+                  label="纳税国"
                   labelCol={{span: 4,offset: 4}}
                   wrapperCol={{span: 14}}
                 >
@@ -250,10 +250,27 @@ class BasicInfoUC extends React.Component {
                 </FormItem>
               </Col>
               <Col span={12}>
-
+                <FormItem
+                  {...formItemLayout}
+                  label="纳税号"
+                  hasFeedback
+                  labelCol={{span: 4,offset: 2}}
+                  wrapperCol={{span: 14}}
+                >
+                  {getFieldDecorator('passport_code', {
+                    initialValue:'E35456464',
+                    rules: [{
+                      required: true, message: '请输入您的护照号!',
+                    }, {
+                      validator: this.checkConfirm,
+                    }],
+                  })(
+                    <Input type="text" size="large" style={{width: 240}} onBlur={this.handlePasswordBlur}/>
+                  )}
+                </FormItem>
               </Col>
             </Row>
-          }
+
 
 
 
@@ -262,7 +279,7 @@ class BasicInfoUC extends React.Component {
     );
   }
 }
-BasicInfoUC = Form.create({
+BasicInfoH = Form.create({
   mapPropsToFields(props) {
     return {
       last_name: {
@@ -271,8 +288,8 @@ BasicInfoUC = Form.create({
       },
     };
   }
-})(BasicInfoUC);
+})(BasicInfoH);
 
-BasicInfoUC.defaultProps = {};
+BasicInfoH.defaultProps = {};
 
-export default BasicInfoUC;
+export default BasicInfoH;

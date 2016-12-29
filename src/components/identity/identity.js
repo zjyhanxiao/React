@@ -190,6 +190,22 @@ class Identity extends React.Component {
             </Row>
           </FormItem>
 
+          <FormItem {...tailFormItemLayout}>
+            <Row style={{paddingTop: '20px', paddingBottom: '40px',margin:'0 auto',textAlign:'center',background:'#ffffff'}}>
+              <Col span={8} offset={8}>
+                <Button style={{
+                  width: '120px',
+                  height: '50px',
+                  borderRadius: '30px',
+                  background: '#223976',
+                  color: '#fff',
+                  fontSize: '18px'
+                }} type="primary" htmlType="submit" size="large">下一步</Button>
+              </Col>
+            </Row>
+
+          </FormItem>
+
 
 
 
