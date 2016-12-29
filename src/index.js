@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import configureStore from './Redux/stores/index'
+import IdentityConfirmation from './view/IdentityConfirmation'
 import CapacityShow from './components/CapacityShow'
 const store = configureStore()
 

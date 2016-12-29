@@ -1,9 +1,6 @@
-/**
- * Created by robot on 2016/12/27.
- */
 import React from 'react';
 import { Modal, Button,Row ,Col } from 'antd';
-import Basic from '../basic/index'
+import BasicInformation from '../../view/BasicInformation'
 
 const IndexButton = React.createClass({
   getInitialState() {
@@ -47,7 +44,7 @@ const IndexButton = React.createClass({
         <Modal title="" visible={this.state.visible}
                onOk={this.handleOk} onCancel={this.handleCancel} closable={false} footer={''} width={932}
         >
-          <Basic></Basic>
+          <BasicInformation/>
         </Modal>
 
       </div>
