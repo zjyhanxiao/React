@@ -14,7 +14,9 @@ const getsProfile = (state = {}, action) => {
             });
         case types.UPDATE_UPLOADER:
             return Object.assign({}, state, {
-                [action.data]:action.key
+                base_profile:{
+                    [action.data]:action.key
+                }
             });
         default:
             return state

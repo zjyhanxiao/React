@@ -33,7 +33,6 @@ class Avatar extends React.Component {
 
 
     handleChange = (info) => {
-        console.log(JSON.stringify(this.props))
         const { dispatch } = this.props
         if (info.file.status === 'done') {
             let resData=info.fileList[0].response.body
@@ -46,7 +45,6 @@ class Avatar extends React.Component {
     }
 
     render() {
-        // console.log(JSON.stringify(this.props))
         const imageUrl = this.state.fileList.imageUrl
         const newImage = this.state.fileList.thumbUrl?this.state.fileList.thumbUrl:this.props.value ? this.props.value : this.state.fileList.url;
         return (
