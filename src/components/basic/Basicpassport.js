@@ -29,7 +29,7 @@ class Basicpassport extends React.Component {
     });
   }
   render() {
-    const {getFieldDecorator} = this.props.form;
+    const {getFieldDecorator} = this.props.getFieldDecorator;
     const formItemLayout = {
       labelCol: {span: 6},
       wrapperCol: {span: 14},
@@ -112,23 +112,11 @@ class Basicpassport extends React.Component {
     );
   }
 }
-Basicpassport = Form.create({
-  mapPropsToFields(props) {
-    return {
-      passport_photo: {
-        ...props.passport_photo,
-        value: props.passport_photo,
-      },
-    };
-  }
-})(Basicpassport);
+
 const mapStateToProps=(state) =>{
   return {
     getsProfile:state.getsProfile
   }
 }
-
-
-
 Basicpassport.defaultProps = {};
 export default connect(mapStateToProps)(Basicpassport)

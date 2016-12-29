@@ -1,25 +1,22 @@
-/**
- * Created by robot on 2016/12/26.
- */
-import 'antd/dist/antd.css';
-require('../basic/BasicInfo.css');
+import 'antd/dist/antd.css'
+require('../basic/BasicInfo.css')
 
-import React from 'react';
-import {Row,Col,Button} from 'antd';
+import React from 'react'
+import {Row,Col,Button} from 'antd'
 
-import ItemAmount from './ItemAmount';
-import ItemName from './ItemName';
-import AmountShow from './amountShow';
-import AddressPlate from './AddressPlate';
-import BankPlate from './BankPlate';
-import BasicPlate from './BasicPlate';
-import CompliancePlate from './CompliancePlate';
-import IndexButton from '../Capacity/indexButton';
+// import ItemAmount from './ItemAmount'
+import ItemName from './ItemName'
+import AmountShow from './amountShow'
+import AddressPlate from './AddressPlate'
+import BankPlate from './BankPlate'
+import BasicPlate from './BasicPlate'
+import CompliancePlate from './CompliancePlate'
+import IndexButton from '../Capacity/indexButton'
 
 
 class InfoPages extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props)
     this.state = {
       a:true,
       profile:{}
@@ -27,12 +24,12 @@ class InfoPages extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        console.log('Received values of form: ', values)
       }
-    });
+    })
   }
 
   render() {
@@ -80,10 +77,10 @@ class InfoPages extends React.Component {
           }
 
       </div>
-    );
+    )
   }
 }
 
-InfoPages.defaultProps = {};
+InfoPages.defaultProps = {}
 
-export default InfoPages ;
+export default InfoPages

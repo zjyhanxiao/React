@@ -13,32 +13,16 @@ class BasicInfoH extends React.Component {
         super(props)
     }
 
-
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.form.validateFieldsAndScroll((err, values) => {
-            if (!err) {
-                console.log('Received values of form: ', values)
-            }
-        });
-    }
-
     render() {
-        const {getFieldDecorator} = this.props.form
+        const {getFieldDecorator} = this.props.getFieldDecorator
         const formItemLayout = {
             labelCol: {span: 6},
             wrapperCol: {span: 14},
         }
-        const tailFormItemLayout = {
-            wrapperCol: {
-                span: 14,
-                offset: 6,
-            },
-        }
         return (
 
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
-                {'############' + JSON.stringify(this.props)}
+                {'############' + JSON.stringify(this.props.form)}
                 <FormItem>
                     <Row style={{paddingTop: '30px'}}>
                         <Col span={2} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体'}}>个人信息</h2></Col>
@@ -252,7 +236,7 @@ class BasicInfoH extends React.Component {
         );
     }
 }
-BasicInfoH = Form.create({
+/*BasicInfoH = Form.create({
     mapPropsToFields(props) {
         return {
             date_of_birth: {
@@ -269,7 +253,7 @@ BasicInfoH = Form.create({
             },
         };
     }
-})(BasicInfoH);
+})(BasicInfoH);*/
 
 BasicInfoH.defaultProps = {}
 
