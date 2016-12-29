@@ -3,8 +3,7 @@
  */
 import React from 'react';
 import Identity from './identity/identity'
-import FilePages from './infoPages/indexFile'
-import BasicInfoH from './basic/BasicInfoH'
+import InfoPages from './infoPages/index'
 
 
 class CapacityShow extends React.Component {
@@ -18,8 +17,7 @@ class CapacityShow extends React.Component {
   render() {
     return (
       <div>
-        <Identity></Identity>
-        <BasicInfoH></BasicInfoH>
+        <InfoPages></InfoPages>
       </div>
     );
   }
