@@ -1,15 +1,16 @@
-import 'core-js/fn/object/assign';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/Main'
-import BasicInformation from './view/BasicInformation'
+import 'core-js/fn/object/assign'
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import configureStore from './Redux/stores/index'
+import CapacityShow from './components/CapacityShow'
+const store = configureStore()
 
-
-
-// Render the main component into the dom
 ReactDOM.render(
-  <div>
-    <BasicInformation></BasicInformation>
-  </div>
+    <div>
+        <Provider store={store}>
+            <CapacityShow />
+        </Provider>
+    </div>
 
-  , document.getElementById('app'));
+    , document.getElementById('app'));
