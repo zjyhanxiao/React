@@ -4,7 +4,7 @@
 
 require('components/compliance/CompliancePublic.css');
 import React from 'react';
-import {Form, Row, Col,DatePicker,Checkbox,Button,Radio} from 'antd';
+import {Form, Row, Col,DatePicker,Checkbox,Button,Radio,Input} from 'antd';
 import ComplianceSpouse from './complianceSpouse'
 
 const FormItem = Form.Item;
@@ -19,13 +19,19 @@ class CompliancePublic extends React.Component {
     this.state = {
       a:false,
       profile:{},
-      size: '收入审查'
+      size: '收入审查',
+      b:''
     }
   }
 
   onChange = (e) => {
     this.setState({ a: e.target.checked });
     console.log(e.target.checked)
+  }
+
+  Change = (e) => {
+    this.setState({ b: e.target.value });
+    console.log("负债金额为 "+e.target.value)
   }
 
 
@@ -50,7 +56,7 @@ class CompliancePublic extends React.Component {
 
 
     const {getFieldDecorator} = this.props.form;
-    console.log(getFieldDecorator)
+    // console.log(getFieldDecorator)
     const formItemLayout = {
       labelCol: {span: 6},
       wrapperCol: {span: 14},
@@ -106,7 +112,7 @@ class CompliancePublic extends React.Component {
 
 
           <FormItem>
-            <Row style={{paddingTop: '10px'}}>
+            <Row style={{}}>
               <Col span={9} offset={2}>
                 <div style={{width:'100%',height:'125px',lineHeight:'20px',color:'#cccccc'}} className={this.state.size=='收入审查'?'show':'hide'}>
                   注：请向美信金融递交过去两年的Form W-2, Form 1099, Schedule K-1 of Form 1065或已填完的Form 1040，来证明您的收入或与配偶的合计收入。您可以修改上述文件非必要部分以免泄露个人身份信息。
@@ -118,12 +124,11 @@ class CompliancePublic extends React.Component {
                 <div style={{width:'100%',height:'125px',lineHeight:'20px',color:'#cccccc'}} className={this.state.size=='净值审查'?'show':'hide'}>
                   <Row>
                     <Col span={8}>
-                      <p style={{fontSize:'19px',color:'#223976',lineHeight:'40px',textAlign:'center'}}>负债金额</p>
+                      <p style={{fontSize:'16px',color:'#223976',lineHeight:'30px',textAlign:'center'}}>负债金额</p>
                     </Col>
 
                     <Col  span={16}>
-                      <span style={{display:'inline-block',width:'220px',height:'40px',color:'#223976',fontSize:'20px',border:'1px solid #cccccc',borderRadius:'5px'}}>
-                        $ <input type="numner"  style={{display:'inline',width:'200px',height:'37px',fontSize:'20px',color:'#ff6600',border:'none',outline:'none'}} />
+                      <span style={{display:'inline-block',width:'200px',height:'30px',color:'#223976',fontSize:'16px',border:'1px solid #cccccc'}}>&nbsp;$ <input type="number" step="100" min="0" onChange={this.Change} style={{display:'inline',width:'180px',height:'27px',fontSize:'16px',color:'#ff6600',border:'none',outline:'none',textAlign:'center'}} />
                       </span>
                     </Col>
                   </Row>

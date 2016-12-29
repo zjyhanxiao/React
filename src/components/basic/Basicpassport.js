@@ -1,8 +1,9 @@
 
 import React from 'react';
 import {Form, Input,Select, Row, Col, Button,DatePicker} from 'antd';
-import Avatar from 'components/uploader/index'
-
+import Avatar from '../uploader/index'
+import { connect } from 'react-redux'
+import { updateProfile} from '../../Redux/actions/index'
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -46,7 +47,6 @@ class Basicpassport extends React.Component {
 
       <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
 
-        <Form horizontal>
           <FormItem>
             <Row style={{marginTop: '30px'}}>
               <Col span={2} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体', height: '30px'}}>
@@ -94,7 +94,7 @@ class Basicpassport extends React.Component {
           <FormItem>
             <Row>
               <Row style={{marginTop: '40px'}}>
-                <Col span={8} offset={8}><Avatar></Avatar></Col>
+                <Col span={8} offset={8}><Avatar  {...this.props.passport_photo}></Avatar></Col>
               </Row>
             </Row>
           </FormItem>
@@ -107,7 +107,7 @@ class Basicpassport extends React.Component {
               </Col>
             </Row>
           </FormItem>
-        </Form>
+
       </div>
     );
   }
@@ -115,14 +115,20 @@ class Basicpassport extends React.Component {
 Basicpassport = Form.create({
   mapPropsToFields(props) {
     return {
-      last_name: {
-        ...props.last_name,
-        value: props.last_name,
+      passport_photo: {
+        ...props.passport_photo,
+        value: props.passport_photo,
       },
     };
   }
 })(Basicpassport);
+const mapStateToProps=(state) =>{
+  return {
+    getsProfile:state.getsProfile
+  }
+}
+
+
 
 Basicpassport.defaultProps = {};
-
-export default Basicpassport;
+export default connect(mapStateToProps)(Basicpassport)

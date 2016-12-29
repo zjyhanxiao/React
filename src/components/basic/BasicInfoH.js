@@ -47,7 +47,6 @@ class BasicInfoH extends React.Component {
 
       <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
 
-        <Form horizontal>
           <FormItem>
             <Row style={{paddingTop: '30px'}}>
               <Col span={2} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体'}}>个人信息</h2></Col>
@@ -274,7 +273,6 @@ class BasicInfoH extends React.Component {
 
 
 
-        </Form>
       </div>
     );
   }

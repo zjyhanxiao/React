@@ -41,7 +41,9 @@ class AddressChina extends React.Component {
     };
     return (
       <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
-        <Form horizontal>
+
+
+
 
           <Row>
             <Col span={12}>
@@ -158,7 +160,6 @@ class AddressChina extends React.Component {
           </Row>
 
 
-        </Form>
       </div>
     );
   }

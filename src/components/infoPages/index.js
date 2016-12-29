@@ -84,6 +84,6 @@ class InfoPages extends React.Component {
   }
 }
 
-InfoPages .defaultProps = {};
+InfoPages.defaultProps = {};
 
 export default InfoPages ;

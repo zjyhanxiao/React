@@ -17,7 +17,7 @@ class ItemAmount extends React.Component {
   }
   onChange(e) {
   console.log('changed', e.target.value);
-}
+  }
 
 
   render() {
@@ -34,7 +34,7 @@ class ItemAmount extends React.Component {
                   <div style={{margin:'10px 0'}}>
                     <Button type="ghost" shape="circle" icon="minus" style={{width:'30px',height:'30px',border:'1px solid #4760a1',color:'#4760a1',fontWeight:'900',marginRight:'10px'}} />
                     <span style={{display:'inline-block',width:'220px',height:'40px',color:'#ff6600',fontSize:'20px',border:'1px solid #cccccc',borderRadius:'5px'}}>
-                      $<input type="number" defaultValue="10000" step="5000" min="10000" onChange={this.onChange} style={{display:'inline',width:'200px',height:'37px',fontSize:'20px',color:'#ff6600',border:'none',outline:'none',textAlign:'center'}} />
+                      &nbsp;$<input type="number" defaultValue="10000" step="5000" min="10000" onChange={this.onChange} style={{display:'inline',width:'200px',height:'37px',fontSize:'20px',color:'#ff6600',border:'none',outline:'none',textAlign:'center'}} />
                     </span>
                     <Button type="ghost" shape="circle" icon="plus" style={{width:'30px',height:'30px',border:'1px solid #4760a1',color:'#4760a1',fontWeight:'900',marginLeft:'10px'}} />
                   </div>
