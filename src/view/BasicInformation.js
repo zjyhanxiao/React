@@ -1,7 +1,8 @@
-import React ,{Component,PropTypes}from 'react';
+import React, {Component, PropTypes}from 'react';
 import 'antd/dist/antd.css'
-import {Form, Row, Col,Button} from 'antd';
+import {Form, Row, Col, Button} from 'antd';
 import {connect} from 'react-redux'
+import moment from 'moment'
 import {fetchPosts} from '../Redux/actions/index'
 import BasicInfoUC from '../components/basic/BasicInfoUC'
 import BasicInfoH from '../components/basic/BasicInfoH'
@@ -56,11 +57,9 @@ class BasicInformation extends React.Component {
         return (
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
                 <Form horizontal>
-
-
-                    <BasicInfoH />
+                    <BasicInfoH {...this.props.getsProfile.base_profile} />
                     {/*<BasicInfoUC />*/}
-                    <Basicpassport />
+                    <Basicpassport {...this.props.getsProfile.base_profile} />
 
                     <FormItem {...tailFormItemLayout}>
                         <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
@@ -72,7 +71,7 @@ class BasicInformation extends React.Component {
                                     background: '#223976',
                                     color: '#fff',
                                     fontSize: '18px'
-                                }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">完成</Button>
+                                }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
                             </Col>
                         </Row>
                     </FormItem>
@@ -84,18 +83,35 @@ class BasicInformation extends React.Component {
     }
 }
 
-BasicInformation = Form.create({})(BasicInformation);
+BasicInformation = Form.create({
+    mapPropsToFields(props) {
+        console.log('RRRRRRRRRRRRRRRR'+JSON.stringify(props))
+        return {
+            date_of_birth: {
+                ...props.date_of_birth,
+                value: moment(props.date_of_birth),
+            },
+            passport_code: {
+                ...props.passport_code,
+                value: props.passport_code,
+            },
+            passport_photo: {
+                ...props.passport_photo,
+                value: props.passport_photo,
+            },
+        };
+    }
+})(BasicInformation);
 
 BasicInformation.defaultProps = {};
 
 BasicInformation.propTypes = {
-    // getsByProfile: PropTypes.array.isRequired,
     dispatch: PropTypes.func.isRequired
 }
 
-const mapStateToProps=(state) =>{
+const mapStateToProps = (state) => {
     return {
-        getsProfile:state.getsProfile
+        getsProfile: state.getsProfile
     }
 }
 
