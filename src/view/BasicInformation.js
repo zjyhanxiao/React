@@ -65,7 +65,7 @@ class BasicInformation extends React.Component {
 
           <BasicInfoH></BasicInfoH>
           <BasicInfoUC></BasicInfoUC>
-          <Basicpassport></Basicpassport>
+          {/*<Basicpassport></Basicpassport>*/}
 
           <FormItem {...tailFormItemLayout}>
             <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
