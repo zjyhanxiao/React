@@ -4,6 +4,10 @@ import {Form, Row, Col, Button} from 'antd';
 import {connect} from 'react-redux'
 import moment from 'moment'
 import {updateProfile} from '../Redux/actions/index'
+import BankFast from '../components/bank/BankFast'
+import BanknoUSA from '../components/bank/BanknoUSA'
+import BankPublic from '../components/bank/BankPublic'
+import BankUSA from '../components/bank/BankUSA'
 
 const FormItem = Form.Item;
 
@@ -17,7 +21,7 @@ class BankInformation extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        values.date_of_birth = values.date_of_birth.format('YYYY-MM-DD')
+        // values.date_of_birth = values.date_of_birth.format('YYYY-MM-DD')
         values.mx_token='25b6ca3901730fba2cb6098d34912f34'
         values.mx_secret='da9d83c022637e7eda9fb59299026e7c'
         console.log('Received values of form: ', JSON.stringify(values));
@@ -48,12 +52,11 @@ class BankInformation extends React.Component {
       <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
         {/*{JSON.stringify(this.props.passport_photo)}*/}
         <Form horizontal>
-          <BasicInfoH {...this.props} getFieldDecorator={this.props.form}  />
-          {/*<BasicInfoUC />*/}
-          <Basicpassport {...this.props}  getFieldDecorator={this.props.form} />
 
-
-
+          <BankFast></BankFast>
+          <BankUSA {...this.props}  getFieldDecorator={this.props.form} />
+          {/*<BankPublic {...this.props}  getFieldDecorator={this.props.form} />*/}
+          <BanknoUSA {...this.props}  getFieldDecorator={this.props.form} />
 
 
 

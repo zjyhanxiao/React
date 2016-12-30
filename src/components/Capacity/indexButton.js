@@ -51,9 +51,9 @@ const IndexButton = React.createClass({
 
                 <Modal title="" visible={this.state.visible}
                        onOk={this.handleOk} onCancel={this.handleCancel} closable={false} footer={''} width={932}>
-                  {/*<BankInformation />*/}
+                    {/*<BankInformation  {...this.props.getsProfile.base_profile} />*/}
                     {/*<AddressInformation {...this.props.getsProfile.base_profile} />*/}
-                    <BasicInformation {...this.props.getsProfile.base_profile}/>
+                    {/*<BasicInformation {...this.props.getsProfile.base_profile}/>*/}
                 </Modal>
 
             </div>

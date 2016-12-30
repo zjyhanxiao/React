@@ -4,6 +4,7 @@
 
 import './BasicInfo.css'
 import React from 'react';
+import {connect} from 'react-redux'
 import {Form, Input,Select, Row, Col, Button,DatePicker} from 'antd';
 
 const FormItem = Form.Item;
@@ -53,7 +54,7 @@ class BasicInfoUC extends React.Component {
             <Row style={{paddingTop: '30px'}}>
               <Col span={2} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体'}}>个人信息</h2></Col>
               <Col span={11} offset={1}>
-                <p style={{ fontFamily: '宋体', marginTop: '2px'}}>(Yue Chen Zhao {美国投资人})</p>
+                <p style={{ fontFamily: '宋体', marginTop: '2px'}}>(Yue Chen Zhao 美国投资人)</p>
               </Col>
             </Row>
           </FormItem>
@@ -261,17 +262,15 @@ class BasicInfoUC extends React.Component {
     );
   }
 }
-BasicInfoUC = Form.create({
-  mapPropsToFields(props) {
-    return {
-      last_name: {
-        ...props.last_name,
-        value: props.last_name,
-      },
-    };
+
+
+
+const mapStateToProps = (state) => {
+  return {
+    getsProfile: state.getsProfile
   }
-})(BasicInfoUC);
-
+}
 BasicInfoUC.defaultProps = {};
+export default connect(mapStateToProps)(BasicInfoUC)
 
-export default BasicInfoUC;
+

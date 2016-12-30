@@ -3,6 +3,7 @@
  */
 import 'antd/dist/antd.min.css'
 import React from 'react';
+import {connect} from 'react-redux'
 import {Form, Input, Select, Row, Col, Button,DatePicker} from 'antd';
 
 const FormItem = Form.Item;
@@ -23,7 +24,7 @@ class BanknoUSA extends React.Component {
     });
   }
   render() {
-    const {getFieldDecorator} = this.props.form;
+    const {getFieldDecorator} = this.props.getFieldDecorator;
     console.log(getFieldDecorator)
     const formItemLayout = {
       labelCol: {span: 6},
@@ -37,7 +38,7 @@ class BanknoUSA extends React.Component {
     };
     return (
       <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
-        <Form vertical>
+
 
           <FormItem>
             <Row style={{paddingTop: '20px'}}>
@@ -191,17 +192,22 @@ class BanknoUSA extends React.Component {
             )}
           </FormItem>
 
-        </Form>
       </div>
     );
   }
 }
 
-BanknoUSA = Form.create({})(BanknoUSA);
 
+const mapStateToProps = (state) => {
+  return {
+    getsProfile: state.getsProfile
+  }
+}
 BanknoUSA.defaultProps = {};
+export default connect(mapStateToProps)(BanknoUSA)
 
-export default BanknoUSA;
+
+
 
 
 

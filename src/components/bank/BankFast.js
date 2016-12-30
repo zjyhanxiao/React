@@ -3,6 +3,7 @@
  */
 import 'antd/dist/antd.min.css'
 import React from 'react';
+import {connect} from 'react-redux'
 import {Row, Col, Button} from 'antd';
 
 
@@ -70,6 +71,13 @@ class BankFast extends React.Component {
 }
 
 
-BankFast.defaultProps = {};
 
-export default BankFast;
+
+const mapStateToProps = (state) => {
+  return {
+    getsProfile: state.getsProfile
+  }
+}
+BankFast.defaultProps = {};
+export default connect(mapStateToProps)(BankFast)
+

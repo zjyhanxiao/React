@@ -2,6 +2,7 @@
  * Created by robot on 2016/12/19.
  */
 import React from 'react';
+import {connect} from 'react-redux'
 import {Form, Input, Select, Row, Col, Button,Radio} from 'antd';
 import Avatar from 'components/uploader/index'
 
@@ -57,7 +58,6 @@ class BankPublic extends React.Component {
     return (
       <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
 
-        <Form horizontal>
           <FormItem>
             <Row style={{paddingTop: '30px'}}>
               <Col span={6} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体'}}>打款／回款银行信息</h2></Col>
@@ -90,14 +90,17 @@ class BankPublic extends React.Component {
 
           {/*#223976*/}
 
-        </Form>
       </div>
     );
   }
 }
 
-BankPublic = Form.create({})(BankPublic);
 
+const mapStateToProps = (state) => {
+  return {
+    getsProfile: state.getsProfile
+  }
+}
 BankPublic.defaultProps = {};
+export default connect(mapStateToProps)(BankPublic)
 
-export default BankPublic;

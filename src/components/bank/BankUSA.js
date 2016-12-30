@@ -3,7 +3,8 @@
  */
 import 'antd/dist/antd.min.css'
 import React from 'react';
-import {Form, Input, Select, Row, Col, Button,DatePicker} from 'antd';
+import {connect} from 'react-redux'
+import {Form, Input, Select, Row, Col, Button,DatePicker,Radio} from 'antd';
 
 const FormItem = Form.Item;
 
@@ -11,9 +12,17 @@ class BankUSA extends React.Component {
   constructor() {
     super();
     this.state = {
-      profile:{}
+      profile:{},
+      size: 'Checking'
     }
   }
+
+  handleSizeChange = (e) => {
+    this.setState({ size: e.target.value });
+    console.log(e.target.value)
+  }
+
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
@@ -23,7 +32,8 @@ class BankUSA extends React.Component {
     });
   }
   render() {
-    const {getFieldDecorator} = this.props.form;
+    const size = this.state.size;
+    const {getFieldDecorator} = this.props.getFieldDecorator;
     console.log(getFieldDecorator)
     const formItemLayout = {
       labelCol: {span: 6},
@@ -37,7 +47,7 @@ class BankUSA extends React.Component {
     };
     return (
       <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
-        <Form horizontal>
+
           <FormItem>
             <Row style={{paddingTop: '20px'}}>
               <Col span={22} offset={1}><p style={{width:'100%',height:'1px',backgroundColor:'#223976'}}></p></Col>
@@ -130,25 +140,39 @@ class BankUSA extends React.Component {
               <Col span={4} offset={2}>账户类型 / Account</Col>
               <Col span={16}>
                 <Col span={10}>
-                  <Button type="ghost"  style={{width:'100%',height:'32px',borderRadius:'32px',border:'1px solid #223976',color:'#223976'}}>Checking</Button>
+
+                  <Radio.Group value={size} onChange={this.handleSizeChange} style={{width:'100%',height:'32px'}}>
+                    <Radio.Button value="Checking" style={{width:'100%',height:'32px',borderRadius:'32px',textAlign:'center'}}>Checking</Radio.Button>
+                  </Radio.Group>
+
+
                 </Col>
                 <Col span={10} offset={4}>
-                  <Button type="ghost"  style={{width:'100%',height:'32px',borderRadius:'32px',border:'1px solid #cccccc',color:'#cccccc'}}>Savings</Button>
+
+                  <Radio.Group value={size} onChange={this.handleSizeChange} style={{width:'100%',height:'32px'}}>
+                    <Radio.Button value="Savings" style={{width:'100%',height:'32px',borderRadius:'32px',textAlign:'center'}}>Savings</Radio.Button>
+                  </Radio.Group>
+
+
                 </Col>
               </Col>
             </Row>
           </FormItem>
 
 
-        </Form>
       </div>
     );
   }
 }
 
-BankUSA = Form.create({})(BankUSA);
-
+const mapStateToProps = (state) => {
+  return {
+    getsProfile: state.getsProfile
+  }
+}
 BankUSA.defaultProps = {};
+export default connect(mapStateToProps)(BankUSA)
 
-export default BankUSA;
+
+
 
