@@ -2,6 +2,7 @@
  * Created by robot on 2016/12/19.
  */
 import React from 'react';
+import {connect} from 'react-redux'
 import {Form, Input, Select, Row, Col,Button,DatePicker} from 'antd';
 
 const FormItem = Form.Item;
@@ -26,7 +27,7 @@ class AddressOther extends React.Component {
     });
   }
   render() {
-    const {getFieldDecorator} = this.props.form;
+    const {getFieldDecorator} = this.props.getFieldDecorator;
     console.log(getFieldDecorator)
     const formItemLayout = {
       labelCol: {span: 6},
@@ -40,10 +41,10 @@ class AddressOther extends React.Component {
     };
     return (
       <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
-        <Form horizontal>
+
           <FormItem>
             <Row>
-              <Col span={14} offset={5}><p style={{textAlign:'center',lineHeight:'14px',color:"#ff6600"}}>请注意：您必须填写您的住宅地址（非 P.O.BOX 或 in-care-of 地址）</p></Col>
+              <Col span={14}><p style={{textAlign:'center',lineHeight:'14px',color:"#ff6600"}}>请注意：您必须填写您的住宅地址（非 P.O.BOX 或 in-care-of 地址）</p></Col>
             </Row>
           </FormItem>
           <Row>
@@ -173,15 +174,17 @@ class AddressOther extends React.Component {
             </FormItem>
           </Row>
 
-
-        </Form>
       </div>
     );
   }
 }
 
-AddressOther = Form.create({})(AddressOther);
 
+const mapStateToProps = (state) => {
+  return {
+    getsProfile: state.getsProfile
+  }
+}
 AddressOther.defaultProps = {};
+export default connect(mapStateToProps)(AddressOther)
 
-export default AddressOther;

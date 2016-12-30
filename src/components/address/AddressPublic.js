@@ -3,8 +3,9 @@
  */
 
 import React from 'react';
+import {connect} from 'react-redux'
 import {Form, Input, Select, Row, Col, Button,DatePicker} from 'antd';
-import Avatar from '../uploader/index'
+import Uploader from '../uploader/index'
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -31,7 +32,7 @@ class AddressPublic extends React.Component {
 
 
   render() {
-    const {getFieldDecorator} = this.props.form;
+    const {getFieldDecorator} = this.props.getFieldDecorator;
     console.log(getFieldDecorator)
     const formItemLayout = {
       labelCol: {span: 6},
@@ -47,7 +48,6 @@ class AddressPublic extends React.Component {
       <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
 
 
-        <Form horizontal>
         <FormItem>
           <Row style={{paddingTop: '30px'}}>
             <Col span={3} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体'}}>地址证明上传</h2></Col>
@@ -88,7 +88,7 @@ class AddressPublic extends React.Component {
               labelCol={{span: 4,offset: 2}}
               wrapperCol={{span: 14}}
             >
-              {getFieldDecorator('date_o', {
+              {getFieldDecorator('date_of_birth', {
                 rules: [{ type: 'object', required: true, message: '请输入日期!' }],
               })(
                 <DatePicker size="large" style={{width: 240}}></DatePicker>
@@ -98,23 +98,39 @@ class AddressPublic extends React.Component {
         </Row>
           <FormItem>
             <Row style={{paddingTop: '30px'}}>
-                <Col span={8} offset={8}><Avatar></Avatar></Col>
+                <Col span={8} offset={8}>
+                  <FormItem style={{width: 346, margin: '0 auto'}}>
+                    {getFieldDecorator('passport_photo', {
+                      initialValue: this.props.passport_photo,
+                      rules: [{required: false, message: '请上传证件!'}]
+                    })(
+                      <Uploader {...this.props.passport_photo}/>
+                    )}
+                  </FormItem>
+                </Col>
             </Row>
             <Row style={{marginTop: '10px'}}>
               <Col span={12} offset={6} style={{color: '#999999', fontFamily: '宋体', textAlign: 'center'}}>请在下面区域填写您地址证明上的地址，务必与证件上的地址确保一致。</Col>
             </Row>
           </FormItem>
-          </Form>
+
       </div>
     );
   }
 }
 
-AddressPublic = Form.create({})(AddressPublic);
 
+
+const mapStateToProps = (state) => {
+  return {
+    getsProfile: state.getsProfile
+  }
+}
 AddressPublic.defaultProps = {};
+export default connect(mapStateToProps)(AddressPublic)
 
-export default AddressPublic;
+
+
 
 
 

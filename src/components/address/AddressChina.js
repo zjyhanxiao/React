@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import {connect} from 'react-redux'
 import {Form, Input, Select, Row, Col, Button,DatePicker} from 'antd';
 
 const FormItem = Form.Item;
@@ -27,7 +28,7 @@ class AddressChina extends React.Component {
     });
   }
   render() {
-    const {getFieldDecorator} = this.props.form;
+    const {getFieldDecorator} = this.props.getFieldDecorator;
     console.log(getFieldDecorator)
     const formItemLayout = {
       labelCol: {span: 6},
@@ -165,11 +166,16 @@ class AddressChina extends React.Component {
   }
 }
 
-AddressChina = Form.create({})(AddressChina);
-
+const mapStateToProps = (state) => {
+  return {
+    getsProfile: state.getsProfile
+  }
+}
 AddressChina.defaultProps = {};
+export default connect(mapStateToProps)(AddressChina)
 
-export default AddressChina;
+
+
 
 
 

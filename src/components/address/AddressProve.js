@@ -1,9 +1,10 @@
 /**
  * Created by robot on 2016/12/22.
  */
-import React from 'react';
-import {Form, Input, Select, Row, Col, Button,DatePicker} from 'antd';
-import Avatar from '../uploader/index'
+import React from 'react'
+import {connect} from 'react-redux'
+import {Form, Input, Select, Row, Col, Button,DatePicker} from 'antd'
+import Uploader from '../uploader/index'
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -30,7 +31,7 @@ class AddressProve extends React.Component {
 
 
   render() {
-    const {getFieldDecorator} = this.props.form;
+    const {getFieldDecorator} = this.props.getFieldDecorator;
     console.log(getFieldDecorator)
     const formItemLayout = {
       labelCol: {span: 6},
@@ -44,7 +45,7 @@ class AddressProve extends React.Component {
     };
     return (
       <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
-        <Form horizontal>
+
           <FormItem>
             <Row style={{paddingTop: '30px'}}>
               <Col span={3} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体'}}>地址证明上传</h2></Col>
@@ -61,8 +62,8 @@ class AddressProve extends React.Component {
               labelCol={{span: 2,offset: 8}}
               wrapperCol={{span: 12}}
             >
-              {getFieldDecorator('sss', {
-                rules: [{ type: 'object', required: true, message: '请输入日期!' }],
+              {getFieldDecorator('date_of_birth', {
+                rules: [{ type: 'object', required: false, message: '请输入日期!' }],
               })(
                 <DatePicker size="large" style={{width: 220}}></DatePicker>
               )}
@@ -70,7 +71,16 @@ class AddressProve extends React.Component {
           </Row>
           <FormItem>
             <Row>
-                <Col span={8} offset={8}><Avatar></Avatar></Col>
+                <Col span={8} offset={8}>
+                  <FormItem style={{width: 346, margin: '0 auto'}}>
+                    {getFieldDecorator('passport_photo', {
+                      initialValue: this.props.passport_photo,
+                      rules: [{required: true, message: '请上传证件!'}]
+                    })(
+                      <Uploader {...this.props.passport_photo}/>
+                    )}
+                  </FormItem>
+                </Col>
             </Row>
           </FormItem>
           <FormItem>
@@ -82,14 +92,18 @@ class AddressProve extends React.Component {
           </FormItem>
 
 
-        </Form>
       </div>
     );
   }
 }
 
-AddressProve = Form.create({})(AddressProve);
-
+const mapStateToProps = (state) => {
+  return {
+    getsProfile: state.getsProfile
+  }
+}
 AddressProve.defaultProps = {};
+export default connect(mapStateToProps)(AddressProve)
 
-export default AddressProve;
+
+

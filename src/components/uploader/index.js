@@ -2,7 +2,7 @@ require('../uploader/index.css')
 import React from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import {Upload, message} from 'antd';
+import { Upload, message } from 'antd';
 import { updateUploader } from '../../Redux/actions/index'
 
 function getBase64(img, callback) {

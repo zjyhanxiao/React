@@ -12,6 +12,7 @@ const FormItem = Form.Item;
 class BasicInformation extends React.Component {
     constructor(props) {
         super(props)
+      console.log(props)
     }
 
     handleSubmit(e) {
@@ -33,7 +34,6 @@ class BasicInformation extends React.Component {
         console.log('success')
     }
 
-
     render() {
         // const {getFieldDecorator} = this.props.form;
         const formItemLayout = {
@@ -48,7 +48,7 @@ class BasicInformation extends React.Component {
         };
         return (
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
-                {JSON.stringify(this.props.passport_photo)}
+                {/*{JSON.stringify(this.props.passport_photo)}*/}
                 <Form horizontal>
                     <BasicInfoH {...this.props} getFieldDecorator={this.props.form}  />
                     {/*<BasicInfoUC />*/}

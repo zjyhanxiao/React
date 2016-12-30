@@ -15,14 +15,15 @@ class BasicInfo extends React.Component {
     }
 
 
-    componentDidMount() {
+    componentWillMount() {
     }
-    componentWillReceiveProps(nextProps){
 
+    componentWillReceiveProps(nextProps){
     }
 
     handleSubmit(e) {
         e.preventDefault()
+        console.log(this.props)
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 values.date_of_birth = values.date_of_birth.format('YYYY-MM-DD')

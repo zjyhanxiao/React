@@ -3,6 +3,8 @@ import {Modal, Button, Row, Col} from 'antd';
 import {connect} from 'react-redux'
 import {fetchPosts} from '../../Redux/actions/index'
 import BasicInformation from '../../view/BasicInformation'
+import AddressInformation from '../../view/AddressProof'
+import BankInformation from '../../view/BankInformation'
 
 const IndexButton = React.createClass({
     getInitialState() {
@@ -48,8 +50,9 @@ const IndexButton = React.createClass({
                 </div>
 
                 <Modal title="" visible={this.state.visible}
-                       onOk={this.handleOk} onCancel={this.handleCancel} closable={false} footer={''} width={932}
-                >
+                       onOk={this.handleOk} onCancel={this.handleCancel} closable={false} footer={''} width={932}>
+                  {/*<BankInformation />*/}
+                    {/*<AddressInformation {...this.props.getsProfile.base_profile} />*/}
                     <BasicInformation {...this.props.getsProfile.base_profile}/>
                 </Modal>
 
