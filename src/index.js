@@ -2,9 +2,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import configureStore from './Redux/stores/index'
+import store from './Redux/stores/index'
 import CapacityShow from './components/CapacityShow'
-const store = configureStore()
+// const store = configureStore()
 
 ReactDOM.render(
     <div>
