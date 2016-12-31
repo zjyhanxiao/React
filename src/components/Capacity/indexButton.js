@@ -3,8 +3,8 @@ import {Modal, Button, Row, Col} from 'antd';
 import {connect} from 'react-redux'
 import {fetchPosts} from '../../Redux/actions/index'
 import BasicInformation from '../../view/BasicInformation'
-import AddressInformation from '../../view/AddressProof'
-import BankInformation from '../../view/BankInformation'
+// import AddressInformation from '../../view/AddressProof'
+// import BankInformation from '../../view/BankInformation'
 
 const IndexButton = React.createClass({
     getInitialState() {
