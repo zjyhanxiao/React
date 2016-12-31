@@ -25,7 +25,6 @@ class BanknoUSA extends React.Component {
   }
   render() {
     const {getFieldDecorator} = this.props.getFieldDecorator;
-    console.log(getFieldDecorator)
     const formItemLayout = {
       labelCol: {span: 6},
       wrapperCol: {span: 14},

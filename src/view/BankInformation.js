@@ -14,7 +14,6 @@ const FormItem = Form.Item;
 class BankInformation extends React.Component {
   constructor(props) {
     super(props)
-    console.log(props)
   }
 
   handleSubmit(e) {
@@ -86,17 +85,6 @@ class BankInformation extends React.Component {
   }
 }
 
-BankInformation = Form.create({
-  mapPropsToFields(props) {
-    console.log(JSON.stringify(props.passport_photo))
-    return {
-      passport_photo: {
-        ...props.passport_photo,
-        value: props.passport_photo,
-      },
-    };
-  }
-})(BankInformation);
 
 BankInformation.defaultProps = {};
 

@@ -32,7 +32,6 @@ class ComplianceSpouse extends React.Component {
     const { size } = this.props;
     const state = this.state;
     const {getFieldDecorator} = this.props.form;
-    console.log(getFieldDecorator)
     const formItemLayout = {
       labelCol: {span: 6},
       wrapperCol: {span: 14},

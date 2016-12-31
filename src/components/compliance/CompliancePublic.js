@@ -53,10 +53,7 @@ class CompliancePublic extends React.Component {
 
 
   render() {
-
-
     const {getFieldDecorator} = this.props.form;
-    // console.log(getFieldDecorator)
     const formItemLayout = {
       labelCol: {span: 6},
       wrapperCol: {span: 14},

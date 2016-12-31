@@ -12,7 +12,6 @@ const FormItem = Form.Item;
 class BasicInformation extends React.Component {
     constructor(props) {
         super(props)
-      console.log(props)
     }
 
     handleSubmit(e) {
@@ -48,7 +47,7 @@ class BasicInformation extends React.Component {
         };
         return (
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
-                {/*{JSON.stringify(this.props.passport_photo)}*/}
+                {JSON.stringify(this.props)}
                 <Form horizontal>
                     <BasicInfoH {...this.props} getFieldDecorator={this.props.form}  />
                     {/*<BasicInfoUC {...this.props} getFieldDecorator={this.props.form} />*/}
@@ -77,7 +76,6 @@ class BasicInformation extends React.Component {
 
 BasicInformation = Form.create({
     mapPropsToFields(props) {
-        console.log(JSON.stringify(props.passport_photo))
         return {
             passport_photo: {
                 ...props.passport_photo,
