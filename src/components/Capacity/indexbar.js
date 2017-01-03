@@ -1,6 +1,8 @@
 /**
  * Created by robot on 2017/1/3.
  */
+
+
 import React from 'react';
 import {Row, Col} from 'antd';
 
@@ -13,7 +15,8 @@ class IndexBar extends React.Component {
     super();
     this.state = {
       profile:{},
-      type:2
+      type:1,
+      a:'first'
     }
   }
 
@@ -25,22 +28,22 @@ class IndexBar extends React.Component {
 
           <Row style={{background:'#223976'}}>
             <Col span={6} style={{ height:'60px',textAlign:'center',lineHeight:'60px',color:'#ffffff',fontsize:'18px',borderRight:'1px solid #ffffff',fontFamily:'宋体',boxSizing:'borderBox'}}>
-              <div style={{ height:'100%',width:'100%',background:'#ffffff',color:'#223976'}}>
+              <div className={this.state.a=='first'?'at':''} style={{ height:'100%',width:'100%'}}>
                 身份确认
               </div>
             </Col>
             <Col span={6} style={{height:'60px',textAlign:'center',lineHeight:'60px',color:'#ffffff',fontsize:'18px',borderRight:'1px solid #ffffff',fontFamily:'宋体',boxSizing:'borderBox'}}>
-              <div style={{ height:'100%',width:'100%'}}>
+              <div className={this.state.a=='second'?'at':''} style={{ height:'100%',width:'100%'}}>
                 基本信息
               </div>
             </Col>
             <Col span={6} style={{height:'60px',textAlign:'center',lineHeight:'60px',color:'#ffffff',fontsize:'18px',borderRight:'1px solid #ffffff',fontFamily:'宋体',boxSizing:'borderBox'}}>
-              <div style={{ height:'100%',width:'100%'}}>
+              <div className={this.state.a=='third'?'at':''} style={{ height:'100%',width:'100%'}}>
                 地址证明
               </div>
             </Col>
             <Col span={6} style={{height:'60px',textAlign:'center',lineHeight:'60px',color:'#ffffff',fontsize:'18px',fontFamily:'宋体',boxSizing:'borderBox'}}>
-              <div style={{ height:'100%',width:'100%'}}>
+              <div className={this.state.a=='fourth'?'at':''} style={{ height:'100%',width:'100%'}}>
                 银行信息
               </div>
             </Col>
@@ -50,27 +53,27 @@ class IndexBar extends React.Component {
 
           <div style={{width:'100%',background:'#223976',overflow:'hidden'}}>
             <div style={{width:'20%',height:'60px',float:'left',textAlign:'center',lineHeight:'60px',color:'#ffffff',fontsize:'18px',borderRight:'1px solid #ffffff',fontFamily:'宋体',boxSizing:'borderBox'}}>
-              <div style={{ height:'100%',width:'100%',background:'#ffffff',color:'#223976'}}>
+              <div className={this.state.a=='first'?'at':''} style={{ height:'100%',width:'100%',background:'#ffffff',color:'#223976'}}>
                 身份确认
               </div>
             </div>
             <div style={{width:'20%',height:'60px',float:'left',textAlign:'center',lineHeight:'60px',color:'#ffffff',fontsize:'18px',borderRight:'1px solid #ffffff',fontFamily:'宋体',boxSizing:'borderBox'}}>
-              <div style={{ height:'100%',width:'100%'}}>
+              <div className={this.state.a=='second'?'at':''} style={{ height:'100%',width:'100%'}}>
                 基本信息
               </div>
             </div>
             <div style={{width:'20%',height:'60px',float:'left',textAlign:'center',lineHeight:'60px',color:'#ffffff',fontsize:'18px',borderRight:'1px solid #ffffff',fontFamily:'宋体',boxSizing:'borderBox'}}>
-              <div style={{ height:'100%',width:'100%'}}>
+              <div className={this.state.a=='third'?'at':''} style={{ height:'100%',width:'100%'}}>
                 地址证明
               </div>
             </div>
             <div style={{width:'20%',height:'60px',float:'left',textAlign:'center',lineHeight:'60px',color:'#ffffff',fontsize:'18px',borderRight:'1px solid #ffffff',fontFamily:'宋体',boxSizing:'borderBox'}}>
-              <div style={{ height:'100%',width:'100%'}}>
+              <div className={this.state.a=='fourth'?'at':''} style={{ height:'100%',width:'100%'}}>
                 银行信息
               </div>
             </div>
             <div style={{width:'20%',height:'60px',float:'left',textAlign:'center',lineHeight:'60px',color:'#ffffff',fontsize:'18px',fontFamily:'宋体',boxSizing:'borderBox'}}>
-              <div style={{ height:'100%',width:'100%'}}>
+              <div className={this.state.a=='fifth'?'at':''} style={{ height:'100%',width:'100%'}}>
                 合规审查
               </div>
             </div>
