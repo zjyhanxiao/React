@@ -14,7 +14,6 @@ const FormItem = Form.Item;
 class BankInformation extends React.Component {
   constructor(props) {
     super(props)
-    console.log(props)
   }
 
   handleSubmit(e) {
@@ -41,7 +40,7 @@ class BankInformation extends React.Component {
     const formItemLayout = {
       labelCol: {span: 6},
       wrapperCol: {span: 14},
-    };
+      };
     const tailFormItemLayout = {
       wrapperCol: {
         span: 14,
@@ -50,7 +49,6 @@ class BankInformation extends React.Component {
     };
     return (
       <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
-        {/*{JSON.stringify(this.props.passport_photo)}*/}
         <Form horizontal>
 
           <BankFast></BankFast>
@@ -66,7 +64,7 @@ class BankInformation extends React.Component {
 
           <FormItem {...tailFormItemLayout}>
             <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
-              <Col span={4} offset={7}>
+              <Col span={4} offset={8}>
                 <Button style={{
                   width: '120px',
                   height: '50px',

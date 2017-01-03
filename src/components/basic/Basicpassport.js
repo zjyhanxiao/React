@@ -80,7 +80,7 @@ class Basicpassport extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('sss', {
-                                rules: [{type: 'object', required: true, message: '请输入日期!'}],
+                                rules: [{type: 'object', required: false, message: '请输入日期!'}],
                             })(
                                 <DatePicker size="large" style={{width: 240}}></DatePicker>
                             )}

@@ -3,6 +3,8 @@ import * as types from '../actions/ActionTypes'
 
 
 const getsProfile = (state = {}, action) => {
+  console.log('BBBBBBBBBBBBBBBBBBBBBBBB'+JSON.stringify(state))
+
     switch (action.type) {
         case types.GET_PROFILE_SUCCESS:
             return Object.assign({}, state, {
@@ -13,7 +15,10 @@ const getsProfile = (state = {}, action) => {
                 base_profile: action.json.body
             });
         case types.UPDATE_UPLOADER:
+          console.log('AAAAAAAAAAAAAAAAAAA'+JSON.stringify(action))
+
             return Object.assign({}, state, {
+
                 base_profile:{
                     [action.data]:action.key
                 }

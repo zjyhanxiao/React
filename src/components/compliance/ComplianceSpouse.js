@@ -2,8 +2,9 @@
  * Created by robot on 2016/12/20.
  */
 import React from 'react';
+import {connect} from 'react-redux'
 import {Form, Input, Select, Row, Col, Button,DatePicker} from 'antd';
-import Avatar from 'components/uploader/index'
+
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -31,7 +32,7 @@ class ComplianceSpouse extends React.Component {
 
     const { size } = this.props;
     const state = this.state;
-    const {getFieldDecorator} = this.props.form;
+    const {getFieldDecorator} = this.props.a;
     console.log(getFieldDecorator)
     const formItemLayout = {
       labelCol: {span: 6},
@@ -149,8 +150,14 @@ class ComplianceSpouse extends React.Component {
   }
 }
 
-ComplianceSpouse = Form.create({})(ComplianceSpouse);
 
+const mapStateToProps = (state) => {
+  return {
+    getsProfile: state.getsProfile
+  }
+}
 ComplianceSpouse.defaultProps = {};
+export default connect(mapStateToProps)(ComplianceSpouse)
 
-export default ComplianceSpouse;
+
+

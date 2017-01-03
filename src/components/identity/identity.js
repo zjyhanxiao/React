@@ -5,8 +5,8 @@
 require('components/identity/identity.css');
 
 import React from 'react';
+import {connect} from 'react-redux'
 import {Form, Input, Row, Col, Button,Radio} from 'antd';
-import Avatar from 'components/uploader/index'
 
 const FormItem = Form.Item;
 const RadioGroup = Radio.Group;
@@ -48,7 +48,7 @@ class Identity extends React.Component {
     });
   }
   render() {
-    const {getFieldDecorator} = this.props.form;
+    const {getFieldDecorator} = this.props.getFieldDecorator;
     const formItemLayout = {
       labelCol: {span: 6},
       wrapperCol: {span: 14},
@@ -73,7 +73,6 @@ class Identity extends React.Component {
 
       <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
 
-        <Form horizontal>
 
           <FormItem>
             <Row style={{paddingTop: '30px'}}>
@@ -190,44 +189,27 @@ class Identity extends React.Component {
             </Row>
           </FormItem>
 
-          <FormItem {...tailFormItemLayout}>
-            <Row style={{paddingTop: '20px', paddingBottom: '40px',margin:'0 auto',textAlign:'center',background:'#ffffff'}}>
-              <Col span={8} offset={8}>
-                <Button style={{
-                  width: '120px',
-                  height: '50px',
-                  borderRadius: '30px',
-                  background: '#223976',
-                  color: '#fff',
-                  fontSize: '18px'
-                }} type="primary" htmlType="submit" size="large">下一步</Button>
-              </Col>
-            </Row>
-
-          </FormItem>
 
 
 
 
 
-
-
-        </Form>
       </div>
     );
   }
 }
-Identity = Form.create({
-  mapPropsToFields(props) {
-    return {
-      last_name: {
-        ...props.last_name,
-        value: props.last_name,
-      },
-    };
+
+
+const mapStateToProps = (state) => {
+  return {
+    getsProfile: state.getsProfile
   }
-})(Identity);
-
+}
 Identity.defaultProps = {};
+export default connect(mapStateToProps)(Identity)
 
-export default Identity;
+
+
+
+
+

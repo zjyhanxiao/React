@@ -4,6 +4,7 @@
 
 require('components/compliance/CompliancePublic.css');
 import React from 'react';
+import {connect} from 'react-redux'
 import {Form, Row, Col,DatePicker,Checkbox,Button,Radio,Input} from 'antd';
 import ComplianceSpouse from './complianceSpouse'
 
@@ -55,11 +56,11 @@ class CompliancePublic extends React.Component {
   render() {
 
 
-    const {getFieldDecorator} = this.props.form;
+    const {getFieldDecorator} = this.props.getFieldDecorator;
     // console.log(getFieldDecorator)
     const formItemLayout = {
-      labelCol: {span: 6},
-      wrapperCol: {span: 14},
+      // labelCol: {span: 6},
+      // wrapperCol: {span: 14},
     };
     const tailFormItemLayout = {
       wrapperCol: {
@@ -69,7 +70,7 @@ class CompliancePublic extends React.Component {
     };
     return (
       <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
-        <Form horizontal>
+
           <FormItem>
             <Row style={{paddingTop: '30px'}}>
               <Col span={6} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体'}}>投资人合规审查</h2></Col>
@@ -81,7 +82,7 @@ class CompliancePublic extends React.Component {
           </FormItem>
 
 
-          <FormItem>
+          <FormItem {...formItemLayout}>
             <Row style={{paddingTop: '10px'}}>
               <Col span={9} offset={2}>
                 <Radio.Group value={this.state.size} onChange={this.handleSizeChange} style={{width:'100%',height:'125px'}}>
@@ -111,7 +112,7 @@ class CompliancePublic extends React.Component {
 
 
 
-          <FormItem>
+          <FormItem {...formItemLayout}>
             <Row style={{}}>
               <Col span={9} offset={2}>
                 <div style={{width:'100%',height:'125px',lineHeight:'20px',color:'#cccccc'}} className={this.state.size=='收入审查'?'show':'hide'}>
@@ -142,7 +143,8 @@ class CompliancePublic extends React.Component {
               </Col>
             </Row>
           </FormItem>
-          <FormItem>
+
+          <FormItem {...formItemLayout}>
             <Row style={{paddingTop: '30px'}}>
               <Col span={20} offset={2}><Checkbox style={{color:'#223976'}} onChange={this.onChange}>我的审查资料包括配偶信息</Checkbox></Col>
             </Row>
@@ -156,7 +158,7 @@ class CompliancePublic extends React.Component {
 
 
           {this.state.a?
-            <ComplianceSpouse></ComplianceSpouse>
+            <ComplianceSpouse a={this.props.getFieldDecorator}></ComplianceSpouse>
           :
           ''
           }
@@ -175,31 +177,32 @@ class CompliancePublic extends React.Component {
             </Row>
           </FormItem>
 
-          <FormItem {...tailFormItemLayout}>
-            <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
-              <Col span={4} offset={7}>
-                <Button style={{
-                                    width: '120px',
-                                    height: '50px',
-                                    borderRadius: '30px',
-                                    background: '#223976',
-                                    color: '#fff',
-                                    fontSize: '18px'
-                                }} type="primary" htmlType="submit" onClick= {this.handleSubmit.bind(this)} size="large">完成</Button>
-              </Col>
-            </Row>
-          </FormItem>
+          {/*// <FormItem {...tailFormItemLayout}>*/}
+          {/*//   <Row style={{marginTop: '50px', paddingBottom: '40px'}}>*/}
+          {/*//     <Col span={4} offset={7}>*/}
+          {/*//       <Button style={{*/}
+          {/*//                           width: '120px',*/}
+          {/*//                           height: '50px',*/}
+          {/*//                           borderRadius: '30px',*/}
+          {/*//                           background: '#223976',*/}
+          {/*//                           color: '#fff',*/}
+          {/*//                           fontSize: '18px'*/}
+          {/*//                       }} type="primary" htmlType="submit" onClick= {this.handleSubmit.bind(this)} size="large">完成</Button>*/}
+              {/*/!*</Col>*!/*/}
+            {/*/!*</Row>*!/*/}
+          {/*/!*</FormItem>*!/*/}
 
-        </Form>
 
       </div>
     );
   }
 }
 
-CompliancePublic = Form.create({})(CompliancePublic);
-
+const mapStateToProps = (state) => {
+  return {
+    getsProfile: state.getsProfile
+  }
+}
 CompliancePublic.defaultProps = {};
-
-export default CompliancePublic;
+export default connect(mapStateToProps)(CompliancePublic)
 
