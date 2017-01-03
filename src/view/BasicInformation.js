@@ -15,6 +15,7 @@ class BasicInformation extends React.Component {
     }
 
     handleSubmit(e) {
+        console.log('GGGGGGGGGGGGGGG'+JSON.stringify(this.props))
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
@@ -93,7 +94,8 @@ BasicInformation.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        getsProfile: state.getsProfile
+        // getsProfile: state.getsProfile.base_profile
+        // base_profile:state.getsProfile.base_profile
     }
 }
 

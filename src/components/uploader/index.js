@@ -67,8 +67,9 @@ class Avatar extends React.Component {
 
 Avatar.defaultProps = {};
 function mapDispatchToProps(dispatch) {
+    console.log('FFFFFFFFFF'+JSON.stringify(dispatch))
     return {
-        updateUploader: bindActionCreators(updateUploader, dispatch)
+        // updateUploader: bindActionCreators(updateUploader, dispatch)
     }
 }
 export default connect( mapDispatchToProps)(Avatar);

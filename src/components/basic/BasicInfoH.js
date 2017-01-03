@@ -12,6 +12,7 @@ class BasicInfoH extends React.Component {
     constructor(props) {
         super(props)
     }
+
     render() {
         const {getFieldDecorator} = this.props.getFieldDecorator
         const formItemLayout = {
@@ -40,7 +41,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('date_of_birth', {
-                                initialValue: moment(this.props.date_of_birth),
+                                initialValue: (this.props != null && this.props.date_of_birth != null) ? moment(this.props.date_of_birth) : null,
                                 rules: [{type: 'object', required: true, message: '请输入日期!'}],
                             })(
                                 <DatePicker size="large" style={{width: 240}}></DatePicker>
@@ -235,23 +236,23 @@ class BasicInfoH extends React.Component {
     }
 }
 /*BasicInfoH = Form.create({
-    mapPropsToFields(props) {
-        return {
-            date_of_birth: {
-                ...props.date_of_birth,
-                value: moment(props.date_of_birth),
-            },
-            passport_code: {
-                ...props.passport_code,
-                value: props.passport_code,
-            },
-            passport_photo: {
-                ...props.passport_photo,
-                value: props.passport_photo,
-            },
-        };
-    }
-})(BasicInfoH);*/
+ mapPropsToFields(props) {
+ return {
+ date_of_birth: {
+ ...props.date_of_birth,
+ value: moment(props.date_of_birth),
+ },
+ passport_code: {
+ ...props.passport_code,
+ value: props.passport_code,
+ },
+ passport_photo: {
+ ...props.passport_photo,
+ value: props.passport_photo,
+ },
+ };
+ }
+ })(BasicInfoH);*/
 
 BasicInfoH.defaultProps = {}
 
