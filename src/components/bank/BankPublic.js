@@ -44,7 +44,6 @@ class BankPublic extends React.Component {
   render() {
     const size = this.state.size;
     const {getFieldDecorator} = this.props.form;
-    console.log(getFieldDecorator)
     const formItemLayout = {
       labelCol: {span: 6},
       wrapperCol: {span: 14},

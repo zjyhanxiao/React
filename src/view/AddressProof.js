@@ -16,7 +16,6 @@ const FormItem = Form.Item;
 class AddressInformation extends React.Component {
   constructor(props) {
     super(props)
-    console.log(props)
   }
 
   handleSubmit(e) {
@@ -89,7 +88,6 @@ class AddressInformation extends React.Component {
 
 AddressInformation = Form.create({
   mapPropsToFields(props) {
-    console.log(JSON.stringify(props.passport_photo))
     return {
       passport_photo: {
         ...props.passport_photo,

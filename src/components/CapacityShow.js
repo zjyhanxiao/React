@@ -6,20 +6,16 @@ import InfoPages from './infoPages/index'
 // import Compliance from './compliance/index'
 
 class CapacityShow extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      profile:{}
+    constructor() {
+        super()
     }
-  }
-
-  render() {
-    return (
-      <div>
-        <InfoPages></InfoPages>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <InfoPages></InfoPages>
+            </div>
+        );
+    }
 }
 
 CapacityShow.defaultProps = {};

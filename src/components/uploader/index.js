@@ -40,7 +40,6 @@ class Avatar extends React.Component {
             dispatch(updateUploader(this.props.id,resData))
             // Get this url from response in real world.
             getBase64(info.file.originFileObj, imageUrl => this.setState({imageUrl}));
-            // console.log(this.props.id)
         }
     }
 
@@ -68,8 +67,9 @@ class Avatar extends React.Component {
 
 Avatar.defaultProps = {};
 function mapDispatchToProps(dispatch) {
+    console.log('FFFFFFFFFF'+JSON.stringify(dispatch))
     return {
-        updateUploader: bindActionCreators(updateUploader, dispatch)
+        // updateUploader: bindActionCreators(updateUploader, dispatch)
     }
 }
 export default connect( mapDispatchToProps)(Avatar);

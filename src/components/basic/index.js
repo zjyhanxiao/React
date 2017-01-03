@@ -23,7 +23,6 @@ class BasicInfo extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        console.log(this.props)
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 values.date_of_birth = values.date_of_birth.format('YYYY-MM-DD')

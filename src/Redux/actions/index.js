@@ -41,15 +41,17 @@ export const fetchPosts = () => {
     }
 }*/
 export const updateProfile = (data,success) => {
-    $.ajax({
-        type: 'post',
-        url: 'https://api.meixinglobal.com/web/profile/update',
-        data: JSON.stringify(data),
-        "contentType": "application/json; charset=utf-8",
-        success:function (res) {
-            success(res)
-        }
-    })
+    return dispatch =>{
+        $.ajax({
+            type: 'post',
+            url: 'https://api.meixinglobal.com/web/profile/update',
+            data: JSON.stringify(data),
+            "contentType": "application/json; charset=utf-8",
+            success:function (res) {
+                success(res)
+            }
+        })
+    }
 }
 
 export const updateUploader = (path, key) => {

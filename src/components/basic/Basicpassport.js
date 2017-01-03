@@ -11,7 +11,7 @@ const Option = Select.Option;
 function handleChange(value) {
     console.log(`selected ${value}`);
 }
-class Basicpassport extends React.Component {
+class BasicPassport extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -115,5 +115,5 @@ const mapStateToProps = (state) => {
         getsProfile: state.getsProfile
     }
 }
-Basicpassport.defaultProps = {};
-export default connect(mapStateToProps)(Basicpassport)
+BasicPassport.defaultProps = {};
+export default connect(mapStateToProps)(BasicPassport)
