@@ -78,9 +78,7 @@ class IndexBar extends React.Component {
               </div>
             </div>
           </div>
-
         }
-
 
       </div>
     );
