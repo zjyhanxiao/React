@@ -53,7 +53,7 @@ class AddressOther extends React.Component {
               labelCol={{span: 5,offset: 2}}
               wrapperCol={{span: 15}}
             >
-              {getFieldDecorator('country_of_birth', {
+              {getFieldDecorator('country', {
                 initialValue:'CN',
                 rules: [{
                   type: 'string',
@@ -79,7 +79,7 @@ class AddressOther extends React.Component {
               labelCol={{span: 5,offset: 2}}
               wrapperCol={{span: 15}}
             >
-              {getFieldDecorator('last_name', {
+              {getFieldDecorator('line1', {
                 rules: [{
                   required: true, message: '请输入您的姓的汉语拼音!',
                 } ,{
@@ -98,7 +98,7 @@ class AddressOther extends React.Component {
               labelCol={{span: 5,offset: 2}}
               wrapperCol={{span: 15}}
             >
-              {getFieldDecorator('last_name', {
+              {getFieldDecorator('line2', {
                 rules: [{
                   required: true, message: '请输入您的姓的汉语拼音!',
                 } ,{
@@ -117,7 +117,7 @@ class AddressOther extends React.Component {
               labelCol={{span: 5,offset: 2}}
               wrapperCol={{span: 15}}
             >
-              {getFieldDecorator('last_name', {
+              {getFieldDecorator('city', {
                 rules: [{
                   required: true, message: '请输入您的姓的汉语拼音!',
                 } ,{
@@ -135,7 +135,7 @@ class AddressOther extends React.Component {
               labelCol={{span: 5,offset: 2}}
               wrapperCol={{span: 15}}
             >
-              {getFieldDecorator('country_of_birth', {
+              {getFieldDecorator('region', {
                 initialValue:'CN',
                 rules: [{
                   type: 'string',

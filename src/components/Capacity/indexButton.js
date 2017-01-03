@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import {Modal, Button, Row, Col} from 'antd';
 import {connect} from 'react-redux'
 import {fetchPosts} from '../../Redux/actions/index'
+import IndexBar from './indexbar'
 
 import BasicInformation from '../../view/BasicInformation'
 import AddressProof from '../../view/AddressProof'
@@ -54,12 +55,11 @@ const IndexButton = React.createClass({
         </div>
 
         <Modal title="" visible={this.state.visible}
-               onOk={this.handleOk} onCancel={this.handleCancel} closable={false} footer={''} width={932}>
-
+               onOk={this.handleOk} onCancel={this.handleCancel} closable={false} footer={''} width={900}>
+          <IndexBar/>
           {/*<BankInformation  {...this.props.getsProfile.base_profile} />*/}
-
-          <AddressProof {...this.props.getsProfile.base_profile} />
-          {/*<BasicInformation {...this.props.getsProfile.base_profile}/>*/}
+          {/*<AddressProof {...this.props.getsProfile.base_profile} />*/}
+          <BasicInformation {...this.props.getsProfile.base_profile}/>
           {/*<ComplianceReview />*/}
           {/*<IdentityConfirmation />*/}
 

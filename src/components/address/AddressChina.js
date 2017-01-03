@@ -54,7 +54,7 @@ class AddressChina extends React.Component {
                labelCol={{span: 4,offset: 4}}
                wrapperCol={{span: 14}}
              >
-               {getFieldDecorator('country_h', {
+               {getFieldDecorator('region', {
                  initialValue:'CN',
                  rules: [{
                    type: 'string',
@@ -78,7 +78,7 @@ class AddressChina extends React.Component {
                 labelCol={{span: 4,offset: 4}}
                 wrapperCol={{span: 14}}
               >
-                {getFieldDecorator('country_h', {
+                {getFieldDecorator('city', {
                   initialValue:'CN',
                   rules: [{
                     type: 'string',
@@ -102,7 +102,7 @@ class AddressChina extends React.Component {
                 labelCol={{span: 4,offset: 4}}
                 wrapperCol={{span: 14}}
               >
-                {getFieldDecorator('country_h', {
+                {getFieldDecorator('district', {
                   initialValue:'CN',
                   rules: [{
                     type: 'string',
@@ -128,7 +128,7 @@ class AddressChina extends React.Component {
                 labelCol={{span: 4,offset: 2}}
                 wrapperCol={{span: 14}}
               >
-                {getFieldDecorator('last_name', {
+                {getFieldDecorator('detail', {
                   initialValue:'yang',
                   rules: [{
                     required: true, message: '请填写您的详细地址!'
@@ -146,7 +146,7 @@ class AddressChina extends React.Component {
                 labelCol={{span: 4,offset: 2}}
                 wrapperCol={{span: 14}}
               >
-                {getFieldDecorator('last_name', {
+                {getFieldDecorator('postalCode', {
                   rules: [{
                     required: true, message: '请输入您的姓的汉语拼音!',
                   },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',} ,{

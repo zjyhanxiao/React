@@ -61,7 +61,7 @@ class AddressProve extends React.Component {
               labelCol={{span: 2,offset: 8}}
               wrapperCol={{span: 12}}
             >
-              {getFieldDecorator('date_of_birth', {
+              {getFieldDecorator('expireDate', {
                 rules: [{ type: 'object', required: false, message: '请输入日期!' }],
               })(
                 <DatePicker size="large" style={{width: 220}}></DatePicker>
@@ -72,7 +72,7 @@ class AddressProve extends React.Component {
             <Row>
                 <Col span={8} offset={8}>
                   <FormItem style={{width: 346, margin: '0 auto'}}>
-                    {getFieldDecorator('passport_photo', {
+                    {getFieldDecorator('file', {
                       initialValue: this.props.passport_photo,
                       rules: [{required: true, message: '请上传证件!'}]
                     })(

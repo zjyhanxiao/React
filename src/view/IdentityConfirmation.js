@@ -80,7 +80,6 @@ class IdentityConfirmation extends React.Component {
 
 IdentityConfirmation = Form.create({
   mapPropsToFields(props) {
-    console.log(JSON.stringify(props.passport_photo))
     return {
       passport_photo: {
         ...props.passport_photo,

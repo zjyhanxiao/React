@@ -64,9 +64,20 @@ class AddressInformation extends React.Component {
 
 
 
-          <FormItem {...tailFormItemLayout}>
-            <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
-              <Col span={4} offset={8}>
+          <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
+            <Col span={3} offset={6}>
+              <Button style={{
+                width: '120px',
+                height: '50px',
+                borderRadius: '30px',
+                background: '#ffffff',
+                color: '#223976',
+                fontSize: '18px'
+              }} type="primary" onClick={this.goback} size="large">上一步</Button>
+            </Col>
+
+            <Col span={3} offset={6}>
+              <FormItem {...tailFormItemLayout}>
                 <Button style={{
                   width: '120px',
                   height: '50px',
@@ -75,9 +86,9 @@ class AddressInformation extends React.Component {
                   color: '#fff',
                   fontSize: '18px'
                 }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
-              </Col>
-            </Row>
-          </FormItem>
+              </FormItem>
+            </Col>
+          </Row>
 
         </Form>
 

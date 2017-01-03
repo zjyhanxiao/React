@@ -14,6 +14,10 @@ class BasicInformation extends React.Component {
         super(props)
     }
 
+    goback(){
+      console.log('1')
+    }
+
     handleSubmit(e) {
         console.log('GGGGGGGGGGGGGGG'+JSON.stringify(this.props))
         e.preventDefault();
@@ -53,20 +57,33 @@ class BasicInformation extends React.Component {
                     <BasicInfoH {...this.props} getFieldDecorator={this.props.form}  />
                     {/*<BasicInfoUC {...this.props} getFieldDecorator={this.props.form} />*/}
                     <Basicpassport {...this.props}  getFieldDecorator={this.props.form} />
-                    <FormItem {...tailFormItemLayout}>
-                        <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
-                            <Col span={4} offset={8}>
-                                <Button style={{
-                                    width: '120px',
-                                    height: '50px',
-                                    borderRadius: '30px',
-                                    background: '#223976',
-                                    color: '#fff',
-                                    fontSize: '18px'
-                                }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
-                            </Col>
-                        </Row>
-                    </FormItem>
+
+
+                  <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
+                    <Col span={3} offset={6}>
+                      <Button style={{
+                      width: '120px',
+                      height: '50px',
+                      borderRadius: '30px',
+                      background: '#ffffff',
+                      color: '#223976',
+                      fontSize: '18px'
+                    }} type="primary" onClick={this.goback} size="large">上一步</Button>
+                    </Col>
+
+                    <Col span={3} offset={6}>
+                      <FormItem {...tailFormItemLayout}>
+                        <Button style={{
+                            width: '120px',
+                            height: '50px',
+                            borderRadius: '30px',
+                            background: '#223976',
+                            color: '#fff',
+                            fontSize: '18px'
+                        }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
+                      </FormItem>
+                    </Col>
+                  </Row>
 
                 </Form>
 

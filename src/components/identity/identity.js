@@ -11,9 +11,7 @@ import {Form, Input, Row, Col, Button,Radio} from 'antd';
 const FormItem = Form.Item;
 const RadioGroup = Radio.Group;
 
-function handleChange(value) {
-  console.log(`selected ${value}`);
-}
+
 class Identity extends React.Component {
   constructor() {
     super();

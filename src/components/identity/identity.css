@@ -1,4 +1,9 @@
-
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}
 .ant-radio-button-wrapper{
   margin: 0;
   height: 28px;
@@ -19,9 +24,27 @@
 .ant-radio-button-wrapper-checked：hover{
 
 }
-.show{
-  display: block;
+.ant-modal-body{
+  padding:0;
 }
-.hide{
-  display: none;
+.has-error.has-feedback:after{
+  content: '' !important;
+}
+.ant-form-item-required:before{
+  content: ''!important;
+}
+.ant-form-item-label label:after{
+  content: ''!important;
+}
+.has-success.has-feedback:after{
+  content: ''!important;
+}
+.dis_in{
+  display: inline-block!important;
+}
+.ant-form-item-label{
+  text-align: left!important;
+}
+.ant-input,.ant-select-selection{
+  border-radius: 0!important;
 }

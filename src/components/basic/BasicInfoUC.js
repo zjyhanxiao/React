@@ -71,7 +71,7 @@ class BasicInfoUC extends React.Component {
                 labelCol={{span: 4,offset: 4}}
                 wrapperCol={{span: 14}}
               >
-                {getFieldDecorator('date_of_birth', {
+                {getFieldDecorator('dateOfBirth', {
                   rules: [{ type: 'object', required: true, message: '请输入日期!' }],
                 })(
                   <DatePicker size="large" style={{width: 240}}></DatePicker>
@@ -85,7 +85,7 @@ class BasicInfoUC extends React.Component {
                 labelCol={{span: 4,offset: 2}}
                 wrapperCol={{span: 14}}
               >
-                {getFieldDecorator('country_of_birth', {
+                {getFieldDecorator('countryOfBirth', {
                   initialValue:'CN',
                   rules: [{
                     type: 'string',
@@ -117,7 +117,7 @@ class BasicInfoUC extends React.Component {
                     labelCol={{span: 4,offset: 4}}
                     wrapperCol={{span: 14}}
                   >
-                    {getFieldDecorator('last_name', {
+                    {getFieldDecorator('SSN', {
                       rules: [{
                         required: true, message: '请输入您的姓的汉语拼音!',
                       },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',} ,{
@@ -173,7 +173,7 @@ class BasicInfoUC extends React.Component {
                 labelCol={{span: 4,offset: 4}}
                 wrapperCol={{span: 14}}
               >
-                {getFieldDecorator('residence', {
+                {getFieldDecorator('industry', {
                   initialValue:'CN',
                   rules: [{
                     type: 'string',
@@ -232,7 +232,7 @@ class BasicInfoUC extends React.Component {
                   labelCol={{span: 4,offset: 4}}
                   wrapperCol={{span: 14}}
                 >
-                  {getFieldDecorator('nationality', {
+                  {getFieldDecorator('sourceOfCapital', {
                     initialValue:'CN',
                     rules: [{
                       type: 'string',

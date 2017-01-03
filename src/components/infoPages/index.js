@@ -4,7 +4,7 @@ require('../basic/BasicInfo.css')
 import React from 'react'
 import {Row,Col,Button} from 'antd'
 
-// import ItemAmount from './ItemAmount'
+import ItemAmount from './ItemAmount'
 import ItemName from './ItemName'
 import AmountShow from './amountShow'
 import AddressPlate from './AddressPlate'
@@ -40,7 +40,7 @@ class InfoPages extends React.Component {
           <div style={{width:'98%',height:'220px',position:'relative',border:'1px solid #eee',margin:'1% 1%'}}>
             <ItemName></ItemName>
             <div style={{position:'absolute',top:'30px',left:'60px'}}>
-              <AmountShow></AmountShow>
+              <ItemAmount></ItemAmount>
             </div>
           </div>
         </div>
