@@ -62,7 +62,7 @@ class BasicInformation extends React.Component {
                     <Basicpassport {...this.props} getFieldDecorator={this.props.form} />
                     <FormItem {...tailFormItemLayout}>
                         <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
-                            <Col span={4} offset={7}>
+                            <Col span={4} offset={8}>
                                 <Button style={{
                                     width: '120px',
                                     height: '50px',
