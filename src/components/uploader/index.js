@@ -45,8 +45,9 @@ class Avatar extends React.Component {
     }
 
     render() {
+        console.log('sssss'+JSON.stringify(this.props))
         const imageUrl = this.state.fileList.imageUrl
-        const newImage = this.state.fileList.thumbUrl?this.state.fileList.thumbUrl:this.props.value ? this.props.value : this.state.fileList.url;
+        const newImage = this.state.fileList.thumbUrl?this.state.fileList.thumbUrl:this.props.passport_photo ? this.props.passport_photo : this.state.fileList.url;
         return (
             <Upload
                 className="avatar-uploader"
@@ -57,8 +58,8 @@ class Avatar extends React.Component {
                 onChange={this.handleChange}
             >
                 {
-                    imageUrl ? <img src={imageUrl} role="presentation" className="avatar"/> :
-                        <img src={newImage} role="presentation" className="avatar"/>}
+                    !imageUrl ?<img src={newImage} role="presentation" className="avatar"/>  :<img src={imageUrl} role="presentation" className="avatar"/>
+                        }
                 <div type="plus" className="avatar-uploader-trigger">上传证件
                 </div>
             </Upload>

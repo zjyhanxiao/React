@@ -13,31 +13,33 @@ class BasicInformation extends React.Component {
     constructor(props) {
         super(props)
     }
+
     handleSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', JSON.stringify(values));
                 this.props.changeIndex(e)
                 /*const {dispatch} = this.props
-                dispatch(updateProfile(values, this.success))*/
+                 dispatch(updateProfile(values, this.success))*/
             }
         });
         e.preventDefault();
     }
+
     disabledDate(current) {
         // can not select days before today and today
         return current && current.valueOf() < Date.now() - 90 * 24 * 60 * 60 * 1000;
     }
+
     expire_date(current) {
         // can not select days before today and today
         return current && current.valueOf() < Date.now() - 1 * 24 * 60 * 60 * 1000;
     }
-    componentWillReceiveProps(nextProps) {
-        // console.log('1111111111111'+JSON.stringify(nextProps))
-    }
+
     success() {
         console.log('success')
     }
+
     render() {
         // const {getFieldDecorator} = this.props.form;
         const formItemLayout = {
@@ -51,12 +53,18 @@ class BasicInformation extends React.Component {
             },
         };
         return (
-            <div style={{width: 900, background: '#fff', overflow: 'hidden',display:this.props.second==true?'block':'none'}}>
+            <div style={{
+                width: 900,
+                background: '#fff',
+                overflow: 'hidden',
+                display: this.props.second == true ? 'block' : 'none'
+            }}>
+                {JSON.stringify(this.props)}
                 <Form horizontal>
-                    <BasicInfoH {...this.props} getFieldDecorator={this.props.form}
-                                disabledDate={this.disabledDate} expire_date={this.expire_date}/>
+                    <BasicInfoH {...this.props.getsProfile} getFieldDecorator={this.props.form}
+                                disabledDate={this.disabledDate} expire_date={this.expire_date} />
                     {/*<BasicInfoUC {...this.props} getFieldDecorator={this.props.form} />*/}
-                    <Basicpassport {...this.props} getFieldDecorator={this.props.form} />
+                    <Basicpassport {...this.props.getsProfile} getFieldDecorator={this.props.form} />
                     <FormItem {...tailFormItemLayout}>
                         <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
                             <Col span={4} offset={8}>
@@ -67,7 +75,8 @@ class BasicInformation extends React.Component {
                                     background: '#223976',
                                     color: '#fff',
                                     fontSize: '18px'
-                                }} type="primary" name="third" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
+                                }} type="primary" name="third" htmlType="submit" onClick={this.handleSubmit.bind(this)}
+                                        size="large">下一步</Button>
                             </Col>
                         </Row>
                     </FormItem>
@@ -78,15 +87,20 @@ class BasicInformation extends React.Component {
 }
 BasicInformation = Form.create({
     onFieldsChange(props, changedFields) {
+        console.log(changedFields)
         for (let i in changedFields) {
             let key = changedFields[i].name
             let val = changedFields[i].value
-            if (key == 'date_of_birth') {
-                let val = changedFields[i].value.format('YYYY-MM-DD')
-                props.dispatch(saveFields(key, val));
-            } else {
-                props.dispatch(saveFields(key, val));
+            console.log(val)
+            if (val != undefined && val != '') {
+                if (key == 'date_of_birth') {
+                    let val = changedFields[i].value.format('YYYY-MM-DD')
+                    props.dispatch(saveFields(key, val));
+                } else {
+                    props.dispatch(saveFields(key, val));
+                }
             }
+
         }
     }
 })(BasicInformation);

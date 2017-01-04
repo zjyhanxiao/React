@@ -28,6 +28,8 @@ class BasicPassport extends React.Component {
 
     render() {
         const {getFieldDecorator} = this.props.getFieldDecorator;
+        const data=this.props.getsProfile.base_profile
+        console.log('aaaaa'+JSON.stringify(data))
         const formItemLayout = {
             labelCol: {span: 6},
             wrapperCol: {span: 14},
@@ -92,7 +94,7 @@ class BasicPassport extends React.Component {
                         //initialValue: this.props.passport_photo,
                         rules: [{required: true, message: '请上传证件!'}]
                     })(
-                        <Uploader {...this.props.passport_photo}/>
+                        <Uploader {...data}/>
                     )}
                 </FormItem>
                 <FormItem>

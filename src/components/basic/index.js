@@ -25,9 +25,6 @@ class BasicInfo extends React.Component {
         e.preventDefault()
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                values.date_of_birth = values.date_of_birth.format('YYYY-MM-DD')
-                values.mx_token='25b6ca3901730fba2cb6098d34912f34'
-                values.mx_secret='da9d83c022637e7eda9fb59299026e7c'
                 console.log(values)
                 /*$.ajax({
                     type:'post',
@@ -62,7 +59,7 @@ class BasicInfo extends React.Component {
                     </FormItem>
                     <FormItem label='date_of_birth'>
                         {getFieldDecorator('date_of_birth', {
-                            initialValue: moment(this.props.date_of_birth),
+                            //initialValue: moment(this.props.date_of_birth),
                             rules: [{type: 'object', required: true, message: '请输入日期!'}]
                         })(
                             <DatePicker format="YYYY-MM-DD" size="large" style={{width: 240}}></DatePicker>
