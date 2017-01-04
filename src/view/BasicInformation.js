@@ -14,17 +14,15 @@ class BasicInformation extends React.Component {
         super(props)
     }
     handleSubmit(e) {
-        e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                values.date_of_birth = values.date_of_birth.format('YYYY-MM-DD')
-                values.mx_token = '25b6ca3901730fba2cb6098d34912f34'
-                values.mx_secret = 'da9d83c022637e7eda9fb59299026e7c'
                 console.log('Received values of form: ', JSON.stringify(values));
+                this.props.changeIndex(e)
                 /*const {dispatch} = this.props
                 dispatch(updateProfile(values, this.success))*/
             }
         });
+        e.preventDefault();
     }
     disabledDate(current) {
         // can not select days before today and today
@@ -53,7 +51,7 @@ class BasicInformation extends React.Component {
             },
         };
         return (
-            <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
+            <div style={{width: 900, background: '#fff', overflow: 'hidden',display:this.props.second==true?'block':'none'}}>
                 <Form horizontal>
                     <BasicInfoH {...this.props} getFieldDecorator={this.props.form}
                                 disabledDate={this.disabledDate} expire_date={this.expire_date}/>
@@ -69,7 +67,7 @@ class BasicInformation extends React.Component {
                                     background: '#223976',
                                     color: '#fff',
                                     fontSize: '18px'
-                                }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
+                                }} type="primary" name="third" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
                             </Col>
                         </Row>
                     </FormItem>

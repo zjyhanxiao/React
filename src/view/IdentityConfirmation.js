@@ -19,13 +19,10 @@ class IdentityConfirmation extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        // values.date_of_birth = values.date_of_birth.format('YYYY-MM-DD')
-        values.mx_token='25b6ca3901730fba2cb6098d34912f34'
-        values.mx_secret='da9d83c022637e7eda9fb59299026e7c'
         console.log('Received values of form: ', JSON.stringify(values));
-
-        const { dispatch } = this.props
-        dispatch(updateProfile(values,this.success))
+        this.props.changeIndex(e)
+        /*const { dispatch } = this.props
+        dispatch(updateProfile(values,this.success))*/
       }
     });
   }
@@ -47,7 +44,7 @@ class IdentityConfirmation extends React.Component {
       },
     };
     return (
-      <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
+      <div style={{width: 900, background: '#fff', overflow: 'hidden',display:this.props.first==true?'block':'none'}}>
         {/*{JSON.stringify(this.props.passport_photo)}*/}
         <Form horizontal>
 
@@ -66,7 +63,7 @@ class IdentityConfirmation extends React.Component {
                   background: '#223976',
                   color: '#fff',
                   fontSize: '18px'
-                }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
+                }} type="primary" htmlType="submit" name="second" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
               </Col>
             </Row>
           </FormItem>

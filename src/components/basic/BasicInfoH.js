@@ -41,7 +41,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('date_of_birth', {
-                                initialValue: (this.props != null && this.props.date_of_birth != null) ? moment(this.props.date_of_birth) : null,
+                                //initialValue: (this.props != null && this.props.date_of_birth != null) ? moment(this.props.date_of_birth) : null,
                                 rules: [{type: 'object', required: true, message: '请输入日期!'}],
                             })(
                                 <DatePicker size="large" style={{width: 240}} disabledDate={this.props.expire_date}></DatePicker>
@@ -85,7 +85,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('nationality', {
-                                initialValue: 'CN',
+                                //initialValue: 'CN',
                                 rules: [{
                                     type: 'string',
                                     required: false,
@@ -110,7 +110,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('nationality', {
-                                initialValue: 'CN',
+                                //initialValue: 'CN',
                                 rules: [{
                                     type: 'string',
                                     required: false,
@@ -139,7 +139,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('residence', {
-                                initialValue: 'CN',
+                                //initialValue: 'CN',
                                 rules: [{
                                     type: 'string',
                                     required: false,
@@ -164,7 +164,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('occupation', {
-                                initialValue: 'lucy',
+                                //initialValue: 'lucy',
                                 rules: [{
                                     type: 'string',
                                     required: false,
@@ -193,7 +193,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('nationality', {
-                                initialValue: 'CN',
+                                //initialValue: 'CN',
                                 rules: [{
                                     type: 'string',
                                     required: false,
@@ -219,7 +219,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('passport_code', {
-                                initialValue: this.props.passport_code,
+                                //initialValue: this.props.passport_code,
                                 rules: [{
                                     required: true, message: '请输入您的护照号!',
                                 }],

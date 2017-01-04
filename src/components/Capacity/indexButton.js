@@ -1,4 +1,3 @@
-
 import '../identity/identity.css'
 import React, {PropTypes} from 'react';
 import {Modal, Button, Row, Col} from 'antd';
@@ -14,7 +13,15 @@ import IdentityConfirmation from '../../view/IdentityConfirmation'
 const IndexButton = React.createClass({
     getInitialState() {
         return {
-            visible: false
+            visible: false,
+            pages: {
+                first: true,
+                second: false,
+                third: false,
+                four: false,
+                five: false,
+                current: 'first'
+            }
         };
     },
     showModal() {
@@ -31,6 +38,29 @@ const IndexButton = React.createClass({
             visible: false,
         });
     },
+    changeIndex(event){
+        var cur
+        if (event.target.tagName == 'SPAN') {
+            cur = event.target.parentNode.name
+        }
+        if(event.target.tagName == 'BUTTON'){
+            cur = event.target.name
+        }
+        this.setState(
+            {
+                pages: {
+                    first: false,
+                    second: false,
+                    third: false,
+                    four: false,
+                    five: false,
+                    [cur]: true,
+                    current: cur
+                }
+            }
+        )
+        event.preventDefault();
+    },
     handleCancel(e) {
         console.log(e);
         this.setState({
@@ -38,8 +68,7 @@ const IndexButton = React.createClass({
         });
     },
     render() {
-        let data=this.props.getsProfile.base_profile
-console.log(JSON.stringify(data))
+        let data = this.props.getsProfile.base_profile
         return (
             <div>
                 <div style={{width: '100%', margin: '0 auto', textAlign: 'center', background: '#ffffff'}}>
@@ -58,12 +87,13 @@ console.log(JSON.stringify(data))
 
                 <Modal title="" visible={this.state.visible}
                        onOk={this.handleOk} onCancel={this.handleCancel} closable={false} footer={''} width={932}>
-                  <Indexbar/>
-                  <IdentityConfirmation/>
-                  <BasicInformation {...this.props}/>
-                  <AddressInformation {...this.props.getsProfile.base_profile} />
-                  <BankInformation  {...this.props.getsProfile.base_profile} />
-                  <ComplianceReview/>
+                    {JSON.stringify(this.state.pages)}
+                  <Indexbar {...this.state.pages} {...this.props} />
+                  <IdentityConfirmation {...this.state.pages} {...this.props} changeIndex={this.changeIndex} />
+                  <BasicInformation {...this.state.pages} {...this.props} changeIndex={this.changeIndex} />
+                  <AddressInformation {...this.state.pages} {...this.props} changeIndex={this.changeIndex} />
+                  <BankInformation  {...this.state.pages} {...this.props} changeIndex={this.changeIndex} />
+                  <ComplianceReview {...this.state.pages} {...this.props} changeIndex={this.changeIndex} />
                 </Modal>
 
             </div>

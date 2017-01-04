@@ -1,16 +1,9 @@
 import {combineReducers} from 'redux'
 import * as types from '../actions/ActionTypes'
 const baseState={
-    pages:{
-        first:true,
-        second:false,
-        third:false,
-        four:false,
-        five:false,
-        current:'first'
-    }
+
 }
-const getsProfile = (state = {baseState}, action) => {
+const getsProfile = (state = {}, action) => {
     switch (action.type) {
         case types.GET_PROFILE_SUCCESS:
             return Object.assign({}, state, {
@@ -18,7 +11,7 @@ const getsProfile = (state = {baseState}, action) => {
                  email: action.json.body.email,
                  date_of_birth: action.json.body.date_of_birth,
                  passport_photo: null*/
-                base_profile: action.json.body,
+                base_profile: null,
                 pages:state.pages
             });
         case types.UPDATE_UPLOADER:
