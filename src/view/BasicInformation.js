@@ -54,7 +54,6 @@ class BasicInformation extends React.Component {
         };
         return (
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
-                {JSON.stringify(this.props)}
                 <Form horizontal>
                     <BasicInfoH {...this.props} getFieldDecorator={this.props.form}
                                 disabledDate={this.disabledDate} expire_date={this.expire_date}/>
