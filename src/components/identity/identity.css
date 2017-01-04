@@ -8,7 +8,10 @@
   background: #ffffff;
   color: #223976;
 }
-
+.active{
+  border-top: 3px solid #223976!important;
+  color: #223976!important;
+}
 
 
 .ant-radio-button-wrapper{

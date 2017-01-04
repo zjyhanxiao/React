@@ -3,7 +3,6 @@ import {Modal, Button, Row, Col} from 'antd';
 import {connect} from 'react-redux'
 import {fetchPosts} from '../../Redux/actions/index'
 import IndexBar from './indexbar'
-
 import BasicInformation from '../../view/BasicInformation'
 import AddressProof from '../../view/AddressProof'
 import BankInformation from '../../view/BankInformation'
@@ -59,9 +58,9 @@ const IndexButton = React.createClass({
           <IndexBar/>
           {/*<BankInformation  {...this.props.getsProfile.base_profile} />*/}
           {/*<AddressProof {...this.props.getsProfile.base_profile} />*/}
-          <BasicInformation {...this.props.getsProfile.base_profile}/>
+          {/*<BasicInformation {...this.props.getsProfile.base_profile}/>*/}
           {/*<ComplianceReview />*/}
-          {/*<IdentityConfirmation />*/}
+          <IdentityConfirmation />
 
         </Modal>
 

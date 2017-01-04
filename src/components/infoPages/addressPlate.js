@@ -2,9 +2,8 @@
  * Created by robot on 2016/12/22.
  */
 import React from 'react';
-
-import {Row, Col} from 'antd';
-
+import {Modal, Button, Row, Col} from 'antd';
+import AddressProof from '../../view/AddressProof'
 
 
 class AddressPlate extends React.Component {
@@ -16,6 +15,22 @@ class AddressPlate extends React.Component {
       profile:{}
     }
   }
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  }
+  handleOk = () => {
+    this.setState({
+      visible: false,
+    });
+  }
+  handleCancel = (e) => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  }
 
   render() {
     return (
@@ -25,9 +40,15 @@ class AddressPlate extends React.Component {
             <p style={{fontWeight:'900',fontSize:'16px'}}>地址</p>
           </Col>
           <Col span={1} offset={15}>
-            <span style={{marginBottom:'-5px',color:'#159bd6',cursor:'pointer'}}>修改</span>
+            <a style={{marginBottom:'-5px',color:'#159bd6',cursor:'pointer'}} onClick={this.showModal}>修改</a>
           </Col>
         </Row>
+    <Modal title="" visible={this.state.visible}
+           onOk={this.handleOk} onCancel={this.handleCancel} closable={false} footer={''} width={900}>
+      <AddressProof/>
+    </Modal>
+
+
         <Row style={{margin:'15px 0',}}>
           <Col span={20} offset={2}>
             <p style={{width:'100%',height:'1px',background:'#cccccc'}}></p>
@@ -40,7 +61,7 @@ class AddressPlate extends React.Component {
         </Row>
         {this.state.a ?
           <Row style={{}}>
-            <Col span={20} offset={2}><p style={{color:'#fe593e'}}>地址证明已经失效，请重新<span style={{color:'#159bd6',cursor:'pointer'}}>上传</span></p></Col>
+            <Col span={20} offset={2}><p style={{color:'#fe593e'}}>地址证明已经失效，请重新<a style={{color:'#159bd6',cursor:'pointer'}} onClick={this.showModal}>上传</a></p></Col>
           </Row>
           : ''}
 

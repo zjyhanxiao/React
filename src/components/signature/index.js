@@ -24,7 +24,7 @@ class Signature extends React.Component {
             <div className='container'>
                 <p style={{color:'#898a8b',fontWeight:'500',fontSize:'14px',paddingBottom:'10px',background:'#ffffff'}}>投资人(<span style={{fontWeight:'600',fontSize:'14px',color:'#898000'}}>zhao yue cheng</span>)签名</p>
                 <div className='sigContainer'>
-                    <SignaturePad canvasProps={{width: 900, height: 200,className: 'sigPad'}}
+                    <SignaturePad canvasProps={{width: 750, height: 200,className: 'sigPad'}}
                                   ref={(ref) => { this.sigPad = ref }}
                                   onEnd={this.trim}
 

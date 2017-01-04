@@ -18,7 +18,7 @@ class InfoPages extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      a:true,
+      a:false,
       profile:{}
     }
   }
