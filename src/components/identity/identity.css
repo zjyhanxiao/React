@@ -59,4 +59,10 @@
   border-radius: 0!important;
 }
 
+.ant-modal-body{
+  padding: 0!important;
+}
 
+.ant-modal{
+  width: 900px!important;
+}

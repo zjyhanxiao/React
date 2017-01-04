@@ -1,3 +1,5 @@
+
+import '../identity/identity.css'
 import React, {PropTypes} from 'react';
 import {Modal, Button, Row, Col} from 'antd';
 import {connect} from 'react-redux'
