@@ -97,10 +97,5 @@ BasicInformation.defaultProps = {};
 /*BasicInformation.propTypes = {
  dispatch: PropTypes.func.isRequired
  }*/
-const mapStateToProps = (state) => {
-    return {
-        // getsProfile: state.getsProfile
-        // base_profile:state.getsProfile.base_profile
-    }
-}
-export default connect(mapStateToProps)(BasicInformation)
+
+export default BasicInformation
