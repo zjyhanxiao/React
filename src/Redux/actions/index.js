@@ -61,4 +61,11 @@ export const updateUploader = (path, key) => {
         key: key
     }
 }
+export const saveFields = (key,val) => {
+    return {
+        type: types.SAVE_FIELDS,
+        key:key,
+        val:val
+    }
+}
 
