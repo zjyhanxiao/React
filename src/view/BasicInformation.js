@@ -2,8 +2,9 @@ import React, {Component, PropTypes}from 'react';
 import 'antd/dist/antd.css'
 import {Form, Row, Col, Button} from 'antd';
 import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 import moment from 'moment'
-import {updateProfile} from '../Redux/actions/index'
+import {updateProfile, saveFields} from '../Redux/actions/index'
 import BasicInfoUC from '../components/basic/BasicInfoUC'
 import BasicInfoH from '../components/basic/BasicInfoH'
 import Basicpassport from '../components/basic/Basicpassport'
@@ -15,22 +16,25 @@ class BasicInformation extends React.Component {
     }
 
     handleSubmit(e) {
-        console.log('GGGGGGGGGGGGGGG'+JSON.stringify(this.props))
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 values.date_of_birth = values.date_of_birth.format('YYYY-MM-DD')
-                values.mx_token='25b6ca3901730fba2cb6098d34912f34'
-                values.mx_secret='da9d83c022637e7eda9fb59299026e7c'
+                values.mx_token = '25b6ca3901730fba2cb6098d34912f34'
+                values.mx_secret = 'da9d83c022637e7eda9fb59299026e7c'
                 console.log('Received values of form: ', JSON.stringify(values));
 
-                const { dispatch } = this.props
-                dispatch(updateProfile(values,this.success))
+                const {dispatch} = this.props
+                dispatch(updateProfile(values, this.success))
             }
         });
     }
 
-    success(){
+    componentWillReceiveProps(nextProps) {
+        // console.log('1111111111111'+JSON.stringify(nextProps))
+    }
+
+    success() {
         console.log('success')
     }
 
@@ -50,9 +54,10 @@ class BasicInformation extends React.Component {
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
                 {JSON.stringify(this.props)}
                 <Form horizontal>
-                    <BasicInfoH {...this.props} getFieldDecorator={this.props.form}  />
+                    <BasicInfoH {...this.props} getFieldDecorator={this.props.form}
+                                handleFormChange={this.handleFormChange} />
                     {/*<BasicInfoUC {...this.props} getFieldDecorator={this.props.form} />*/}
-                    <Basicpassport {...this.props}  getFieldDecorator={this.props.form} />
+                    <Basicpassport {...this.props} getFieldDecorator={this.props.form} />
                     <FormItem {...tailFormItemLayout}>
                         <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
                             <Col span={4} offset={7}>
@@ -76,28 +81,30 @@ class BasicInformation extends React.Component {
 }
 
 BasicInformation = Form.create({
-    mapPropsToFields(props) {
-        return {
-            passport_photo: {
-                ...props.passport_photo,
-                value: props.passport_photo,
-            },
-        };
+    onFieldsChange(props, changedFields) {
+        for (let i in changedFields) {
+            let key = changedFields[i].name
+            let val = changedFields[i].value
+            if (key == 'date_of_birth') {
+                let val = changedFields[i].value.format('YYYY-MM-DD')
+                props.dispatch(saveFields(key, val));
+            }else{
+                props.dispatch(saveFields(key, val));
+            }
+        }
     }
 })(BasicInformation);
 
 BasicInformation.defaultProps = {};
 
-BasicInformation.propTypes = {
-    dispatch: PropTypes.func.isRequired
-}
+/*BasicInformation.propTypes = {
+ dispatch: PropTypes.func.isRequired
+ }*/
 
 const mapStateToProps = (state) => {
     return {
-        // getsProfile: state.getsProfile.base_profile
+        // getsProfile: state.getsProfile
         // base_profile:state.getsProfile.base_profile
     }
 }
-
-
 export default connect(mapStateToProps)(BasicInformation)

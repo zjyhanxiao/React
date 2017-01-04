@@ -235,24 +235,13 @@ class BasicInfoH extends React.Component {
         );
     }
 }
-/*BasicInfoH = Form.create({
- mapPropsToFields(props) {
- return {
- date_of_birth: {
- ...props.date_of_birth,
- value: moment(props.date_of_birth),
- },
- passport_code: {
- ...props.passport_code,
- value: props.passport_code,
- },
- passport_photo: {
- ...props.passport_photo,
- value: props.passport_photo,
- },
- };
- }
- })(BasicInfoH);*/
+BasicInfoH = Form.create({
+    onFieldsChange(props, changedFields) {
+        console.log(JSON.stringify(changedFields))
+        props.handleFormChange(changedFields)
+        // props.onChange(changedFields);
+    }
+})(BasicInfoH);
 
 BasicInfoH.defaultProps = {}
 

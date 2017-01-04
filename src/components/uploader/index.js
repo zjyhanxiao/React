@@ -33,10 +33,11 @@ class Avatar extends React.Component {
 
 
     handleChange = (info) => {
+        const len=info.fileList.length-1;
         const { dispatch } = this.props
         if (info.file.status === 'done') {
-            let resData=info.fileList[0].response.body
-            this.setState({fileList: {thumbUrl: resData}})
+            let resData=info.fileList[len].response.body
+            // this.setState({fileList: {thumbUrl: resData}})
             dispatch(updateUploader(this.props.id,resData))
             // Get this url from response in real world.
             getBase64(info.file.originFileObj, imageUrl => this.setState({imageUrl}));
@@ -67,9 +68,8 @@ class Avatar extends React.Component {
 
 Avatar.defaultProps = {};
 function mapDispatchToProps(dispatch) {
-    console.log('FFFFFFFFFF'+JSON.stringify(dispatch))
     return {
-        // updateUploader: bindActionCreators(updateUploader, dispatch)
+        updateUploader: bindActionCreators(updateUploader, dispatch)
     }
 }
 export default connect( mapDispatchToProps)(Avatar);

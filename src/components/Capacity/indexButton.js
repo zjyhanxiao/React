@@ -8,7 +8,9 @@ import BasicInformation from '../../view/BasicInformation'
 
 const IndexButton = React.createClass({
     getInitialState() {
-        return {visible: false};
+        return {
+            visible: false
+        };
     },
     showModal() {
         this.setState({
