@@ -235,13 +235,6 @@ class BasicInfoH extends React.Component {
         );
     }
 }
-BasicInfoH = Form.create({
-    onFieldsChange(props, changedFields) {
-        console.log(JSON.stringify(changedFields))
-        props.handleFormChange(changedFields)
-        // props.onChange(changedFields);
-    }
-})(BasicInfoH);
 
 BasicInfoH.defaultProps = {}
 

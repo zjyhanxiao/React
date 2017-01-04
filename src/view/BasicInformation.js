@@ -36,7 +36,7 @@ class BasicInformation extends React.Component {
     }
     expire_date(current) {
         // can not select days before today and today
-        return current && current.valueOf() < Date.now();
+        return current && current.valueOf() < Date.now() - 1 * 24 * 60 * 60 * 1000;
     }
 
     componentWillReceiveProps(nextProps) {
