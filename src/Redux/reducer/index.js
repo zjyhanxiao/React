@@ -1,7 +1,11 @@
 import {combineReducers} from 'redux'
 import * as types from '../actions/ActionTypes'
 
-const getsProfile = (state = {}, action) => {
+const baseState={
+
+}
+
+const getsProfile = (state = {baseState}, action) => {
     switch (action.type) {
         case types.GET_PROFILE_SUCCESS:
 
