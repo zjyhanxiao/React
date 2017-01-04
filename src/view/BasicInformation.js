@@ -30,6 +30,15 @@ class BasicInformation extends React.Component {
         });
     }
 
+    disabledDate(current) {
+        // can not select days before today and today
+        return current && current.valueOf() < Date.now() - 90 * 24 * 60 * 60 * 1000;
+    }
+    expire_date(current) {
+        // can not select days before today and today
+        return current && current.valueOf() < Date.now();
+    }
+
     componentWillReceiveProps(nextProps) {
         // console.log('1111111111111'+JSON.stringify(nextProps))
     }
@@ -55,7 +64,7 @@ class BasicInformation extends React.Component {
                 {JSON.stringify(this.props)}
                 <Form horizontal>
                     <BasicInfoH {...this.props} getFieldDecorator={this.props.form}
-                                handleFormChange={this.handleFormChange} />
+                                handleFormChange={this.handleFormChange} disabledDate={this.disabledDate} expire_date={this.expire_date}/>
                     {/*<BasicInfoUC {...this.props} getFieldDecorator={this.props.form} />*/}
                     <Basicpassport {...this.props} getFieldDecorator={this.props.form} />
                     <FormItem {...tailFormItemLayout}>
@@ -88,7 +97,7 @@ BasicInformation = Form.create({
             if (key == 'date_of_birth') {
                 let val = changedFields[i].value.format('YYYY-MM-DD')
                 props.dispatch(saveFields(key, val));
-            }else{
+            } else {
                 props.dispatch(saveFields(key, val));
             }
         }

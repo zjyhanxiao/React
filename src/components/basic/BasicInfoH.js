@@ -44,7 +44,7 @@ class BasicInfoH extends React.Component {
                                 initialValue: (this.props != null && this.props.date_of_birth != null) ? moment(this.props.date_of_birth) : null,
                                 rules: [{type: 'object', required: true, message: '请输入日期!'}],
                             })(
-                                <DatePicker size="large" style={{width: 240}}></DatePicker>
+                                <DatePicker size="large" style={{width: 240}} disabledDate={this.props.expire_date}></DatePicker>
                             )}
                         </FormItem>
                     </Col>
