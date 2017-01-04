@@ -136,7 +136,7 @@ class AddressChina extends React.Component {
                     validator: this.checkConfirm,
                   }],
                 })(
-                  <Input type="textarea" style={{width: 240,height:88}} />
+                  <Input type="textarea" style={{width: 240,height:88,resize:'none'}} />
                 )}
               </FormItem></Row>
               <Row><FormItem

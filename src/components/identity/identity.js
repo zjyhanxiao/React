@@ -18,9 +18,18 @@ class Identity extends React.Component {
     this.state = {
       profile:{},
       size: '非美国投资人',
+      zhong:'1',
       value:'1'
     }
   }
+
+  Change=(e)=> {
+    console.log('radio checked', e.target.value);
+    this.setState({
+      zhong: e.target.value,
+    });
+  }
+
 
   onChange=(e)=> {
     console.log('radio checked', e.target.value);
@@ -178,7 +187,7 @@ class Identity extends React.Component {
                     <p style={{lineHeight:'20px'}}>1.我个人或与配偶的联合资产超过100万美金，包括退休金、401K、IRA、任何险金、投资基金、股票、投资房产及其他任何财产（注：不包括自己现居住的一处房产）。</p>
                     <p style={{lineHeight:'20px',marginBottom:'10px'}}>2.我过去两年内个人年总收入超过20万美金，或与配偶联合年总收入超过30万美金，同时今年收入预期和前两年接近。具有顾客信用报告的复印件。</p>
                   </div>
-                  <RadioGroup onChange={this.onChange} value={this.state.value}>
+                  <RadioGroup onChange={this.Change} value={this.state.zhong}>
                     <Radio style={radioStyle} value={3}>我是合格投资人</Radio>
                     <Radio style={radioStyle} value={4}>我不是合格投资人</Radio>
                   </RadioGroup>
