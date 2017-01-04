@@ -3,7 +3,7 @@ import 'antd/dist/antd.css'
 import {Form, Row, Col, Button} from 'antd';
 import {connect} from 'react-redux'
 import moment from 'moment'
-import {updateProfile} from '../Redux/actions/index'
+import {updateProfile,saveFields} from '../Redux/actions/index'
 import BankFast from '../components/bank/BankFast'
 import BanknoUSA from '../components/bank/BanknoUSA'
 import BankPublic from '../components/bank/BankPublic'
@@ -54,14 +54,7 @@ class BankInformation extends React.Component {
           <BankFast></BankFast>
           <BankUSA {...this.props}  getFieldDecorator={this.props.form} />
           {/*<BankPublic {...this.props}  getFieldDecorator={this.props.form} />*/}
-          <BanknoUSA {...this.props}  getFieldDecorator={this.props.form} />
-
-
-
-
-
-
-
+          {/*<BanknoUSA {...this.props}  getFieldDecorator={this.props.form} />*/}
           <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
             <Col span={3} offset={6}>
               <Button style={{
@@ -95,7 +88,20 @@ class BankInformation extends React.Component {
   }
 }
 
-
+BankInformation = Form.create({
+    onFieldsChange(props, changedFields) {
+        for (let i in changedFields) {
+            let key = changedFields[i].name
+            let val = changedFields[i].value
+            if (key == 'date_of_birth') {
+                let val = changedFields[i].value.format('YYYY-MM-DD')
+                props.dispatch(saveFields(key, val));
+            } else {
+                props.dispatch(saveFields(key, val));
+            }
+        }
+    }
+})(BankInformation);
 BankInformation.defaultProps = {};
 
 BankInformation.propTypes = {
