@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import {Modal, Button, Row, Col} from 'antd';
 import {connect} from 'react-redux'
 import {fetchPosts} from '../../Redux/actions/index'
+import Indexbar from './indexbar'
 import BasicInformation from '../../view/BasicInformation'
 import AddressInformation from '../../view/AddressProof'
 import BankInformation from '../../view/BankInformation'
@@ -53,6 +54,8 @@ console.log(JSON.stringify(data))
 
                 <Modal title="" visible={this.state.visible}
                        onOk={this.handleOk} onCancel={this.handleCancel} closable={false} footer={''} width={932}>
+                    <Indexbar/>
+
                     <BankInformation  {...this.props.getsProfile.base_profile} />
                     <AddressInformation {...this.props.getsProfile.base_profile} />
                     <BasicInformation {...this.props}/>

@@ -20,6 +20,7 @@ class ItemAmount extends React.Component {
   }
 
 
+
   render() {
     return (
               <div style={{width:'500px',height:'160px',border:'1px solid #cccccc',borderTop:'5px solid #4760a1',borderRadius:'5px',background:'#ffffff'}}>
