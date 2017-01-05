@@ -141,7 +141,7 @@ class AddressChina extends React.Component {
                 labelCol={{span: 4,offset: 2}}
                 wrapperCol={{span: 14}}
               >
-                {getFieldDecorator('postalCode', {
+                {getFieldDecorator('postal_code', {
                   rules: [{
                     required: false, message: '请输入您的姓的汉语拼音!',
                   },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',} ,{

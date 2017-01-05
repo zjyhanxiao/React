@@ -157,9 +157,9 @@ class AddressOther extends React.Component {
               labelCol={{span: 5,offset: 2}}
               wrapperCol={{span: 15}}
             >
-              {getFieldDecorator('last_name', {
+              {getFieldDecorator('postal_code', {
                 rules: [{
-                  required: false, message: '请输入您的姓的汉语拼音!',
+                  required: false, message: '请输入您的邮政编码!',
                 } ,{
                   validator: this.checkConfirm,
                 }],

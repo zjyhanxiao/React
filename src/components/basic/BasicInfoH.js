@@ -109,7 +109,7 @@ class BasicInfoH extends React.Component {
                             labelCol={{span: 4, offset: 2}}
                             wrapperCol={{span: 14}}
                         >
-                            {getFieldDecorator('nationality', {
+                            {getFieldDecorator('source_of_capital', {
                                 //initialValue: 'CN',
                                 rules: [{
                                     type: 'string',
@@ -138,7 +138,7 @@ class BasicInfoH extends React.Component {
                             labelCol={{span: 4, offset: 4}}
                             wrapperCol={{span: 14}}
                         >
-                            {getFieldDecorator('residence', {
+                            {getFieldDecorator('industry', {
                                 //initialValue: 'CN',
                                 rules: [{
                                     type: 'string',
@@ -192,7 +192,7 @@ class BasicInfoH extends React.Component {
                             labelCol={{span: 4, offset: 4}}
                             wrapperCol={{span: 14}}
                         >
-                            {getFieldDecorator('nationality', {
+                            {getFieldDecorator('country_of_tax_residency', {
                                 //initialValue: 'CN',
                                 rules: [{
                                     type: 'string',
@@ -217,7 +217,7 @@ class BasicInfoH extends React.Component {
                             labelCol={{span: 4, offset: 2}}
                             wrapperCol={{span: 14}}
                         >
-                            {getFieldDecorator('ssss', {
+                            {getFieldDecorator('foreign_tax_number', {
                                 //initialValue: this.props.passport_code,
                                 rules: [{
                                     required: false, message: '请输入您的护照号!',

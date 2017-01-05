@@ -60,7 +60,7 @@ class BankUSA extends React.Component {
                 labelCol={{span: 6}}
                 wrapperCol={{span: 18}}
               >
-                {getFieldDecorator('last_name', {
+                {getFieldDecorator('bank_name', {
                   rules: [{
                     required: true, message: '请输入您的姓的汉语拼音!',
                   } ,{
@@ -82,7 +82,7 @@ class BankUSA extends React.Component {
               labelCol={{span: 4,offset: 2}}
               wrapperCol={{span: 16}}
             >
-              {getFieldDecorator('last_name', {
+              {getFieldDecorator('bank_address', {
                 initialValue:'yang',
                 rules: [{
                   required: true, message: '请填写您的详细地址!'
@@ -101,7 +101,7 @@ class BankUSA extends React.Component {
             labelCol={{span: 4,offset: 2}}
             wrapperCol={{span: 16}}
           >
-            {getFieldDecorator('last_name', {
+            {getFieldDecorator('routing_number', {
               rules: [{
                 required: true, message: '请输入您的姓的汉语拼音!',
               } ,{
@@ -119,7 +119,7 @@ class BankUSA extends React.Component {
               labelCol={{span: 4,offset: 2}}
               wrapperCol={{span: 16}}
             >
-              {getFieldDecorator('last_name', {
+              {getFieldDecorator('account_number', {
                 rules: [{
                   required: true, message: '请输入您的姓的汉语拼音!',
                 } ,{

@@ -77,7 +77,7 @@ class BasicPassport extends React.Component {
                             labelCol={{span: 4, offset: 2}}
                             wrapperCol={{span: 14}}
                         >
-                            {getFieldDecorator('sss', {
+                            {getFieldDecorator('expir_date', {
                                 rules: [{type: 'object', required: false, message: '请输入日期!'}],
                             })(
                                 <DatePicker size="large" style={{width: 240}}></DatePicker>

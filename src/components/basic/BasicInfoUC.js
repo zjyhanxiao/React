@@ -70,7 +70,7 @@ class BasicInfoUC extends React.Component {
                 labelCol={{span: 4,offset: 4}}
                 wrapperCol={{span: 14}}
               >
-                {getFieldDecorator('dateOfBirth', {
+                {getFieldDecorator('date_of_birth', {
                   rules: [{ type: 'object', required: true, message: '请输入日期!' }],
                 })(
                   <DatePicker size="large" style={{width: 240}}></DatePicker>
@@ -84,7 +84,7 @@ class BasicInfoUC extends React.Component {
                 labelCol={{span: 4,offset: 2}}
                 wrapperCol={{span: 14}}
               >
-                {getFieldDecorator('countryOfBirth', {
+                {getFieldDecorator('country_of_birth', {
                   initialValue:'CN',
                   rules: [{
                     type: 'string',
@@ -115,7 +115,7 @@ class BasicInfoUC extends React.Component {
                     labelCol={{span: 4,offset: 4}}
                     wrapperCol={{span: 14}}
                   >
-                    {getFieldDecorator('SSN', {
+                    {getFieldDecorator('ssn', {
                       rules: [{
                         required: true, message: '请输入您的姓的汉语拼音!',
                       },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',} ,{
@@ -230,7 +230,7 @@ class BasicInfoUC extends React.Component {
                   labelCol={{span: 4,offset: 4}}
                   wrapperCol={{span: 14}}
                 >
-                  {getFieldDecorator('sourceOfCapital', {
+                  {getFieldDecorator('source_of_capital', {
                     initialValue:'CN',
                     rules: [{
                       type: 'string',

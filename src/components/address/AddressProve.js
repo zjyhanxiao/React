@@ -60,7 +60,7 @@ class AddressProve extends React.Component {
               labelCol={{span: 2,offset: 8}}
               wrapperCol={{span: 12}}
             >
-              {getFieldDecorator('expireDate', {
+              {getFieldDecorator('expire_date', {
                 rules: [{ type: 'object', required: false, message: '请输入日期!' }],
               })(
                 <DatePicker size="large" style={{width: 220}}></DatePicker>

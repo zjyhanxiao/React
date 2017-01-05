@@ -9,6 +9,7 @@ import BasicInfoUC from '../components/basic/BasicInfoUC'
 import BasicInfoH from '../components/basic/BasicInfoH'
 import Basicpassport from '../components/basic/Basicpassport'
 const FormItem = Form.Item;
+
 class BasicInformation extends React.Component {
     constructor(props) {
         super(props)
