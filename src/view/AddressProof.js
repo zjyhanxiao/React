@@ -85,7 +85,7 @@ class AddressInformation extends React.Component {
                   background: '#ffffff',
                   color: '#223976',
                   fontSize: '18px'
-              }} type="primary" onClick={this.goback} size="large">上一步</Button>
+              }} type="primary" name="second" onClick={this.props.changeIndex} size="large">上一步</Button>
             </Col>
 
             <Col span={3} offset={6}>

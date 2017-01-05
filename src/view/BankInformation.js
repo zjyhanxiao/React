@@ -20,13 +20,10 @@ class BankInformation extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        // values.date_of_birth = values.date_of_birth.format('YYYY-MM-DD')
-        values.mx_token='25b6ca3901730fba2cb6098d34912f34'
-        values.mx_secret='da9d83c022637e7eda9fb59299026e7c'
         console.log('Received values of form: ', JSON.stringify(values));
 
-        const { dispatch } = this.props
-        dispatch(updateProfile(values,this.success))
+        /*const { dispatch } = this.props
+        dispatch(updateProfile(values,this.success))*/
       }
     });
   }
@@ -64,7 +61,7 @@ class BankInformation extends React.Component {
                 background: '#ffffff',
                 color: '#223976',
                 fontSize: '18px'
-              }} type="primary" onClick={this.goback} size="large">上一步</Button>
+              }} type="primary" name="third" onClick={this.props.changeIndex} size="large">上一步</Button>
             </Col>
 
             <Col span={3} offset={6}>
