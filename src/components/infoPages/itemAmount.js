@@ -22,7 +22,7 @@ class ItemAmount extends React.Component {
     }
 
     onChange = (e) => {
-        if (!Number(e.target.value)) {
+        if (!Number(e.target.value)&&e.target.value!='') {
             alert('not a number')
             e.preventDefault();
         } else {
@@ -44,12 +44,12 @@ class ItemAmount extends React.Component {
             }
         })
     }
-    onBlur(e){
+/*    onBlur(e){
         if(e.target.value<10000){
             alert('不能少于10000')
 
         }
-    }
+    }*/
     sub(e) {
         this.setState({
             product: {
