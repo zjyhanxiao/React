@@ -73,7 +73,7 @@ class AddressProve extends React.Component {
                   <FormItem style={{width: 346, margin: '0 auto'}}>
                     {getFieldDecorator('file', {
                       initialValue: this.props.passport_photo,
-                      rules: [{required: true, message: '请上传证件!'}]
+                      rules: [{required: false, message: '请上传证件!'}]
                     })(
                       <Uploader {...this.props.passport_photo}/>
                     )}

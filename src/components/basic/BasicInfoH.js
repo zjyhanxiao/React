@@ -42,7 +42,7 @@ class BasicInfoH extends React.Component {
                             {getFieldDecorator('date_of_birth', {
                                 //initialValue: (this.props != null && this.props.date_of_birth != null) ? moment(this.props.date_of_birth) : null,
                                 //initialValue:null,
-                                rules: [{type: 'object', required: true, message: '请输入日期!'}],
+                                rules: [{type: 'object', required: false, message: '请输入日期!'}],
                             })(
                                 <DatePicker size="large" style={{width: 240}}></DatePicker>
                             )}

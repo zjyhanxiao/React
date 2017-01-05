@@ -127,7 +127,7 @@ class AddressChina extends React.Component {
                 {getFieldDecorator('detail', {
                   initialValue:'yang',
                   rules: [{
-                    required: true, message: '请填写您的详细地址!'
+                    required: false, message: '请填写您的详细地址!'
                   }, {
                     validator: this.checkConfirm,
                   }],
@@ -143,7 +143,7 @@ class AddressChina extends React.Component {
               >
                 {getFieldDecorator('postalCode', {
                   rules: [{
-                    required: true, message: '请输入您的姓的汉语拼音!',
+                    required: false, message: '请输入您的姓的汉语拼音!',
                   },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',} ,{
                     validator: this.checkConfirm,
                   }],

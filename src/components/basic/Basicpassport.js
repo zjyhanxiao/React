@@ -61,7 +61,7 @@ class BasicPassport extends React.Component {
                             {getFieldDecorator('passport_code', {
                                 //initialValue: 'E35456464',
                                 rules: [{
-                                    required: true, message: '请输入您的护照号!',
+                                    required: false, message: '请输入您的护照号!',
                                 }, {
                                     validator: this.checkConfirm,
                                 }],
@@ -88,7 +88,7 @@ class BasicPassport extends React.Component {
                 <FormItem style={{width: 346, margin: '0 auto'}}>
                     {getFieldDecorator('passport_photo', {
                         initialValue: data!=null&&data.passport_photo!=null?data.passport_photo:null,
-                        rules: [{required: true, message: '请上传证件!'}]
+                        rules: [{required: false, message: '请上传证件!'}]
                     })(
                         <Uploader {...data} />
                     )}

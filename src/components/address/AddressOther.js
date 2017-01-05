@@ -80,7 +80,7 @@ class AddressOther extends React.Component {
             >
               {getFieldDecorator('line1', {
                 rules: [{
-                  required: true, message: '请输入您的姓的汉语拼音!',
+                  required: false, message: '请输入您的姓的汉语拼音!',
                 } ,{
                   validator: this.checkConfirm,
                 }],
@@ -98,7 +98,7 @@ class AddressOther extends React.Component {
             >
               {getFieldDecorator('line2', {
                 rules: [{
-                  required: true, message: '请输入您的姓的汉语拼音!',
+                  required: false, message: '请输入您的姓的汉语拼音!',
                 } ,{
                   validator: this.checkConfirm,
                 }],
@@ -116,7 +116,7 @@ class AddressOther extends React.Component {
             >
               {getFieldDecorator('city', {
                 rules: [{
-                  required: true, message: '请输入您的姓的汉语拼音!',
+                  required: false, message: '请输入您的姓的汉语拼音!',
                 } ,{
                   validator: this.checkConfirm,
                 }],
@@ -159,7 +159,7 @@ class AddressOther extends React.Component {
             >
               {getFieldDecorator('last_name', {
                 rules: [{
-                  required: true, message: '请输入您的姓的汉语拼音!',
+                  required: false, message: '请输入您的姓的汉语拼音!',
                 } ,{
                   validator: this.checkConfirm,
                 }],
