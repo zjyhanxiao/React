@@ -164,7 +164,7 @@ class BanknoUSA extends React.Component {
                 validator: this.checkConfirm,
               }],
             })(
-              <Input type="textarea" size="large" style={{height:'80px'}} onBlur={this.handlePasswordBlur}/>
+              <Input type="textarea" size="large" style={{height:'80px',resize:'none'}} onBlur={this.handlePasswordBlur}/>
             )}
           </FormItem>
           <FormItem

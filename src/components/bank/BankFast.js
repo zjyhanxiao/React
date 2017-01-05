@@ -4,21 +4,74 @@
 import 'antd/dist/antd.min.css'
 import React from 'react';
 import {connect} from 'react-redux'
-import {Row, Col, Button} from 'antd';
-
+import {Row, Col, Button, Radio} from 'antd';
 
 class BankFast extends React.Component {
   constructor() {
     super();
     this.state = {
-      profile:{}
+      profile:{},
+      size: '美国投资人'
     }
+  }
+  handleSizeChange = (e) => {
+    this.setState({size: e.target.value});
+    console.log(e.target.value)
   }
 
   render() {
 
     return (
       <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
+
+        <Radio.Group value={this.state.size} onChange={this.handleSizeChange}
+                     style={{width: 860, background: '#fff', overflow: 'hidden',margin:'0 auto'}}>
+
+          <Radio.Button value="美国投资人"
+                        style={{width: 260,height:80, float:'left',marginLeft:'20px',marginTop:'20px',borderRadius:'5px',position:'relative'}}>
+
+            <div style={{width: 50,height:50,position: 'absolute',top:'15px',left:'15px',lineHeight:'50px'}}>
+              <img style={{width:'100%',}} src="../images/bank-hua.png" alt=""/>
+            </div>
+            <div style={{width: 180,height:55,position: 'absolute',top:'15px',right:'0px'}}>
+              <p style={{lineHeight:'1.5'}}>中国银行-香港银行</p>
+              <p style={{lineHeight:'1.5'}}>China Merchants Bank (HongKong Branch)</p>
+            </div>
+
+          </Radio.Button>
+          <Radio.Button value="国投资人"
+                        style={{width: 260,height:80, float:'left',marginLeft:'20px',marginTop:'20px',borderRadius:'5px',position:'relative'}}>
+
+            <div style={{width: 50,height:50,position: 'absolute',top:'15px',left:'15px',lineHeight:'50px'}}>
+              <img style={{width:'100%',}} src="../images/bank-hua.png" alt=""/>
+            </div>
+            <div style={{width: 180,height:55,position: 'absolute',top:'15px',right:'0px'}}>
+              <p style={{lineHeight:'1.5'}}>中国银行-香港银行</p>
+              <p style={{lineHeight:'1.5'}}>China Merchants Bank (HongKong Branch)</p>
+            </div>
+
+          </Radio.Button>
+          <Radio.Button value="投资人"
+                        style={{width: 260,height:80, float:'left',marginLeft:'20px',marginTop:'20px',borderRadius:'5px',position:'relative'}}>
+
+            <div style={{width: 50,height:50,position: 'absolute',top:'15px',left:'15px',lineHeight:'50px'}}>
+              <img style={{width:'100%',}} src="../images/bank-hua.png" alt=""/>
+            </div>
+            <div style={{width: 180,height:55,position: 'absolute',top:'15px',right:'0px'}}>
+              <p style={{lineHeight:'1.5'}}>中国银行-香港银行</p>
+              <p style={{lineHeight:'1.5'}}>China Merchants Bank (HongKong Branch)</p>
+            </div>
+
+          </Radio.Button>
+
+        </Radio.Group>
+
+
+
+
+
+
+
         <ul style={{width: 860, background: '#fff', overflow: 'hidden',margin:'0 auto'}}>
           <li style={{width: 260,height:80, float:'left',marginLeft:'20px',marginTop:'20px',borderRadius:'5px',position:'relative',border:'1px solid #223976'}}>
             <div style={{width: 50,height:50,position: 'absolute',top:'15px',left:'15px',lineHeight:'50px'}}>
