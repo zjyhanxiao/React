@@ -57,7 +57,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('country_of_birth', {
-                                initialValue: 'CN',
+                                //initialValue: 'CN',
                                 rules: [{
                                     type: 'string',
                                     required: false,
@@ -219,10 +219,10 @@ class BasicInfoH extends React.Component {
                             labelCol={{span: 4, offset: 2}}
                             wrapperCol={{span: 14}}
                         >
-                            {getFieldDecorator('passport_code', {
+                            {getFieldDecorator('ssss', {
                                 //initialValue: this.props.passport_code,
                                 rules: [{
-                                    required: true, message: '请输入您的护照号!',
+                                    required: false, message: '请输入您的护照号!',
                                 }],
                             })(
                                 <Input type="text" size="large" style={{width: 240}} onBlur={this.handlePasswordBlur}/>

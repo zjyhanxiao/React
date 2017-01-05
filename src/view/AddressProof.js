@@ -47,12 +47,9 @@ class AddressInformation extends React.Component {
       },
     };
     return (
-      <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
+      <div style={{width: 900, background: '#fff', overflow: 'hidden',display:this.props.third==true?'block':'none'}}>
         {/*{JSON.stringify(this.props.passport_photo)}*/}
         <Form horizontal>
-
-
-
           <AddressProve {...this.props}  getFieldDecorator={this.props.form} />
           <AddressPublic {...this.props}  getFieldDecorator={this.props.form} />
           <AddressChina {...this.props}  getFieldDecorator={this.props.form} />

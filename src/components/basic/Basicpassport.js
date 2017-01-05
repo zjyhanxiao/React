@@ -29,7 +29,6 @@ class BasicPassport extends React.Component {
     render() {
         const {getFieldDecorator} = this.props.getFieldDecorator;
         const data=this.props.getsProfile.base_profile
-        console.log('aaaaa'+JSON.stringify(data))
         const formItemLayout = {
             labelCol: {span: 6},
             wrapperCol: {span: 14},
@@ -91,7 +90,7 @@ class BasicPassport extends React.Component {
                 </Row>
                 <FormItem style={{width: 346, margin: '0 auto'}}>
                     {getFieldDecorator('passport_photo', {
-                        //initialValue: this.props.passport_photo,
+                        initialValue: data!=null&&data.passport_photo!=null?data.passport_photo:null,
                         rules: [{required: true, message: '请上传证件!'}]
                     })(
                         <Uploader {...data}/>

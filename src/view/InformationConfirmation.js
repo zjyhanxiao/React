@@ -18,7 +18,7 @@ class InformationConfirmation extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      a:false,
+      a:true,
       profile:{}
     }
   }

@@ -48,7 +48,7 @@ class ComplianceReview extends React.Component {
       },
     };
     return (
-      <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
+      <div style={{width: 900, background: '#fff', overflow: 'hidden',display:this.props.fifth==true?'block':'none'}}>
         {JSON.stringify(this.props)}
         <Form horizontal>
 

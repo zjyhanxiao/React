@@ -57,15 +57,14 @@ class BasicInformation extends React.Component {
                 width: 900,
                 background: '#fff',
                 overflow: 'hidden',
-                display: this.props.second == true ? 'block' : 'block'
+                display: this.props.second == true ? 'block' : 'none'
             }}>
-                {JSON.stringify(this.props)}
                 <Form horizontal>
                     <BasicInfoH {...this.props.getsProfile} getFieldDecorator={this.props.form}
                                 disabledDate={this.disabledDate} expire_date={this.expire_date} />
-                    <BasicInfoUC {...this.props} getFieldDecorator={this.props.form} />
+                    {/*<BasicInfoUC {...this.props} getFieldDecorator={this.props.form} />*/}
                     <Basicpassport {...this.props.getsProfile} getFieldDecorator={this.props.form} />
-                    <Basicpassport {...this.props.getsProfile} getFieldDecorator={this.props.form} />
+                    {/*<Basicpassport {...this.props.getsProfile} getFieldDecorator={this.props.form} />*/}
 
 
                     <FormItem {...tailFormItemLayout}>
@@ -90,12 +89,12 @@ class BasicInformation extends React.Component {
 }
 BasicInformation = Form.create({
     onFieldsChange(props, changedFields) {
-        console.log(changedFields)
+        console.log(JSON.stringify(changedFields))
         for (let i in changedFields) {
             let key = changedFields[i].name
             let val = changedFields[i].value
             console.log(val)
-            if (val != undefined && val != '') {
+            if (val != undefined && val != '' && val != null) {
                 if (key == 'date_of_birth') {
                     let val = changedFields[i].value.format('YYYY-MM-DD')
                     props.dispatch(saveFields(key, val));
@@ -105,11 +104,32 @@ BasicInformation = Form.create({
             }
 
         }
-    }
+    },
+/*    mapPropsToFields(props) {
+        console.log('aaaaa' + JSON.stringify(props))
+        let data = props.getsProfile.base_profile
+        if (data != null && data.passport_photo != undefined && data.passport_photo != null) {
+            return {
+                passport_photo: {
+                    ...props.getsProfile.base_profile.passport_photo,
+                    value: props.getsProfile.base_profile.passport_photo,
+                }
+            };
+        }
+    },*/
 })(BasicInformation);
 BasicInformation.defaultProps = {};
-/*BasicInformation.propTypes = {
+/*
+ BasicInformation.propTypes = {
  dispatch: PropTypes.func.isRequired
- }*/
+ }
+ const mapStateToProps = (state) => {
+ return {
+ getsProfile: state.getsProfile
+ }
+ }
+ */
+
 
 export default BasicInformation
+

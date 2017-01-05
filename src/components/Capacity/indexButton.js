@@ -18,8 +18,8 @@ const IndexButton = React.createClass({
                 first: true,
                 second: false,
                 third: false,
-                four: false,
-                five: false,
+                fourth: false,
+                fifth: false,
                 current: 'first'
             }
         };
@@ -52,8 +52,8 @@ const IndexButton = React.createClass({
                     first: false,
                     second: false,
                     third: false,
-                    four: false,
-                    five: false,
+                    fourth: false,
+                    fifth: false,
                     [cur]: true,
                     current: cur
                 }
@@ -87,7 +87,6 @@ const IndexButton = React.createClass({
 
                 <Modal title="" visible={this.state.visible}
                        onOk={this.handleOk} onCancel={this.handleCancel} closable={false} footer={''} width={932}>
-                    {JSON.stringify(this.state.pages)}
                   <Indexbar {...this.state.pages} {...this.props} />
                   <IdentityConfirmation {...this.state.pages} {...this.props} changeIndex={this.changeIndex} />
                   <BasicInformation {...this.state.pages} {...this.props} changeIndex={this.changeIndex} />

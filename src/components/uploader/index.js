@@ -45,7 +45,6 @@ class Avatar extends React.Component {
     }
 
     render() {
-        console.log('sssss'+JSON.stringify(this.props))
         const imageUrl = this.state.fileList.imageUrl
         const newImage = this.state.fileList.thumbUrl?this.state.fileList.thumbUrl:this.props.passport_photo ? this.props.passport_photo : this.state.fileList.url;
         return (

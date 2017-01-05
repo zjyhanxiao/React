@@ -48,7 +48,7 @@ class BankInformation extends React.Component {
       },
     };
     return (
-      <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
+      <div style={{width: 900, background: '#fff', overflow: 'hidden',display:this.props.fourth==true?'block':'none'}}>
         <Form horizontal>
 
           <BankFast></BankFast>
