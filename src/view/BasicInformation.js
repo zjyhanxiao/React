@@ -52,6 +52,7 @@ class BasicInformation extends React.Component {
                 offset: 6,
             },
         };
+
         return (
             <div style={{
                 width: 900,
@@ -105,18 +106,6 @@ BasicInformation = Form.create({
 
         }
     },
-/*    mapPropsToFields(props) {
-        console.log('aaaaa' + JSON.stringify(props))
-        let data = props.getsProfile.base_profile
-        if (data != null && data.passport_photo != undefined && data.passport_photo != null) {
-            return {
-                passport_photo: {
-                    ...data.passport_photo,
-                    value: data.passport_photo,
-                }
-            };
-        }
-    },*/
 })(BasicInformation);
 BasicInformation.defaultProps = {};
 BasicInformation.propTypes = {

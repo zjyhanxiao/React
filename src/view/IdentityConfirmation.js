@@ -12,7 +12,6 @@ const FormItem = Form.Item;
 class IdentityConfirmation extends React.Component {
   constructor(props) {
     super(props)
-    console.log(props)
   }
 
   handleSubmit(e) {
