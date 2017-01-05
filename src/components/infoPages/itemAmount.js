@@ -2,7 +2,6 @@
  * Created by robot on 2016/12/26.
  */
 import React from 'react';
-import LinkedStateMixin from 'react-addons-linked-state-mixin'
 
 import {Button, Icon} from 'antd';
 
