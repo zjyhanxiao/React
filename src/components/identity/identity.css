@@ -24,15 +24,18 @@
   transition: all .3s ease;
   cursor: pointer;
   border: 1px solid #d9d9d9;
-  border-left: 0;
   background: #fff;
   padding: 0 16px;
 }
 .ant-radio-button-wrapper-checked{
   color: #223976;
-  border-left: 1px solid #223976;
+  border-color: #223976;
+  box-shadow: none!important;
 }
-
+.ant-radio-button-wrapper-checked:first-child{
+  color: #223976;
+  border-color: #223976;
+}
 
 .ant-radio-button-wrapper-checked：hover{
 
@@ -65,7 +68,9 @@
 .ant-modal-body{
   padding: 0!important;
 }
-
+.ant-radio-group{
+  display: block;
+}
 .ant-modal{
   width: 900px!important;
 }
