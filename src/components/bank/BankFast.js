@@ -1,7 +1,6 @@
 /**
  * Created by robot on 2016/12/19.
  */
-import 'antd/dist/antd.min.css'
 import React from 'react';
 import {connect} from 'react-redux'
 import {Row, Col, Button, Radio} from 'antd';

@@ -1,7 +1,6 @@
 /**
  * Created by robot on 2016/12/19.
  */
-import 'antd/dist/antd.min.css'
 import React from 'react';
 import {connect} from 'react-redux'
 import {Form, Input, Select, Row, Col, Button,DatePicker} from 'antd';
