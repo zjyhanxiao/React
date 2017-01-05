@@ -3,7 +3,7 @@ import 'antd/dist/antd.css'
 import {Form, Row, Col, Button} from 'antd';
 import {connect} from 'react-redux'
 import moment from 'moment'
-import {updateProfile} from '../Redux/actions/index'
+import {updateProfile, saveFields} from '../Redux/actions/index'
 import CompliancePublic from '../components/compliance/CompliancePublic'
 
 
@@ -76,7 +76,23 @@ class ComplianceReview extends React.Component {
 }
 
 ComplianceReview = Form.create({
+  onFieldsChange(props, changedFields) {
+    console.log(JSON.stringify(changedFields))
+    for (let i in changedFields) {
+      let key = changedFields[i].name
+      let val = changedFields[i].value
+      console.log(val)
+      if (val != undefined && val != '' && val != null) {
+        if (key == 'date_of_birth') {
+          let val = changedFields[i].value.format('YYYY-MM-DD')
+          props.dispatch(saveFields(key, val));
+        } else {
+          props.dispatch(saveFields(key, val));
+        }
+      }
 
+    }
+  },
 })(ComplianceReview);
 
 ComplianceReview.defaultProps = {};
