@@ -21,7 +21,7 @@ class ItemAmount extends React.Component {
     }
 
     onChange = (e) => {
-        if (!Number(e.target.value)&&e.target.value!='') {
+        if (!Number(e.target.value) && e.target.value != '') {
             alert('not a number')
             e.preventDefault();
         } else {
@@ -43,12 +43,7 @@ class ItemAmount extends React.Component {
             }
         })
     }
-/*    onBlur(e){
-        if(e.target.value<10000){
-            alert('不能少于10000')
 
-        }
-    }*/
     sub(e) {
         this.setState({
             product: {
@@ -67,9 +62,7 @@ class ItemAmount extends React.Component {
                 borderTop: '5px solid #4760a1',
                 borderRadius: '5px',
                 background: '#ffffff'
-            }}>{
-                JSON.stringify(this.state.product)
-            }
+            }}>
                 <div style={{width: '340px', height: '100px', margin: '10px auto', textAlign: 'center'}}>
                   <p style={{color: '#4760a1', fontSize: '18px'}}>投资金额</p>
 
