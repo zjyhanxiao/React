@@ -100,9 +100,7 @@ class Identity extends React.Component {
                     initialValue:'yang',
                   rules: [{
                     required: true, message: '请输入您的姓的汉语拼音!',
-                  },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',} ,{
-                    validator: this.checkConfirm,
-                  }],
+                  },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',}],
                 })(
                   <Input type="text" size="large" style={{width: 240}} onBlur={this.handlePasswordBlur}/>
                 )}
@@ -119,9 +117,7 @@ class Identity extends React.Component {
                   initialValue:'yang',
                   rules: [{
                     required: true, message: '请输入您的名的汉语拼音!',
-                  },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',} ,{
-                    validator: this.checkConfirm,
-                  }],
+                  },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!'}],
                 })(
                   <Input type="text" size="large" style={{width: 240}} onBlur={this.handlePasswordBlur}/>
                 )}
