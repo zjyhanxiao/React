@@ -1,5 +1,6 @@
 import React from 'react';
 import InformationConfirmation from '../view/InformationConfirmation'
+import InformationConfirmation from '../view/InformationConfirmation'
 
 class CapacityShow extends React.Component {
     constructor() {

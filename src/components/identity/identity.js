@@ -11,7 +11,6 @@ import {Form, Input, Row, Col, Button,Radio} from 'antd';
 const FormItem = Form.Item;
 const RadioGroup = Radio.Group;
 
-
 class Identity extends React.Component {
   constructor() {
     super();
