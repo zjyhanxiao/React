@@ -56,25 +56,23 @@ class ComplianceSpouse extends React.Component {
             <Col span={12}>
               <FormItem
                 {...formItemLayout}
-                label="姓氏"
+                label='姓氏'
                 labelCol={{span: 4,offset: 4}}
                 wrapperCol={{span: 14}}
               >
                 {getFieldDecorator('last_name', {
                   rules: [{
                     required: true, message: '请输入您的姓的汉语拼音!',
-                  },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',} ,{
-                    validator: this.checkConfirm,
-                  }],
+                  },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',}],
                 })(
-                  <Input type="text" size="large" style={{width: 240}} onBlur={this.handlePasswordBlur}/>
+                  <Input type='text' size='large' style={{width: 240}} onBlur={this.handlePasswordBlur}/>
                 )}
               </FormItem>
             </Col>
             <Col span={12}>
               <FormItem
                 {...formItemLayout}
-                label="名"
+                label='名'
                 labelCol={{span: 4,offset: 2}}
                 wrapperCol={{span: 14}}
               >
@@ -82,11 +80,9 @@ class ComplianceSpouse extends React.Component {
                   //initialValue:'yang',
                   rules: [{
                     required: true, message: '请输入您的名的汉语拼音!',
-                  },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',} ,{
-                    validator: this.checkConfirm,
-                  }],
+                  },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',}],
                 })(
-                  <Input type="text" size="large" style={{width: 240}} onBlur={this.handlePasswordBlur}/>
+                  <Input type='text' size='large' style={{width: 240}} onBlur={this.handlePasswordBlur}/>
                 )}
               </FormItem>
             </Col>
@@ -95,7 +91,7 @@ class ComplianceSpouse extends React.Component {
             <Col span={12}>
               <FormItem
                 {...formItemLayout}
-                label="电话"
+                label='电话'
                 labelCol={{span: 4,offset: 4}}
                 wrapperCol={{span: 13}}
               >
@@ -106,11 +102,11 @@ class ComplianceSpouse extends React.Component {
                     style={{ width: '32%',marginRight:'3%'}}
                     onChange={this.handleCurrencyChange}
                   >
-                    <Option value="rmb">RMB</Option>
-                    <Option value="dollar">Dollar</Option>
+                    <Option value='rmb'>RMB</Option>
+                    <Option value='dollar'>Dollar</Option>
                   </Select>
                   <Input
-                    type="text"
+                    type='text'
                     size={size}
                     value={state.number}
                     onChange={this.handleNumberChange}
@@ -122,7 +118,7 @@ class ComplianceSpouse extends React.Component {
             <Col span={12}>
               <FormItem
                 {...formItemLayout}
-                label="邮箱"
+                label='邮箱'
                 labelCol={{span: 4,offset: 2}}
                 wrapperCol={{span: 14}}
               >
@@ -130,11 +126,9 @@ class ComplianceSpouse extends React.Component {
                   //initialValue:'yang',
                   rules: [{
                     required: true, message: '请输入您的名的汉语拼音!',
-                  },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',} ,{
-                    validator: this.checkConfirm,
-                  }],
+                  },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',}],
                 })(
-                  <Input type="text" size="large" style={{width: 240}} onBlur={this.handlePasswordBlur}/>
+                  <Input type='text' size='large' style={{width: 240}} onBlur={this.handlePasswordBlur}/>
                 )}
               </FormItem>
             </Col>
