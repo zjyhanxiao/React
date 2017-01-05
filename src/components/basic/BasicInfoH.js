@@ -119,10 +119,9 @@ class BasicInfoH extends React.Component {
                             })(
                                 //<Cascader options={residences} />
                                 <Select size="large" style={{width: 240}} onChange={handleChange}>
-                                    <Option value="jack">Jack</Option>
-                                    <Option value="CN">中国</Option>
-                                    <Option value="disabled">Disabled</Option>
-                                    <Option value="yiminghe">Yiminghe</Option>
+                                  <option value="savings">存款/Savings</option>
+                                  <option value="heritage">继承/Heritage</option>
+                                  <option value="other">其他/Others</option>
                                 </Select>
                             )}
                         </FormItem>
