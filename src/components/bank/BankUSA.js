@@ -89,7 +89,7 @@ class BankUSA extends React.Component {
                   validator: this.checkConfirm,
                 }],
               })(
-                <Input type="textarea" style={{width: '100%',height:88}} />
+                <Input type="textarea" style={{width: '100%',height:88,resize:'none'}} />
               )}
             </FormItem>
           </Row>
