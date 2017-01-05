@@ -15,7 +15,7 @@ class ItemAmount extends React.Component {
       profile:{}
     }
   }
-  onChange(e) {
+  onChange= (e) => {
   console.log('changed', e.target.value);
   }
 

@@ -18,7 +18,7 @@ class InformationConfirmation extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      a:true,
+      a:false,
       profile:{}
     }
   }
@@ -36,7 +36,7 @@ class InformationConfirmation extends React.Component {
     return (
 
 
-        <div style={{background:'red'}}>
+        <div style={{background:'#fff'}}>
 
           <div style={{width:'920px',margin:'0 auto',position:'relative',border:'1px solid #eee',borderRadius:'3px'}}>
             <ItemName/>
