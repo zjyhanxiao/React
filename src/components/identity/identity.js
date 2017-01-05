@@ -16,7 +16,7 @@ class Identity extends React.Component {
         super();
         this.state = {
             profile: {},
-            size: '非美国投资人',
+            size: '美国投资人',
             zhong: '1',
             value: '1'
         }
@@ -127,26 +127,9 @@ class Identity extends React.Component {
             </Row>
           </FormItem>
 
-
-
-
-
           <FormItem>
             <Row style={{paddingTop: '10px'}}>
               <Col span={9} offset={2}>
-                <Radio.Group value={this.state.size} onChange={this.handleSizeChange}
-                             style={{width: '100%', height: '90px'}}>
-                  <Radio.Button value="非美国投资人"
-                                style={{width: '100%', height: '90px', borderRadius: '5px', textAlign: 'center'}}>
-                    <span style={{display: 'block', width: '100%', fontSize: '14px', textAlign: 'center'}}>非美国投资人 (Non-US Investor)</span>
-                    我不是证券法S条例下定义的美国人，并且我定居在美国境外。
-                  </Radio.Button>
-                </Radio.Group>
-              </Col>
-              <Col span={2}>
-                <div style={{width: '100%', height: '90px', lineHeight: '90px', textAlign: 'center', fontSize: '18px'}}>or</div>
-              </Col>
-              <Col span={9}>
                 <Radio.Group value={this.state.size} onChange={this.handleSizeChange}
                              style={{width: '100%', height: '90px'}}>
                   <Radio.Button value="美国投资人"
@@ -156,25 +139,27 @@ class Identity extends React.Component {
                   </Radio.Button>
                 </Radio.Group>
               </Col>
+              <Col span={2}>
+                <div style={{width: '100%', height: '90px', lineHeight: '90px', textAlign: 'center', fontSize: '18px'}}>or</div>
+              </Col>
+              <Col span={9}>
+
+                <Radio.Group value={this.state.size} onChange={this.handleSizeChange}
+                             style={{width: '100%', height: '90px'}}>
+                  <Radio.Button value="非美国投资人"
+                                style={{width: '100%', height: '90px', borderRadius: '5px', textAlign: 'center'}}>
+                    <span style={{display: 'block', width: '100%', fontSize: '14px', textAlign: 'center'}}>非美国投资人 (Non-US Investor)</span>
+                    我不是证券法S条例下定义的美国人，并且我定居在美国境外。
+                  </Radio.Button>
+                </Radio.Group>
+
+              </Col>
             </Row>
           </FormItem>
 
           <FormItem>
             <Row style={{paddingTop: '10px'}}>
               <Col span={9} offset={2}>
-
-                <div style={{height: '200px'}} className={this.state.size == '非美国投资人' ? 'show' : 'hide'}>
-                  <RadioGroup onChange={this.onChange} value={this.state.value}>
-                    <Radio style={radioStyle} value={1}>本人为中国大陆投资人（持有中国有效身份证）</Radio>
-                    <Radio style={radioStyle} value={2}>本人为其他国家港澳台投资人</Radio>
-                  </RadioGroup>
-                </div>
-
-              </Col>
-              <Col span={2}>
-                <div></div>
-              </Col>
-              <Col span={9}>
 
                 <div style={{height: '200px'}} className={this.state.size == '美国投资人' ? 'show' : 'hide'}>
                   <div>
@@ -184,9 +169,26 @@ class Identity extends React.Component {
                   </div>
                   <RadioGroup onChange={this.Change} value={this.state.zhong}>
                     <Radio style={radioStyle} value={3}>我是合格投资人</Radio>
-                    <Radio style={radioStyle} value={4}>我不是合格投资人</Radio>
                   </RadioGroup>
                 </div>
+
+
+              </Col>
+              <Col span={2}>
+                <div></div>
+              </Col>
+              <Col span={9}>
+
+                <div style={{height: '200px'}} className={this.state.size == '非美国投资人' ? 'show' : 'hide'}>
+                  <RadioGroup onChange={this.onChange} value={this.state.value}>
+                    <Radio style={radioStyle} value={1}>本人为中国大陆投资人（持有中国有效身份证）</Radio>
+                    <Radio style={radioStyle} value={2}>本人为其他国家港澳台投资人</Radio>
+                  </RadioGroup>
+                </div>
+
+
+
+
               </Col>
             </Row>
           </FormItem>

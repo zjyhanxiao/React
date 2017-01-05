@@ -53,7 +53,7 @@ class IdentityConfirmation extends React.Component {
 
 
           <FormItem {...tailFormItemLayout}>
-            <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
+            <Row style={{marginTop: '0', paddingBottom: '40px'}}>
               <Col span={4} offset={8}>
                 <Button style={{
                   width: '120px',

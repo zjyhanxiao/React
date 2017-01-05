@@ -17,3 +17,4 @@ class CapacityShow extends React.Component {
 CapacityShow.defaultProps = {};
 
 export default CapacityShow;
+
