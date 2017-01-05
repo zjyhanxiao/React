@@ -93,7 +93,6 @@ class Identity extends React.Component {
               <FormItem
                 {...formItemLayout}
                 label="姓氏"
-                hasFeedback
                 labelCol={{span: 4,offset: 4}}
                 wrapperCol={{span: 14}}
               >
@@ -113,7 +112,6 @@ class Identity extends React.Component {
               <FormItem
                 {...formItemLayout}
                 label="名"
-                hasFeedback
                 labelCol={{span: 4,offset: 2}}
                 wrapperCol={{span: 14}}
               >

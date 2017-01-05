@@ -57,7 +57,6 @@ class ComplianceSpouse extends React.Component {
               <FormItem
                 {...formItemLayout}
                 label="姓氏"
-                hasFeedback
                 labelCol={{span: 4,offset: 4}}
                 wrapperCol={{span: 14}}
               >
@@ -76,7 +75,6 @@ class ComplianceSpouse extends React.Component {
               <FormItem
                 {...formItemLayout}
                 label="名"
-                hasFeedback
                 labelCol={{span: 4,offset: 2}}
                 wrapperCol={{span: 14}}
               >
@@ -98,7 +96,6 @@ class ComplianceSpouse extends React.Component {
               <FormItem
                 {...formItemLayout}
                 label="电话"
-                hasFeedback
                 labelCol={{span: 4,offset: 4}}
                 wrapperCol={{span: 13}}
               >
@@ -126,7 +123,6 @@ class ComplianceSpouse extends React.Component {
               <FormItem
                 {...formItemLayout}
                 label="邮箱"
-                hasFeedback
                 labelCol={{span: 4,offset: 2}}
                 wrapperCol={{span: 14}}
               >

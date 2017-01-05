@@ -58,7 +58,6 @@ class AddressPublic extends React.Component {
             <FormItem
               {...formItemLayout}
               label="证件类型"
-              hasFeedback
               labelCol={{span: 4,offset: 4}}
               wrapperCol={{span: 14}}
             >

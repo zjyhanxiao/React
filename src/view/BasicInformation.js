@@ -111,25 +111,23 @@ BasicInformation = Form.create({
         if (data != null && data.passport_photo != undefined && data.passport_photo != null) {
             return {
                 passport_photo: {
-                    ...props.getsProfile.base_profile.passport_photo,
-                    value: props.getsProfile.base_profile.passport_photo,
+                    ...data.passport_photo,
+                    value: data.passport_photo,
                 }
             };
         }
     },*/
 })(BasicInformation);
 BasicInformation.defaultProps = {};
-/*
- BasicInformation.propTypes = {
- dispatch: PropTypes.func.isRequired
- }
- const mapStateToProps = (state) => {
- return {
- getsProfile: state.getsProfile
- }
- }
- */
+BasicInformation.propTypes = {
+    dispatch: PropTypes.func.isRequired
+}
+const mapStateToProps = (state) => {
+    return {
+        getsProfile: state.getsProfile
+    }
+}
 
 
-export default BasicInformation
+export default connect( mapStateToProps)(BasicInformation);
 

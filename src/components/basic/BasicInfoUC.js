@@ -67,7 +67,6 @@ class BasicInfoUC extends React.Component {
               <FormItem
                 {...formItemLayout}
                 label="出生日期"
-                hasFeedback
                 labelCol={{span: 4,offset: 4}}
                 wrapperCol={{span: 14}}
               >
@@ -113,7 +112,6 @@ class BasicInfoUC extends React.Component {
                   <FormItem
                     {...formItemLayout}
                     label="SSN"
-                    hasFeedback
                     labelCol={{span: 4,offset: 4}}
                     wrapperCol={{span: 14}}
                   >

@@ -25,7 +25,6 @@ class BasicPassport extends React.Component {
             }
         });
     }
-
     render() {
         const {getFieldDecorator} = this.props.getFieldDecorator;
         const data=this.props.getsProfile.base_profile
@@ -56,7 +55,6 @@ class BasicPassport extends React.Component {
                         <FormItem
                             {...formItemLayout}
                             label="护照号"
-                            hasFeedback
                             labelCol={{span: 4, offset: 4}}
                             wrapperCol={{span: 14}}
                         >
@@ -68,7 +66,7 @@ class BasicPassport extends React.Component {
                                     validator: this.checkConfirm,
                                 }],
                             })(
-                                <Input type="text" size="large" style={{width: 240}} onBlur={this.handlePasswordBlur}/>
+                                <Input type="text" size="large" style={{width: 240}}/>
                             )}
                         </FormItem>
                     </Col>
@@ -76,7 +74,6 @@ class BasicPassport extends React.Component {
                         <FormItem
                             {...formItemLayout}
                             label="有效期至"
-                            hasFeedback
                             labelCol={{span: 4, offset: 2}}
                             wrapperCol={{span: 14}}
                         >
@@ -93,7 +90,7 @@ class BasicPassport extends React.Component {
                         initialValue: data!=null&&data.passport_photo!=null?data.passport_photo:null,
                         rules: [{required: true, message: '请上传证件!'}]
                     })(
-                        <Uploader {...data}/>
+                        <Uploader {...data} />
                     )}
                 </FormItem>
                 <FormItem>

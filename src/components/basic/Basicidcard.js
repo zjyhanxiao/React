@@ -81,7 +81,6 @@ class Basicidcard extends React.Component {
               <FormItem
                 {...formItemLayout}
                 label="护照号"
-                hasFeedback
                 labelCol={{span: 4,offset: 4}}
                 wrapperCol={{span: 14}}
               >
@@ -101,7 +100,6 @@ class Basicidcard extends React.Component {
               <FormItem
                 {...formItemLayout}
                 label="身份证号"
-                hasFeedback
                 labelCol={{span: 4,offset: 2}}
                 wrapperCol={{span: 14}}
               >
@@ -123,7 +121,6 @@ class Basicidcard extends React.Component {
               <FormItem
                 {...formItemLayout}
                 label="有效期至"
-                hasFeedback
                 labelCol={{span: 4,offset: 4}}
                 wrapperCol={{span: 14}}
               >
@@ -138,7 +135,6 @@ class Basicidcard extends React.Component {
               <FormItem
                 {...formItemLayout}
                 label="有效期至"
-                hasFeedback
                 labelCol={{span: 4,offset: 2}}
                 wrapperCol={{span: 14}}
               >

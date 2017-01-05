@@ -57,7 +57,6 @@ class BankUSA extends React.Component {
               <FormItem
                 {...formItemLayout}
                 label="银行名称 / Bank name"
-                hasFeedback
                 labelCol={{span: 6}}
                 wrapperCol={{span: 18}}
               >
@@ -80,7 +79,6 @@ class BankUSA extends React.Component {
             <FormItem
               {...formItemLayout}
               label="银行地址 / Bank addresss"
-              hasFeedback
               labelCol={{span: 4,offset: 2}}
               wrapperCol={{span: 16}}
             >
@@ -100,7 +98,6 @@ class BankUSA extends React.Component {
           <FormItem
             {...formItemLayout}
             label="ABA / Routing number"
-            hasFeedback
             labelCol={{span: 4,offset: 2}}
             wrapperCol={{span: 16}}
           >
@@ -119,7 +116,6 @@ class BankUSA extends React.Component {
             <FormItem
               {...formItemLayout}
               label="账户名 / Account number"
-              hasFeedback
               labelCol={{span: 4,offset: 2}}
               wrapperCol={{span: 16}}
             >

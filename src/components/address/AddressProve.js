@@ -57,7 +57,6 @@ class AddressProve extends React.Component {
             <FormItem
               {...formItemLayout}
               label="有效期至"
-              hasFeedback
               labelCol={{span: 2,offset: 8}}
               wrapperCol={{span: 12}}
             >

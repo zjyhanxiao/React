@@ -50,7 +50,6 @@ class AddressChina extends React.Component {
              <Row> <FormItem
                {...formItemLayout}
                label="省/直辖市"
-               hasFeedback
                labelCol={{span: 4,offset: 4}}
                wrapperCol={{span: 14}}
              >
@@ -74,7 +73,6 @@ class AddressChina extends React.Component {
               <Row><FormItem
                 {...formItemLayout}
                 label="市/州/地区"
-                hasFeedback
                 labelCol={{span: 4,offset: 4}}
                 wrapperCol={{span: 14}}
               >
@@ -98,7 +96,6 @@ class AddressChina extends React.Component {
               <Row><FormItem
                 {...formItemLayout}
                 label="县/区"
-                hasFeedback
                 labelCol={{span: 4,offset: 4}}
                 wrapperCol={{span: 14}}
               >
@@ -124,7 +121,6 @@ class AddressChina extends React.Component {
               <Row><FormItem
                 {...formItemLayout}
                 label="详细地址"
-                hasFeedback
                 labelCol={{span: 4,offset: 2}}
                 wrapperCol={{span: 14}}
               >
@@ -142,7 +138,6 @@ class AddressChina extends React.Component {
               <Row><FormItem
                 {...formItemLayout}
                 label="邮编"
-                hasFeedback
                 labelCol={{span: 4,offset: 2}}
                 wrapperCol={{span: 14}}
               >

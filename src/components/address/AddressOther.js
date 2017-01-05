@@ -75,7 +75,6 @@ class AddressOther extends React.Component {
             <FormItem
               {...formItemLayout}
               label="地址第一行 / Address line 1"
-              hasFeedback
               labelCol={{span: 5,offset: 2}}
               wrapperCol={{span: 15}}
             >
@@ -94,7 +93,6 @@ class AddressOther extends React.Component {
             <FormItem
               {...formItemLayout}
               label="地址第二行 / Address line 2"
-              hasFeedback
               labelCol={{span: 5,offset: 2}}
               wrapperCol={{span: 15}}
             >
@@ -113,7 +111,6 @@ class AddressOther extends React.Component {
             <FormItem
               {...formItemLayout}
               label="市 / City or town"
-              hasFeedback
               labelCol={{span: 5,offset: 2}}
               wrapperCol={{span: 15}}
             >
@@ -157,7 +154,6 @@ class AddressOther extends React.Component {
             <FormItem
               {...formItemLayout}
               label="邮编 / Postal code"
-              hasFeedback
               labelCol={{span: 5,offset: 2}}
               wrapperCol={{span: 15}}
             >

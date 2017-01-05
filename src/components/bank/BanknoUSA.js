@@ -49,7 +49,6 @@ class BanknoUSA extends React.Component {
               <FormItem
                 {...formItemLayout}
                 label="银行名称 / Bank name"
-                hasFeedback
                 labelCol={{span: 6}}
                 wrapperCol={{span: 18}}
               >
@@ -72,7 +71,6 @@ class BanknoUSA extends React.Component {
             <FormItem
               {...formItemLayout}
               label="银行地址 / Bank addresss"
-              hasFeedback
               labelCol={{span: 4,offset: 2}}
               wrapperCol={{span: 16}}
             >
@@ -92,7 +90,6 @@ class BanknoUSA extends React.Component {
             <FormItem
               {...formItemLayout}
               label="Swiftcode"
-              hasFeedback
               labelCol={{span: 4,offset: 2}}
               wrapperCol={{span: 16}}
             >
@@ -111,7 +108,6 @@ class BanknoUSA extends React.Component {
             <FormItem
               {...formItemLayout}
               label="账户名 / Account number"
-              hasFeedback
               labelCol={{span: 4,offset: 2}}
               wrapperCol={{span: 16}}
             >
@@ -142,7 +138,6 @@ class BanknoUSA extends React.Component {
           <FormItem
             {...formItemLayout}
             label="中间行名称 / Intermediary (correspondent) bank name"
-            hasFeedback
             labelCol={{span: 20,offset:2}}
             wrapperCol={{span: 20,offset:2}}
           >
@@ -159,7 +154,6 @@ class BanknoUSA extends React.Component {
           <FormItem
             {...formItemLayout}
             label="中间行地址 / Intermediary (correspondent) bank address"
-            hasFeedback
             labelCol={{span: 20,offset:2}}
             wrapperCol={{span: 20,offset:2}}
           >
@@ -176,7 +170,6 @@ class BanknoUSA extends React.Component {
           <FormItem
             {...formItemLayout}
             label="中间行Swiftcode / Intermediary (correspondent) bank Swiftcode"
-            hasFeedback
             labelCol={{span: 20,offset:2}}
             wrapperCol={{span: 20,offset:2}}
           >
