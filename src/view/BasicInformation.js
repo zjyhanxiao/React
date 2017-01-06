@@ -10,8 +10,8 @@ import Basicpassport from '../components/basic/Basicpassport'
 const FormItem = Form.Item;
 
 class BasicInformation extends React.Component {
-    constructor(props) {
-        super(props)
+    constructor() {
+        super()
     }
 
     handleSubmit(e) {

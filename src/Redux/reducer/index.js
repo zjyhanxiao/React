@@ -28,6 +28,7 @@ const getsProfile = (state = {}, action) => {
             }
             });
         case types.INVESTOR_TYPE:
+            console.log('111111111'+JSON.stringify(action))
             return Object.assign({}, state, {base_profile: {
                 ...state.base_profile,
                 [action.key]: action.val

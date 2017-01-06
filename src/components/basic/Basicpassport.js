@@ -27,7 +27,7 @@ class BasicPassport extends React.Component {
     }
     render() {
         const {getFieldDecorator} = this.props.getFieldDecorator;
-        const data=this.props.getsProfile.base_profile
+        let data=this.props.getsProfile.base_profile
         const formItemLayout = {
             labelCol: {span: 6},
             wrapperCol: {span: 14},
