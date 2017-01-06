@@ -1,78 +1,82 @@
-import '../identity/identity.css'
+/**
+ * Created by robot on 2016/12/27.
+ */
+
+require('components/identity/identity.css');
+
 import React from 'react';
 import {connect} from 'react-redux'
 import {Form, Input, Row, Col, Button, Radio} from 'antd';
-import {connect} from 'react-redux'
-import {changeInvestorType} from '../Redux/actions/index'
 
 const FormItem = Form.Item;
 const RadioGroup = Radio.Group;
 
 class Identity extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            profile: {},
-            size: '美国投资人',
-            zhong: '1',
-            value: '1'
-        }
+  constructor() {
+    super();
+    this.state = {
+      profile: {},
+      size: '美国投资人',
+      zhong: '1',
+      value: '1'
     }
+  }
 
-    Change = (e) => {
-        console.log('radio checked', e.target.value);
-        this.setState({
-            zhong: e.target.value,
-        });
-    }
-
-
-    onChange = (e) => {
-        console.log('radio checked', e.target.value);
-        this.setState({
-            value: e.target.value,
-        });
-    }
+  Change = (e) => {
+    console.log('radio checked', e.target.value);
+    this.setState({
+      zhong: e.target.value,
+    });
+  }
 
 
-    handleSizeChange = (e) => {
-        this.setState({size: e.target.value});
-        console.log(e.target.value)
-    }
+  onChange = (e) => {
+    console.log('radio checked', e.target.value);
+    this.setState({
+      value: e.target.value,
+    });
+  }
 
 
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.form.validateFieldsAndScroll((err, values) => {
-            if (!err) {
-                console.log('Received values of form: ', values);
-            }
-        });
-    }
+  handleSizeChange = (e) => {
+    this.setState({size: e.target.value});
+    console.log(e.target.value)
+    console.log(this.props)
+  }
 
-    render() {
-        const {getFieldDecorator} = this.props.getFieldDecorator;
-        const formItemLayout = {
-            labelCol: {span: 6},
-            wrapperCol: {span: 14},
-        };
-        const mapPropsToFields = {}
-        const tailFormItemLayout = {
-            wrapperCol: {
-                span: 14,
-                offset: 6,
-            },
-        };
-        const radioStyle = {
-            display: 'block',
-            height: '30px',
-            lineHeight: '20px',
-            color: '#223976'
-        };
 
-        return (
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.form.validateFieldsAndScroll((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
+      }
+    });
+  }
 
-            <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
+  render() {
+    const {getFieldDecorator} = this.props.getFieldDecorator;
+    const formItemLayout = {
+      labelCol: {span: 6},
+      wrapperCol: {span: 14},
+    };
+    const mapPropsToFields = {}
+    const tailFormItemLayout = {
+      wrapperCol: {
+        span: 14,
+        offset: 6,
+      },
+    };
+    const radioStyle = {
+      display: 'block',
+      height: '30px',
+      lineHeight: '20px',
+      color: '#223976'
+    };
+
+    return (
+
+      <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
 
 
         <FormItem>
@@ -85,34 +89,34 @@ class Identity extends React.Component {
         <Row>
           <Col span={12}>
             <FormItem
-                {...formItemLayout}
-                label="姓氏"
-                labelCol={{span: 4, offset: 4}}
-                wrapperCol={{span: 14}}
+              {...formItemLayout}
+              label="姓氏"
+              labelCol={{span: 4, offset: 4}}
+              wrapperCol={{span: 14}}
             >
               {getFieldDecorator('last_name', {
-                  rules: [{
-                      required: true, message: '请输入您的姓氏的汉语拼音!',
-                  }, {pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',}],
+                rules: [{
+                  required: true, message: '请输入您的姓氏的汉语拼音!',
+                }, {pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',}],
               })(
-                  <Input placeholder='姓的汉语拼音' type="text" size="large" style={{width: 240}} />
+                <Input placeholder='姓的汉语拼音' type="text" size="large" style={{width: 240}} />
               )}
             </FormItem>
           </Col>
           <Col span={12}>
             <FormItem
-                {...formItemLayout}
-                label="名"
-                labelCol={{span: 4, offset: 2}}
-                wrapperCol={{span: 14}}
+              {...formItemLayout}
+              label="名"
+              labelCol={{span: 4, offset: 2}}
+              wrapperCol={{span: 14}}
             >
               {getFieldDecorator('first_name', {
-                  //initialValue:'yang',
-                  rules: [{
-                      required: true, message: '请输入您的名的汉语拼音!',
-                  }, {pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!'}],
+                //initialValue:'yang',
+                rules: [{
+                  required: true, message: '请输入您的名的汉语拼音!',
+                }, {pattern: /[^\u3400-\u9FBF]/g, message: '请输入汉语拼音!'}],
               })(
-                  <Input type="text" placeholder="名的汉语拼音" size="large" style={{width: 240}} />
+                <Input type="text" placeholder="名的汉语拼音" size="large" style={{width: 240}} />
               )}
             </FormItem>
           </Col>
@@ -137,13 +141,7 @@ class Identity extends React.Component {
               </Radio.Group>
             </Col>
             <Col span={2}>
-              <div style={{
-                  width: '100%',
-                  height: '90px',
-                  lineHeight: '90px',
-                  textAlign: 'center',
-                  fontSize: '18px'
-              }}>or</div>
+              <div style={{width: '100%', height: '90px', lineHeight: '90px', textAlign: 'center', fontSize: '18px'}}>or</div>
             </Col>
             <Col span={9}>
 
@@ -195,15 +193,15 @@ class Identity extends React.Component {
         </FormItem>
 
       </div>
-        );
-    }
+    );
+  }
 }
 
 
 const mapStateToProps = (state) => {
-    return {
-        getsProfile: state.getsProfile
-    }
+  return {
+    getsProfile: state.getsProfile
+  }
 }
 Identity.defaultProps = {};
 export default connect(mapStateToProps)(Identity)

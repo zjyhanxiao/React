@@ -67,10 +67,6 @@ class BankPublic extends React.Component {
           </Row>
           </FormItem>
 
-
-
-
-
           <Row style={{paddingTop: '10px'}}>
             <Col span={6} offset={5}>
               <Radio.Group value={size} onChange={this.handleSizeChange} style={{width:'100%',height:'32px'}}>
@@ -83,7 +79,6 @@ class BankPublic extends React.Component {
                 <Radio.Button value="美国银行" style={{width:'100%',height:'32px',borderRadius:'32px',textAlign:'center'}}>美国银行</Radio.Button>
               </Radio.Group>
             </Col>
-
           </Row>
 
 
