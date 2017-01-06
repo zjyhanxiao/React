@@ -34,8 +34,6 @@ class BankInformation extends React.Component {
 
         /*const { dispatch } = this.props
         dispatch(updateProfile(values,this.success))*/
-      }else {
-        console.log('Received values of form: ', JSON.stringify(values));
       }
     });
   }
@@ -147,15 +145,28 @@ class BankInformation extends React.Component {
 }
 
 BankInformation = Form.create({
-    onFieldsChange(props, changedFields) {
-        for (let i in changedFields) {
-            let key = changedFields[i].name
-            let val = changedFields[i].value
-                props.dispatch(saveFields(key, val));
-
+  onFieldsChange(props, changedFields) {
+    console.log(JSON.stringify(changedFields))
+    for (let i in changedFields) {
+      let key = changedFields[i].name
+      let val = changedFields[i].value
+      console.log(val)
+      if (val != undefined && val != '' && val != null) {
+        if (key == 'expire_date') {
+          let val = changedFields[i].value.format('YYYY-MM-DD')
+          props.dispatch(saveFields(key, val));
+        } else {
+          props.dispatch(saveFields(key, val));
         }
+      }
+
     }
+  },
 })(BankInformation);
+
+
+
+
 BankInformation.defaultProps = {};
 
 BankInformation.propTypes = {
