@@ -114,7 +114,7 @@ class Identity extends React.Component {
                 //initialValue:'yang',
                 rules: [{
                   required: true, message: '请输入您的名的汉语拼音!',
-                }, {pattern: /[^\u3400-\u9FBF]/g, message: '请输入汉语拼音!'}],
+                }, {pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!'}],
               })(
                 <Input type="text" placeholder="名的汉语拼音" size="large" style={{width: 240}} />
               )}
