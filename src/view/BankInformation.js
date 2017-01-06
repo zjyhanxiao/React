@@ -12,11 +12,16 @@ const FormItem = Form.Item;
 
 class BankInformation extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       profile:{},
-      size: '非美国银行'
+      size: '非美国银行',
+      a:"a"
     }
+  }
+
+  handleFormLayoutChange = (e) => {
+    this.setState({ formLayout: e.target.value });
   }
 
   handleSizeChange = (e) => {
@@ -26,13 +31,14 @@ class BankInformation extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(e)
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', JSON.stringify(values));
 
         /*const { dispatch } = this.props
         dispatch(updateProfile(values,this.success))*/
+      }else {
+        console.log('Received values of form: ', JSON.stringify(values));
       }
     });
   }
@@ -43,7 +49,7 @@ class BankInformation extends React.Component {
 
   render() {
     const size = this.state.size;
-    // const {getFieldDecorator} = this.props.form;
+    const {getFieldDecorator} = this.props.form;
     const formItemLayout = {
       labelCol: {span: 6},
       wrapperCol: {span: 14},
@@ -76,18 +82,20 @@ class BankInformation extends React.Component {
 
 
 
-          {/*<FormItem*/}
-            {/*{...formItemLayout}*/}
-            {/*label="Radio.Group"*/}
-          {/*>*/}
-            {/*{getFieldDecorator('radio-group')(*/}
-              {/*<RadioGroup>*/}
-                {/*<Radio value="a">item 1</Radio>*/}
-                {/*<Radio value="b">item 2</Radio>*/}
-                {/*<Radio value="c">item 3</Radio>*/}
-              {/*</RadioGroup>*/}
-            {/*)}*/}
-          {/*</FormItem>*/}
+         {/*<FormItem
+            {...formItemLayout}
+            label="Radio.Group"
+          >
+            {getFieldDecorator('radio-group', {
+              initialValue:"a",
+            })(
+              <Radio.Group onChange={this.handleFormLayoutChange}>
+                <Radio.Button value="a">item 1</Radio.Button>
+                <Radio.Button value="b">item 2</Radio.Button>
+                <Radio.Button value="c">item 3</Radio.Button>
+              </Radio.Group>
+            )}
+          </FormItem>*/}
 
 
 
