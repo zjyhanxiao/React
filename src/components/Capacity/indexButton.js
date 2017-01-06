@@ -61,12 +61,12 @@ const IndexButton = React.createClass({
         )
         event.preventDefault();
     },
-    // handleCancel(e) {
-    //     console.log(e);
-    //     this.setState({
-    //         visible: false,
-    //     });
-    // },
+/*    handleCancel(e) {
+        console.log(e);
+        this.setState({
+            visible: false,
+        });
+    },*/
     render() {
         let data = this.props.getsProfile.base_profile
         return (
