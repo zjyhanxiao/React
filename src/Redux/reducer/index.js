@@ -27,6 +27,12 @@ const getsProfile = (state = {}, action) => {
                 [action.key]: action.val
             }
             });
+        case types.INVESTOR_TYPE:
+            return Object.assign({}, state, {base_profile: {
+                ...state.base_profile,
+                [action.key]: action.val
+            }
+            });
         default:
             return state
     }

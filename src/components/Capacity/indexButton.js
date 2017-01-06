@@ -61,12 +61,12 @@ const IndexButton = React.createClass({
         )
         event.preventDefault();
     },
-    handleCancel(e) {
+/*    handleCancel(e) {
         console.log(e);
         this.setState({
             visible: false,
         });
-    },
+    },*/
     render() {
         let data = this.props.getsProfile.base_profile
         return (
@@ -86,7 +86,7 @@ const IndexButton = React.createClass({
                 </div>
 
                 <Modal title="" visible={this.state.visible}
-                       onOk={this.handleOk} onCancel={this.handleCancel} closable={false} footer={''} width={932}>
+                       onOk={this.handleOk} closable={false} footer={''} width={932}>
                   <Indexbar {...this.state.pages} {...this.props} />
                   <IdentityConfirmation {...this.state.pages} {...this.props} changeIndex={this.changeIndex} />
                   <BasicInformation {...this.state.pages} {...this.props} changeIndex={this.changeIndex} />

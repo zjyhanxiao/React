@@ -19,20 +19,6 @@ class InformationConfirmation extends React.Component {
         super(props)
         this.state = {
             a: true,
-            bbb: [
-                {
-                    a:10,
-                    b: 1,
-                    c: 2,
-                    d: 3
-                },
-                {
-                    a:11,
-                    b: 4,
-                    c: 5,
-                    d: 6
-                }
-            ]
         }
     }
 
@@ -46,20 +32,8 @@ class InformationConfirmation extends React.Component {
     }
 
     render() {
-        let items = this.state.bbb.map(function (item) {
-            return (
-                <div key = {item.a}>
-                    <p>{item.b}</p>
-                    <p>{item.c}</p>
-                    <p>{item.d}</p>
-                </div>
-            );
-        });
         return (
-
-
             <div style={{background: '#fff'}}>
-                {items}
                 <div style={{
                     width: '920px',
                     margin: '0 auto',

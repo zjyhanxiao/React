@@ -27,27 +27,27 @@ export const fetchPosts = () => {
 }
 // 提交profile信息
 /*export const updateProfile = (data) => {
-    let url = 'https://api.meixinglobal.com/web/profile/update';
+ let url = 'https://api.meixinglobal.com/web/profile/update';
+ return dispatch => {
+ dispatch(requestPosts(JSON.stringify(data)))
+ return fetch(url,{
+ method: 'POST',
+ headers: {
+ "Content-Type": "application/json; charset=utf-8",
+ }
+ })
+ .then(response => response.json())
+ .then(json => dispatch(receivePosts(json)))
+ }
+ }*/
+export const updateProfile = (data, success) => {
     return dispatch => {
-        dispatch(requestPosts(JSON.stringify(data)))
-        return fetch(url,{
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-            }
-        })
-            .then(response => response.json())
-            .then(json => dispatch(receivePosts(json)))
-    }
-}*/
-export const updateProfile = (data,success) => {
-    return dispatch =>{
         $.ajax({
             type: 'post',
             url: 'https://api.meixinglobal.com/web/profile/update',
             data: JSON.stringify(data),
             "contentType": "application/json; charset=utf-8",
-            success:function (res) {
+            success: function (res) {
                 success(res)
             }
         })
@@ -61,11 +61,18 @@ export const updateUploader = (path, key) => {
         key: key
     }
 }
-export const saveFields = (key,val) => {
+export const saveFields = (key, val) => {
     return {
         type: types.SAVE_FIELDS,
-        key:key,
-        val:val
+        key: key,
+        val: val
+    }
+}
+export const changeInvestorType = (key, val) => {
+    return {
+        type: types.INVESTOR_TYPE,
+        key: key,
+        val: val
     }
 }
 
