@@ -122,6 +122,8 @@ class BankUSA extends React.Component {
             </FormItem>
           </Row>
 
+
+
         <FormItem
           {...formItemLayout}
           label="账户类型 / Account type"
@@ -129,18 +131,15 @@ class BankUSA extends React.Component {
           wrapperCol={{span: 16}}
         >
           {getFieldDecorator('account_type', {
-            initialValue:"Checking",
             rules: [{
-              required: true, message: '请输入您的姓的汉语拼音!',
+              required: true, message: '请选择银行类型!',
             }],
           })(
-
             <Radio.Group onChange={this.handleSizeChange} style={{width:'100%',height:'32px'}}>
               <Radio.Button value="Checking" style={{width:'40%',height:'32px',borderRadius:'32px',textAlign:'center',float:'left'}}>Checking</Radio.Button>
               <div style={{width:'20%',height:'32px',float:'left'}}></div>
               <Radio.Button value="Savings" style={{width:'40%',height:'32px',borderRadius:'32px',textAlign:'center',float:'left'}}>Savings</Radio.Button>
             </Radio.Group>
-
           )}
         </FormItem>
 
