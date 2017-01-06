@@ -124,11 +124,11 @@ class BankUSA extends React.Component {
 
         <FormItem
           {...formItemLayout}
-          label="账户类型 / Account"
+          label="账户类型 / Account type"
           labelCol={{span: 4,offset: 2}}
           wrapperCol={{span: 16}}
         >
-          {getFieldDecorator('account', {
+          {getFieldDecorator('account_type', {
             initialValue:"Checking",
             rules: [{
               required: true, message: '请输入您的姓的汉语拼音!',
