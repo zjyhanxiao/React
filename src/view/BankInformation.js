@@ -26,6 +26,7 @@ class BankInformation extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log(e)
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', JSON.stringify(values));
@@ -72,6 +73,25 @@ class BankInformation extends React.Component {
             </Row>
           </FormItem>
 
+
+
+
+          {/*<FormItem*/}
+            {/*{...formItemLayout}*/}
+            {/*label="Radio.Group"*/}
+          {/*>*/}
+            {/*{getFieldDecorator('radio-group')(*/}
+              {/*<RadioGroup>*/}
+                {/*<Radio value="a">item 1</Radio>*/}
+                {/*<Radio value="b">item 2</Radio>*/}
+                {/*<Radio value="c">item 3</Radio>*/}
+              {/*</RadioGroup>*/}
+            {/*)}*/}
+          {/*</FormItem>*/}
+
+
+
+
           <Row style={{paddingTop: '10px'}}>
             <Col span={6} offset={5}>
               <Radio.Group value={size} onChange={this.handleSizeChange} style={{width:'100%',height:'32px'}}>
@@ -97,7 +117,7 @@ class BankInformation extends React.Component {
 
 
 
-          <BankFast></BankFast>
+          {/*<BankFast></BankFast>*/}
           {/*<BankUSA {...this.props}  getFieldDecorator={this.props.form} />*/}
           {/*<BanknoUSA {...this.props}  getFieldDecorator={this.props.form} />*/}
 
@@ -125,7 +145,7 @@ class BankInformation extends React.Component {
                   background: '#223976',
                   color: '#fff',
                   fontSize: '18px'
-                }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
+                }} type="primary" htmlType="submit" name="fifth" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
               </FormItem>
             </Col>
           </Row>
