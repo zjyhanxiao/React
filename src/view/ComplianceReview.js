@@ -52,10 +52,22 @@ class ComplianceReview extends React.Component {
           <CompliancePublic {...this.props}  getFieldDecorator={this.props.form} />
 
 
+          <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
+            <Col span={3} offset={6}>
+              <Button style={{
+                width: '120px',
+                height: '50px',
+                borderRadius: '30px',
+                background: '#ffffff',
+                color: '#223976',
+                fontSize: '18px'
+              }} type="primary" name="third" onClick={this.props.changeIndex} size="large">上一步</Button>
+            </Col>
 
-          <FormItem {...tailFormItemLayout}>
-            <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
-              <Col span={4} offset={8}>
+
+
+            <Col span={3} offset={6}>
+              <FormItem {...tailFormItemLayout}>
                 <Button style={{
                   width: '120px',
                   height: '50px',
@@ -63,10 +75,19 @@ class ComplianceReview extends React.Component {
                   background: '#223976',
                   color: '#fff',
                   fontSize: '18px'
-                }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">完成</Button>
-              </Col>
-            </Row>
-          </FormItem>
+                }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
+              </FormItem>
+            </Col>
+          </Row>
+
+
+          {/*<FormItem {...tailFormItemLayout}>*/}
+             {/*<Row style={{marginTop: '50px', paddingBottom: '40px'}}>*/}
+               {/*<Col span={4} offset={8}>*/}
+                 {/*<Button style={{width: '120px', height: '50px', borderRadius: '30px', background: '#223976', color: '#fff', fontSize: '18px'}} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">完成</Button>*/}
+               {/*</Col>*/}
+             {/*</Row>*/}
+          {/*</FormItem>*/}
 
         </Form>
 

@@ -95,7 +95,7 @@ class Identity extends React.Component {
             >
               {getFieldDecorator('last_name', {
                 rules: [{
-                  required: true, message: '请输入您的姓的汉语拼音!',
+                  required: true, message: '请输入您的姓氏的汉语拼音!',
                 }, {pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',}],
               })(
                 <Input placeholder='姓的汉语拼音' type="text" size="large" style={{width: 240}} />
@@ -185,6 +185,7 @@ class Identity extends React.Component {
                   <Radio style={radioStyle} value={2}>本人为其他国家港澳台投资人</Radio>
                 </RadioGroup>
               </div>
+
 
             </Col>
           </Row>

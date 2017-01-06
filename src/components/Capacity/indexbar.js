@@ -16,7 +16,6 @@ class IndexBar extends React.Component {
     this.state = {
       profile:{},
       type:1,
-      a:'first'
     }
   }
 
@@ -53,7 +52,7 @@ class IndexBar extends React.Component {
 
           <div style={{width:'100%',background:'#223976',overflow:'hidden'}}>
             <div style={{width:'20%',height:'60px',float:'left',textAlign:'center',lineHeight:'60px',color:'#ffffff',fontsize:'18px',borderRight:'1px solid #ffffff',fontFamily:'宋体',boxSizing:'borderBox'}}>
-              <div className={this.props.first==true?'at':''} style={{ height:'100%',width:'100%',background:'#ffffff',color:'#223976'}}>
+              <div className={this.props.first==true?'at':''} style={{ height:'100%',width:'100%'}}>
                 身份确认
               </div>
             </div>
