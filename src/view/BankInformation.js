@@ -16,13 +16,10 @@ class BankInformation extends React.Component {
     this.state = {
       profile:{},
       size: '非美国银行',
-      a:"a"
     }
   }
 
-  handleFormLayoutChange = (e) => {
-    this.setState({ formLayout: e.target.value });
-  }
+
 
   handleSizeChange = (e) => {
     this.setState({ size: e.target.value });
@@ -82,37 +79,26 @@ class BankInformation extends React.Component {
 
 
 
-         {/*<FormItem
+         <FormItem
             {...formItemLayout}
-            label="Radio.Group"
+            label=""
           >
             {getFieldDecorator('radio-group', {
-              initialValue:"a",
+              initialValue:"非美国银行",
             })(
-              <Radio.Group onChange={this.handleFormLayoutChange}>
-                <Radio.Button value="a">item 1</Radio.Button>
-                <Radio.Button value="b">item 2</Radio.Button>
-                <Radio.Button value="c">item 3</Radio.Button>
+             <Radio.Group onChange={this.handleSizeChange} style={{width:'600px',marginLeft:'150px'}}>
+                   <Radio.Button span={6} offset={5} value="非美国银行" style={{width:'250px',height:'32px',borderRadius:'32px',textAlign:'center',float:'left'}}>非美国银行</Radio.Button>
+                    <div style={{width:'100px',float:'left',textAlign:'center'}}>OR</div>
+                   <Radio.Button span={6} offset={5} value="美国银行" style={{width:'250px',height:'32px',borderRadius:'32px',textAlign:'center',float:'left'}}>美国银行</Radio.Button>
+
               </Radio.Group>
             )}
-          </FormItem>*/}
+          </FormItem>
 
 
 
 
-          <Row style={{paddingTop: '10px'}}>
-            <Col span={6} offset={5}>
-              <Radio.Group value={size} onChange={this.handleSizeChange} style={{width:'100%',height:'32px'}}>
-                <Radio.Button value="非美国银行" style={{width:'100%',height:'32px',borderRadius:'32px',textAlign:'center'}}>非美国银行</Radio.Button>
-              </Radio.Group>
-            </Col>
-            <Col span={2} style={{textAlign:'center',lineHeight:'32px'}}>OR</Col>
-            <Col span={6}>
-              <Radio.Group value={size} onChange={this.handleSizeChange} style={{width:'100%',height:'32px'}}>
-                <Radio.Button value="美国银行" style={{width:'100%',height:'32px',borderRadius:'32px',textAlign:'center'}}>美国银行</Radio.Button>
-              </Radio.Group>
-            </Col>
-          </Row>
+
 
           <div className={this.state.size == '非美国银行' ? 'show' : 'hide'}>
             <BanknoUSA {...this.props}  getFieldDecorator={this.props.form} />
@@ -124,10 +110,6 @@ class BankInformation extends React.Component {
 
 
 
-
-          {/*<BankFast></BankFast>*/}
-          {/*<BankUSA {...this.props}  getFieldDecorator={this.props.form} />*/}
-          {/*<BanknoUSA {...this.props}  getFieldDecorator={this.props.form} />*/}
 
 
           <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
@@ -170,12 +152,8 @@ BankInformation = Form.create({
         for (let i in changedFields) {
             let key = changedFields[i].name
             let val = changedFields[i].value
-            if (key == 'date_of_birth') {
-                let val = changedFields[i].value.format('YYYY-MM-DD')
                 props.dispatch(saveFields(key, val));
-            } else {
-                props.dispatch(saveFields(key, val));
-            }
+
         }
     }
 })(BankInformation);

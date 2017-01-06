@@ -54,6 +54,8 @@ class BanknoUSA extends React.Component {
                 {getFieldDecorator('bank_name', {
                   rules: [{
                     required: true, message: '请输入您的姓的汉语拼音!',
+                  } ,{
+                    validator: this.checkConfirm,
                   }],
                 })(
                   <Input type="text" size="large" style={{}} onBlur={this.handlePasswordBlur}/>
@@ -75,6 +77,8 @@ class BanknoUSA extends React.Component {
                 initialValue:'yang',
                 rules: [{
                   required: true, message: '请填写您的详细地址!'
+                }, {
+                  validator: this.checkConfirm,
                 }],
               })(
                 <Input type="textarea" style={{width: '100%',height:88,resize:'none'}} />
@@ -91,6 +95,8 @@ class BanknoUSA extends React.Component {
               {getFieldDecorator('swift_code', {
                 rules: [{
                   required: true, message: '请输入您的姓的汉语拼音!',
+                } ,{
+                  validator: this.checkConfirm,
                 }],
               })(
                 <Input type="text" size="large" style={{}} onBlur={this.handlePasswordBlur}/>
@@ -107,6 +113,8 @@ class BanknoUSA extends React.Component {
               {getFieldDecorator('account_number', {
                 rules: [{
                   required: true, message: '请输入您的姓的汉语拼音!',
+                } ,{
+                  validator: this.checkConfirm,
                 }],
               })(
                 <Input type="text" size="large" style={{}} onBlur={this.handlePasswordBlur}/>
@@ -135,6 +143,8 @@ class BanknoUSA extends React.Component {
             {getFieldDecorator('middle_bank_name', {
               rules: [{
                 required: true, message: '请输入您的姓的汉语拼音!',
+              } ,{
+                validator: this.checkConfirm,
               }],
             })(
               <Input type="text" size="large" style={{}} onBlur={this.handlePasswordBlur}/>
@@ -149,6 +159,8 @@ class BanknoUSA extends React.Component {
             {getFieldDecorator('middle_bank_address', {
               rules: [{
                 required: true, message: '请输入您的姓的汉语拼音!',
+              } ,{
+                validator: this.checkConfirm,
               }],
             })(
               <Input type="textarea" size="large" style={{height:'80px',resize:'none'}} onBlur={this.handlePasswordBlur}/>
@@ -163,6 +175,8 @@ class BanknoUSA extends React.Component {
             {getFieldDecorator('middle_bank_swift_code', {
               rules: [{
                 required: true, message: '请输入您的姓的汉语拼音!',
+              } ,{
+                validator: this.checkConfirm,
               }],
             })(
               <Input type="text" size="large" style={{}} onBlur={this.handlePasswordBlur}/>
