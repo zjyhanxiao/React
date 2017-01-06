@@ -110,7 +110,6 @@ class BankInformation extends React.Component {
 
 
 
-          <BankFast/>
 
           <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
             <Col span={3} offset={6}>
