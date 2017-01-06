@@ -15,7 +15,7 @@ class IndexBar extends React.Component {
     super();
     this.state = {
       profile:{},
-      type:1,
+      type:2,
     }
   }
 
