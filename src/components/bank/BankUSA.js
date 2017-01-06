@@ -121,29 +121,30 @@ class BankUSA extends React.Component {
               )}
             </FormItem>
           </Row>
-          <FormItem>
-            <Row>
-              <Col span={4} offset={2}>账户类型 / Account</Col>
-              <Col span={16}>
-                <Col span={10}>
 
-                  <Radio.Group value={size} onChange={this.handleSizeChange} style={{width:'100%',height:'32px'}}>
-                    <Radio.Button value="Checking" style={{width:'100%',height:'32px',borderRadius:'32px',textAlign:'center'}}>Checking</Radio.Button>
-                  </Radio.Group>
+        <FormItem
+          {...formItemLayout}
+          label="账户类型 / Account"
+          labelCol={{span: 4,offset: 2}}
+          wrapperCol={{span: 16}}
+        >
+          {getFieldDecorator('account', {
+            initialValue:"Checking",
+            rules: [{
+              required: true, message: '请输入您的姓的汉语拼音!',
+            }],
+          })(
+
+            <Radio.Group onChange={this.handleSizeChange} style={{width:'100%',height:'32px'}}>
+              <Radio.Button value="Checking" style={{width:'40%',height:'32px',borderRadius:'32px',textAlign:'center',float:'left'}}>Checking</Radio.Button>
+              <div style={{width:'20%',height:'32px',float:'left'}}></div>
+              <Radio.Button value="Savings" style={{width:'40%',height:'32px',borderRadius:'32px',textAlign:'center',float:'left'}}>Savings</Radio.Button>
+            </Radio.Group>
+
+          )}
+        </FormItem>
 
 
-                </Col>
-                <Col span={10} offset={4}>
-
-                  <Radio.Group value={size} onChange={this.handleSizeChange} style={{width:'100%',height:'32px'}}>
-                    <Radio.Button value="Savings" style={{width:'100%',height:'32px',borderRadius:'32px',textAlign:'center'}}>Savings</Radio.Button>
-                  </Radio.Group>
-
-
-                </Col>
-              </Col>
-            </Row>
-          </FormItem>
 
 
       </div>
