@@ -26,6 +26,7 @@ class BankInformation extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log(e)
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', JSON.stringify(values));
