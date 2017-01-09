@@ -26,7 +26,7 @@ export const fetchPosts = () => {
     }
 }
 // 提交profile信息
-export const updateProfile = (data) => {
+/*export const updateProfile = (data) => {
     let url = 'https://gl-api2.meixincn.com/web/invest/user_info_confirm';
     // let url = 'https://gl-api2.meixincn.com/web/invest/user_info';
     // let url = 'https://api.meixinglobal.com/web/profile/update';
@@ -44,8 +44,8 @@ export const updateProfile = (data) => {
             .then(response => response.json())
             .then(json => dispatch(receivePosts(json)))
     }
-}
-/*export const updateProfile = (data, success) => {
+}*/
+export const updateProfile = (data, success) => {
     return dispatch => {
         $.ajax({
             type: 'post',
@@ -63,7 +63,7 @@ export const updateProfile = (data) => {
             }
         })
     }
-}*/
+}
 
 export const updateUploader = (path, key) => {
     return {

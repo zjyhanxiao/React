@@ -1,5 +1,4 @@
 import React, {Component, PropTypes}from 'react';
-import 'antd/dist/antd.css'
 import {Form, Row, Col, Button, Radio} from 'antd';
 import {connect} from 'react-redux'
 import moment from 'moment'

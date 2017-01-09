@@ -1,6 +1,4 @@
-import 'antd/dist/antd.css'
-require('../components/basic/BasicInfo.css')
-
+import '../components/basic/BasicInfo.css'
 import React from 'react'
 import {Row, Col, Button} from 'antd'
 
