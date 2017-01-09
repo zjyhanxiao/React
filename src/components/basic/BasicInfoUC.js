@@ -18,8 +18,8 @@ class BasicInfoUC extends React.Component {
         super(props)
 
         country = this.props.country.map(function (item) {
-            return <Option value={item.encode}>{item.name}</Option>
-        });
+            return <Option value={item.encode} key={item.id}>{item.name}</Option>
+        })
     }
 
 
@@ -44,6 +44,7 @@ class BasicInfoUC extends React.Component {
                 offset: 6,
             },
         };
+
         return (
 
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
@@ -115,7 +116,7 @@ class BasicInfoUC extends React.Component {
                             required: true, message: '请输入您的SSN!',
                         }],
                     })(
-                        <Input type="text" size="large" style={{width: 240}} onBlur={this.handlePasswordBlur} />
+                        <Input type="text" size="large" style={{width: 240}} />
                     )}
                   </FormItem>
                 </Col>

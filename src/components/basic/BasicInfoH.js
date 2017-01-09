@@ -8,9 +8,14 @@ const Option = Select.Option;
 function handleChange(value) {
     console.log(`selected ${value}`);
 }
+let country
 class BasicInfoH extends React.Component {
     constructor(props) {
         super(props)
+
+        country = this.props.country.map(function (item) {
+            return <Option value={item.encode} key={item.id}>{item.name}</Option>
+        })
     }
 
     render() {
@@ -19,10 +24,6 @@ class BasicInfoH extends React.Component {
             labelCol: {span: 6},
             wrapperCol: {span: 14},
         }
-        const country=this.props.country.map(function (item) {
-            console.log(item)
-            return <Option value={item.encode}>{item.name}</Option>
-        })
         return (
 
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
@@ -45,7 +46,6 @@ class BasicInfoH extends React.Component {
                         >
                             {getFieldDecorator('date_of_birth', {
                                 //initialValue: (this.props != null && this.props.date_of_birth != null) ? moment(this.props.date_of_birth) : null,
-                                //initialValue:null,
                                 rules: [{type: 'object', required: false, message: '请输入日期!'}],
                             })(
                                 <DatePicker size="large" style={{width: 240}}></DatePicker>
@@ -60,7 +60,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('country_of_birth', {
-                                //initialValue: 'CN',
+                                initialValue: this.props.getsProfile.base_profile.investor_type==99?'Hong Kong':'China',
                                 rules: [{
                                     type: 'string',
                                     required: false,
@@ -86,7 +86,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('nationality', {
-                                //initialValue: 'CN',
+                                initialValue: this.props.getsProfile.base_profile.investor_type==99?'Hong Kong':'China',
                                 rules: [{
                                     type: 'string',
                                     required: false,
@@ -108,7 +108,6 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('source_of_capital', {
-                                //initialValue: 'CN',
                                 rules: [{
                                     type: 'string',
                                     required: false,
@@ -190,7 +189,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('country_of_tax_residency', {
-                                //initialValue: 'CN',
+                                initialValue: this.props.getsProfile.base_profile.investor_type==99?'Hong Kong':'China',
                                 rules: [{
                                     type: 'string',
                                     required: false,
