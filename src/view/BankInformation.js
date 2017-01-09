@@ -35,6 +35,7 @@ class BankInformation extends React.Component {
                 } else {
                     const {dispatch} = this.props
                     dispatch(updateProfile(this.props.getsProfile.base_profile, this.success))
+                  this.props.handleOk(e);
                 }
                 /**/
             }
@@ -132,7 +133,7 @@ class BankInformation extends React.Component {
             </Col>
 
 
-                {this.state.a ?
+                {this.props.getsProfile.base_profile.investor_type ==2 ?
                     <Col span={3} offset={6}>
                 <FormItem {...tailFormItemLayout}>
                   <Button style={{
@@ -146,18 +147,18 @@ class BankInformation extends React.Component {
                 </FormItem>
               </Col>
                     :
-                    <Col span={3} offset={6}>
-                <FormItem {...tailFormItemLayout}>
-                  <Button style={{
-                      width: '120px',
-                      height: '50px',
-                      borderRadius: '30px',
-                      background: '#223976',
-                      color: '#fff',
-                      fontSize: '18px'
-                  }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">完成</Button>
-                </FormItem>
-              </Col>
+                  <Col span={3} offset={6}>
+                    <FormItem {...tailFormItemLayout}>
+                      <Button style={{
+                          width: '120px',
+                          height: '50px',
+                          borderRadius: '30px',
+                          background: '#223976',
+                          color: '#fff',
+                          fontSize: '18px'
+                      }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">完成</Button>
+                    </FormItem>
+                  </Col>
                 }
 
           </Row>

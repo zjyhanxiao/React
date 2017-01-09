@@ -20,6 +20,8 @@ class ComplianceReview extends React.Component {
       if (!err) {
         console.log('Received values of form: ', JSON.stringify(values));
         this.props.handleOk(e);
+        console.log(
+          this.props.getsProfile.base_profile)
         const { dispatch } = this.props
         dispatch(updateProfile(values,this.success))
       }
