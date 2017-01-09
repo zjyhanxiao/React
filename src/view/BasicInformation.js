@@ -62,29 +62,56 @@ class BasicInformation extends React.Component {
             }}>
                 <Form horizontal>
                   {
-                    this.props.getsProfile.base_profile.investor_type==99?
-                      <BasicInfoH {...this.props.getsProfile} getFieldDecorator={this.props.form}
-                                  disabledDate={this.disabledDate} expire_date={this.expire_date} />
-                      :
-                      <BasicInfoUC {...this.props.getsProfile} getFieldDecorator={this.props.form} />
+                      this.props.getsProfile.base_profile.investor_type == 99 ?
+                          <BasicInfoH {...this.props.getsProfile} getFieldDecorator={this.props.form}
+                                      disabledDate={this.disabledDate} expire_date={this.expire_date} />
+                          :
+                          <BasicInfoUC {...this.props.getsProfile} getFieldDecorator={this.props.form} />
 
                   }
 
-                  {
-                    this.props.getsProfile.base_profile.investor_type==99?
-                      <div>
+                    {
+                        this.props.getsProfile.base_profile.investor_type == 99 ?
+                            <div>
                         <Basicpassport {...this.props.getsProfile}
-                                       test={{type:'护照上传',explain:'请上传您的护照信息页照片或扫面文件',notice:'如果您的护照证件(例如:旧版中国护照) 不包含签名部分,请将证件置于白纸之上,并于证件下方签名,拍照或扫描上传。证件必须为原件, 不能为复印件。',certificate:true,typeNumber:'护照号',numberfield:'passport_number',validityfield:'passport_expire_date',urlfield:'passport_url'}}
+                                       test={{
+                                           type: '护照上传',
+                                           explain: '请上传您的护照信息页照片或扫面文件',
+                                           notice: '如果您的护照证件(例如:旧版中国护照) 不包含签名部分,请将证件置于白纸之上,并于证件下方签名,拍照或扫描上传。证件必须为原件, 不能为复印件。',
+                                           certificate: true,
+                                           typeNumber: '护照号',
+                                           numberfield: 'passport_number',
+                                           validityfield: 'passport_expire_date',
+                                           urlfield: 'passport_url'
+                                       }}
                                        getFieldDecorator={this.props.form} />
                         <Basicpassport {...this.props.getsProfile}
-                                       test={{type:'身份证上传',explain:'如您所在的国家为您发行了身份证，请在此处上传。如没有，可不必上传。',notice:'',certificate:false,typeNumber:'身份证号',numberfield:'id_card_number',validityfield:'id_card_expire_date',urlfield:'id_card_url'}}
+                                       test={{
+                                           type: '身份证上传',
+                                           explain: '如您所在的国家为您发行了身份证，请在此处上传。如没有，可不必上传。',
+                                           notice: '',
+                                           certificate: false,
+                                           typeNumber: '身份证号',
+                                           numberfield: 'id_card_number',
+                                           validityfield: 'id_card_expire_date',
+                                           urlfield: 'id_card_url'
+                                       }}
                                        getFieldDecorator={this.props.form} />
                       </div>
-                      :
-                      <Basicpassport {...this.props.getsProfile}
-                                     test={{type:'护照上传',explain:'请上传您的护照信息页照片或扫面文件',notice:'如果您的护照证件(例如:旧版中国护照) 不包含签名部分,请将证件置于白纸之上,并于证件下方签名,拍照或扫描上传。证件必须为原件, 不能为复印件。',certificate:true,typeNumber:'护照号',numberfield:'passport_number',validityfield:'passport_expire_date',urlfield:'passport_url'}}
-                                     getFieldDecorator={this.props.form} />
-                  }
+                            :
+                            <Basicpassport {...this.props.getsProfile}
+                                           test={{
+                                               type: '护照上传',
+                                               explain: '请上传您的护照信息页照片或扫面文件',
+                                               notice: '如果您的护照证件(例如:旧版中国护照) 不包含签名部分,请将证件置于白纸之上,并于证件下方签名,拍照或扫描上传。证件必须为原件, 不能为复印件。',
+                                               certificate: true,
+                                               typeNumber: '护照号',
+                                               numberfield: 'passport_number',
+                                               validityfield: 'passport_expire_date',
+                                               urlfield: 'passport_url'
+                                           }}
+                                           getFieldDecorator={this.props.form} />
+                    }
 
 
                     <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
@@ -108,7 +135,8 @@ class BasicInformation extends React.Component {
                     background: '#223976',
                     color: '#fff',
                     fontSize: '18px'
-                }} type="primary" htmlType="submit" name="third" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
+                }} type="primary" htmlType="submit" name="third" onClick={this.handleSubmit.bind(this)}
+                        size="large">下一步</Button>
               </FormItem>
             </Col>
           </Row>
@@ -123,7 +151,7 @@ BasicInformation = Form.create({
             let key = changedFields[i].name
             let val = changedFields[i].value
             if (val != undefined && val != '' && val != null) {
-                if (key == 'date_of_birth'||key == 'passport_expire_date') {
+                if (key == 'date_of_birth' || key == 'passport_expire_date') {
                     let val = changedFields[i].value.format('YYYY-MM-DD')
                     props.dispatch(saveFields(key, val));
                 } else {
@@ -132,7 +160,7 @@ BasicInformation = Form.create({
             }
 
         }
-    },
+    }
 })(BasicInformation);
 BasicInformation.defaultProps = {};
 BasicInformation.propTypes = {
@@ -145,5 +173,5 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect( mapStateToProps)(BasicInformation);
+export default connect(mapStateToProps)(BasicInformation);
 

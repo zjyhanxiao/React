@@ -162,7 +162,7 @@ class BasicInfoUC extends React.Component {
                 {getFieldDecorator('industry', {
                     rules: [{
                         type: 'string',
-                        required: false,
+                        required: true,
                         message: '请选择您的行业！'
                     }],
                 })(
@@ -187,7 +187,7 @@ class BasicInfoUC extends React.Component {
                     initialValue: 'lucy',
                     rules: [{
                         type: 'string',
-                        required: false,
+                        required: true,
                         message: '请选择您的职业！'
                     }],
                 })(
