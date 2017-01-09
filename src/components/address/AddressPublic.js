@@ -66,7 +66,7 @@ class AddressPublic extends React.Component {
                 rules: [{
                   type: 'string',
                   required: false,
-                  message: 'Please select your habitual residence!'
+                  message: '请选择证件类型！'
                 }],
               })(
                 //<Cascader options={residences} />

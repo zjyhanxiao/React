@@ -16,10 +16,9 @@ class BankInformation extends React.Component {
     this.state = {
       profile:{},
       size: 'NON_US',
-      a:true
+      a:false
     }
   }
-
 
 
   handleSizeChange = (e) => {
@@ -27,6 +26,18 @@ class BankInformation extends React.Component {
     console.log(e.target.value)
   }
 
+
+  handle(e){
+    e.preventDefault();
+    this.props.form.validateFieldsAndScroll((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', JSON.stringify(values));
+        this.props.handleOk(e);
+        const { dispatch } = this.props
+         dispatch(updateProfile(values,this.success))
+      }
+    });
+  }
   handleSubmit(e) {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
@@ -38,6 +49,9 @@ class BankInformation extends React.Component {
       }
     });
   }
+
+
+
 
   success(){
     console.log('success')
@@ -137,7 +151,7 @@ class BankInformation extends React.Component {
                     background: '#223976',
                     color: '#fff',
                     fontSize: '18px'
-                  }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">完成</Button>
+                  }} type="primary" htmlType="submit" onClick={this.handle.bind(this)} size="large">完成</Button>
                 </FormItem>
               </Col>
             }
