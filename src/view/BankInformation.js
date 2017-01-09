@@ -14,7 +14,6 @@ class BankInformation extends React.Component {
         super(props)
         this.state = {
             size: 'NON_US',
-            a: true
         }
     }
 
