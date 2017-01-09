@@ -62,7 +62,7 @@ class ComplianceSpouse extends React.Component {
               >
                 {getFieldDecorator('spouse_last_name', {
                   rules: [{
-                    required: true, message: '请输入您的姓的汉语拼音!',
+                    required: true, message: '请输入您配偶姓的汉语拼音!',
                   },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',}],
                 })(
                   <Input type='text' size='large' style={{width: 240}}/>
@@ -79,7 +79,7 @@ class ComplianceSpouse extends React.Component {
                 {getFieldDecorator('spouse_first_name', {
                   //initialValue:'yang',
                   rules: [{
-                    required: true, message: '请输入您的名的汉语拼音!',
+                    required: true, message: '请输入您配偶名的汉语拼音!',
                   },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',}],
                 })(
                   <Input type='text'  size='large' style={{width: 240}}/>
@@ -124,8 +124,8 @@ class ComplianceSpouse extends React.Component {
                   //initialValue:'yang',
                   rules: [{
                     type:'email',
-                    required: true, message: '请输入您的名的汉语拼音!',
-                  },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',}],
+                    required: true, message: '请输入您配偶的邮箱！',
+                  }],
                 })(
                   <Input type='text' size='large' style={{width: 240}} onBlur={this.handlePasswordBlur}/>
                 )}

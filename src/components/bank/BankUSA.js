@@ -61,7 +61,7 @@ class BankUSA extends React.Component {
               >
                 {getFieldDecorator('bank_name', {
                   rules: [{
-                    required: true, message: '请输入您的姓的汉语拼音!',
+                    required: true, message: '请输入您的银行名称！',
                   }],
                 })(
                   <Input type="text" size="large" style={{}} onBlur={this.handlePasswordBlur}/>
@@ -82,7 +82,7 @@ class BankUSA extends React.Component {
               {getFieldDecorator('bank_address', {
                 initialValue:'yang',
                 rules: [{
-                  required: true, message: '请填写您的详细地址!'
+                  required: true, message: '请填写您的银行地址!'
                 }],
               })(
                 <Input type="textarea" style={{width: '100%',height:88,resize:'none'}} />
@@ -98,7 +98,7 @@ class BankUSA extends React.Component {
           >
             {getFieldDecorator('routing_number', {
               rules: [{
-                required: true, message: '请输入您的姓的汉语拼音!',
+                required: true, message: '请输入ABA / Routing number',
               }],
             })(
               <Input type="text" size="large" style={{}} onBlur={this.handlePasswordBlur}/>
@@ -114,7 +114,7 @@ class BankUSA extends React.Component {
             >
               {getFieldDecorator('account_number', {
                 rules: [{
-                  required: true, message: '请输入您的姓的汉语拼音!',
+                  required: true, message: '请输入您的银行账户名！',
                 }],
               })(
                 <Input type="text" size="large" style={{}} onBlur={this.handlePasswordBlur}/>
@@ -132,7 +132,7 @@ class BankUSA extends React.Component {
         >
           {getFieldDecorator('account_type', {
             rules: [{
-              required: true, message: '请选择银行类型!',
+              required: true, message: '请选择您的账户类型!',
             }],
           })(
             <Radio.Group onChange={this.handleSizeChange} style={{width:'100%',height:'32px'}}>

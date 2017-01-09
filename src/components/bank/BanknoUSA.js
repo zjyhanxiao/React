@@ -53,7 +53,7 @@ class BanknoUSA extends React.Component {
               >
                 {getFieldDecorator('bank_name', {
                   rules: [{
-                    required: true, message: '请输入您的姓的汉语拼音!',
+                    required: true, message: '请输入您的银行名称！',
                   } ,{
                     validator: this.checkConfirm,
                   }],
@@ -76,7 +76,7 @@ class BanknoUSA extends React.Component {
               {getFieldDecorator('bank_address', {
                 initialValue:'yang',
                 rules: [{
-                  required: true, message: '请填写您的详细地址!'
+                  required: true, message: '请填写您的银行地址！'
                 }, {
                   validator: this.checkConfirm,
                 }],
@@ -94,7 +94,7 @@ class BanknoUSA extends React.Component {
             >
               {getFieldDecorator('swift_code', {
                 rules: [{
-                  required: true, message: '请输入您的姓的汉语拼音!',
+                  required: true, message: '请输入SwiftCode!',
                 } ,{
                   validator: this.checkConfirm,
                 }],
@@ -112,7 +112,7 @@ class BanknoUSA extends React.Component {
             >
               {getFieldDecorator('account_number', {
                 rules: [{
-                  required: true, message: '请输入您的姓的汉语拼音!',
+                  required: true, message: '请输入您的银行账户名!',
                 } ,{
                   validator: this.checkConfirm,
                 }],
@@ -142,7 +142,7 @@ class BanknoUSA extends React.Component {
           >
             {getFieldDecorator('middle_bank_name', {
               rules: [{
-                required: true, message: '请输入您的姓的汉语拼音!',
+                required: true, message: '请输入您的指定的中间行名称！',
               } ,{
                 validator: this.checkConfirm,
               }],
@@ -158,7 +158,7 @@ class BanknoUSA extends React.Component {
           >
             {getFieldDecorator('middle_bank_address', {
               rules: [{
-                required: true, message: '请输入您的姓的汉语拼音!',
+                required: true, message: '请输入您的指定的中间行地址！',
               } ,{
                 validator: this.checkConfirm,
               }],
@@ -174,7 +174,7 @@ class BanknoUSA extends React.Component {
           >
             {getFieldDecorator('middle_bank_swift_code', {
               rules: [{
-                required: true, message: '请输入您的姓的汉语拼音!',
+                required: true, message: '请输入中间行Swiftcode',
               } ,{
                 validator: this.checkConfirm,
               }],

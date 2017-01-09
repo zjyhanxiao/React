@@ -60,7 +60,7 @@ class BasicInfoH extends React.Component {
                                 rules: [{
                                     type: 'string',
                                     required: false,
-                                    message: 'Please select your habitual residence!'
+                                    message: '请选择您的出生国家！'
                                 }],
                             })(
                                 //<Cascader options={residences} />
@@ -89,7 +89,7 @@ class BasicInfoH extends React.Component {
                                 rules: [{
                                     type: 'string',
                                     required: false,
-                                    message: 'Please select your habitual residence!'
+                                    message: '请选择您的国籍！'
                                 }],
                             })(
                                 //<Cascader options={residences} />
@@ -114,7 +114,7 @@ class BasicInfoH extends React.Component {
                                 rules: [{
                                     type: 'string',
                                     required: false,
-                                    message: 'Please select your habitual residence!'
+                                    message: '请选择您的资金来源！'
                                 }],
                             })(
                                 //<Cascader options={residences} />
@@ -142,7 +142,7 @@ class BasicInfoH extends React.Component {
                                 rules: [{
                                     type: 'string',
                                     required: false,
-                                    message: 'Please select your habitual residence!'
+                                    message: '请选择您的行业！'
                                 }],
                             })(
                                 //<Cascader options={residences} />
@@ -167,7 +167,7 @@ class BasicInfoH extends React.Component {
                                 rules: [{
                                     type: 'string',
                                     required: false,
-                                    message: 'Please select your habitual residence!'
+                                    message: '请选择您的职业！'
                                 }],
                             })(
                                 //<Cascader options={residences} />
@@ -196,7 +196,7 @@ class BasicInfoH extends React.Component {
                                 rules: [{
                                     type: 'string',
                                     required: false,
-                                    message: 'Please select your habitual residence!'
+                                    message: '请选择您的纳税国！'
                                 }],
                             })(
                                 //<Cascader options={residences} />
@@ -219,7 +219,7 @@ class BasicInfoH extends React.Component {
                             {getFieldDecorator('foreign_tax_number', {
                                 //initialValue: this.props.passport_code,
                                 rules: [{
-                                    required: false, message: '请输入您的护照号!',
+                                    required: false, message: '请输入您的纳税号！',
                                 }],
                             })(
                                 <Input type="text" size="large" style={{width: 240}} onBlur={this.handlePasswordBlur}/>

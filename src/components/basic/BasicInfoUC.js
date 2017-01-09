@@ -89,7 +89,7 @@ class BasicInfoUC extends React.Component {
                   rules: [{
                     type: 'string',
                     required: false,
-                    message: 'Please select your habitual residence!'
+                    message: '请选择您的出生国家！'
                   }],
                 })(
                   //<Cascader options={residences} />
@@ -117,8 +117,8 @@ class BasicInfoUC extends React.Component {
                   >
                     {getFieldDecorator('ssn', {
                       rules: [{
-                        required: true, message: '请输入您的姓的汉语拼音!',
-                      },{pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',} ,{
+                        required: true, message: '请输入您的SSN!',
+                      } ,{
                         validator: this.checkConfirm,
                       }],
                     })(
@@ -138,7 +138,7 @@ class BasicInfoUC extends React.Component {
                       rules: [{
                         type: 'string',
                         required: false,
-                        message: 'Please select your habitual residence!'
+                        message: '请选择您的国籍！'
                       }],
                     })(
                       //<Cascader options={residences} />
@@ -176,7 +176,7 @@ class BasicInfoUC extends React.Component {
                   rules: [{
                     type: 'string',
                     required: false,
-                    message: 'Please select your habitual residence!'
+                    message: '请选择您的行业！'
                   }],
                 })(
                   //<Cascader options={residences} />
@@ -201,7 +201,7 @@ class BasicInfoUC extends React.Component {
                   rules: [{
                     type: 'string',
                     required: false,
-                    message: 'Please select your habitual residence!'
+                    message: '请选择您的职业！'
                   }],
                 })(
                   //<Cascader options={residences} />
@@ -235,7 +235,7 @@ class BasicInfoUC extends React.Component {
                     rules: [{
                       type: 'string',
                       required: true,
-                      message: 'Please select your habitual residence!'
+                      message: '请选择您的资金来源！'
                     }],
                   })(
                     //<Cascader options={residences} />
