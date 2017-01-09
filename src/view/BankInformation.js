@@ -16,6 +16,7 @@ class BankInformation extends React.Component {
     this.state = {
       profile:{},
       size: 'NON_US',
+      a:true
     }
   }
 
@@ -109,18 +110,38 @@ class BankInformation extends React.Component {
               }} type="primary" name="third" onClick={this.props.changeIndex} size="large">上一步</Button>
             </Col>
 
-            <Col span={3} offset={6}>
-              <FormItem {...tailFormItemLayout}>
-                <Button style={{
-                  width: '120px',
-                  height: '50px',
-                  borderRadius: '30px',
-                  background: '#223976',
-                  color: '#fff',
-                  fontSize: '18px'
-                }} type="primary" htmlType="submit" name="fifth" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
-              </FormItem>
-            </Col>
+
+
+
+
+            {this.state.a?
+              <Col span={3} offset={6}>
+                <FormItem {...tailFormItemLayout}>
+                  <Button style={{
+                    width: '120px',
+                    height: '50px',
+                    borderRadius: '30px',
+                    background: '#223976',
+                    color: '#fff',
+                    fontSize: '18px'
+                  }} type="primary" htmlType="submit" name="fifth" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
+                </FormItem>
+              </Col>
+              :
+              <Col span={3} offset={6}>
+                <FormItem {...tailFormItemLayout}>
+                  <Button style={{
+                    width: '120px',
+                    height: '50px',
+                    borderRadius: '30px',
+                    background: '#223976',
+                    color: '#fff',
+                    fontSize: '18px'
+                  }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">完成</Button>
+                </FormItem>
+              </Col>
+            }
+
           </Row>
 
         </Form>
