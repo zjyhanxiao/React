@@ -82,10 +82,13 @@ class BasicPassport extends React.Component {
                         </FormItem>
                     </Col>
                 </Row>
+
+
+              {/*required:this.props.test.certificate*/}
                 <FormItem style={{width: 346, margin: '0 auto'}}>
                     {getFieldDecorator(this.props.test.urlfield, {
                         initialValue: data!=null&&data.passport_url!=null?data.passport_url:null,
-                        rules: [{required: this.props.test.certificate, message: '请上传证件!'}]
+                        rules: [{ message: '请上传证件!'}]
                     })(
                         <Uploader {...data} />
                     )}
