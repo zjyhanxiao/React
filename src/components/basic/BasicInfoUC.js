@@ -83,7 +83,7 @@ class BasicInfoUC extends React.Component {
                   wrapperCol={{span: 14}}
               >
                 {getFieldDecorator('country_of_birth', {
-                    initialValue: 'CN',
+                    initialValue: 'China',
                     rules: [{
                         type: 'string',
                         required: false,
@@ -113,8 +113,6 @@ class BasicInfoUC extends React.Component {
                     {getFieldDecorator('ssn', {
                         rules: [{
                             required: true, message: '请输入您的SSN!',
-                        }, {
-                            validator: this.checkConfirm,
                         }],
                     })(
                         <Input type="text" size="large" style={{width: 240}} onBlur={this.handlePasswordBlur} />
@@ -129,7 +127,7 @@ class BasicInfoUC extends React.Component {
                       wrapperCol={{span: 14}}
                   >
                     {getFieldDecorator('nationality', {
-                        initialValue: 'CN',
+                        initialValue: 'China',
                         rules: [{
                             type: 'string',
                             required: false,
@@ -159,7 +157,6 @@ class BasicInfoUC extends React.Component {
                   wrapperCol={{span: 14}}
               >
                 {getFieldDecorator('industry', {
-                    initialValue: 'CN',
                     rules: [{
                         type: 'string',
                         required: false,
@@ -214,7 +211,6 @@ class BasicInfoUC extends React.Component {
                     wrapperCol={{span: 14}}
                 >
                   {getFieldDecorator('source_of_capital', {
-                      initialValue: 'CN',
                       rules: [{
                           type: 'string',
                           required: true,
