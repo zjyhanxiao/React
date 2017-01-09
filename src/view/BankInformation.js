@@ -60,10 +60,6 @@ class BankInformation extends React.Component {
         <Form horizontal>
 
 
-
-
-
-
           <FormItem>
             <Row style={{paddingTop: '30px'}}>
               <Col span={6} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体'}}>打款／回款银行信息</h2></Col>
@@ -73,9 +69,6 @@ class BankInformation extends React.Component {
                 请注意：您的汇款与收款银行必须一致，而且银行账户上的姓名应当为投资人姓名。请仔细填写以下信息，以免回款时给您带来不便。</p></Col>
             </Row>
           </FormItem>
-
-
-
 
          <FormItem
             {...formItemLayout}
@@ -93,19 +86,14 @@ class BankInformation extends React.Component {
             )}
           </FormItem>
 
+          {/*<div className={this.state.size == '非美国银行' ? 'show' : 'hide'}>*/}
+            {/*<BanknoUSA {...this.props}  getFieldDecorator={this.props.form} />*/}
+          {/*</div>*/}
+          {/*<div className={this.state.size == '美国银行' ? 'show' : 'hide'}>*/}
+            {/*<BankUSA {...this.props}  getFieldDecorator={this.props.form} />*/}
+          {/*</div>*/}
 
-
-
-
-
-          <div className={this.state.size == '非美国银行' ? 'show' : 'hide'}>
-            <BanknoUSA {...this.props}  getFieldDecorator={this.props.form} />
-          </div>
-          <div className={this.state.size == '美国银行' ? 'show' : 'hide'}>
-            <BankUSA {...this.props}  getFieldDecorator={this.props.form} />
-          </div>
-
-
+          {this.state.size == '非美国银行' ? <BanknoUSA {...this.props}  getFieldDecorator={this.props.form} /> : <BankUSA {...this.props}  getFieldDecorator={this.props.form} />}
 
 
 
@@ -120,8 +108,6 @@ class BankInformation extends React.Component {
                 fontSize: '18px'
               }} type="primary" name="third" onClick={this.props.changeIndex} size="large">上一步</Button>
             </Col>
-
-
 
             <Col span={3} offset={6}>
               <FormItem {...tailFormItemLayout}>
@@ -164,9 +150,6 @@ BankInformation = Form.create({
   },
 })(BankInformation);
 
-
-
-
 BankInformation.defaultProps = {};
 
 BankInformation.propTypes = {
@@ -178,6 +161,5 @@ const mapStateToProps = (state) => {
     getsProfile: state.getsProfile
   }
 }
-
 
 export default connect(mapStateToProps)(BankInformation)
