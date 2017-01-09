@@ -66,7 +66,7 @@ class BasicInformation extends React.Component {
                       <BasicInfoH {...this.props.getsProfile} getFieldDecorator={this.props.form}
                                   disabledDate={this.disabledDate} expire_date={this.expire_date} />
                       :
-                      <BasicInfoUC {...this.props} getFieldDecorator={this.props.form} />
+                      <BasicInfoUC {...this.props.getsProfile} getFieldDecorator={this.props.form} />
 
                   }
 

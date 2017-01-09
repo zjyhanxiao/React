@@ -9,16 +9,17 @@ import {Form, Input, Select, Row, Col, Button, DatePicker} from 'antd';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
-
+let country
 function handleChange(value) {
     console.log(`selected ${value}`);
 }
 class BasicInfoUC extends React.Component {
     constructor(props) {
-        super(props);
-        this.state = {
-            profile: {}
-        }
+        super(props)
+
+        country = this.props.country.map(function (item) {
+            return <Option value={item.encode}>{item.name}</Option>
+        });
     }
 
 
@@ -32,15 +33,11 @@ class BasicInfoUC extends React.Component {
     }
 
     render() {
-        const {getFieldDecorator} = this.props.form;
+        const {getFieldDecorator} = this.props.getFieldDecorator;
         const formItemLayout = {
             labelCol: {span: 6},
             wrapperCol: {span: 14},
-        }
-        const country = this.props.country.map(function (item) {
-            console.log(item)
-            return <Option value={item.encode}>{item.name}</Option>
-        })
+        };
         const tailFormItemLayout = {
             wrapperCol: {
                 span: 14,
