@@ -63,14 +63,21 @@ class AddressInformation extends React.Component {
             }}>
         {/*{JSON.stringify(this.props.passport_photo)}*/}
                 <Form horizontal>
-          <AddressProve {...this.props} getFieldDecorator={this.props.form} disabledDate={this.disabledDate}
-                        expire_date={this.expire_date} />
-          {/*<AddressPublic {...this.props} getFieldDecorator={this.props.form} disabledDate={this.disabledDate}
-                         expire_date={this.expire_date} />*/}
-          <AddressChina {...this.props} getFieldDecorator={this.props.form} disabledDate={this.disabledDate}
-                        expire_date={this.expire_date} />
-          {/*<AddressOther {...this.props} getFieldDecorator={this.props.form} disabledDate={this.disabledDate}
-                        expire_date={this.expire_date} />*/}
+
+                  {
+                    this.props.getsProfile.base_profile.investor_type==2?
+                      <AddressPublic {...this.props} getFieldDecorator={this.props.form} disabledDate={this.disabledDate} expire_date={this.expire_date} />
+                      :
+                      <AddressProve {...this.props} getFieldDecorator={this.props.form} disabledDate={this.disabledDate} expire_date={this.expire_date} />
+                  }
+                  {
+                    this.props.getsProfile.base_profile.investor_type==1?
+                      <AddressChina {...this.props} getFieldDecorator={this.props.form} disabledDate={this.disabledDate} expire_date={this.expire_date} />
+                      :
+                      <AddressOther {...this.props} getFieldDecorator={this.props.form} disabledDate={this.disabledDate} expire_date={this.expire_date} />
+                  }
+
+
 
 
 
