@@ -49,7 +49,13 @@ class AddressProve extends React.Component {
             </Row>
             <Row>
               <Col span={20} offset={2}><p
-                  style={{color: '#ff6600', fontFamily: '宋体'}}>请上传您的中国身份证照片或扫描文件作为您的地址证明。</p></Col>
+                  style={{color: '#ff6600', fontFamily: '宋体'}}>
+                {this.props.getsProfile.base_profile.investor_type == 1?
+                '请上传您的中国身份证照片或扫描文件作为您的地址证明。'
+                  :
+                  '请上传银行、水电费、网络或电话账单照片或扫描文件作为您的地址证明，长电脑上必须包含姓名与地址，并且账单日起为3个月以内。'
+                }
+              </p></Col>
             </Row>
           </FormItem>
           <Row>

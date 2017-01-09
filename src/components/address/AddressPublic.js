@@ -10,9 +10,7 @@ import Uploader from '../uploader/index'
 const FormItem = Form.Item;
 const Option = Select.Option;
 
-function handleChange(value) {
-  console.log(`selected ${value}`);
-}
+
 class AddressPublic extends React.Component {
   constructor() {
     super();
@@ -20,6 +18,11 @@ class AddressPublic extends React.Component {
       profile:{}
     }
   }
+
+  handleChange=(value)=> {
+    console.log(`selected ${value}`);
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
@@ -50,7 +53,13 @@ class AddressPublic extends React.Component {
         <FormItem>
           <Row style={{paddingTop: '30px'}}>
             <Col span={3} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体'}}>地址证明上传</h2></Col>
-            <Col span={10} offset={1}><p style={{color: '#ff6600', fontFamily: '宋体', marginTop: '2px'}}>你的账单必须包含姓名与地址，并且账单日起为三个月内。</p></Col>
+            <Col span={10} offset={1}><p style={{color: '#ff6600', fontFamily: '宋体', marginTop: '2px'}}>
+              {this.props.getsProfile.base_profile.file_type == 'jack'?
+                '你的账单必须包含姓名与地址，并且账单日起为三个月内'
+                :
+                ''
+              }
+            </p></Col>
           </Row>
         </FormItem>
         <Row>
@@ -70,7 +79,7 @@ class AddressPublic extends React.Component {
                 }],
               })(
                 //<Cascader options={residences} />
-                <Select size="large" style={{width: 240}} onChange={handleChange}>
+                <Select size="large" style={{width: 240}} onChange={this.handleChange}>
                   <Option value="jack">Jack</Option>
                   <Option value="CN">中国</Option>
                   <Option value="disabled">Disabled</Option>
@@ -132,43 +141,3 @@ export default connect(mapStateToProps)(AddressPublic)
 
 
 
-
-/*************************************************************
- <Row style={{paddingTop:'30px'}}>
- <Col span={3} offset={2}><h2 style={{color: '#159bd6',fontFamily:'宋体'}}>地址上传证明</h2></Col>
- <Col span={10} offset={1}><p style={{color: '#ff6600',fontFamily:'宋体',marginTop:'5px'}}></p></Col>
- </Row>
- <Row style={{marginTop:'10px'}}>
- <Col span={2} offset={2} style={{height:'32px',lineHeight:'32px'}}>出生国家</Col>
- <Col span={7}>
- <Select size="large" defaultValue="CN" style={{ width: 240 }} onChange={handleChange}>
- <Option value="jack">Jack</Option>
- <Option value="CN">Lucy</Option>
- <Option value="disabled">Disabled</Option>
- <Option value="yiminghe">Yiminghe</Option>
- </Select>
- </Col>
- <Col span={2} offset={2} style={{height:'32px',lineHeight:'32px'}}>出生日期</Col>
- <Col span={7}><DatePicker style={{width:'240px', height: '32px' }}></DatePicker></Col>
- </Row>
- <Row style={{paddingTop: '30px'}}>
- <Col span={10} offset={7}><Avatar></Avatar></Col>
- </Row>
- <Row style={{marginTop: '10px'}}>
- <Col span={12} offset={6} style={{color: '#999999', fontFamily: '宋体', textAlign: 'center'}}>请在下面区域填写您地址证明上的地址，务必与证件上的地址确保一致。</Col>
- </Row>
- <Row style={{marginTop: '40px'}}>
- <Col span={6} offset={5}><Button type="中国大陆地址" style={{width:'100%',height:'32px',borderRadius:'32px',border:'1px solid #223976',color:'#223976'}}>中国大陆地址</Button></Col>
- <Col span={2} style={{textAlign:'center',lineHeight:'32px'}}>OR</Col>
- <Col span={6}><Button type="其他地址"  style={{width:'100%',height:'32px',borderRadius:'32px',border:'1px solid #cccccc',color:'#cccccc'}}>其他地址</Button></Col>
- </Row>
- *************************************************************/
-/**********************************************
- <FormItem>
- <Row style={{paddingTop: '30px'}}>
- <Col span={6} offset={5}><Button type="ghost" style={{width:'100%',height:'32px',borderRadius:'32px',border:'1px solid #223976',color:'#223976'}}>中国大陆地址</Button></Col>
- <Col span={2} style={{textAlign:'center',lineHeight:'32px'}}>OR</Col>
- <Col span={6}><Button type="ghost"  style={{width:'100%',height:'32px',borderRadius:'32px',border:'1px solid #cccccc',color:'#cccccc'}}>其他地址</Button></Col>
- </Row>
- </FormItem>
- *********************************************/
