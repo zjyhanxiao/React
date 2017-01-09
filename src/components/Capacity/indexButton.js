@@ -92,7 +92,7 @@ const IndexButton = React.createClass({
                   <IdentityConfirmation {...this.state.pages} {...this.props} changeIndex={this.changeIndex} />
                   <BasicInformation {...this.state.pages} {...this.props} changeIndex={this.changeIndex} />
                   <AddressInformation {...this.state.pages} {...this.props} changeIndex={this.changeIndex} />
-                  <BankInformation  {...this.state.pages} {...this.props} changeIndex={this.changeIndex} />
+                  <BankInformation  {...this.state.pages} handleOk={this.handleOk} {...this.props} changeIndex={this.changeIndex} />
                   <ComplianceReview {...this.state.pages} handleOk={this.handleOk} {...this.props} changeIndex={this.changeIndex} />
                     <div style={{wordBreak:'break-all'}}>
                 {JSON.stringify(this.props)}</div>
