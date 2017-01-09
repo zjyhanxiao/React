@@ -30,8 +30,9 @@ class BasicInfoH extends React.Component {
                 <FormItem>
                     <Row style={{paddingTop: '30px'}}>
                         <Col span={2} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体'}}>个人信息</h2></Col>
-                        <Col span={11} offset={1}><p style={{fontFamily: '宋体', marginTop: '2px'}}>
-                            (Yue Chen Zhao 非美国-其他国家 / 港澳台地区投资人)</p></Col>
+                        <Col span={11} offset={1}><p style={{fontFamily: '宋体', marginTop: '2px'}}>(
+                          {this.props.getsProfile.base_profile.first_name} {this.props.getsProfile.base_profile.last_name} 非美国-其他国家 / 港澳台地区投资人
+                          )</p></Col>
                     </Row>
                 </FormItem>
 
