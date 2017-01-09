@@ -20,8 +20,8 @@ class IdentityConfirmation extends React.Component {
       if (!err) {
         console.log('Received values of form: ', JSON.stringify(values));
         this.props.changeIndex(e)
-        /*const { dispatch } = this.props
-        dispatch(updateProfile(values,this.success))*/
+        // const { dispatch } = this.props
+        // dispatch(updateProfile(this.props.getsProfile.base_profile,this.success))
       }
     });
   }
