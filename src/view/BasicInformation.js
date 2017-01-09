@@ -100,11 +100,9 @@ class BasicInformation extends React.Component {
 }
 BasicInformation = Form.create({
     onFieldsChange(props, changedFields) {
-        console.log(JSON.stringify(changedFields))
         for (let i in changedFields) {
             let key = changedFields[i].name
             let val = changedFields[i].value
-            console.log(val)
             if (val != undefined && val != '' && val != null) {
                 if (key == 'date_of_birth') {
                     let val = changedFields[i].value.format('YYYY-MM-DD')
