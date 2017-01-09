@@ -58,12 +58,10 @@ class BasicPassport extends React.Component {
                             labelCol={{span: 4, offset: 4}}
                             wrapperCol={{span: 14}}
                         >
-                            {getFieldDecorator('passport_code', {
+                            {getFieldDecorator('passport_number', {
                                 //initialValue: 'E35456464',
                                 rules: [{
                                     required: false, message: '请输入您的护照号!',
-                                }, {
-                                    validator: this.checkConfirm,
                                 }],
                             })(
                                 <Input type="text" size="large" style={{width: 240}}/>
@@ -77,7 +75,7 @@ class BasicPassport extends React.Component {
                             labelCol={{span: 4, offset: 2}}
                             wrapperCol={{span: 14}}
                         >
-                            {getFieldDecorator('expir_date', {
+                            {getFieldDecorator('passport_expire_date', {
                                 rules: [{type: 'object', required: false, message: '请输入日期!'}],
                             })(
                                 <DatePicker size="large" style={{width: 240}}></DatePicker>
@@ -86,8 +84,8 @@ class BasicPassport extends React.Component {
                     </Col>
                 </Row>
                 <FormItem style={{width: 346, margin: '0 auto'}}>
-                    {getFieldDecorator('passport_photo', {
-                        initialValue: data!=null&&data.passport_photo!=null?data.passport_photo:null,
+                    {getFieldDecorator('passport_url', {
+                        initialValue: data!=null&&data.passport_url!=null?data.passport_url:null,
                         rules: [{required: false, message: '请上传证件!'}]
                     })(
                         <Uploader {...data} />
