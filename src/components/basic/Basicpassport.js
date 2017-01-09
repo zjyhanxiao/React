@@ -42,11 +42,13 @@ class BasicPassport extends React.Component {
         return (
 
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
-                {JSON.stringify(this.props)}
                 <FormItem>
                     <Row style={{marginTop: '30px'}}>
-                        <Col span={2} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体', height: '30px'}}>
+                        <Col span={3} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体', height: '30px'}}>
+                          {this.props.test.a}
                             护照上传</h2></Col>
+                      <Col span={12} offset={1}><p style={{color: '#159bd6', fontFamily: '宋体', height: '30px'}}>
+                        </p></Col>
                     </Row>
                 </FormItem>
 

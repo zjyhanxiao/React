@@ -14,10 +14,9 @@ function handleChange(value) {
   console.log(`selected ${value}`);
 }
 class BasicInfoUC extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      a:true,
       profile:{}
     }
   }
@@ -105,7 +104,7 @@ class BasicInfoUC extends React.Component {
           </Row>
 
 
-          {this.state.a?
+          {this.props.getsProfile.base_profile.investor_type==2?
             <div>
               <Row>
                 <Col span={12}>
@@ -219,9 +218,7 @@ class BasicInfoUC extends React.Component {
 
 
 
-          {this.state.a?
-          ''
-          :
+          {this.props.getsProfile.base_profile.investor_type==1?
             <Row>
               <Col span={12}>
                 <FormItem
@@ -251,6 +248,8 @@ class BasicInfoUC extends React.Component {
 
               </Col>
             </Row>
+          :
+            ''
           }
 
 

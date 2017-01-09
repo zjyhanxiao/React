@@ -61,11 +61,25 @@ class BasicInformation extends React.Component {
                 display: this.props.second == true ? 'block' : 'none'
             }}>
                 <Form horizontal>
-                    <BasicInfoH {...this.props.getsProfile} getFieldDecorator={this.props.form}
-                                disabledDate={this.disabledDate} expire_date={this.expire_date} />
-                    {/*<BasicInfoUC {...this.props} getFieldDecorator={this.props.form} />*/}
-                    <Basicpassport {...this.props.getsProfile} test={{a:1}} getFieldDecorator={this.props.form} />
-                    {/*<Basicpassport {...this.props.getsProfile} getFieldDecorator={this.props.form} />*/}
+                  {
+                    this.props.getsProfile.base_profile.investor_type==99?
+                      <BasicInfoH {...this.props.getsProfile} getFieldDecorator={this.props.form}
+                                  disabledDate={this.disabledDate} expire_date={this.expire_date} />
+                      :
+                      <BasicInfoUC {...this.props} getFieldDecorator={this.props.form} />
+
+                  }
+
+                  {
+                    this.props.getsProfile.base_profile.investor_type==99?
+                      <div>
+                        <Basicpassport {...this.props.getsProfile}
+                                       test={{type:'护照上传',explain:'请上传您的护照信息页照片或扫面文件',}} getFieldDecorator={this.props.form} />
+                        <Basicpassport {...this.props.getsProfile} getFieldDecorator={this.props.form} />
+                      </div>
+                      :
+                      <Basicpassport {...this.props.getsProfile} test={{a:1,}} getFieldDecorator={this.props.form} />
+                  }
 
 
                     <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
