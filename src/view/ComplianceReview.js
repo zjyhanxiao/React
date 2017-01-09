@@ -60,7 +60,7 @@ class ComplianceReview extends React.Component {
                 background: '#ffffff',
                 color: '#223976',
                 fontSize: '18px'
-              }} type="primary" name="third" onClick={this.props.changeIndex} size="large">上一步</Button>
+              }} type="primary" name="fourth" onClick={this.props.changeIndex} size="large">上一步</Button>
             </Col>
 
 
