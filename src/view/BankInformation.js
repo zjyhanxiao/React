@@ -15,7 +15,7 @@ class BankInformation extends React.Component {
     super(props)
     this.state = {
       profile:{},
-      size: '非美国银行',
+      size: 'NON_US',
     }
   }
 
@@ -31,7 +31,7 @@ class BankInformation extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', JSON.stringify(values));
-
+          this.props.changeIndex(e)
         /*const { dispatch } = this.props
         dispatch(updateProfile(values,this.success))*/
       }
@@ -74,13 +74,13 @@ class BankInformation extends React.Component {
             {...formItemLayout}
             label=""
           >
-            {getFieldDecorator('radio-group', {
-              initialValue:"非美国银行",
+            {getFieldDecorator('bank_type', {
+              initialValue:"NON_US",
             })(
              <Radio.Group onChange={this.handleSizeChange} style={{width:'600px',marginLeft:'150px'}}>
-                   <Radio.Button span={6} offset={5} value="非美国银行" style={{width:'250px',height:'32px',borderRadius:'32px',textAlign:'center',float:'left'}}>非美国银行</Radio.Button>
+                   <Radio.Button span={6} offset={5} value="NON_US" style={{width:'250px',height:'32px',borderRadius:'32px',textAlign:'center',float:'left'}}>非美国银行</Radio.Button>
                     <div style={{width:'100px',float:'left',textAlign:'center'}}>OR</div>
-                   <Radio.Button span={6} offset={5} value="美国银行" style={{width:'250px',height:'32px',borderRadius:'32px',textAlign:'center',float:'left'}}>美国银行</Radio.Button>
+                   <Radio.Button span={6} offset={5} value="US" style={{width:'250px',height:'32px',borderRadius:'32px',textAlign:'center',float:'left'}}>美国银行</Radio.Button>
 
               </Radio.Group>
             )}
@@ -93,7 +93,7 @@ class BankInformation extends React.Component {
             {/*<BankUSA {...this.props}  getFieldDecorator={this.props.form} />*/}
           {/*</div>*/}
 
-          {this.state.size == '非美国银行' ? <BanknoUSA {...this.props}  getFieldDecorator={this.props.form} /> : <BankUSA {...this.props}  getFieldDecorator={this.props.form} />}
+          {this.state.size == 'NON_US' ? <BanknoUSA {...this.props}  getFieldDecorator={this.props.form} /> : <BankUSA {...this.props}  getFieldDecorator={this.props.form} />}
 
 
 
