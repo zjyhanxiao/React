@@ -44,11 +44,8 @@ class BasicPassport extends React.Component {
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
                 <FormItem>
                     <Row style={{marginTop: '30px'}}>
-                        <Col span={3} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体', height: '30px'}}>
-                          {this.props.test.a}
-                            护照上传</h2></Col>
-                      <Col span={12} offset={1}><p style={{color: '#159bd6', fontFamily: '宋体', height: '30px'}}>
-                        </p></Col>
+                        <Col span={3} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体', height: '30px'}}>{this.props.test.type}</h2></Col>
+                      <Col span={12}><p style={{color: '#ff6600', fontFamily: '宋体', height: '30px'}}>{this.props.test.explain}</p></Col>
                     </Row>
                 </FormItem>
 
@@ -56,14 +53,14 @@ class BasicPassport extends React.Component {
                     <Col span={12}>
                         <FormItem
                             {...formItemLayout}
-                            label="护照号"
+                            label={this.props.test.typeNumber}
                             labelCol={{span: 4, offset: 4}}
                             wrapperCol={{span: 14}}
                         >
-                            {getFieldDecorator('passport_number', {
+                            {getFieldDecorator(this.props.test.numberfield, {
                                 //initialValue: 'E35456464',
                                 rules: [{
-                                    required: false, message: '请输入您的护照号!',
+                                    required: this.props.test.certificate, message: '请输入您的护照号!',
                                 }],
                             })(
                                 <Input type="text" size="large" style={{width: 240}}/>
@@ -77,8 +74,8 @@ class BasicPassport extends React.Component {
                             labelCol={{span: 4, offset: 2}}
                             wrapperCol={{span: 14}}
                         >
-                            {getFieldDecorator('passport_expire_date', {
-                                rules: [{type: 'object', required: false, message: '请输入日期!'}],
+                            {getFieldDecorator(this.props.test.validityfield, {
+                                rules: [{type: 'object', required: this.props.test.certificate, message: '请输入日期!'}],
                             })(
                                 <DatePicker size="large" style={{width: 240}}></DatePicker>
                             )}
@@ -86,9 +83,9 @@ class BasicPassport extends React.Component {
                     </Col>
                 </Row>
                 <FormItem style={{width: 346, margin: '0 auto'}}>
-                    {getFieldDecorator('passport_url', {
+                    {getFieldDecorator(this.props.test.urlfield, {
                         initialValue: data!=null&&data.passport_url!=null?data.passport_url:null,
-                        rules: [{required: false, message: '请上传证件!'}]
+                        rules: [{required: this.props.test.certificate, message: '请上传证件!'}]
                     })(
                         <Uploader {...data} />
                     )}
@@ -96,10 +93,7 @@ class BasicPassport extends React.Component {
                 <FormItem>
                     <Row>
                         <Col span={10} offset={7}>
-                            <p style={{color: '#999999', fontFamily: '宋体', textAlign: 'center', lineHeight: '18px'}}>
-                                如果您的护照证件
-                                (例如:旧版中国护照) 不包含签名部分,请将证件置于白纸之上,并于证件下方签名,
-                                拍照或扫描上传。证件必须为原件, 不能为复印件。</p>
+                            <p style={{color: '#999999', fontFamily: '宋体', textAlign: 'center', lineHeight: '18px'}}>{this.props.test.notice}</p>
                         </Col>
                     </Row>
                 </FormItem>
