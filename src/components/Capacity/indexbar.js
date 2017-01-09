@@ -11,11 +11,9 @@ function onChange(e) {
 }
 
 class IndexBar extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      profile:{},
-      type:2,
     }
   }
 
@@ -23,32 +21,7 @@ class IndexBar extends React.Component {
     return (
       <div style={{width: '900px', background: '#fff', overflow: 'hidden'}}>
 
-        {this.state.type==1?
-
-          <Row style={{background:'#223976'}}>
-            <Col span={6} style={{ height:'60px',textAlign:'center',lineHeight:'60px',color:'#ffffff',fontsize:'18px',borderRight:'1px solid #ffffff',fontFamily:'宋体',boxSizing:'borderBox',borderTop:'2px solid #223976'}}>
-              <div className={this.props.first==true?'at':''} style={{ height:'100%',width:'100%'}}>
-                身份确认
-              </div>
-            </Col>
-            <Col span={6} style={{height:'60px',textAlign:'center',lineHeight:'60px',color:'#ffffff',fontsize:'18px',borderRight:'1px solid #ffffff',fontFamily:'宋体',boxSizing:'borderBox',borderTop:'2px solid #223976'}}>
-              <div className={this.props.second==true?'at':''} style={{ height:'100%',width:'100%'}}>
-                基本信息
-              </div>
-            </Col>
-            <Col span={6} style={{height:'60px',textAlign:'center',lineHeight:'60px',color:'#ffffff',fontsize:'18px',borderRight:'1px solid #ffffff',fontFamily:'宋体',boxSizing:'borderBox',borderTop:'2px solid #223976'}}>
-              <div className={this.props.third==true?'at':''} style={{ height:'100%',width:'100%'}}>
-                地址证明
-              </div>
-            </Col>
-            <Col span={6} style={{height:'60px',textAlign:'center',lineHeight:'60px',color:'#ffffff',fontsize:'18px',fontFamily:'宋体',boxSizing:'borderBox',borderTop:'2px solid #223976'}}>
-              <div className={this.props.fourth==true?'at':''} style={{ height:'100%',width:'100%'}}>
-                银行信息
-              </div>
-            </Col>
-          </Row>
-
-          :
+        {this.props.getsProfile.base_profile.investor_type==2?
 
           <div style={{width:'100%',background:'#223976',overflow:'hidden'}}>
             <div style={{width:'20%',height:'60px',float:'left',textAlign:'center',lineHeight:'60px',color:'#ffffff',fontsize:'18px',borderRight:'1px solid #ffffff',fontFamily:'宋体',boxSizing:'borderBox'}}>
@@ -77,6 +50,31 @@ class IndexBar extends React.Component {
               </div>
             </div>
           </div>
+
+          :
+
+          <Row style={{background:'#223976'}}>
+            <Col span={6} style={{ height:'60px',textAlign:'center',lineHeight:'60px',color:'#ffffff',fontsize:'18px',borderRight:'1px solid #ffffff',fontFamily:'宋体',boxSizing:'borderBox',borderTop:'2px solid #223976'}}>
+              <div className={this.props.first==true?'at':''} style={{ height:'100%',width:'100%'}}>
+                身份确认
+              </div>
+            </Col>
+            <Col span={6} style={{height:'60px',textAlign:'center',lineHeight:'60px',color:'#ffffff',fontsize:'18px',borderRight:'1px solid #ffffff',fontFamily:'宋体',boxSizing:'borderBox',borderTop:'2px solid #223976'}}>
+              <div className={this.props.second==true?'at':''} style={{ height:'100%',width:'100%'}}>
+                基本信息
+              </div>
+            </Col>
+            <Col span={6} style={{height:'60px',textAlign:'center',lineHeight:'60px',color:'#ffffff',fontsize:'18px',borderRight:'1px solid #ffffff',fontFamily:'宋体',boxSizing:'borderBox',borderTop:'2px solid #223976'}}>
+              <div className={this.props.third==true?'at':''} style={{ height:'100%',width:'100%'}}>
+                地址证明
+              </div>
+            </Col>
+            <Col span={6} style={{height:'60px',textAlign:'center',lineHeight:'60px',color:'#ffffff',fontsize:'18px',fontFamily:'宋体',boxSizing:'borderBox',borderTop:'2px solid #223976'}}>
+              <div className={this.props.fourth==true?'at':''} style={{ height:'100%',width:'100%'}}>
+                银行信息
+              </div>
+            </Col>
+          </Row>
         }
 
       </div>
