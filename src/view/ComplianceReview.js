@@ -21,7 +21,7 @@ class ComplianceReview extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', JSON.stringify(values));
-
+        this.props.handleOk(e);
         const { dispatch } = this.props
         dispatch(updateProfile(values,this.success))
       }
