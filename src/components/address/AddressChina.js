@@ -58,7 +58,7 @@ class AddressChina extends React.Component {
                  rules: [{
                    type: 'string',
                    required: false,
-                   message: 'Please select your habitual residence!'
+                   message: '请选择您所在的省或直辖市！'
                  }],
                })(
                  //<Cascader options={residences} />
@@ -81,7 +81,7 @@ class AddressChina extends React.Component {
                   rules: [{
                     type: 'string',
                     required: false,
-                    message: 'Please select your habitual residence!'
+                    message: '请选择您所在的市！'
                   }],
                 })(
                   //<Cascader options={residences} />
@@ -104,7 +104,7 @@ class AddressChina extends React.Component {
                   rules: [{
                     type: 'string',
                     required: false,
-                    message: 'Please select your habitual residence!'
+                    message: '请选择您所在的区或县！'
                   }],
                 })(
                   //<Cascader options={residences} />

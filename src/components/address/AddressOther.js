@@ -58,7 +58,7 @@ class AddressOther extends React.Component {
                 rules: [{
                   type: 'string',
                   required: false,
-                  message: 'Please select your habitual residence!'
+                  message: '请选择您所在的国家！'
                 }],
               })(
                 //<Cascader options={residences} />
@@ -80,7 +80,7 @@ class AddressOther extends React.Component {
             >
               {getFieldDecorator('line1', {
                 rules: [{
-                  required: false, message: '请输入您的姓的汉语拼音!',
+                  required: false, message: '请输入您所在的地址！',
                 } ,{
                   validator: this.checkConfirm,
                 }],
@@ -98,7 +98,7 @@ class AddressOther extends React.Component {
             >
               {getFieldDecorator('line2', {
                 rules: [{
-                  required: false, message: '请输入您的姓的汉语拼音!',
+                  required: false, message: '请输入您所在的地址！',
                 } ,{
                   validator: this.checkConfirm,
                 }],
@@ -116,7 +116,7 @@ class AddressOther extends React.Component {
             >
               {getFieldDecorator('city', {
                 rules: [{
-                  required: false, message: '请输入您的姓的汉语拼音!',
+                  required: false, message: '请输入您所在的市！',
                 } ,{
                   validator: this.checkConfirm,
                 }],
@@ -137,7 +137,7 @@ class AddressOther extends React.Component {
                 rules: [{
                   type: 'string',
                   required: false,
-                  message: 'Please select your habitual residence!'
+                  message: '请输入您所在的州省！'
                 }],
               })(
                 //<Cascader options={residences} />
@@ -159,7 +159,7 @@ class AddressOther extends React.Component {
             >
               {getFieldDecorator('postal_code', {
                 rules: [{
-                  required: false, message: '请输入您的姓的汉语拼音!',
+                  required: false, message: '请输入您的邮编!',
                 } ,{
                   validator: this.checkConfirm,
                 }],
