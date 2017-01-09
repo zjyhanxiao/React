@@ -1,7 +1,8 @@
 import '../components/basic/BasicInfo.css'
-import React from 'react'
+import React,{PropTypes} from 'react'
 import {Row, Col, Button} from 'antd'
-
+import {connect} from 'react-redux'
+import {getCountry} from '../Redux/actions/index'
 import ItemAmount from '../components/infoPages/ItemAmount'
 import ItemName from '../components/infoPages/ItemName'
 import AmountShow from '../components/infoPages/amountShow'
@@ -19,7 +20,10 @@ class InformationConfirmation extends React.Component {
             a: true,
         }
     }
-
+    componentDidMount() {
+        const {dispatch} = this.props
+        dispatch(getCountry({"parent":1}))
+    }
     handleSubmit(e) {
         e.preventDefault()
         this.props.form.validateFieldsAndScroll((err, values) => {
@@ -92,4 +96,15 @@ class InformationConfirmation extends React.Component {
 
 InformationConfirmation.defaultProps = {}
 
-export default InformationConfirmation
+InformationConfirmation.propTypes = {
+    dispatch: PropTypes.func.isRequired
+}
+
+const mapStateToProps = (state) => {
+    return {
+        getsProfile: state.getsProfile
+    }
+}
+
+
+export default connect(mapStateToProps)(InformationConfirmation)

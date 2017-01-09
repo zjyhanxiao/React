@@ -19,6 +19,10 @@ class BasicInfoH extends React.Component {
             labelCol: {span: 6},
             wrapperCol: {span: 14},
         }
+        const country=this.props.country.map(function (item) {
+            console.log(item)
+            return <Option value={item.encode}>{item.name}</Option>
+        })
         return (
 
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
@@ -65,10 +69,7 @@ class BasicInfoH extends React.Component {
                             })(
                                 //<Cascader options={residences} />
                                 <Select size="large" style={{width: 240}} onChange={handleChange}>
-                                    <Option value="jack">Jack</Option>
-                                    <Option value="CN">中国</Option>
-                                    <Option value="disabled">Disabled</Option>
-                                    <Option value="yiminghe">Yiminghe</Option>
+                                    {country}
                                 </Select>
                             )}
                         </FormItem>
@@ -94,10 +95,7 @@ class BasicInfoH extends React.Component {
                             })(
                                 //<Cascader options={residences} />
                                 <Select size="large" style={{width: 240}} onChange={handleChange}>
-                                    <Option value="jack">Jack</Option>
-                                    <Option value="CN">中国</Option>
-                                    <Option value="disabled">Disabled</Option>
-                                    <Option value="yiminghe">Yiminghe</Option>
+                                    {country}
                                 </Select>
                             )}
                         </FormItem>
@@ -201,10 +199,7 @@ class BasicInfoH extends React.Component {
                             })(
                                 //<Cascader options={residences} />
                                 <Select size="large" style={{width: 240}} onChange={handleChange}>
-                                    <Option value="jack">Jack</Option>
-                                    <Option value="CN">中国</Option>
-                                    <Option value="disabled">Disabled</Option>
-                                    <Option value="yiminghe">Yiminghe</Option>
+                                    {country}
                                 </Select>
                             )}
                         </FormItem>
