@@ -26,33 +26,36 @@ export const fetchPosts = () => {
     }
 }
 // 提交profile信息
-/*export const updateProfile = (data) => {
- let url = 'https://api.meixinglobal.com/web/profile/update';
- return dispatch => {
- dispatch(requestPosts(JSON.stringify(data)))
- return fetch(url,{
- method: 'POST',
- headers: {
- "Content-Type": "application/json; charset=utf-8",
- }
- })
- .then(response => response.json())
- .then(json => dispatch(receivePosts(json)))
- }
- }*/
-export const updateProfile = (data, success) => {
+export const updateProfile = (data) => {
+    let url = 'https://gl-api2.meixincn.com/web/invest/user_info';
+    // let url = 'https://api.meixinglobal.com/web/profile/update';
     return dispatch => {
-        $.ajax({
-            type: 'post',
-            url: 'https://api.meixinglobal.com/web/profile/update',
-            data: JSON.stringify(data),
-            "contentType": "application/json; charset=utf-8",
-            success: function (res) {
-                success(res)
+        dispatch(requestPosts(JSON.stringify(data)))
+        return fetch(url, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json; charset=utf-8",
+                "mx_token": "c75dd2dcbe05e153eb99dbf5525061da",
+                "mx_secret": "4075f668c903ce41558377313bd3f7b8"
             }
         })
+            .then(response => response.json())
+            .then(json => dispatch(receivePosts(json)))
     }
 }
+/*export const updateProfile = (data, success) => {
+ return dispatch => {
+ $.ajax({
+ type: 'post',
+ url: 'https://api.meixinglobal.com/web/profile/update',
+ data: JSON.stringify(data),
+ "contentType": "application/json; charset=utf-8",
+ success: function (res) {
+ success(res)
+ }
+ })
+ }
+ }*/
 
 export const updateUploader = (path, key) => {
     return {
