@@ -104,7 +104,7 @@ BasicInformation = Form.create({
             let key = changedFields[i].name
             let val = changedFields[i].value
             if (val != undefined && val != '' && val != null) {
-                if (key == 'date_of_birth') {
+                if (key == 'date_of_birth'||key == 'passport_expire_date') {
                     let val = changedFields[i].value.format('YYYY-MM-DD')
                     props.dispatch(saveFields(key, val));
                 } else {

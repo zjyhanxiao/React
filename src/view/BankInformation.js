@@ -16,7 +16,7 @@ class BankInformation extends React.Component {
     this.state = {
       profile:{},
       size: 'NON_US',
-      a:false
+      a:true
     }
   }
 

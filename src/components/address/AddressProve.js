@@ -59,7 +59,7 @@ class AddressProve extends React.Component {
                 labelCol={{span: 2, offset: 8}}
                 wrapperCol={{span: 12}}
             >
-              {getFieldDecorator('expire_date', {
+              {getFieldDecorator('id_card_expire_date', {
                   rules: [{type: 'object', required: false, message: '请输入日期!'}],
               })(
                   <DatePicker size="large" style={{width: 220}}></DatePicker>
@@ -70,8 +70,8 @@ class AddressProve extends React.Component {
             <Row>
                 <Col span={8} offset={8}>
                   <FormItem style={{width: 346, margin: '0 auto'}}>
-                    {getFieldDecorator('ID_CARD', {
-                        initialValue: data!=null&&data.ID_CARD!=null?data.ID_CARD:null,
+                    {getFieldDecorator('id_card_url', {
+                        initialValue: data!=null&&data.id_card_url!=null?data.id_card_url:null,
                         rules: [{required: false, message: '请上传证件!'}]
                     })(
                         <Uploader {...data} />

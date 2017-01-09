@@ -37,9 +37,8 @@ class Avatar extends React.Component {
         const { dispatch } = this.props
         if (info.file.status === 'done') {
             let resData=info.fileList[len].response.body
-            // this.setState({fileList: {thumbUrl: resData}})
+            this.setState({fileList: {thumbUrl: resData}})
             dispatch(updateUploader(this.props.id,resData))
-            console.log(this.props.id)
             // Get this url from response in real world.
             getBase64(info.file.originFileObj, imageUrl => this.setState({imageUrl}));
         }
@@ -47,7 +46,7 @@ class Avatar extends React.Component {
 
     render() {
         const imageUrl = this.state.fileList.imageUrl
-        const newImage = this.state.fileList.thumbUrl?this.state.fileList.thumbUrl:this.props.passport_photo ? this.props.passport_photo : this.state.fileList.url;
+        const newImage = this.state.fileList.thumbUrl?this.state.fileList.thumbUrl: this.state.fileList.url;
         return (
             <Upload
                 className="avatar-uploader"
