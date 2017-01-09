@@ -74,7 +74,7 @@ class ComplianceReview extends React.Component {
                   background: '#223976',
                   color: '#fff',
                   fontSize: '18px'
-                }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
+                }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">完成</Button>
               </FormItem>
             </Col>
           </Row>
