@@ -11,7 +11,9 @@ const getsProfile = (state = {}, action) => {
                  email: action.json.body.email,
                  date_of_birth: action.json.body.date_of_birth,
                  passport_photo: null*/
-                base_profile: null,
+                base_profile: {
+                    investor_type:1
+                },
                 pages:state.pages
             });
         case types.UPDATE_UPLOADER:
