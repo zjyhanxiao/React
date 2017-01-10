@@ -88,7 +88,7 @@ class BasicPassport extends React.Component {
                 <FormItem style={{width: 346, margin: '0 auto'}}>
                     {getFieldDecorator(this.props.test.urlfield, {
                         initialValue: data!=null&&data.passport_url!=undefined?data.passport_url:null,
-                        rules: [{ required:true, message: '请上传证件!'}]
+                        rules: [{ required:false, message: '请上传证件!'}]
                     })(
                         <Uploader {...data} />
                     )}

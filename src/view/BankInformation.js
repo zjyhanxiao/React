@@ -33,6 +33,11 @@ class BankInformation extends React.Component {
                     this.props.changeIndex(e)
                 } else {
                   console.log(this.props.getsProfile.base_profile)
+
+
+
+
+
                     const {dispatch} = this.props
                     dispatch(updateProfile(this.props.getsProfile.base_profile, this.success))
                   this.props.handleOk(e);
