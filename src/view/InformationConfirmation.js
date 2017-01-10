@@ -18,6 +18,14 @@ class InformationConfirmation extends React.Component {
         super(props)
         this.state = {
             a: true,
+            pages: {
+              first: true,
+              second: false,
+              third: false,
+              fourth: false,
+              fifth: false,
+              current: 'first'
+            }
         }
     }
     componentDidMount() {
