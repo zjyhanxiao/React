@@ -60,7 +60,7 @@ class BasicPassport extends React.Component {
                             {getFieldDecorator(this.props.test.numberfield, {
                                 //initialValue: 'E35456464',
                                 rules: [{
-                                    required: this.props.test.certificate, message: '请输入您的护照号!',
+                                    required: false, message: '请输入您的护照号!',
                                 }],
                             })(
                                 <Input type="text" size="large" style={{width: 240}}/>
@@ -75,7 +75,7 @@ class BasicPassport extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator(this.props.test.validityfield, {
-                                rules: [{type: 'object', required: this.props.test.certificate, message: '请输入日期!'}],
+                                rules: [{type: 'object', required: false, message: '请输入日期!'}],
                             })(
                                 <DatePicker size="large" style={{width: 240}}></DatePicker>
                             )}

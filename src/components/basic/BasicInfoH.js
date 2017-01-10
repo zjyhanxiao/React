@@ -139,7 +139,7 @@ class BasicInfoH extends React.Component {
                                 //initialValue: 'CN',
                                 rules: [{
                                     type: 'string',
-                                    required: true,
+                                    required: false,
                                     message: '请选择您的行业！'
                                 }],
                             })(
@@ -164,7 +164,7 @@ class BasicInfoH extends React.Component {
                                 //initialValue: 'lucy',
                                 rules: [{
                                     type: 'string',
-                                    required: true,
+                                    required: false,
                                     message: '请选择您的职业！'
                                 }],
                             })(

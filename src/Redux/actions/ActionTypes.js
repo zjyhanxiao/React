@@ -4,3 +4,6 @@ export const UPDATE_UPLOADER='UPDATE_UPLOADER'   // 图片上传
 export const SAVE_FIELDS='SAVE_FIELDS'       // 保存用户填写信息
 export const INVESTOR_TYPE='INVESTOR_TYPE'   // 投资人类型
 export const GET_COUNTRY='GET_COUNTRY'   // 获取国家信息
+export const GET_STATE='GET_STATE'   // 获取省、直辖市信息
+export const GET_CITY='GET_CITY'   // 获取市/州/地区信息
+export const GET_COUNTY='GET_COUNTY'   // 获取县区信息

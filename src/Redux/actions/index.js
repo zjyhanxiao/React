@@ -23,8 +23,30 @@ const getCountrySuccess = (json) => {
         json
     }
 }
+//获取省市数据成功
+const getStateSuccess = (json) => {
+    return {
+        type: types.GET_STATE,
+        json
+    }
+}
+//获取市区数据成功
+const getCitySuccess = (json) => {
+    return {
+        type: types.GET_CITY,
+        json
+    }
+}
+//获取县数据成功
+const getCountySuccess = (json) => {
+    return {
+        type: types.GET_COUNTY,
+        json
+    }
+}
 
-// 获取省市区信息
+
+// 获取国家信息
 export const getCountry = (data) => {
     let url = baseUrl + '/web/invest/access_district';
     return dispatch => {
@@ -40,6 +62,66 @@ export const getCountry = (data) => {
             },
 
             success: json => dispatch(getCountrySuccess(json))
+
+        })
+    }
+}
+// 获取省信息
+export const getState = (data) => {
+    let url = baseUrl + '/web/invest/access_district';
+    return dispatch => {
+        $.ajax({
+            type: 'get',
+            url: url,
+            // url: 'https://api.meixinglobal.com/web/profile/update',
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "mx_token": "3952a10e64671c9995367254766bbfa5",
+                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+            },
+
+            success: json => dispatch(getStateSuccess(json))
+
+        })
+    }
+}
+// 获取市信息
+export const getCity = (data) => {
+    let url = baseUrl + '/web/invest/access_district';
+    return dispatch => {
+        $.ajax({
+            type: 'get',
+            url: url,
+            // url: 'https://api.meixinglobal.com/web/profile/update',
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "mx_token": "3952a10e64671c9995367254766bbfa5",
+                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+            },
+
+            success: json => dispatch(getCitySuccess(json))
+
+        })
+    }
+}
+// 获取县信息
+export const getCounty = (data) => {
+    let url = baseUrl + '/web/invest/access_district';
+    return dispatch => {
+        $.ajax({
+            type: 'get',
+            url: url,
+            // url: 'https://api.meixinglobal.com/web/profile/update',
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "mx_token": "3952a10e64671c9995367254766bbfa5",
+                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+            },
+
+            success: json => dispatch(getCountySuccess(json))
 
         })
     }

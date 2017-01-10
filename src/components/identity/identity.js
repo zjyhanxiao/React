@@ -144,7 +144,7 @@ class Identity extends React.Component {
             >
               {getFieldDecorator('last_name', {
                   rules: [{
-                      required: true, message: '请输入您的姓氏的汉语拼音!',
+                      required: false, message: '请输入您的姓氏的汉语拼音!',
                   }, {pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',}],
               })(
                   <Input placeholder='姓的汉语拼音' type="text" size="large" style={{width: 240}} />
@@ -161,7 +161,7 @@ class Identity extends React.Component {
               {getFieldDecorator('first_name', {
                   //initialValue:'yang',
                   rules: [{
-                      required: true, message: '请输入您的名的汉语拼音!',
+                      required: false, message: '请输入您的名的汉语拼音!',
                   }, {pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!'}],
               })(
                   <Input type="text" placeholder="名的汉语拼音" size="large" style={{width: 240}} />

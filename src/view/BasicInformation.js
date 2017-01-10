@@ -3,7 +3,7 @@ import {Form, Row, Col, Button} from 'antd';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import moment from 'moment'
-import {updateProfile, saveFields} from '../Redux/actions/index'
+import {saveFields} from '../Redux/actions/index'
 import BasicInfoUC from '../components/basic/BasicInfoUC'
 import BasicInfoH from '../components/basic/BasicInfoH'
 import Basicpassport from '../components/basic/Basicpassport'

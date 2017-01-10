@@ -9,6 +9,18 @@ const getsProfile = (state = {}, action) => {
             return Object.assign({}, state, {
                 country: action.json.body
             });
+        case types.GET_STATE:
+            return Object.assign({}, state, {
+                region: action.json.body
+            });
+        case types.GET_CITY:
+            return Object.assign({}, state, {
+                city: action.json.body
+            });
+        case types.GET_COUNTY:
+            return Object.assign({}, state, {
+                county: action.json.body
+            });
         case types.GET_PROFILE_SUCCESS:
             return Object.assign({}, state, {
                 /*first_name: action.json.body.first_name,
