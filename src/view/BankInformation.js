@@ -33,7 +33,9 @@ class BankInformation extends React.Component {
                     this.props.changeIndex(e)
                 } else {
                   console.log(this.props.getsProfile.base_profile)
+                  if(this.props.getsProfile.base_profile.investor_type==1){
 
+                  }
 
 
 

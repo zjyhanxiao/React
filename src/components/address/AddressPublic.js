@@ -95,7 +95,7 @@ class AddressPublic extends React.Component {
               labelCol={{span: 4,offset: 2}}
               wrapperCol={{span: 14}}
             >
-              {getFieldDecorator('expir_date', {
+              {getFieldDecorator(this.props.getsProfile.base_profile.file_type=='jack'?'bill_expire_date':'driving_license_expire_date', {
                 rules: [{ type: 'object', required: false, message: '请输入日期!' }],
               })(
                 <DatePicker size="large" style={{width: 240}}></DatePicker>
@@ -107,7 +107,7 @@ class AddressPublic extends React.Component {
             <Row style={{paddingTop: '30px'}}>
                 <Col span={8} offset={8}>
                   <FormItem style={{width: 346, margin: '0 auto'}}>
-                    {getFieldDecorator('file', {
+                    {getFieldDecorator(this.props.getsProfile.base_profile.file_type=='jack'?'bill_url':'flie', {
                       initialValue: this.props.passport_photo,
                       rules: [{required: false, message: '请上传证件!'}]
                     })(
