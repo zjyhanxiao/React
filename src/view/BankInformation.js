@@ -33,8 +33,60 @@ class BankInformation extends React.Component {
                     this.props.changeIndex(e)
                 } else {
                   console.log(this.props.getsProfile.base_profile)
-                  if(this.props.getsProfile.base_profile.investor_type!=2){
-                    let a = {
+
+                    let data = {
+                      'first_name':this.props.getsProfile.base_profile.first_name,
+                      'last_name':this.props.getsProfile.base_profile.last_name,
+                      'investor_type':this.props.getsProfile.base_profile.investor_type,
+                      'address_type':this.props.getsProfile.base_profile.investor_type==1?'CN':'NON_CN',
+                      'bank_type':this.props.getsProfile.base_profile.bank_type,
+                      'passport_expire_date':this.props.getsProfile.base_profile.passport_expire_date||'',
+                      'passport_number':this.props.getsProfile.base_profile.passport_number||'',
+                      'passport_url':this.props.getsProfile.base_profile.passport_url||'',
+                      'id_card_expire_date':this.props.getsProfile.base_profile.id_card_expire_date||'',
+                      'id_card_number':this.props.getsProfile.base_profile.id_card_number||'',
+                      'id_card_url':this.props.getsProfile.base_profile.id_card_url||'',
+                      'phone':this.props.getsProfile.base_profile.phone||'',
+                      'signature':this.props.getsProfile.base_profile.signature||'',
+                      'spouse_signature':this.props.getsProfile.base_profile.spouse_signature||'',
+                      'email':this.props.getsProfile.base_profile.email||'',
+                      'bill_expire_date':this.props.getsProfile.base_profile.bill_expire_date||'',
+                      'bill_number':this.props.getsProfile.base_profile.bill_number||'',
+                      'bill_url':this.props.getsProfile.base_profile.bill_url||'',
+                      'channel_code':this.props.getsProfile.base_profile.channel_code||'',
+                      'driving_license_expire_date':this.props.getsProfile.base_profile.driving_license_expire_date||'',
+                      'driving_license_number':this.props.getsProfile.base_profile.driving_license_number||'',
+                      'driving_license_url':this.props.getsProfile.base_profile.driving_license_url||'',
+
+                      'base_info':{
+                        'date_of_birth':this.props.getsProfile.base_profile.date_of_birth||'',
+                        'country_of_birth':this.props.getsProfile.base_profile.country_of_birth||'',
+                        'nationality':this.props.getsProfile.base_profile.nationality||'',
+                        'industry':this.props.getsProfile.base_profile.industry||'',
+                        'foreign_tax_number':this.props.getsProfile.base_profile.foreign_tax_number||'',
+                        'country_of_tax_residency':this.props.getsProfile.base_profile.country_of_tax_residency||'',
+                        'occupation':this.props.getsProfile.base_profile.occupation||'',
+                        'source_of_capital':this.props.getsProfile.base_profile.source_of_capital||'',
+                        'ssn':this.props.getsProfile.base_profile.ssn||'',
+                      },
+
+                      'address_cn':{
+                        'city':this.props.getsProfile.base_profile.city||'',
+                        'country':this.props.getsProfile.base_profile.country||'',
+                        'detail':this.props.getsProfile.base_profile.detail||'',
+                        'district':this.props.getsProfile.base_profile.district||'',
+                        'postal_code':this.props.getsProfile.base_profile.postal_code||'',
+                        'region':this.props.getsProfile.base_profile.region||'',
+                      },
+                      'address_non_cn':{
+                        'city':this.props.getsProfile.base_profile.city||'',
+                        'country':this.props.getsProfile.base_profile.country||'',
+                        'line1':this.props.getsProfile.base_profile.line1||'',
+                        'line2':this.props.getsProfile.base_profile.line2||'',
+                        'postal_code':this.props.getsProfile.base_profile.postal_code||'',
+                        'region':this.props.getsProfile.base_profile.region||'',
+                      },
+
                       'bank_non_us':{
                         'account_number':this.props.getsProfile.base_profile.account_number||'',
                         'bank_address':this.props.getsProfile.base_profile.bank_address||'',
@@ -43,10 +95,26 @@ class BankInformation extends React.Component {
                         'middle_bank_name':this.props.getsProfile.base_profile.middle_bank_name||'',
                         'middle_bank_swift_code':this.props.getsProfile.base_profile.middle_bank_swift_code||'',
                         'swift_code':this.props.getsProfile.base_profile.swift_code||''
-                      }
+                      },
+                      'bank_us':{
+                        'account_number':this.props.getsProfile.base_profile.account_number||'',
+                        'account_type':this.props.getsProfile.base_profile.account_type||'',
+                        'bank_address':this.props.getsProfile.base_profile.bank_address||'',
+                        'bank_name':this.props.getsProfile.base_profile.bank_name||'',
+                        'routing_number':this.props.getsProfile.base_profile.routing_number||'',
+                      },
 
+                      'accreditation':{
+                        'debt_amount':this.props.getsProfile.base_profile.debt_amount||'',
+                        'spouse_email':this.props.getsProfile.base_profile.spouse_email||'',
+                        'spouse_first_name':this.props.getsProfile.base_profile.spouse_first_name||'',
+                        'spouse_last_name':this.props.getsProfile.base_profile.spouse_last_name||'',
+                        'spouse_phone':this.props.getsProfile.base_profile.spouse_phone||'',
+                        'type':this.props.getsProfile.base_profile.type||'',
+                        'with_spouse':this.props.getsProfile.base_profile.with_spouse||'',
+                      }
                     }
-                  }
+
 
 
 

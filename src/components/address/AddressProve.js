@@ -61,7 +61,7 @@ class AddressProve extends React.Component {
           <Row>
             <FormItem
                 {...formItemLayout}
-                label="有效期至"
+                label={this.props.getsProfile.base_profile.investor_type == 1?'账单日期':'有效期至'}
                 labelCol={{span: 2, offset: 8}}
                 wrapperCol={{span: 12}}
             >

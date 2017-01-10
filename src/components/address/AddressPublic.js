@@ -91,7 +91,7 @@ class AddressPublic extends React.Component {
           <Col span={12}>
             <FormItem
               {...formItemLayout}
-              label="有效期至"
+              label={this.props.getsProfile.base_profile.file_type=='jack'?'账单日期':'有效期至'}
               labelCol={{span: 4,offset: 2}}
               wrapperCol={{span: 14}}
             >
