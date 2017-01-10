@@ -34,6 +34,8 @@ class BankInformation extends React.Component {
                 } else {
                   console.log(this.props.getsProfile.base_profile)
 
+
+                  if(this.props.getsProfile.base_profile.investor_type==1){
                     let data = {
                       'first_name':this.props.getsProfile.base_profile.first_name,
                       'last_name':this.props.getsProfile.base_profile.last_name,
@@ -54,9 +56,8 @@ class BankInformation extends React.Component {
                       'bill_number':this.props.getsProfile.base_profile.bill_number||'',
                       'bill_url':this.props.getsProfile.base_profile.bill_url||'',
                       'channel_code':this.props.getsProfile.base_profile.channel_code||'',
-                      'driving_license_expire_date':this.props.getsProfile.base_profile.driving_license_expire_date||'',
+                      'driving_license_expire_date':this.props.getsProfile.driving_license_expire_date||'',
                       'driving_license_number':this.props.getsProfile.base_profile.driving_license_number||'',
-                      'driving_license_url':this.props.getsProfile.base_profile.driving_license_url||'',
 
                       'base_info':{
                         'date_of_birth':this.props.getsProfile.base_profile.date_of_birth||'',
@@ -103,24 +104,24 @@ class BankInformation extends React.Component {
                         'bank_name':this.props.getsProfile.base_profile.bank_name||'',
                         'routing_number':this.props.getsProfile.base_profile.routing_number||'',
                       },
-
                       'accreditation':{
                         'debt_amount':this.props.getsProfile.base_profile.debt_amount||'',
                         'spouse_email':this.props.getsProfile.base_profile.spouse_email||'',
                         'spouse_first_name':this.props.getsProfile.base_profile.spouse_first_name||'',
                         'spouse_last_name':this.props.getsProfile.base_profile.spouse_last_name||'',
                         'spouse_phone':this.props.getsProfile.base_profile.spouse_phone||'',
-                        'type':this.props.getsProfile.base_profile.type||'',
-                        'with_spouse':this.props.getsProfile.base_profile.with_spouse||'',
+                        'type':this.props.getsProfile.base_profile.routing_number||'',
+                        'with_spouse':this.props.getsProfile.base_profile.routing_number||'',
                       }
-                    }
 
+                    }
+                  }
 
 
 
 
                     const {dispatch} = this.props
-                    dispatch(updateProfile(this.props.getsProfile.base_profile, this.success))
+                    dispatch(updateProfile(data, this.success))
                   this.props.handleOk(e);
                 }
                 /**/
