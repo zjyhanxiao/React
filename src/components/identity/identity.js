@@ -36,7 +36,7 @@ class Identity extends React.Component {
         let investor_type,country,state=this.state.pages_needed.investor_type
         if (e.target.value == '1' && state.us == '1') {
             investor_type = 2
-            country='America_3'
+            country='United States of America_3'
         }
         if (e.target.value == '2' && state.cn == '1') {
             investor_type = 1
@@ -68,7 +68,7 @@ class Identity extends React.Component {
         let investor_type,country,state=this.state.pages_needed.investor_type
         if (state.type == '1' && e.target.value == '1') {
             investor_type = 2
-            country='America_3'
+            country='United States of America_3'
         }
         if(investor_type!=null&&investor_type!=undefined){
             const {dispatch} = this.props
