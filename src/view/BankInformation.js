@@ -33,8 +33,19 @@ class BankInformation extends React.Component {
                     this.props.changeIndex(e)
                 } else {
                   console.log(this.props.getsProfile.base_profile)
-                  if(this.props.getsProfile.base_profile.investor_type==1){
+                  if(this.props.getsProfile.base_profile.investor_type!=2){
+                    let a = {
+                      'bank_non_us':{
+                        'account_number':this.props.getsProfile.base_profile.account_number||'',
+                        'bank_address':this.props.getsProfile.base_profile.bank_address||'',
+                        'bank_name':this.props.getsProfile.base_profile.bank_name||'',
+                        'middle_bank_address':this.props.getsProfile.base_profile.middle_bank_address||'',
+                        'middle_bank_name':this.props.getsProfile.base_profile.middle_bank_name||'',
+                        'middle_bank_swift_code':this.props.getsProfile.base_profile.middle_bank_swift_code||'',
+                        'swift_code':this.props.getsProfile.base_profile.swift_code||''
+                      }
 
+                    }
                   }
 
 

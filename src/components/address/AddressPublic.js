@@ -107,7 +107,7 @@ class AddressPublic extends React.Component {
             <Row style={{paddingTop: '30px'}}>
                 <Col span={8} offset={8}>
                   <FormItem style={{width: 346, margin: '0 auto'}}>
-                    {getFieldDecorator(this.props.getsProfile.base_profile.file_type=='jack'?'bill_url':'flie', {
+                    {getFieldDecorator(this.props.getsProfile.base_profile.file_type=='jack'?'bill_url':'driving_license_url', {
                       initialValue: this.props.passport_photo,
                       rules: [{required: false, message: '请上传证件!'}]
                     })(
