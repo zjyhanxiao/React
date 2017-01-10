@@ -1,7 +1,7 @@
 import React, {Component, PropTypes}from 'react';
 import {Form, Row, Col, Button} from 'antd';
 import {connect} from 'react-redux'
-import {saveFields} from '../../Redux/actions/index'
+import {saveFields} from '../Redux/actions/index'
 import AddressChina from '../components/address/AddressChina';
 import AddressOther from '../components/address/AddressOther';
 import AddressProve from '../components/address/AddressProve';
@@ -14,7 +14,6 @@ class AddressInformation extends React.Component {
     constructor(props) {
         super(props)
     }
-
     handleSubmit(e) {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
@@ -22,7 +21,7 @@ class AddressInformation extends React.Component {
                 console.log('Received values of form: ', JSON.stringify(values));
                 this.props.changeIndex(e)
                 /*const {dispatch} = this.props
-                 dispatch(updateProfile(values, this.success))*/
+                dispatch(updateProfile(values, this.success))*/
             }
         });
     }
@@ -61,9 +60,19 @@ class AddressInformation extends React.Component {
                 display: this.props.third == true ? 'block' : 'none'
             }}>
                 <Form horizontal>
-<AddressChina {...this.props} getFieldDecorator={this.props.form} disabledDate={this.disabledDate}
-              expire_date={this.expire_date} />
 
+                  {
+                    this.props.getsProfile.base_profile.investor_type==2?
+                      <AddressPublic {...this.props} getFieldDecorator={this.props.form} disabledDate={this.disabledDate} expire_date={this.expire_date} />
+                      :
+                      <AddressProve {...this.props} getFieldDecorator={this.props.form} disabledDate={this.disabledDate} expire_date={this.expire_date} />
+                  }
+                  {
+                    this.props.getsProfile.base_profile.investor_type==1?
+                      <AddressChina {...this.props} getFieldDecorator={this.props.form} disabledDate={this.disabledDate} expire_date={this.expire_date} />
+                      :
+                      <AddressOther {...this.props} getFieldDecorator={this.props.form} disabledDate={this.disabledDate} expire_date={this.expire_date} />
+                  }
 
 
 
@@ -105,9 +114,11 @@ class AddressInformation extends React.Component {
 
 AddressInformation = Form.create({
     onFieldsChange(props, changedFields) {
+        console.log(JSON.stringify(changedFields))
         for (let i in changedFields) {
             let key = changedFields[i].name
             let val = changedFields[i].value
+            console.log(val)
             if (val != undefined && val != '' && val != null) {
                 if (key == 'id_card_expire_date') {
                     let val = changedFields[i].value.format('YYYY-MM-DD')
