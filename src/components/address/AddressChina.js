@@ -134,11 +134,8 @@ class AddressChina extends React.Component {
                   wrapperCol={{span: 14}}
               >
                 {getFieldDecorator('detail', {
-                    initialValue: 'yang',
                     rules: [{
                         required: false, message: '请填写您的详细地址!'
-                    }, {
-                        validator: this.checkConfirm,
                     }],
                 })(
                     <Input type="textarea" style={{width: 240, height: 88, resize: 'none'}} />
