@@ -1,6 +1,7 @@
 import React, {Component, PropTypes}from 'react';
 import {Form, Row, Col, Button} from 'antd';
 import {connect} from 'react-redux'
+import {saveFields} from '../../Redux/actions/index'
 import AddressChina from '../components/address/AddressChina';
 import AddressOther from '../components/address/AddressOther';
 import AddressProve from '../components/address/AddressProve';

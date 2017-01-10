@@ -1,21 +1,37 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {Form, Input, Select, Row, Col, Button, DatePicker} from 'antd';
-import {saveFields, getState,getCity} from '../Redux/actions/index'
+import {getCity,getCounty} from '../../Redux/actions/index'
 const FormItem = Form.Item;
 const Option = Select.Option;
-
 function handleChange(value) {
     console.log(`selected ${value}`);
-    if(value.split('_')!=''){
-        console.log(value.split('_')[1])
-    }
 }
-let regionData
+let regionData,cityData,countyData
 class AddressChina extends React.Component {
     constructor(props) {
         super(props)
     }
+
+    regionChange(value) {
+        console.log(`selected ${value}`);
+        console.log(value.split('_').length);
+        if (value.split('_').length > 0) {
+            console.log(value.split('_')[1])
+            const {dispatch} = this.props
+            dispatch(getCity({parent: value.split('_')[1]}))
+        }
+    }
+    cityChange(value) {
+        console.log(`selected ${value}`);
+        console.log(value.split('_').length);
+        if (value.split('_').length > 0) {
+            console.log(value.split('_')[1])
+            const {dispatch} = this.props
+            dispatch(getCounty({parent: value.split('_')[1]}))
+        }
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
@@ -31,8 +47,14 @@ class AddressChina extends React.Component {
             labelCol: {span: 6},
             wrapperCol: {span: 14},
         };
-        if (this.props.getsProfile.region!=undefined) {
-            regionData = this.props.getsProfile.region.map((region)=><Option value={region.encode+'_'+region.id} key={region.id}>{region.name}</Option>)
+        if (this.props.getsProfile.region != undefined) {
+            regionData = this.props.getsProfile.region.map((region) => <Option key={region.id} value={region.encode + '_' + region.id}>{region.name}</Option>)
+        }
+        if (this.props.getsProfile.city != null) {
+            cityData = this.props.getsProfile.city.map((city) =><Option key={city.id} value={city.name + '_' + city.id}>{city.name}</Option>)
+        }
+        if (this.props.getsProfile.county != null) {
+            countyData = this.props.getsProfile.county.map((county) =><Option key={county.id} value={county.name + '_' + county.id}>{county.name}</Option>)
         }
 
         const tailFormItemLayout = {
@@ -53,7 +75,6 @@ class AddressChina extends React.Component {
                  wrapperCol={{span: 14}}
              >
                {getFieldDecorator('region', {
-                   //initialValue: 'CN',
                    rules: [{
                        type: 'string',
                        required: false,
@@ -61,7 +82,7 @@ class AddressChina extends React.Component {
                    }],
                })(
                    //<Cascader options={residences} />
-                   <Select size="large" style={{width: 240}} onChange={handleChange}>
+                   <Select size="large" style={{width: 240}} onChange={this.regionChange.bind(this)}>
                        {regionData}
                  </Select>
                )}
@@ -73,7 +94,6 @@ class AddressChina extends React.Component {
                   wrapperCol={{span: 14}}
               >
                 {getFieldDecorator('city', {
-                    initialValue: 'CN',
                     rules: [{
                         type: 'string',
                         required: false,
@@ -81,11 +101,8 @@ class AddressChina extends React.Component {
                     }],
                 })(
                     //<Cascader options={residences} />
-                    <Select size="large" style={{width: 240}} onChange={handleChange}>
-                    <Option value="jack">Jack</Option>
-                    <Option value="CN">中国</Option>
-                    <Option value="disabled">Disabled</Option>
-                    <Option value="yiminghe">Yiminghe</Option>
+                    <Select size="large" style={{width: 240}} onChange={this.cityChange.bind(this)}>
+                        {cityData}
                   </Select>
                 )}
               </FormItem></Row>
@@ -96,7 +113,6 @@ class AddressChina extends React.Component {
                   wrapperCol={{span: 14}}
               >
                 {getFieldDecorator('district', {
-                    initialValue: 'CN',
                     rules: [{
                         type: 'string',
                         required: false,
@@ -105,10 +121,7 @@ class AddressChina extends React.Component {
                 })(
                     //<Cascader options={residences} />
                     <Select size="large" style={{width: 240}} onChange={handleChange}>
-                    <Option value="jack">Jack</Option>
-                    <Option value="CN">中国</Option>
-                    <Option value="disabled">Disabled</Option>
-                    <Option value="yiminghe">Yiminghe</Option>
+                        {countyData}
                   </Select>
                 )}
               </FormItem></Row>
