@@ -111,13 +111,6 @@ class ComplianceReview extends React.Component {
             }
 
 
-          {/*<FormItem {...tailFormItemLayout}>*/}
-             {/*<Row style={{marginTop: '50px', paddingBottom: '40px'}}>*/}
-               {/*<Col span={4} offset={8}>*/}
-                 {/*<Button style={{width: '120px', height: '50px', borderRadius: '30px', background: '#223976', color: '#fff', fontSize: '18px'}} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">完成</Button>*/}
-               {/*</Col>*/}
-             {/*</Row>*/}
-          {/*</FormItem>*/}
 
         </Form>
 
