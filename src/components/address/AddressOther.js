@@ -122,7 +122,7 @@ class AddressOther extends React.Component {
               {getFieldDecorator('line1', {
                   rules: [{
                       required: false, message: '请输入您所在的地址！',
-                  }],
+                      pattern: /^[a-z \,\.\-\']+$/i, message: "请输入英文,.-'",}],
               })(
                   <Input type="text" size="large" style={{}} />
               )}
@@ -138,7 +138,7 @@ class AddressOther extends React.Component {
               {getFieldDecorator('line2', {
                   rules: [{
                       required: false, message: '请输入您所在的地址！',
-                  }],
+                      pattern: /^[a-z \,\.\-\']+$/i, message: "请输入英文,.-'",}],
               })(
                   <Input type="text" size="large" style={{}} />
               )}
@@ -154,7 +154,7 @@ class AddressOther extends React.Component {
               {getFieldDecorator('city', {
                   rules: [{
                       required: false, message: '请输入您所在的市！',
-                  }],
+                      pattern: /^[a-z \,\.\-\']+$/i, message: "请输入英文,.-'",}],
               })(
                   <Input type="text" size="large" style={{}} />
               )}
