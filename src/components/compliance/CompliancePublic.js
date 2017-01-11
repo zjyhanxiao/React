@@ -15,8 +15,8 @@ const FormItem = Form.Item;
 // }
 
 class CompliancePublic extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       a:false,
       profile:{},
@@ -158,7 +158,7 @@ class CompliancePublic extends React.Component {
 
 
           {this.state.a?
-            <ComplianceSpouse a={this.props.getFieldDecorator}></ComplianceSpouse>
+            <ComplianceSpouse {...this.props}  getFieldDecorator={this.props.getFieldDecorator}></ComplianceSpouse>
           :
           ''
           }

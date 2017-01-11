@@ -14,8 +14,8 @@ function handleChange(value) {
 }
 
 class ComplianceSpouse extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       profile:{}
     }
@@ -32,7 +32,7 @@ class ComplianceSpouse extends React.Component {
 
     const { size } = this.props;
     const state = this.state;
-    const {getFieldDecorator} = this.props.a;
+    const {getFieldDecorator} = this.props.getFieldDecorator;
     console.log(getFieldDecorator)
     const formItemLayout = {
       labelCol: {span: 6},
