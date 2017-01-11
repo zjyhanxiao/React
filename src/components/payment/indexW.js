@@ -50,7 +50,7 @@ class IndexW extends React.Component {
                 background: '#223976',
                 color: '#fff',
                 fontSize: '18px'
-              }} type="primary" htmlType="submit" size="large">下一步</Button>
+              }} type="primary" htmlType="submit" size="large">完成</Button>
             </Col>
           </Row>
         </div>
