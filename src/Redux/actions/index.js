@@ -104,7 +104,7 @@ export const getState = (data) => {
             type: 'post',
             url: url,
             // url: 'https://api.meixinglobal.com/web/profile/update',
-            data: data,
+            data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
                 "mx_token": "3952a10e64671c9995367254766bbfa5",
@@ -124,7 +124,7 @@ export const getCity = (data) => {
             type: 'post',
             url: url,
             // url: 'https://api.meixinglobal.com/web/profile/update',
-            data: data,
+            data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
                 "mx_token": "3952a10e64671c9995367254766bbfa5",

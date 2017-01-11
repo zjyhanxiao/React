@@ -39,15 +39,15 @@ class Identity extends React.Component {
         let investor_type, country, state = this.state.pages_needed.investor_type
         if (e.target.value == '1' && state.us == '1') {
             investor_type = 2
-            country = 'United States of America_3'
+            country = 'United States of America_美国'
         }
         if (e.target.value == '2' && state.cn == '1') {
             investor_type = 1
-            country = 'China_1'
+            country = 'China_中国'
         }
         if (e.target.value == '2' && state.cn == '2') {
             investor_type = 99
-            country = 'Hong Kong_5'
+            country = 'Hong Kong_香港'
         }
         if (investor_type != null && investor_type != undefined) {
             const {dispatch} = this.props
@@ -72,7 +72,7 @@ class Identity extends React.Component {
         let investor_type, country, state = this.state.pages_needed.investor_type
         if (state.type == '1' && e.target.value == '1') {
             investor_type = 2
-            country = 'United States of America_3'
+            country = 'United States of America_美国'
         }
         if (investor_type != null && investor_type != undefined) {
             const {dispatch} = this.props
@@ -96,11 +96,11 @@ class Identity extends React.Component {
         let investor_type, country, state = this.state.pages_needed.investor_type
         if (state.type == '2' && e.target.value == '1') {
             investor_type = 1
-            country = 'China_1'
+            country = 'China_中国'
         }
         if (state.type == '2' && e.target.value == '2') {
             investor_type = 99
-            country = 'Hong Kong_5'
+            country = 'Hong Kong_香港'
         }
         if (investor_type != null && investor_type != undefined) {
             const {dispatch} = this.props
@@ -114,15 +114,16 @@ class Identity extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
+            console.log(this.props)
             if (!err) {
                 console.log('Received values of form: ', JSON.stringify(values));
                 if (this.props.getsProfile.base_profile.investor_type == 1) {
                     const {dispatch} = this.props
-                    dispatch(getState({"parent": 2}))
+                    dispatch(getState({country:this.props.getsProfile.base_profile.country.split('_')[0]}))
                 }
                 if (this.props.getsProfile.base_profile.investor_type == 2) {
                     const {dispatch} = this.props
-                    dispatch(getState({"parent": 3}))
+                    dispatch(getState({country:this.props.getsProfile.base_profile.country.split('_')[0]}))
                 }
                 this.props.changeIndex(e)
                 // const { dispatch } = this.props

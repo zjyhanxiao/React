@@ -14,7 +14,7 @@ class AddressOther extends React.Component {
     constructor(props) {
         super(props)
         country = this.props.getsProfile.country.map(function (item) {
-            return <Option value={item.encode + '_' + item.id}>{item.name}</Option>
+            return <Option value={item.encode + '_' + item.name}>{item.name}</Option>
         })
     }
 
@@ -22,9 +22,9 @@ class AddressOther extends React.Component {
         console.log(`selected ${value}`);
         console.log(value.split('_').length);
         if (value.split('_').length > 0) {
-            console.log(value.split('_')[1])
+            console.log(value.split('_')[0])
             const {dispatch} = this.props
-            dispatch(getState({parent: value.split('_')[1]}))
+            dispatch(getState({country: value.split('_')[0]}))
         }
 
         this.props.form.setFieldsValue({
@@ -46,7 +46,7 @@ class AddressOther extends React.Component {
 
         if (this.props.getsProfile.region != undefined) {
             regionData = this.props.getsProfile.region.map((region) => <Option key={region.id}
-                                                                               value={region.encode + '_' + region.id}>{region.name}</Option>)
+                                                                               value={region.encode + '_' + region.name}>{region.name}</Option>)
         }
         const formItemLayout = {
             labelCol: {span: 6},
@@ -105,7 +105,7 @@ class AddressOther extends React.Component {
               })(
                   //<Cascader options={residences} />
                   <Select size="large" style={{}} onChange={this.changeCountry.bind(this)}>
-                      {country?country:<Option value='Hong Kong_5'>香港</Option>}
+                      {country?country:<Option value='Hong Kong_香港'>香港</Option>}
                 </Select>
               )}
             </FormItem>
