@@ -300,7 +300,7 @@ class BasicInfoH extends React.Component {
                                     required: false, message: '请输入您的纳税号！',
                                 }],
                             })(
-                                <Input type="text" size="large" style={{width: 240}} onBlur={this.handlePasswordBlur}/>
+                                <Input type="text" size="large" style={{width: 240}}/>
                             )}
                         </FormItem>
                     </Col>

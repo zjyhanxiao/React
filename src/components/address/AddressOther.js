@@ -124,7 +124,7 @@ class AddressOther extends React.Component {
                       required: false, message: '请输入您所在的地址！',
                   }],
               })(
-                  <Input type="text" size="large" style={{}} onBlur={this.handlePasswordBlur} />
+                  <Input type="text" size="large" style={{}} />
               )}
             </FormItem>
           </Row>
@@ -140,7 +140,7 @@ class AddressOther extends React.Component {
                       required: false, message: '请输入您所在的地址！',
                   }],
               })(
-                  <Input type="text" size="large" style={{}} onBlur={this.handlePasswordBlur} />
+                  <Input type="text" size="large" style={{}} />
               )}
             </FormItem>
           </Row>
@@ -193,7 +193,7 @@ class AddressOther extends React.Component {
                       required: false, message: '请输入您的邮编!',
                   }],
               })(
-                  <Input type="text" size="large" style={{}} onBlur={this.handlePasswordBlur} />
+                  <Input type="text" size="large" style={{}} />
               )}
             </FormItem>
           </Row>

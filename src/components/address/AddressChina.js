@@ -159,7 +159,7 @@ class AddressChina extends React.Component {
                         required: false, message: '请输入邮编!',
                     }],
                 })(
-                    <Input type="text" size="large" style={{width: 240}} onBlur={this.handlePasswordBlur} />
+                    <Input type="text" size="large" style={{width: 240}} />
                 )}
               </FormItem></Row>
             </Col>

@@ -64,7 +64,7 @@ class BankUSA extends React.Component {
                     required: true, message: '请输入您的银行名称！',
                   }],
                 })(
-                  <Input type="text" size="large" style={{}} onBlur={this.handlePasswordBlur}/>
+                  <Input type="text" size="large" style={{}}/>
                 )}
               </FormItem>
             </Col>
@@ -101,7 +101,7 @@ class BankUSA extends React.Component {
                 required: true, message: '请输入ABA / Routing number',
               }],
             })(
-              <Input type="text" size="large" style={{}} onBlur={this.handlePasswordBlur}/>
+              <Input type="text" size="large" style={{}}/>
             )}
           </FormItem>
         </Row>
@@ -117,7 +117,7 @@ class BankUSA extends React.Component {
                   required: true, message: '请输入您的银行账户名！',
                 }],
               })(
-                <Input type="text" size="large" style={{}} onBlur={this.handlePasswordBlur}/>
+                <Input type="text" size="large" style={{}}/>
               )}
             </FormItem>
           </Row>

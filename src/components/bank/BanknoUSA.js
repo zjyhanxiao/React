@@ -58,7 +58,7 @@ class BanknoUSA extends React.Component {
                     validator: this.checkConfirm,
                   }],
                 })(
-                  <Input type="text" size="large" style={{}} onBlur={this.handlePasswordBlur}/>
+                  <Input type="text" size="large" style={{}}/>
                 )}
               </FormItem>
             </Col>
@@ -99,7 +99,7 @@ class BanknoUSA extends React.Component {
                   validator: this.checkConfirm,
                 }],
               })(
-                <Input type="text" size="large" style={{}} onBlur={this.handlePasswordBlur}/>
+                <Input type="text" size="large" style={{}}/>
               )}
             </FormItem>
           </Row>
@@ -117,7 +117,7 @@ class BanknoUSA extends React.Component {
                   validator: this.checkConfirm,
                 }],
               })(
-                <Input type="text" size="large" style={{}} onBlur={this.handlePasswordBlur}/>
+                <Input type="text" size="large" style={{}}/>
               )}
             </FormItem>
           </Row>
@@ -147,7 +147,7 @@ class BanknoUSA extends React.Component {
                 validator: this.checkConfirm,
               }],
             })(
-              <Input type="text" size="large" style={{}} onBlur={this.handlePasswordBlur}/>
+              <Input type="text" size="large" style={{}}/>
             )}
           </FormItem>
           <FormItem
@@ -163,7 +163,7 @@ class BanknoUSA extends React.Component {
                 validator: this.checkConfirm,
               }],
             })(
-              <Input type="textarea" size="large" style={{height:'80px',resize:'none'}} onBlur={this.handlePasswordBlur}/>
+              <Input type="textarea" size="large" style={{height:'80px',resize:'none'}}/>
             )}
           </FormItem>
           <FormItem
@@ -179,7 +179,7 @@ class BanknoUSA extends React.Component {
                 validator: this.checkConfirm,
               }],
             })(
-              <Input type="text" size="large" style={{}} onBlur={this.handlePasswordBlur}/>
+              <Input type="text" size="large" style={{}}/>
             )}
           </FormItem>
 

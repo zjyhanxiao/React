@@ -127,7 +127,7 @@ class ComplianceSpouse extends React.Component {
                     required: true, message: '请输入您配偶的邮箱！',
                   }],
                 })(
-                  <Input type='text' size='large' style={{width: 240}} onBlur={this.handlePasswordBlur}/>
+                  <Input type='text' size='large' style={{width: 240}}/>
                 )}
               </FormItem>
             </Col>
