@@ -5,6 +5,10 @@ const baseState={
 }
 const getsProfile = (state = {}, action) => {
     switch (action.type) {
+        case types.GET_PRODUCT:
+            return Object.assign({}, state, {
+                product: action.json.body
+            });
         case types.GET_COUNTRY:
             return Object.assign({}, state, {
                 country: action.json.body
