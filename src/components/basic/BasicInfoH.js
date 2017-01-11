@@ -74,7 +74,7 @@ class BasicInfoH extends React.Component {
         super(props)
 
         country = this.props.country.map(function (item) {
-            return <Option value={item.encode} key={item.id}>{item.name}</Option>
+            return <Option value={item.encode+'_'+item.name} key={item.id}>{item.name}</Option>
         })
         this.state = {
             industry: industry.map(function (item) {
