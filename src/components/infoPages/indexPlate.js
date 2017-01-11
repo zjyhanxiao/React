@@ -12,7 +12,6 @@ class IndexPlate extends React.Component {
   render() {
     return (
       <div style={{width: '100%', background: '#fff', overflow: 'hidden'}}>
-          {JSON.stringify(this.props)}
         <BasicPlate {...this.props} />
         <AddressPlate/>
         <BankPlate/>
