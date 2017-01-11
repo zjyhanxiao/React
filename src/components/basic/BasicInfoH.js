@@ -104,6 +104,10 @@ class BasicInfoH extends React.Component {
         const industryData = this.state.industry.map(function (item, index) {
             return <Option value={item} key={item + '_' + index}>{item}</Option>
         })
+        const formItemLayout = {
+            labelCol: {span: 6},
+            wrapperCol: {span: 14},
+        };
         return (
 
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
