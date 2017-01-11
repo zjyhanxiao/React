@@ -54,7 +54,7 @@ class AddressPublic extends React.Component {
           <Row style={{paddingTop: '30px'}}>
             <Col span={3} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体'}}>地址证明上传</h2></Col>
             <Col span={10} offset={1}><p style={{color: '#ff6600', fontFamily: '宋体', marginTop: '2px'}}>
-              {this.props.getsProfile.base_profile.file_type == 'jack'?
+              {this.props.getsProfile.base_profile.file_type == 'bill'?
                 '你的账单必须包含姓名与地址，并且账单日起为三个月内'
                 :
                 ''
@@ -71,7 +71,6 @@ class AddressPublic extends React.Component {
               wrapperCol={{span: 14}}
             >
               {getFieldDecorator('file_type', {
-                initialValue:'CN',
                 rules: [{
                   type: 'string',
                   required: true,
