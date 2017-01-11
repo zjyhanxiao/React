@@ -13,8 +13,6 @@ class ItemAmount extends React.Component {
         this.state = {
             a: false,
             product: {
-                min: 10000,
-                per: 5000,
                 currentVal: 10000
             }
         }
@@ -27,7 +25,6 @@ class ItemAmount extends React.Component {
         } else {
             this.setState({
                 product: {
-                    ...this.state.product,
                     currentVal: e.target.value,
                 }
             })
@@ -38,8 +35,7 @@ class ItemAmount extends React.Component {
     add() {
         this.setState({
             product: {
-                ...this.state.product,
-                currentVal: this.state.product.currentVal + this.state.product.per,
+                currentVal: this.state.product.currentVal + this.props.invest_par_value,
             }
         })
     }
@@ -47,8 +43,7 @@ class ItemAmount extends React.Component {
     sub(e) {
         this.setState({
             product: {
-                ...this.state.product,
-                currentVal: this.state.product.currentVal - this.state.product.per,
+                currentVal: this.state.product.currentVal - this.props.invest_par_value,
             }
         })
     }
@@ -72,7 +67,7 @@ class ItemAmount extends React.Component {
                     {/*<div style={{color:'#159bd6',fontSize:'16px'}}>投资确认</div>*/}
 
                     <div style={{margin: '10px 0'}}>
-                    <Button type="ghost" disabled={this.state.product.currentVal > 10000 ? false : true}
+                    <Button type="ghost" disabled={this.state.product.currentVal > this.props.minimum_invest_amount ? false : true}
                             onClick={this.sub.bind(this)} shape="circle" icon="minus" style={{
                         width: '30px',
                         height: '30px',
@@ -114,7 +109,7 @@ class ItemAmount extends React.Component {
                     }} />
                   </div>
 
-                  <p style={{color: '#4760a1'}}>投资金额为5000美元的整数倍</p>
+                  <p style={{color: '#4760a1'}}>投资金额为{this.props.invest_par_value}美元的整数倍</p>
 
                 </div>
 

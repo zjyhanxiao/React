@@ -21,7 +21,7 @@ class ItemName extends React.Component {
       <div style={{width:'100%',height:'220px',background:'url(../../images/building.jpg)'}}>
         <Row>
           <Col span={6} offset={16} style={{textAlign:'center',marginTop:'60px',color:'#223976'}}>
-            <span style={{fontSize:'32px',color:'#223976'}}>{this.props.name}</span>
+            <span style={{fontSize:'28px',color:'#223976'}}>{this.props.name}</span>
           </Col>
           <Col span={6} offset={16} style={{textAlign:'center',color:'#223976',marginTop:'10px'}} >
             预计年化收益: <span>{this.props.return_rate}%</span>
