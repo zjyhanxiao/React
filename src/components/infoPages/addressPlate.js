@@ -37,14 +37,38 @@ class AddressPlate extends React.Component {
     render() {
         return (
             <div style={{width: '100%', background: '#fff', overflow: 'hidden'}}>
-        <Row style={{paddingTop: '30px'}}>
-          <Col span={4} offset={2}>
-            <p style={{fontWeight: '900', fontSize: '16px'}}>地址</p>
-          </Col>
-          <Col span={1} offset={15}>
-            <a style={{marginBottom: '-5px', color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>修改</a>
-          </Col>
-        </Row>
+
+              <Row style={{paddingTop: '30px'}}>
+                <Col span={12} offset={2}>
+                  <p style={{fontWeight: '900', fontSize: '16px'}}>地址&nbsp;
+
+
+                    {this.props.getsProfile.base_profile.investor_type == 1?
+                      <span style={{fontWeight: '100', fontSize: '12px'}}>由于产品需要，您所填写的中文地址我们已经自动的为您转换为英文地址。</span>
+                      :
+                      ''
+                    }
+
+                  </p>
+                </Col>
+                <Col span={1} offset={7}>
+                  <a style={{marginBottom: '-5px', color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>修改</a>
+                </Col>
+              </Row>
+
+
+
+        {/*<Row style={{paddingTop: '30px'}}>*/}
+          {/*<Col span={4} offset={2}>*/}
+            {/*<p style={{fontWeight: '900', fontSize: '16px'}}>地址</p>*/}
+          {/*</Col>*/}
+          {/*<Col span={1} offset={15}>*/}
+            {/*<a style={{marginBottom: '-5px', color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>修改</a>*/}
+          {/*</Col>*/}
+        {/*</Row>*/}
+
+
+
     <Modal title="" visible={this.state.visible}
            onOk={this.handleOk} onCancel={this.handleCancel} closable={false} footer={''} width={900}>
       <AddressProof {...this.state} handleCancel={this.handleCancel} />
