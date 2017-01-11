@@ -39,15 +39,15 @@ class Identity extends React.Component {
         let investor_type, country, state = this.state.pages_needed.investor_type
         if (e.target.value == '1' && state.us == '1') {
             investor_type = 2
-            country = 'United States of America_3'
+            country = '美国'
         }
         if (e.target.value == '2' && state.cn == '1') {
             investor_type = 1
-            country = 'China_1'
+            country = '中国'
         }
         if (e.target.value == '2' && state.cn == '2') {
             investor_type = 99
-            country = 'Hong Kong_5'
+            country = '香港'
         }
         if (investor_type != null && investor_type != undefined) {
             const {dispatch} = this.props
@@ -118,11 +118,11 @@ class Identity extends React.Component {
                 console.log('Received values of form: ', JSON.stringify(values));
                 if (this.props.getsProfile.base_profile.investor_type == 1) {
                     const {dispatch} = this.props
-                    dispatch(getState({"parent": 2}))
+                    dispatch(getState({country:this.props.getsProfile.country}))
                 }
                 if (this.props.getsProfile.base_profile.investor_type == 2) {
                     const {dispatch} = this.props
-                    dispatch(getState({"parent": 3}))
+                    dispatch(getState({country:this.props.getsProfile.country}))
                 }
                 this.props.changeIndex(e)
                 // const { dispatch } = this.props

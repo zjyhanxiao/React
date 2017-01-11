@@ -18,7 +18,7 @@ class AddressChina extends React.Component {
         if (value.split('_').length > 0) {
             console.log(value.split('_')[1])
             const {dispatch} = this.props
-            dispatch(getCity({parent: value.split('_')[1]}))
+            dispatch(getCity({country:this.props.getsProfile.country,region:this.props.getsProfile.region}))
         }
         this.props.form.setFieldsValue({
             city:'',
@@ -31,7 +31,7 @@ class AddressChina extends React.Component {
         if (value.split('_').length > 0) {
             console.log(value.split('_')[1])
             const {dispatch} = this.props
-            dispatch(getCounty({parent: value.split('_')[1]}))
+            dispatch(getCounty({country:this.props.getsProfile.country,region:this.props.getsProfile.region,city:this.props.getsProfile.city}))
         }
 
         this.props.form.setFieldsValue({
