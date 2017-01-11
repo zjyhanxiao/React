@@ -15,12 +15,15 @@ class AddressChina extends React.Component {
 
     regionChange(value) {
         console.log(`selected ${value}`);
-        console.log(value.split('_').length);
         if (value.split('_').length > 0) {
             console.log(value.split('_')[1])
             const {dispatch} = this.props
             dispatch(getCity({parent: value.split('_')[1]}))
         }
+        this.props.form.setFieldsValue({
+            city:'',
+            district:''
+        })
     }
     cityChange(value) {
         console.log(`selected ${value}`);
@@ -30,6 +33,10 @@ class AddressChina extends React.Component {
             const {dispatch} = this.props
             dispatch(getCounty({parent: value.split('_')[1]}))
         }
+
+        this.props.form.setFieldsValue({
+            district:''
+        })
     }
 
     handleSubmit(e) {
