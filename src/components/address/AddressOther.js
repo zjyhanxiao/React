@@ -26,6 +26,10 @@ class AddressOther extends React.Component {
             const {dispatch} = this.props
             dispatch(getState({parent: value.split('_')[1]}))
         }
+
+        this.props.form.setFieldsValue({
+            region:''
+        })
     }
 
     handleSubmit(e) {
