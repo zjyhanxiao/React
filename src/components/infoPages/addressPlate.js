@@ -8,8 +8,8 @@ import AddressProof from '../../view/AddressProof'
 
 class AddressPlate extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       a:true,
       profile:{}

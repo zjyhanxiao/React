@@ -9,8 +9,8 @@ import ComplianceReview from '../../view/ComplianceReview'
 
 class CompliancePlate extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       profile:{}
     }

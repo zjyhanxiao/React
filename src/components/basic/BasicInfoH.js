@@ -101,10 +101,6 @@ class BasicInfoH extends React.Component {
     }
     render() {
         const {getFieldDecorator} = this.props.getFieldDecorator
-        const formItemLayout = {
-            labelCol: {span: 6},
-            wrapperCol: {span: 14},
-        }
         const industryData = this.state.industry.map(function (item, index) {
             return <Option value={item} key={item + '_' + index}>{item}</Option>
         })

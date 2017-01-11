@@ -11,7 +11,7 @@ class ItemAmount extends React.Component {
     constructor() {
         super();
         this.state = {
-            a: true,
+            a: false,
             product: {
                 currentVal: 10000
             }
@@ -112,12 +112,19 @@ class ItemAmount extends React.Component {
                   <p style={{color: '#4760a1'}}>投资金额为{this.props.invest_par_value}美元的整数倍</p>
 
                 </div>
+
+              {this.state.a?
                 <div style={{borderTop: '1px dashed #4760a1', color: '#4760a1', lineHeight: '32px'}}>
                   <p style={{marginLeft: '10px', float: 'left'}}>优惠福利：体验金$<span>1000</span></p>
                   <i style={{float: 'right', marginRight: '10px', cursor: 'pointer'}}>
                     <Icon type="question-circle-o" style={{fontSize: '16px'}} />
                   </i>
                 </div>
+                :
+                ''
+
+              }
+
               </div>
         );
     }

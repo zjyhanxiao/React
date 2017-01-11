@@ -9,8 +9,8 @@ import BankInformation from '../../view/BankInformation'
 
 class BankPlate extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       profile:{}
     }

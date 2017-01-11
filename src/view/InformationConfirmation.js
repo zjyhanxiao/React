@@ -6,10 +6,7 @@ import {getProduct,getCountry} from '../Redux/actions/index'
 import ItemAmount from '../components/infoPages/ItemAmount'
 import ItemName from '../components/infoPages/ItemName'
 import AmountShow from '../components/infoPages/amountShow'
-import AddressPlate from '../components/infoPages/addressPlate'
-import BankPlate from '../components/infoPages/bankPlate'
-import BasicPlate from '../components/infoPages/basicPlate'
-import CompliancePlate from '../components/infoPages/compliancePlate'
+import IndexPlate from '../components/infoPages/indexPlate'
 import IndexButton from '../components/Capacity/indexButton'
 
 function getUrlParam(name) {
@@ -85,10 +82,7 @@ class InformationConfirmation extends React.Component {
             </div>
                     :
                     <div style={{width: '900px', margin: '0 auto'}}>
-              <BasicPlate></BasicPlate>
-              <AddressPlate></AddressPlate>
-              <BankPlate></BankPlate>
-              <CompliancePlate></CompliancePlate>
+                      <IndexPlate {...this.props} />
               <Row style={{
                   paddingTop: '40px',
                   paddingBottom: '40px',
