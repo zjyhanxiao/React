@@ -8,6 +8,8 @@ import ItemName from '../components/infoPages/ItemName'
 import AmountShow from '../components/infoPages/amountShow'
 import IndexPlate from '../components/infoPages/indexPlate'
 import IndexButton from '../components/Capacity/indexButton'
+import ConfirmInvestment from './ConfirmInvestment'
+
 
 function getUrlParam(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
@@ -20,16 +22,36 @@ class InformationConfirmation extends React.Component {
         super(props)
         this.state = {
             message: true,
-            pages: {
-                first: true,
-                second: false,
-                third: false,
-                fourth: false,
-                fifth: false,
-                current: 'first'
+            page: {
+              one: true,
+              two: false,
+              current: 'one'
             }
         }
     }
+
+  changeP=(event)=>{
+    var cur
+    if (event.target.tagName == 'SPAN') {
+      cur = event.target.parentNode.name
+    }
+    if(event.target.tagName == 'BUTTON'){
+      cur = event.target.name
+    }
+    this.setState(
+      {
+        page: {
+          one: false,
+          two: false,
+          [cur]: true,
+          current: cur
+        }
+      }
+    )
+    event.preventDefault();
+  }
+
+
 
     changeMessage = (event) => {
         this.setState({message: false})
@@ -70,38 +92,21 @@ class InformationConfirmation extends React.Component {
 
                 {this.state.message ?
                     <div style={{width: '900px', margin: '0 auto'}}>
-              <p style={{
-                  width: '900px',
-                  textAlign: 'center',
-                  background: '#ffffff',
-                  padding: '40px 0',
-                  color: '#bbb',
-                  fontSize: '16px'
-              }}>您的个人信息尚未完善,请填写后继续投资。</p>
-              <IndexButton {...this.state.message} changeMessage={this.changeMessage} />
-            </div>
+                      <p style={{
+                          width: '900px',
+                          textAlign: 'center',
+                          background: '#ffffff',
+                          padding: '40px 0',
+                          color: '#bbb',
+                          fontSize: '16px'
+                      }}>您的个人信息尚未完善,请填写后继续投资。</p>
+                      <IndexButton {...this.state.message} changeMessage={this.changeMessage} />
+                    </div>
                     :
                     <div style={{width: '900px', margin: '0 auto'}}>
-                      <IndexPlate {...this.props} {...this.state} />
-              <Row style={{
-                  paddingTop: '40px',
-                  paddingBottom: '40px',
-                  margin: '0 auto',
-                  textAlign: 'center',
-                  background: '#ffffff'
-              }}>
-                <Col span={8} offset={8}>
-                  <Button style={{
-                      width: '120px',
-                      height: '50px',
-                      borderRadius: '30px',
-                      background: '#223976',
-                      color: '#fff',
-                      fontSize: '18px'
-                  }} type="primary" htmlType="submit" size="large">下一步</Button>
-                </Col>
-              </Row>
-            </div>
+                      <IndexPlate {...this.state.page} {...this.props}  changeP={this.changeP}/>
+                      <ConfirmInvestment {...this.state.page} {...this.props}  changeP={this.changeP}/>
+                    </div>
                 }
 
         </div>
@@ -117,10 +122,30 @@ InformationConfirmation.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        pages:state.pages,
         getsProfile: state.getsProfile
     }
 }
 
 
 export default connect(mapStateToProps)(InformationConfirmation)
+
+
+/********
+ <Row style={{
+                          paddingTop: '40px',
+                          paddingBottom: '40px',
+                          margin: '0 auto',
+                          textAlign: 'center',
+                          background: '#ffffff'}}>
+ <Col span={8} offset={8}>
+ <Button style={{
+                              width: '120px',
+                              height: '50px',
+                              borderRadius: '30px',
+                              background: '#223976',
+                              color: '#fff',
+                              fontSize: '18px'
+                          }} type="primary" htmlType="submit" size="large">下一步</Button>
+ </Col>
+ </Row>
+ *********/
