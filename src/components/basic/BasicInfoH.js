@@ -131,7 +131,7 @@ class BasicInfoH extends React.Component {
                         >
                             {getFieldDecorator('date_of_birth', {
                                 //initialValue: (this.props != null && this.props.date_of_birth != null) ? moment(this.props.date_of_birth) : null,
-                                rules: [{type: 'object', required: false, message: '请输入日期!'}],
+                                rules: [{type: 'object', required: true, message: '请输入日期!'}],
                             })(
                                 <DatePicker size="large" style={{width: 240}}></DatePicker>
                             )}
@@ -148,7 +148,7 @@ class BasicInfoH extends React.Component {
                                 initialValue: this.props.getsProfile.base_profile.investor_type==99?'Hong Kong':'China',
                                 rules: [{
                                     type: 'string',
-                                    required: false,
+                                    required: true,
                                     message: '请选择您的出生国家！'
                                 }],
                             })(
@@ -174,7 +174,7 @@ class BasicInfoH extends React.Component {
                                 initialValue: this.props.getsProfile.base_profile.investor_type==99?'Hong Kong':'China',
                                 rules: [{
                                     type: 'string',
-                                    required: false,
+                                    required: true,
                                     message: '请选择您的国籍！'
                                 }],
                             })(
@@ -195,7 +195,7 @@ class BasicInfoH extends React.Component {
                             {getFieldDecorator('source_of_capital', {
                                 rules: [{
                                     type: 'string',
-                                    required: false,
+                                    required: true,
                                     message: '请选择您的资金来源！'
                                 }],
                             })(
@@ -223,7 +223,7 @@ class BasicInfoH extends React.Component {
                                 //initialValue: 'CN',
                                 rules: [{
                                     type: 'string',
-                                    required: false,
+                                    required: true,
                                     message: '请选择您的行业！'
                                 }],
                             })(
@@ -244,7 +244,7 @@ class BasicInfoH extends React.Component {
                             {getFieldDecorator('occupation', {
                                 rules: [{
                                     type: 'string',
-                                    required: false,
+                                    required: true,
                                     message: '请选择您的职业！'
                                 }],
                             })(
@@ -276,7 +276,7 @@ class BasicInfoH extends React.Component {
                                 initialValue: this.props.getsProfile.base_profile.investor_type==99?'Hong Kong':'China',
                                 rules: [{
                                     type: 'string',
-                                    required: false,
+                                    required: true,
                                     message: '请选择您的纳税国！'
                                 }],
                             })(
@@ -297,7 +297,7 @@ class BasicInfoH extends React.Component {
                             {getFieldDecorator('foreign_tax_number', {
                                 //initialValue: this.props.passport_code,
                                 rules: [{
-                                    required: false, message: '请输入您的纳税号！',
+                                    required: true, message: '请输入您的纳税号！',
                                 }],
                             })(
                                 <Input type="text" size="large" style={{width: 240}}/>

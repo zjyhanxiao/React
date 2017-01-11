@@ -142,7 +142,7 @@ class BasicInfoUC extends React.Component {
                   wrapperCol={{span: 14}}
               >
                 {getFieldDecorator('date_of_birth', {
-                    rules: [{type: 'object', required: false, message: '请输入日期!'}],
+                    rules: [{type: 'object', required: true, message: '请输入日期!'}],
                 })(
                     <DatePicker size="large" style={{width: 240}}></DatePicker>
                 )}
@@ -159,7 +159,7 @@ class BasicInfoUC extends React.Component {
                     initialValue: 'China',
                     rules: [{
                         type: 'string',
-                        required: false,
+                        required: true,
                         message: '请选择您的出生国家！'
                     }],
                 })(
@@ -185,7 +185,7 @@ class BasicInfoUC extends React.Component {
                   >
                     {getFieldDecorator('ssn', {
                         rules: [{
-                            required: false, message: '请输入您的SSN!',
+                            required: true, message: '请输入您的SSN!',
                         }],
                     })(
                         <Input type="text" size="large" style={{width: 240}} />
@@ -203,7 +203,7 @@ class BasicInfoUC extends React.Component {
                         initialValue: 'China',
                         rules: [{
                             type: 'string',
-                            required: false,
+                            required: true,
                             message: '请选择您的国籍！'
                         }],
                     })(
@@ -232,7 +232,7 @@ class BasicInfoUC extends React.Component {
                 {getFieldDecorator('industry', {
                     rules: [{
                         type: 'string',
-                        required: false,
+                        required: true,
                         message: '请选择您的行业！'
                     }],
                 })(
@@ -253,7 +253,7 @@ class BasicInfoUC extends React.Component {
                 {getFieldDecorator('occupation', {
                     rules: [{
                         type: 'string',
-                        required: false,
+                        required: true,
                         message: '请选择您的职业！'
                     }],
                 })(
@@ -286,7 +286,7 @@ class BasicInfoUC extends React.Component {
                   {getFieldDecorator('source_of_capital', {
                       rules: [{
                           type: 'string',
-                          required: false,
+                          required: true,
                           message: '请选择您的资金来源！'
                       }],
                   })(

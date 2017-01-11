@@ -1,7 +1,8 @@
 import '../identity/identity.css'
 import React from 'react';
 import {connect} from 'react-redux'
-import { bindActionCreators } from 'redux'
+import {getState} from '../../Redux/actions/index'
+import {bindActionCreators} from 'redux'
 import {changeInvestorType} from '../../Redux/actions/index'
 import {Form, Input, Row, Col, Button, Radio} from 'antd';
 
@@ -12,6 +13,7 @@ class Identity extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            can_next: false,
             pages_needed: {
                 investor_type: {
                     type: '1',
@@ -26,6 +28,7 @@ class Identity extends React.Component {
     changeType = (e) => {
         let data = this.state.pages_needed.investor_type
         this.setState({
+            can_next: true,
             pages_needed: {
                 investor_type: {
                     ...data,
@@ -33,23 +36,23 @@ class Identity extends React.Component {
                 }
             }
         })
-        let investor_type,country,state=this.state.pages_needed.investor_type
+        let investor_type, country, state = this.state.pages_needed.investor_type
         if (e.target.value == '1' && state.us == '1') {
             investor_type = 2
-            country='United States of America_3'
+            country = 'United States of America_3'
         }
         if (e.target.value == '2' && state.cn == '1') {
             investor_type = 1
-            country='China_1'
+            country = 'China_1'
         }
         if (e.target.value == '2' && state.cn == '2') {
             investor_type = 99
-            country='Hong Kong_5'
+            country = 'Hong Kong_5'
         }
-        if(investor_type!=null&&investor_type!=undefined){
+        if (investor_type != null && investor_type != undefined) {
             const {dispatch} = this.props
-            dispatch(changeInvestorType('investor_type',investor_type))
-            dispatch(changeInvestorType('country',country))
+            dispatch(changeInvestorType('investor_type', investor_type))
+            dispatch(changeInvestorType('country', country))
         }
         e.preventDefault();
     }
@@ -58,6 +61,7 @@ class Identity extends React.Component {
     changeUs = (e) => {
         let data = this.state.pages_needed.investor_type
         this.setState({
+            can_next: true,
             pages_needed: {
                 investor_type: {
                     ...data,
@@ -65,15 +69,15 @@ class Identity extends React.Component {
                 }
             }
         })
-        let investor_type,country,state=this.state.pages_needed.investor_type
+        let investor_type, country, state = this.state.pages_needed.investor_type
         if (state.type == '1' && e.target.value == '1') {
             investor_type = 2
-            country='United States of America_3'
+            country = 'United States of America_3'
         }
-        if(investor_type!=null&&investor_type!=undefined){
+        if (investor_type != null && investor_type != undefined) {
             const {dispatch} = this.props
-            dispatch(changeInvestorType('investor_type',investor_type))
-            dispatch(changeInvestorType('country',country))
+            dispatch(changeInvestorType('investor_type', investor_type))
+            dispatch(changeInvestorType('country', country))
         }
         e.preventDefault();
     }
@@ -81,6 +85,7 @@ class Identity extends React.Component {
     changeCn = (e) => {
         let data = this.state.pages_needed.investor_type
         this.setState({
+            can_next: true,
             pages_needed: {
                 investor_type: {
                     ...data,
@@ -88,28 +93,40 @@ class Identity extends React.Component {
                 }
             }
         })
-        let investor_type,country,state=this.state.pages_needed.investor_type
+        let investor_type, country, state = this.state.pages_needed.investor_type
         if (state.type == '2' && e.target.value == '1') {
             investor_type = 1
-            country='China_1'
+            country = 'China_1'
         }
         if (state.type == '2' && e.target.value == '2') {
             investor_type = 99
-            country='Hong Kong_5'
+            country = 'Hong Kong_5'
         }
-        if(investor_type!=null&&investor_type!=undefined){
+        if (investor_type != null && investor_type != undefined) {
             const {dispatch} = this.props
-            dispatch(changeInvestorType('investor_type',investor_type))
-            dispatch(changeInvestorType('country',country))
+            dispatch(changeInvestorType('investor_type', investor_type))
+            dispatch(changeInvestorType('country', country))
         }
         e.preventDefault();
     }
+
 
     handleSubmit(e) {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
+                console.log('Received values of form: ', JSON.stringify(values));
+                if (this.props.getsProfile.base_profile.investor_type == 1) {
+                    const {dispatch} = this.props
+                    dispatch(getState({"parent": 2}))
+                }
+                if (this.props.getsProfile.base_profile.investor_type == 2) {
+                    const {dispatch} = this.props
+                    dispatch(getState({"parent": 3}))
+                }
+                this.props.changeIndex(e)
+                // const { dispatch } = this.props
+                // dispatch(updateProfile(this.props.getsProfile.base_profile,this.success))
             }
         });
     }
@@ -153,7 +170,7 @@ class Identity extends React.Component {
             >
               {getFieldDecorator('last_name', {
                   rules: [{
-                      required: false, message: '请输入您的姓氏的汉语拼音!',
+                      required: true, message: '请输入您的姓氏的汉语拼音!',
                   }, {pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',}],
               })(
                   <Input placeholder='姓的汉语拼音' type="text" size="large" style={{width: 240}} />
@@ -170,7 +187,7 @@ class Identity extends React.Component {
               {getFieldDecorator('first_name', {
                   //initialValue:'yang',
                   rules: [{
-                      required: false, message: '请输入您的名的汉语拼音!',
+                      required: true, message: '请输入您的名的汉语拼音!',
                   }, {pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!'}],
               })(
                   <Input type="text" placeholder="名的汉语拼音" size="large" style={{width: 240}} />
@@ -255,6 +272,36 @@ class Identity extends React.Component {
           </Row>
         </FormItem>
 
+                {this.state.can_next ? '' :
+                    <p style={{textAlign: 'center', color: '#f60'}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;美信产品的投资人必须为合格投资人</p>
+                }
+                <FormItem {...tailFormItemLayout}>
+
+            <Row style={{marginTop: '0', paddingBottom: '40px'}}>
+              <Col span={4} offset={8}>
+                <Button disabled={this.state.can_next ? '' : 'disabled'} style={
+                    this.state.can_next ?
+                        {
+                            width: '120px',
+                            height: '50px',
+                            borderRadius: '30px',
+                            background: '#223976',
+                            color: '#fff',
+                            fontSize: '18px'
+                        } : {
+                            width: '120px',
+                            height: '50px',
+                            borderRadius: '30px',
+                            background: '#ccc',
+                            color: '#fff',
+                            fontSize: '18px'
+                        }
+                } type="primary" htmlType="submit" name="second" onClick={this.handleSubmit.bind(this)}
+                        size="large">下一步</Button>
+              </Col>
+            </Row>
+          </FormItem>
+
       </div>
         );
     }
@@ -271,7 +318,7 @@ function mapDispatchToProps(dispatch) {
         changeInvestorType: bindActionCreators(changeInvestorType, dispatch)
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(Identity)
+export default connect(mapStateToProps, mapDispatchToProps)(Identity)
 
 
 

@@ -1,8 +1,8 @@
 import React, {Component, PropTypes}from 'react'
 import {Form, Row, Col, Button} from 'antd'
 import {connect} from 'react-redux'
+import {saveFields} from '../Redux/actions/index'
 import moment from 'moment'
-import {updateProfile, saveFields,getState} from '../Redux/actions/index'
 import Identity from '../components/identity/identity'
 
 const FormItem = Form.Item;
@@ -12,25 +12,6 @@ class IdentityConfirmation extends React.Component {
     super(props)
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.form.validateFieldsAndScroll((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', JSON.stringify(values));
-          if(this.props.getsProfile.base_profile.investor_type==1){
-              const {dispatch} = this.props
-              dispatch(getState({"parent":2}))
-          }
-          if(this.props.getsProfile.base_profile.investor_type==2){
-              const {dispatch} = this.props
-              dispatch(getState({"parent":3}))
-          }
-        this.props.changeIndex(e)
-        // const { dispatch } = this.props
-        // dispatch(updateProfile(this.props.getsProfile.base_profile,this.success))
-      }
-    });
-  }
 
   success(){
     console.log('success')
@@ -56,22 +37,6 @@ class IdentityConfirmation extends React.Component {
           {/*<AddressOther {...this.props}  getFieldDecorator={this.props.form} />*/}
 
           <Identity  {...this.props}  getFieldDecorator={this.props.form} />
-
-
-          <FormItem {...tailFormItemLayout}>
-            <Row style={{marginTop: '0', paddingBottom: '40px'}}>
-              <Col span={4} offset={8}>
-                <Button style={{
-                  width: '120px',
-                  height: '50px',
-                  borderRadius: '30px',
-                  background: '#223976',
-                  color: '#fff',
-                  fontSize: '18px'
-                }} type="primary" htmlType="submit" name="second" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
-              </Col>
-            </Row>
-          </FormItem>
 
         </Form>
 
