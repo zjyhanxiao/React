@@ -1,6 +1,3 @@
-/**
- * Created by robot on 2016/12/22.
- */
 import React from 'react';
 
 import {Modal, Button, Row, Col} from 'antd';
@@ -12,7 +9,8 @@ class CompliancePlate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      profile:{}
+        fifth:true,
+        is_single:true
     }
   }
 
@@ -46,7 +44,7 @@ class CompliancePlate extends React.Component {
         </Row>
     <Modal title="" visible={this.state.visible}
            onOk={this.handleOk} onCancel={this.handleCancel} closable={false} footer={''} width={900}>
-      <ComplianceReview/>
+      <ComplianceReview {...this.state} handleCancel={this.handleCancel}/>
     </Modal>
 
         <Row style={{margin:'15px 0',}}>

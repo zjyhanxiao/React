@@ -12,7 +12,8 @@ class BankPlate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      profile:{}
+        fourth:true,
+        is_single:true
     }
   }
 
@@ -46,7 +47,7 @@ class BankPlate extends React.Component {
         </Row>
     <Modal title="" visible={this.state.visible}
            onOk={this.handleOk} onCancel={this.handleCancel} closable={false} footer={''} width={900}>
-      <BankInformation/>
+      <BankInformation {...this.state} handleCancel={this.handleCancel} />
     </Modal>
 
 
