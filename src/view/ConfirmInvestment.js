@@ -18,18 +18,6 @@ class ConfirmInvestment extends React.Component {
     }
   }
 
-  handleSubmit(e) {
-    this.props.form.validateFieldsAndScroll((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', JSON.stringify(values));
-        this.props.changeIndex(e)
-        /*const {dispatch} = this.props
-         dispatch(updateProfile(values, this.success))*/
-      }
-    });
-    e.preventDefault();
-  }
-
 
   render() {
     return (
@@ -61,7 +49,7 @@ class ConfirmInvestment extends React.Component {
                 background: '#223976',
                 color: '#fff',
                 fontSize: '18px'
-              }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">完成</Button>
+              }} type="primary" htmlType="submit" name="three" onClick={this.props.changeP} size="large">下一步</Button>
             </Col>
           </Row>
         </div>

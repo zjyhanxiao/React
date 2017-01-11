@@ -71,21 +71,8 @@ class IndexAW extends React.Component {
 
 
 
-        <div style={{width:'100%',margin:'0 auto',textAlign:'center',background:'#ffffff'}}>
-          <Row style={{paddingTop: '50px', paddingBottom: '40px'}}>
-            <Col span={8} offset={8}>
-              <Button style={{
-                width: '120px',
-                height: '50px',
-                borderRadius: '30px',
-                background: '#223976',
-                color: '#fff',
-                fontSize: '18px'
-              }} type="primary" htmlType="submit" size="large">完成</Button>
-            </Col>
-          </Row>
-        </div>
-        <p style={{width: '100%', textAlign:'center'}}>如有疑问，请邮件联系invest@meixinfinance.com。</p>
+
+
 
       </div>
 
@@ -96,3 +83,21 @@ class IndexAW extends React.Component {
 IndexAW.defaultProps = {};
 
 export default IndexAW;
+
+
+/*************
+ *         <div style={{width:'100%',margin:'0 auto',textAlign:'center',background:'#ffffff'}}>
+ <Row style={{paddingTop: '50px', paddingBottom: '40px'}}>
+ <Col span={8} offset={8}>
+ <Button style={{
+                width: '120px',
+                height: '50px',
+                borderRadius: '30px',
+                background: '#223976',
+                color: '#fff',
+                fontSize: '18px'
+              }} type="primary" htmlType="submit" size="large">完成</Button>
+ </Col>
+ </Row>
+ </div>
+ */

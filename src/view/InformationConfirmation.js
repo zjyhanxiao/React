@@ -9,6 +9,7 @@ import AmountShow from '../components/infoPages/amountShow'
 import IndexPlate from '../components/infoPages/indexPlate'
 import IndexButton from '../components/Capacity/indexButton'
 import ConfirmInvestment from './ConfirmInvestment'
+import GoldenWay from './GoldenWay'
 
 
 function getUrlParam(name) {
@@ -106,6 +107,7 @@ class InformationConfirmation extends React.Component {
                     <div style={{width: '900px', margin: '0 auto'}}>
                       <IndexPlate {...this.state.page} {...this.props}  changeP={this.changeP}/>
                       <ConfirmInvestment {...this.state.page} {...this.props}  changeP={this.changeP}/>
+                      <GoldenWay {...this.state.page} {...this.props}  changeP={this.changeP}/>
                     </div>
                 }
 
