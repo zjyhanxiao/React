@@ -66,7 +66,7 @@ class AddressProve extends React.Component {
                 wrapperCol={{span: 12}}
             >
               {getFieldDecorator(this.props.getsProfile.base_profile.investor_type == 1?'id_card_expire_date':'bill_expire_date', {
-                  rules: [{type: 'object', required: false, message: '请输入日期!'}],
+                  rules: [{type: 'object', required: true, message: '请输入日期!'}],
               })(
                   <DatePicker size="large" style={{width: 220}}></DatePicker>
               )}

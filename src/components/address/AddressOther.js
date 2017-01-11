@@ -79,7 +79,7 @@ class AddressOther extends React.Component {
                   initialValue: '美国',
                   rules: [{
                       type: 'string',
-                      required: false,
+                      required: true,
                       message: '请选择您所在的国家！'
                   }],
               })(
@@ -99,7 +99,7 @@ class AddressOther extends React.Component {
                   initialValue: this.props.getsProfile.country!=null?'香港':'',
                   rules: [{
                       type: 'string',
-                      required: false,
+                      required: true,
                       message: '请选择您所在的国家！'
                   }],
               })(
@@ -121,7 +121,7 @@ class AddressOther extends React.Component {
             >
               {getFieldDecorator('line1', {
                   rules: [{
-                      required: false, message: '请输入您所在的地址！',
+                      required: true, message: '请输入您所在的地址！',
                       pattern: /^[a-z \,\.\-\']+$/i, message: "请输入英文,.-'",}],
               })(
                   <Input type="text" size="large" style={{}} />
@@ -137,7 +137,7 @@ class AddressOther extends React.Component {
             >
               {getFieldDecorator('line2', {
                   rules: [{
-                      required: false, message: '请输入您所在的地址！',
+                      required: true, message: '请输入您所在的地址！',
                       pattern: /^[a-z \,\.\-\']+$/i, message: "请输入英文,.-'",}],
               })(
                   <Input type="text" size="large" style={{}} />
@@ -153,7 +153,7 @@ class AddressOther extends React.Component {
             >
               {getFieldDecorator('city', {
                   rules: [{
-                      required: false, message: '请输入您所在的市！',
+                      required: true, message: '请输入您所在的市！',
                       pattern: /^[a-z \,\.\-\']+$/i, message: "请输入英文,.-'",}],
               })(
                   <Input type="text" size="large" style={{}} />
@@ -170,7 +170,7 @@ class AddressOther extends React.Component {
               {getFieldDecorator('region', {
                   rules: [{
                       type: 'string',
-                      required: false,
+                      required: true,
                       message: '请输入您所在的州省！'
                   }],
               })(
@@ -190,7 +190,7 @@ class AddressOther extends React.Component {
             >
               {getFieldDecorator('postal_code', {
                   rules: [{
-                      required: false, message: '请输入您的邮编!',
+                      required: true, message: '请输入您的邮编!',
                   }],
               })(
                   <Input type="text" size="large" style={{}} />

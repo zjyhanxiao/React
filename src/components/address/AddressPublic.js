@@ -74,7 +74,7 @@ class AddressPublic extends React.Component {
                 initialValue:'CN',
                 rules: [{
                   type: 'string',
-                  required: false,
+                  required: true,
                   message: '请选择证件类型！'
                 }],
               })(
@@ -96,7 +96,7 @@ class AddressPublic extends React.Component {
               wrapperCol={{span: 14}}
             >
               {getFieldDecorator(this.props.getsProfile.base_profile.file_type=='jack'?'bill_expire_date':'driving_license_expire_date', {
-                rules: [{ type: 'object', required: false, message: '请输入日期!' }],
+                rules: [{ type: 'object', required: true, message: '请输入日期!' }],
               })(
                 <DatePicker size="large" style={{width: 240}}></DatePicker>
               )}

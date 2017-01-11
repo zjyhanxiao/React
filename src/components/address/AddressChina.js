@@ -84,7 +84,7 @@ class AddressChina extends React.Component {
                {getFieldDecorator('region', {
                    rules: [{
                        type: 'string',
-                       required: false,
+                       required: true,
                        message: '请选择您所在的省或直辖市！'
                    }],
                })(
@@ -103,7 +103,7 @@ class AddressChina extends React.Component {
                 {getFieldDecorator('city', {
                     rules: [{
                         type: 'string',
-                        required: false,
+                        required: true,
                         message: '请选择您所在的市！'
                     }],
                 })(
@@ -122,7 +122,7 @@ class AddressChina extends React.Component {
                 {getFieldDecorator('district', {
                     rules: [{
                         type: 'string',
-                        required: false,
+                        required: true,
                         message: '请选择您所在的区或县！'
                     }],
                 })(
@@ -142,7 +142,7 @@ class AddressChina extends React.Component {
               >
                 {getFieldDecorator('detail', {
                     rules: [{
-                        required: false, message: '请填写您的详细地址!'
+                        required: true, message: '请填写您的详细地址!'
                     }],
                 })(
                     <Input type="textarea" style={{width: 240, height: 88, resize: 'none'}} />
@@ -156,7 +156,7 @@ class AddressChina extends React.Component {
               >
                 {getFieldDecorator('postal_code', {
                     rules: [{
-                        required: false, message: '请输入邮编!',
+                        required: true, message: '请输入邮编!',
                     }],
                 })(
                     <Input type="text" size="large" style={{width: 240}} />
