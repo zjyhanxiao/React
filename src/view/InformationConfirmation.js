@@ -62,7 +62,7 @@ class InformationConfirmation extends React.Component {
         const {dispatch} = this.props
         const product_id=getUrlParam('product_id')
         dispatch(getProduct(product_id))
-        dispatch(getCountry({"parent": 1}))
+        dispatch(getCountry({}))
     }
 
     handleSubmit(e) {

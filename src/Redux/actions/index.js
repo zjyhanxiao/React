@@ -81,10 +81,10 @@ export const getCountry = (data) => {
     let url = baseUrl + '/web/invest/access_district';
     return dispatch => {
         $.ajax({
-            type: 'get',
+            type: 'post',
             url: url,
             // url: 'https://api.meixinglobal.com/web/profile/update',
-            data: data,
+            data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
                 "mx_token": "3952a10e64671c9995367254766bbfa5",
@@ -101,7 +101,7 @@ export const getState = (data) => {
     let url = baseUrl + '/web/invest/access_district';
     return dispatch => {
         $.ajax({
-            type: 'get',
+            type: 'post',
             url: url,
             // url: 'https://api.meixinglobal.com/web/profile/update',
             data: data,
@@ -121,7 +121,7 @@ export const getCity = (data) => {
     let url = baseUrl + '/web/invest/access_district';
     return dispatch => {
         $.ajax({
-            type: 'get',
+            type: 'post',
             url: url,
             // url: 'https://api.meixinglobal.com/web/profile/update',
             data: data,
@@ -141,10 +141,10 @@ export const getCounty = (data) => {
     let url = baseUrl + '/web/invest/access_district';
     return dispatch => {
         $.ajax({
-            type: 'get',
+            type: 'post',
             url: url,
             // url: 'https://api.meixinglobal.com/web/profile/update',
-            data: data,
+            data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
                 "mx_token": "3952a10e64671c9995367254766bbfa5",
