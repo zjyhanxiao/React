@@ -16,5 +16,13 @@ ReactDOM.render(
 
     , document.getElementById('app'));
 
+ReactDOM.render(
 
+  <div>
+    <Provider store={store}>
+      <CapacityShow />
+    </Provider>
+  </div>
+
+  , document.querySelector('.a'));
 

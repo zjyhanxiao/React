@@ -17,7 +17,7 @@ class InformationConfirmation extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            a: true,
+          message: true,
             pages: {
               first: true,
               second: false,
@@ -28,6 +28,11 @@ class InformationConfirmation extends React.Component {
             }
         }
     }
+
+  changeMessage = (event) =>{
+    this.setState({message: false})
+  }
+
     componentDidMount() {
         const {dispatch} = this.props
         dispatch(getCountry({"parent":1}))
@@ -58,7 +63,7 @@ class InformationConfirmation extends React.Component {
           </div>
 
 
-                {this.state.a ?
+                {this.state.message ?
                     <div style={{width: '900px', margin: '0 auto'}}>
               <p style={{
                   width: '900px',
@@ -68,7 +73,7 @@ class InformationConfirmation extends React.Component {
                   color: '#bbb',
                   fontSize: '16px'
               }}>您的个人信息尚未完善,请填写后继续投资。</p>
-              <IndexButton></IndexButton>
+              <IndexButton {...this.state.message} changeMessage={this.changeMessage} />
             </div>
                     :
                     <div style={{width: '900px', margin: '0 auto'}}>
