@@ -39,7 +39,16 @@ class AddressPlate extends React.Component {
           <Col span={4} offset={2}>
             <p style={{fontWeight:'900',fontSize:'16px'}}>地址</p>
           </Col>
-          <Col span={1} offset={15}>
+
+
+
+          <Col span={8}>
+            <p style={{fontSize:'12px'}}>由于产品需要，您所填写的中文地址我们已经自动的为您翻译成英文地址。</p>
+          </Col>
+
+
+
+          <Col span={1} offset={7}>
             <a style={{marginBottom:'-5px',color:'#159bd6',cursor:'pointer'}} onClick={this.showModal}>修改</a>
           </Col>
         </Row>
