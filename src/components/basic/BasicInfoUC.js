@@ -69,7 +69,6 @@ const industry = [
 function handleChange(value) {
     console.log(`selected ${value}`);
 }
-let occupationData
 class BasicInfoUC extends React.Component {
     constructor(props) {
         super(props)
@@ -99,15 +98,6 @@ class BasicInfoUC extends React.Component {
         this.setState({
             occupation: data
         })
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.form.validateFieldsAndScroll((err, values) => {
-            if (!err) {
-                console.log('Received values of form: ', values);
-            }
-        });
     }
 
     render() {
