@@ -40,7 +40,7 @@ class AddressPlate extends React.Component {
 
               <Row style={{paddingTop: '30px'}}>
                 <Col span={12} offset={2}>
-                  <p style={{fontWeight: '900', fontSize: '16px'}}>地址&nbsp;
+                  <p style={{fontWeight: '900', fontSize: '16px'}}>地址&nbsp;&nbsp;
 
 
                     {this.props.getsProfile.base_profile.investor_type == 1?
