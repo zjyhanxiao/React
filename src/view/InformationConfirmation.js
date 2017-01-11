@@ -76,7 +76,7 @@ class InformationConfirmation extends React.Component {
 
     render() {
         return (
-            <div style={{background: '#fff'}}>
+            <div style={{}}>
                 <div style={{
                     width: '920px',
                     margin: '0 auto',

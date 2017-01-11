@@ -37,12 +37,21 @@ class BankPlate extends React.Component {
   render() {
     return (
       <div style={{width: '100%', background: '#fff', overflow: 'hidden'}}>
-        <Row style={{paddingTop:'30px'}}>
-          <Col span={4} offset={2}>
-            <p style={{fontWeight:'900',fontSize:'16px'}}>银行信息</p>
+        <Row style={{paddingTop: '30px'}}>
+          <Col span={14} offset={2}>
+            <p style={{fontWeight: '900', fontSize: '16px'}}>银行信息&nbsp;&nbsp;
+
+
+              {this.props.getsProfile.base_profile.investor_type == 1?
+                <span style={{fontWeight: '100', fontSize: '12px',color:'#ff6600'}}>如您将采用ACH自动扣款功能，此处需填写美国银行，如需更换请点击修改。</span>
+                :
+                ''
+              }
+
+            </p>
           </Col>
-          <Col span={1} offset={15}>
-            <a style={{marginBottom:'-5px',color:'#159bd6',cursor:'pointer'}} onClick={this.showModal}>修改</a>
+          <Col span={1} offset={5}>
+            <a style={{marginBottom: '-5px', color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>修改</a>
           </Col>
         </Row>
     <Modal title="" visible={this.state.visible}

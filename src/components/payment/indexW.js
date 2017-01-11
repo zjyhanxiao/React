@@ -25,7 +25,7 @@ class IndexW extends React.Component {
 
   render() {
     return (
-      <div style={{width:'900PX',margin:'50px auto',textAlign:'center'}}>
+      <div style={{width:'900PX',margin:'50px auto 0',textAlign:'center'}}>
         {/*<Tabs onChange={callback} type="card" animated={false}>*/}
           {/*<TabPane tab="银行电汇 / Wire" key="1"><Wire></Wire></TabPane>*/}
         {/*</Tabs>*/}
