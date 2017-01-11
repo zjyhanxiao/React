@@ -18,6 +18,7 @@ class ComplianceReview extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
+        this.props.changeMessage(e)
         console.log('Received values of form: ', JSON.stringify(values));
         this.props.handleOk(e);
         console.log(
