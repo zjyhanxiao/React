@@ -1,39 +1,47 @@
 import '../components/basic/BasicInfo.css'
-import React,{PropTypes} from 'react'
+import React, {PropTypes} from 'react'
 import {Row, Col, Button} from 'antd'
 import {connect} from 'react-redux'
-import {getCountry} from '../Redux/actions/index'
+import {getProduct,getCountry} from '../Redux/actions/index'
 import ItemAmount from '../components/infoPages/ItemAmount'
 import ItemName from '../components/infoPages/ItemName'
 import AmountShow from '../components/infoPages/amountShow'
 import IndexPlate from '../components/infoPages/indexPlate'
 import IndexButton from '../components/Capacity/indexButton'
 
-
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+    var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+    if (r != null) return unescape(r[2]);
+    return null; //返回参数值
+}
 class InformationConfirmation extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-          message: true,
+            message: true,
             pages: {
-              first: true,
-              second: false,
-              third: false,
-              fourth: false,
-              fifth: false,
-              current: 'first'
+                first: true,
+                second: false,
+                third: false,
+                fourth: false,
+                fifth: false,
+                current: 'first'
             }
         }
     }
 
-  changeMessage = (event) =>{
-    this.setState({message: false})
-  }
-
-    componentDidMount() {
-        const {dispatch} = this.props
-        dispatch(getCountry({"parent":1}))
+    changeMessage = (event) => {
+        this.setState({message: false})
     }
+
+    componentWillMount() {
+        const {dispatch} = this.props
+        const product_id=getUrlParam('product_id')
+        dispatch(getProduct(product_id))
+        dispatch(getCountry({"parent": 1}))
+    }
+
     handleSubmit(e) {
         e.preventDefault()
         this.props.form.validateFieldsAndScroll((err, values) => {
@@ -53,7 +61,7 @@ class InformationConfirmation extends React.Component {
                     border: '1px solid #eee',
                     borderRadius: '3px'
                 }}>
-            <ItemName />
+            <ItemName {...this.props.getsProfile.product} />
             <div style={{position: 'absolute', top: '30px', left: '60px'}}>
               <ItemAmount />
             </div>

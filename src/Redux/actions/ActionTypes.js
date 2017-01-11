@@ -1,3 +1,4 @@
+export const GET_PRODUCT='GET_PRODUCT'                  // 获取产品信息
 export const GET_PROFILE='GET_PROFILE'                  // 获取用户信息
 export const GET_PROFILE_SUCCESS='GET_PROFILE_SUCCESS'  // 获取用户信息成功
 export const UPDATE_UPLOADER='UPDATE_UPLOADER'   // 图片上传

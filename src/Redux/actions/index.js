@@ -1,7 +1,37 @@
 import fetch from 'isomorphic-fetch'
+import cookie from 'react-cookie'
 import *as types from './ActionTypes'
 import $ from 'jquery'
 const baseUrl = 'https://gl-api2.meixincn.com'
+// 获取产品数据
+export const getProduct=(id)=>{
+    let url=baseUrl+'/web/product/'+id
+    return dispatch => {
+        $.ajax({
+            type: 'get',
+            url: url,
+            // url: 'https://api.meixinglobal.com/web/profile/update',
+            data: {product_id:id},
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "mx_token": "3952a10e64671c9995367254766bbfa5",
+                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+            },
+
+            success: json => dispatch(getProductSuccess(json))
+
+        })
+    }
+}
+// 获取产品成功
+const getProductSuccess = (json) => {
+    return {
+        type: types.GET_PRODUCT,
+        json
+    }
+}
+
+
 //开始获取数据
 const requestPosts = () => {
     return {
