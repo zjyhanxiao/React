@@ -352,11 +352,21 @@ export const createOrder = (data, success) => {
     }
 }
 
+
+// 签名
 export const signature = (key,val) => {
     console.log(val)
     return {
         type: types.SIGNATURE,
         key: key,
+        val: val
+    }
+}
+// 投资金额
+export const investAmount = (val) => {
+    console.log(val)
+    return {
+        type: types.INVEST_AMOUNT,
         val: val
     }
 }

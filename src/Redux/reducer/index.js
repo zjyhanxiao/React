@@ -115,6 +115,10 @@ const getsProfile = (state = {}, action) => {
                 [action.key]: action.val
             }
             });
+        case types.INVEST_AMOUNT:
+            return Object.assign({}, state, {
+                invest_amount: action.val
+            });
         default:
             return state
     }

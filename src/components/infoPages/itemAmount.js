@@ -1,8 +1,7 @@
-/**
- * Created by robot on 2016/12/26.
- */
 import React from 'react';
 
+import {connect} from 'react-redux'
+import {investAmount} from '../../Redux/actions/index'
 import {Button, Icon} from 'antd';
 
 
@@ -16,6 +15,18 @@ class ItemAmount extends React.Component {
                 currentVal: 10000
             }
         }
+    }
+
+    shouldComponentUpdate(nextprops, nextState) {
+        const {dispatch} = this.props
+        console.log(this.props.getsProfile.invest_amount)
+        if (this.props.getsProfile.invest_amount == undefined) {
+            dispatch(investAmount(nextState.product.currentVal))
+        }else if ( this.props.getsProfile.invest_amount != nextState.product.currentVal) {
+            dispatch(investAmount(nextState.product.currentVal))
+
+        }
+        return true
     }
 
     onChange = (e) => {
@@ -35,7 +46,7 @@ class ItemAmount extends React.Component {
     add() {
         this.setState({
             product: {
-                currentVal: this.state.product.currentVal + this.props.invest_par_value,
+                currentVal: parseInt(this.state.product.currentVal) + parseInt(this.props.invest_par_value),
             }
         })
     }
@@ -43,7 +54,7 @@ class ItemAmount extends React.Component {
     sub(e) {
         this.setState({
             product: {
-                currentVal: this.state.product.currentVal - this.props.invest_par_value,
+                currentVal: parseInt(this.state.product.currentVal) - parseInt(this.props.invest_par_value),
             }
         })
     }
@@ -67,7 +78,8 @@ class ItemAmount extends React.Component {
                     {/*<div style={{color:'#159bd6',fontSize:'16px'}}>投资确认</div>*/}
 
                     <div style={{margin: '10px 0'}}>
-                    <Button type="ghost" disabled={this.state.product.currentVal > this.props.minimum_invest_amount ? false : true}
+                    <Button type="ghost"
+                            disabled={this.state.product.currentVal > this.props.minimum_invest_amount ? false : true}
                             onClick={this.sub.bind(this)} shape="circle" icon="minus" style={{
                         width: '30px',
                         height: '30px',
@@ -113,17 +125,17 @@ class ItemAmount extends React.Component {
 
                 </div>
 
-              {this.state.a?
-                <div style={{borderTop: '1px dashed #4760a1', color: '#4760a1', lineHeight: '32px'}}>
+                {this.state.a ?
+                    <div style={{borderTop: '1px dashed #4760a1', color: '#4760a1', lineHeight: '32px'}}>
                   <p style={{marginLeft: '10px', float: 'left'}}>优惠福利：体验金$<span>1000</span></p>
                   <i style={{float: 'right', marginRight: '10px', cursor: 'pointer'}}>
                     <Icon type="question-circle-o" style={{fontSize: '16px'}} />
                   </i>
                 </div>
-                :
-                ''
+                    :
+                    ''
 
-              }
+                }
 
               </div>
         );
@@ -131,5 +143,11 @@ class ItemAmount extends React.Component {
 }
 
 ItemAmount.defaultProps = {};
+const mapStateToProps = (state) => {
+    return {
+        getsProfile: state.getsProfile
+    }
+}
 
-export default ItemAmount;
+
+export default connect(mapStateToProps)(ItemAmount)

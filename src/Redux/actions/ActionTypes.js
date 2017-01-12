@@ -11,4 +11,7 @@ export const GET_COUNTY='GET_COUNTY'   // 获取县区信息
 export const GET_INDUSTRY='GET_INDUSTRY'   // 获取行业信息
 export const GET_OCCUPATION='GET_OCCUPATION'   // 获取职业信息
 export const IS_COMPLETE='IS_COMPLETE'   // 用户信息是否完善
+
+
 export const SIGNATURE='SIGNATURE'   // 用户签名信息
+export const INVEST_AMOUNT='INVEST_AMOUNT'   // 投资金额
