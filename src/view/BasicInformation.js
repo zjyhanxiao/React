@@ -113,7 +113,7 @@ class BasicInformation extends React.Component {
                                            getFieldDecorator={this.props.form} />
                     }
 
-                    {!this.props.single?
+                    {this.props.single==false?
                         <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
             <Col span={3} offset={6}>
               <Button style={{
