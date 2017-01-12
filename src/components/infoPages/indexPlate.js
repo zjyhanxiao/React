@@ -23,11 +23,11 @@ class IndexPlate extends React.Component {
         <AddressPlate {...this.props} />
         <BankPlate {...this.props} />
 
-        {this.props.getsProfile.base_profile.with_spouse?
+{/*        {this.props.getsProfile.base_profile.with_spouse?
           <CompliancePlate {...this.props} />
           :
           ''
-        }
+        }*/}
 
         <Row style={{
           paddingTop: '40px',

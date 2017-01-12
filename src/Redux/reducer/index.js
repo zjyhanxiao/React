@@ -5,6 +5,10 @@ const baseState={
 }
 const getsProfile = (state = {}, action) => {
     switch (action.type) {
+        case types.IS_COMPLETE:
+            return Object.assign({}, state, {
+                Complete: action.json.body
+            });
         case types.GET_PRODUCT:
             return Object.assign({}, state, {
                 Product: action.json.body

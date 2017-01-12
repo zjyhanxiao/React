@@ -2,7 +2,7 @@ import '../components/basic/BasicInfo.css'
 import React, {PropTypes} from 'react'
 import {Row, Col, Button} from 'antd'
 import {connect} from 'react-redux'
-import {getProduct,getCountry,getIndustry} from '../Redux/actions/index'
+import {isComplete,getProduct,getCountry,getIndustry} from '../Redux/actions/index'
 import ItemAmount from '../components/infoPages/ItemAmount'
 import ItemName from '../components/infoPages/ItemName'
 import AmountShow from '../components/infoPages/amountShow'
@@ -61,6 +61,7 @@ class InformationConfirmation extends React.Component {
     componentWillMount() {
         const {dispatch} = this.props
         const product_id=getUrlParam('product_id')
+        dispatch(isComplete())
         dispatch(getProduct(product_id))
         dispatch(getCountry({}))
         dispatch(getIndustry({}))
@@ -85,14 +86,14 @@ class InformationConfirmation extends React.Component {
                     border: '1px solid #eee',
                     borderRadius: '3px'
                 }}>
-            <ItemName {...this.props.getsProfile.Product} />
+            <ItemName {...this.props.getsProfile.product} />
             <div style={{position: 'absolute', top: '30px', left: '60px'}}>
-              <ItemAmount {...this.props.getsProfile.Product} />
+              <ItemAmount {...this.props.getsProfile.product} />
             </div>
           </div>
 
 
-                {this.state.message ?
+                {this.props.getsProfile.Complete ?
                     <div style={{width: '900px', margin: '0 auto'}}>
                       <p style={{
                           width: '900px',
@@ -102,7 +103,7 @@ class InformationConfirmation extends React.Component {
                           color: '#bbb',
                           fontSize: '16px'
                       }}>您的个人信息尚未完善,请填写后继续投资。</p>
-                      <IndexButton {...this.state.message} changeMessage={this.changeMessage} />
+                      <IndexButton {...this.props.getsProfile.Complete} changeMessage={this.changeMessage} />
                     </div>
                     :
                     <div style={{width: '900px', margin: '0 auto'}}>
@@ -111,7 +112,7 @@ class InformationConfirmation extends React.Component {
                       <GoldenWay {...this.state.page} {...this.props}  changeP={this.changeP}/>
                     </div>
                 }
-<div>{JSON.stringify(this.props)}</div>
+
         </div>
         )
     }

@@ -3,15 +3,42 @@ import cookie from 'react-cookie'
 import *as types from './ActionTypes'
 import $ from 'jquery'
 const baseUrl = 'https://gl-api2.meixincn.com'
+// 用户信息是否完善
+export const isComplete = () => {
+    let url = baseUrl + '/app/invest/is_complete'
+    return dispatch => {
+        $.ajax({
+            type: 'post',
+            url: url,
+            // url: 'https://api.meixinglobal.com/web/profile/update',
+            data: '',
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "mx_token": "3952a10e64671c9995367254766bbfa5",
+                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+            },
+
+            success: json => dispatch(isCompleteSuccess(json))
+
+        })
+    }
+}
+// 用户信息是否完善
+const isCompleteSuccess = (json) => {
+    return {
+        type: types.IS_COMPLETE,
+        json
+    }
+}
 // 获取产品数据
-export const getProduct=(id)=>{
-    let url=baseUrl+'/web/product/'+id
+export const getProduct = (id) => {
+    let url = baseUrl + '/web/product/' + id
     return dispatch => {
         $.ajax({
             type: 'get',
             url: url,
             // url: 'https://api.meixinglobal.com/web/profile/update',
-            data: {product_id:id},
+            data: {product_id: id},
             contentType: "application/json; charset=utf-8",
             headers: {
                 "mx_token": "3952a10e64671c9995367254766bbfa5",
@@ -171,7 +198,7 @@ export const getIndustry = (data) => {
     }
 }
 // 获取行业信息成功
-const getIndustrySuccess=(json)=>{
+const getIndustrySuccess = (json) => {
     return {
         type: types.GET_INDUSTRY,
         json
@@ -198,7 +225,7 @@ export const getOccupation = (data) => {
     }
 }
 // 获取职业信息成功
-const getOccupationSuccess=(json)=>{
+const getOccupationSuccess = (json) => {
     return {
         type: types.GET_OCCUPATION,
         json
