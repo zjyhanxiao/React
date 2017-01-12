@@ -29,10 +29,6 @@ const IndexButton = React.createClass({
             visible: true,
         });
     },
-    componentDidMount() {
-        const {dispatch} = this.props
-        dispatch(fetchPosts())
-    },
     handleOk() {
         this.setState({
             visible: false,

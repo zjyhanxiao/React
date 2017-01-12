@@ -36,6 +36,7 @@ class BasicPlate extends React.Component {
 
 
     render() {
+        const data=this.props.getsProfile.base_profile
         return (
             <div style={{width: '100%', background: '#fff', overflow: 'hidden'}}>
 
@@ -43,8 +44,8 @@ class BasicPlate extends React.Component {
             <Row style={{paddingTop: '30px'}}>
               <Col span={12} offset={2}>
                 <p style={{fontWeight: '900', fontSize: '16px'}}>基本信息&nbsp;&nbsp;<span style={{fontWeight: '100', fontSize: '12px'}}>（
-                      {this.props.getsProfile.base_profile.first_name} {this.props.getsProfile.base_profile.last_name}
-                      , {this.props.getsProfile.base_profile.investor_type == 1 ? '非美国-中国大陆投资人' : ''}{this.props.getsProfile.base_profile.investor_type == 2 ? '美国投资人' : ''}{this.props.getsProfile.base_profile.investor_type == 99 ? '非美国-其他国家 / 港澳台地区投资人' : ''}
+                      {data!=undefined&&data.first_name!=undefined?data.first_name:''} {data!=undefined&&data.last_name!=undefined?data.last_name:''}
+                      , {data!=undefined&&data.investor_type!=undefined?data.investor_type == 1 ? '非美国-中国大陆投资人' : '':''}{data!=undefined&&data.investor_type!=undefined?data.investor_type == 2 ? '美国投资人' : '':''}{data!=undefined&&data.investor_type!=undefined?data.investor_type == 99 ? '非美国-其他国家 / 港澳台地区投资人' : '':''}
                       ）</span>
                 </p>
               </Col>
@@ -57,7 +58,7 @@ class BasicPlate extends React.Component {
         <BasicInformation {...this.state} handleCancel={this.handleCancel} />
       </Modal>
 
-
+{/*
 
 
             <Row style={{margin: '15px 0',}}>
@@ -166,7 +167,7 @@ class BasicPlate extends React.Component {
                 </div>
                       :
                       ''
-              }
+              }*/}
 
           </div>
 

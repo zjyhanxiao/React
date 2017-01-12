@@ -2,7 +2,7 @@ import '../components/basic/BasicInfo.css'
 import React, {PropTypes} from 'react'
 import {Row, Col, Button} from 'antd'
 import {connect} from 'react-redux'
-import {isComplete,getProduct,getCountry,getIndustry} from '../Redux/actions/index'
+import {isComplete,getProduct,getCountry,getIndustry,fetchPosts} from '../Redux/actions/index'
 import ItemAmount from '../components/infoPages/ItemAmount'
 import ItemName from '../components/infoPages/ItemName'
 import AmountShow from '../components/infoPages/amountShow'
@@ -55,18 +55,19 @@ class InformationConfirmation extends React.Component {
 
 
     changeMessage = (event) => {
-        this.setState({message: false})
+        // this.setState({message: false})
     }
 
     componentWillMount() {
         const {dispatch} = this.props
         const product_id=getUrlParam('product_id')
-        dispatch(isComplete())
+        // dispatch(isComplete())
+
+        dispatch(fetchPosts())
         dispatch(getProduct(product_id))
         dispatch(getCountry({}))
         dispatch(getIndustry({}))
     }
-
     handleSubmit(e) {
         e.preventDefault()
         this.props.form.validateFieldsAndScroll((err, values) => {
