@@ -17,7 +17,9 @@ class ConfirmInvestment extends React.Component {
       profile:{}
     }
   }
-
+    signature(e){
+        this.props.changeP(e)
+    }
 
   render() {
     return (
@@ -36,7 +38,8 @@ class ConfirmInvestment extends React.Component {
         <div style={{width:'900px',margin:'0 auto',background:'#ffffff'}}>
           <Row style={{paddingTop: '10px', paddingBottom: '10px'}}>
             <Col span={20} offset={2}>
-              <Signature {...this.props} />
+              <Signature id='signature' getSignature={this.signature} {...this.props} />
+              <Signature id='spouseSignature' getSignature={this.signature} {...this.props} />
             </Col>
           </Row>
         </div>
@@ -51,7 +54,7 @@ class ConfirmInvestment extends React.Component {
                 background: '#223976',
                 color: '#fff',
                 fontSize: '18px'
-              }} type="primary" htmlType="submit" name="three" onClick={this.props.changeP} size="large">下一步</Button>
+              }} type="primary" htmlType="submit" name="three" onClick={this.signature.bind(this)} size="large">下一步</Button>
             </Col>
           </Row>
         </div>

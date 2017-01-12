@@ -279,6 +279,8 @@ const receivePosts = (json) => {
  .then(json => dispatch(receivePosts(json)))
  }
  }*/
+
+// 提交信息
 export const updateProfile = (data, success) => {
     return dispatch => {
         $.ajax({
@@ -293,17 +295,69 @@ export const updateProfile = (data, success) => {
             },
 
             success: function (res) {
-                // success(res)
+                console.log(res.body)
+                success&&success()
+            }
+        })
+    }
+}
+// 提交信息成功
+const updateUploader = (path, key) => {
+    return {
+        type: types.UPDATE_UPLOADER,
+        data: path,
+        key: key
+    }
+}
+// 提交签名信息
+export const updateSignature = (data, success) => {
+    return dispatch => {
+        $.ajax({
+            type: 'post',
+            url: baseUrl + '/web/invest/update_signature',
+            // url: 'https://api.meixinglobal.com/web/profile/update',
+            data: JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "mx_token": "3952a10e64671c9995367254766bbfa5",
+                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+            },
+
+            success: function (res) {
+                console.log(res.body)
+                success&&success()
+            }
+        })
+    }
+}
+// 提交订单信息
+export const createOrder = (data, success) => {
+    return dispatch => {
+        $.ajax({
+            type: 'post',
+            url: baseUrl + '/web/order/create',
+            // url: 'https://api.meixinglobal.com/web/profile/update',
+            data: JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "mx_token": "3952a10e64671c9995367254766bbfa5",
+                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+            },
+
+            success: function (res) {
+                console.log(res.body)
+                success&&success()
             }
         })
     }
 }
 
-export const updateUploader = (path, key) => {
+export const signature = (key,val) => {
+    console.log(val)
     return {
-        type: types.UPDATE_UPLOADER,
-        data: path,
-        key: key
+        type: types.SIGNATURE,
+        key: key,
+        val: val
     }
 }
 export const saveFields = (key, val) => {

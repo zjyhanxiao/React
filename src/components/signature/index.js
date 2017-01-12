@@ -1,5 +1,7 @@
 require('components/signature/index.css');
 import React from 'react';
+import {connect} from 'react-redux'
+import {signature} from '../../Redux/actions/index'
 import { Button } from 'antd';
 import SignaturePad from 'react-signature-canvas'
 
@@ -14,6 +16,9 @@ class Signature extends React.Component {
         this.sigPad.getCanvas()
     }
     trim = () => {
+        const {dispatch} = this.props
+        dispatch(signature(this.props.id,this.sigPad.getTrimmedCanvas()
+            .toDataURL('image/png')))
         this.setState({trimmedDataURL: this.sigPad.getTrimmedCanvas()
             .toDataURL('image/png')})
     }
@@ -40,5 +45,11 @@ class Signature extends React.Component {
 }
 
 Signature.defaultProps = {};
+const mapStateToProps = (state) => {
+    return {
+        getsProfile: state.getsProfile
+    }
+}
 
-export default Signature;
+
+export default connect(mapStateToProps)(Signature)
