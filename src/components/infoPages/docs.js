@@ -12,8 +12,8 @@ function onChange(e) {
 }
 
 class Docs extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       profile:{}
     }
