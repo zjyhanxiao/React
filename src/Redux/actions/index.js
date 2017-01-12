@@ -302,7 +302,7 @@ export const updateProfile = (data, success) => {
     }
 }
 // 提交信息成功
-const updateUploader = (path, key) => {
+export const updateUploader = (path, key) => {
     return {
         type: types.UPDATE_UPLOADER,
         data: path,
