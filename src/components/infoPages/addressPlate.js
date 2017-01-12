@@ -41,7 +41,7 @@ class AddressPlate extends React.Component {
 
               <Row style={{paddingTop: '30px'}}>
                 <Col span={12} offset={2}>
-                  <p style={{fontWeight: '900', fontSize: '16px'}}>地址&nbsp;&nbsp;
+                  <p style={{fontWeight: '900', fontSize: '16px'}}>地址&nbsp;
 
 
                     {data!=undefined&&data.investor_type!=undefined?data.investor_type == 1?
