@@ -53,8 +53,9 @@ class BankInformation extends React.Component {
                     data.base_info = {}
                     data.base_info.date_of_birth = this.props.getsProfile.base_profile.date_of_birth || '';
                     data.base_info.country_of_birth = this.props.getsProfile.base_profile.country_of_birth || '';
+                    var occupation = this.props.getsProfile.base_profile.occupation.split('%%')
                     data.base_info.industry = this.props.getsProfile.base_profile.industry || '';
-                    data.base_info.occupation = this.props.getsProfile.base_profile.occupation || '';
+                    data.base_info.occupation = occupation[1] || '';
                     /**********************如果是中国大陆投资人（address_non_cn||address_cn）*******************/
                     if (this.props.getsProfile.base_profile.investor_type == 1) {
                         data.id_card_expire_date = this.props.getsProfile.base_profile.id_card_expire_date || '';
@@ -62,16 +63,20 @@ class BankInformation extends React.Component {
                         data.base_info.source_of_capital = this.props.getsProfile.base_profile.source_of_capital || '';
 
                         data.address_cn = {}
+                        var country = this.props.getsProfile.base_profile.country.split('%%')
                         data.address_cn.city = this.props.getsProfile.base_profile.city || '';
-                        data.address_cn.country = this.props.getsProfile.base_profile.country || '';
+                        data.address_cn.country = country[1] || '';
                         data.address_cn.detail = this.props.getsProfile.base_profile.detail || '';
                         data.address_cn.district = this.props.getsProfile.base_profile.district || '';
                         data.address_cn.postal_code = this.props.getsProfile.base_profile.postal_code || '';
                         data.address_cn.region = this.props.getsProfile.base_profile.region || '';
                     } else {
                         data.address_non_cn = {}
+                        var country = this.props.getsProfile.base_profile.country.split('%%')
                         data.address_non_cn.city = this.props.getsProfile.base_profile.city || '';
-                        data.address_non_cn.country = this.props.getsProfile.base_profile.country || '';
+
+                        data.address_non_cn.country = country[1] || '';
+
                         data.address_non_cn.line1 = this.props.getsProfile.base_profile.line1 || '';
                         data.address_non_cn.line2 = this.props.getsProfile.base_profile.line2 || '';
                         data.address_non_cn.postal_code = this.props.getsProfile.base_profile.postal_code || '';
@@ -213,7 +218,8 @@ class BankInformation extends React.Component {
                     }
 
                      ****************************************************************/
-
+                    console.log(country)
+                    console.log(data)
                     $.ajax({
                       type: 'post',
                       url: 'https://gl-api2.meixincn.com/web/invest/user_info',
