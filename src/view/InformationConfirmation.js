@@ -26,6 +26,7 @@ class InformationConfirmation extends React.Component {
             page: {
               one: true,
               two: false,
+              three:false,
               current: 'one'
             }
         }
@@ -80,18 +81,22 @@ class InformationConfirmation extends React.Component {
     render() {
         return (
             <div style={{background: '#fff'}}>
+
+
+
                 <div style={{
-                    width: '920px',
-                    margin: '0 auto',
-                    position: 'relative',
-                    border: '1px solid #eee',
-                    borderRadius: '3px'
+                  width: '920px',
+                  margin: '0 auto',
+                  position: 'relative',
+                  border: '1px solid #eee',
+                  borderRadius: '3px'
                 }}>
-            <ItemName {...this.props.getsProfile.Product} />
-            <div style={{position: 'absolute', top: '30px', left: '60px'}}>
-              <ItemAmount {...this.props.getsProfile.Product} />
-            </div>
-          </div>
+                  <ItemName {...this.props.getsProfile.Product} />
+                  <div style={{position: 'absolute', top: '30px', left: '60px'}}>
+                    {this.state.page.two ? <AmountShow {...this.props} /> :<ItemAmount {...this.props.getsProfile.Product} />}
+                  </div>
+                </div>
+
 
 
                 {this.props.getsProfile.Complete ?
