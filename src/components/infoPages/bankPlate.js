@@ -118,8 +118,6 @@ class BankPlate extends React.Component {
               </Row>
             </div>
 
-
-
           :
           ''
         }
