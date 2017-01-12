@@ -28,6 +28,7 @@ class ComplianceSpouse extends React.Component {
       }
     });
   }
+
   render() {
 
     const { size } = this.props;
@@ -50,8 +51,10 @@ class ComplianceSpouse extends React.Component {
     const prefixSelector = getFieldDecorator('prefix', {
       initialValue: '86',
     })(
-      <Select className="icp-selector">
-        <Option value="86">美国</Option>
+      <Select className="icp-selector" onChange={this.phone}>
+        <Option value="86">中国</Option>
+        <Option value="1">香港</Option>
+        <Option value="2">美国</Option>
       </Select>
     );
 
