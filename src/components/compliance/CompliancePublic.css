@@ -9,3 +9,6 @@ label[for='debt_amount']{
   font-size: 16px;
   color:#223976
 }
+.ant-input-group-addon{
+  width: 70px;
+}
