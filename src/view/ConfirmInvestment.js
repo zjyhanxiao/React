@@ -21,11 +21,12 @@ class ConfirmInvestment extends React.Component {
     signature(e){
       this.props.changeP(e)
       console.log(this.props)
-      let data  = {}
-        data.signature = this.props.getsProfile.base_profile.signature||'';
-        data.spouse_signature = this.props.getsProfile.base_profile.spouse_signature||'';
+       let data = {}
+      data.signature = this.props.getsProfile.base_profile.signature||'';
+      data.spouseSignature = this.props.getsProfile.base_profile.spouse_signature||'';
       console.log(data)
-      dispatch(updateSignature(data, this.success))
+      const {dispatch} = this.props
+      dispatch(updateSignature(	data, this.success))
       // dispatch(createOrder(this.props, this.success))
     }
 
@@ -46,8 +47,20 @@ class ConfirmInvestment extends React.Component {
         <div style={{width:'900px',margin:'0 auto',background:'#ffffff'}}>
           <Row style={{paddingTop: '10px', paddingBottom: '10px'}}>
             <Col span={20} offset={2}>
-              <Signature id='signature' getSignature={this.signature} {...this.props} />
-              <Signature id='spouse_signature' getSignature={this.signature} {...this.props} />
+
+              <Signature id='signature' getSignature={this.signature} {...this.props}
+                         mode={{
+                           people:'投资人签名',
+                           notice:'请注意：您的签名必须与已上传的证件上所提供的签名。'
+                         }}
+              />
+              <Signature id='spouse_signature' getSignature={this.signature} {...this.props}
+                         mode={{
+                           people:'配偶签名',
+                           notice:'温馨提示：此处必须有您配偶亲自签名。'
+                         }}
+              />
+
             </Col>
           </Row>
         </div>
