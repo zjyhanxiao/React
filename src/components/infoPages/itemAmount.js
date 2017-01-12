@@ -8,8 +8,8 @@ import {Button, Icon} from 'antd';
 
 class ItemAmount extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             a: false,
             product: {

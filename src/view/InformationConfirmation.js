@@ -87,9 +87,9 @@ class InformationConfirmation extends React.Component {
                     border: '1px solid #eee',
                     borderRadius: '3px'
                 }}>
-            <ItemName {...this.props.getsProfile.product} />
+            <ItemName {...this.props.getsProfile.Product} />
             <div style={{position: 'absolute', top: '30px', left: '60px'}}>
-              <ItemAmount {...this.props.getsProfile.product} />
+              <ItemAmount {...this.props.getsProfile.Product} />
             </div>
           </div>
 
