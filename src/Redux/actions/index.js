@@ -178,13 +178,12 @@ export const getIndustry = (data) => {
 }
 // 获取行业信息成功
 const getIndustrySuccess=(json)=>{
-    console.log(JSON.stringify(json))
     return {
         type: types.GET_INDUSTRY,
         json
     }
 }
-// 获取行业信息
+// 获取职业信息
 export const getOccupation = (data) => {
     let url = baseUrl + '/web/invest/access_careers';
     return dispatch => {
@@ -204,10 +203,8 @@ export const getOccupation = (data) => {
         })
     }
 }
-// 获取行业信息成功
+// 获取职业信息成功
 const getOccupationSuccess=(json)=>{
-
-    alert(1111)
     return {
         type: types.GET_OCCUPATION,
         json

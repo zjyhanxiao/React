@@ -1,11 +1,12 @@
 import './BasicInfo.css'
 import React from 'react';
 import {connect} from 'react-redux'
+import {getOccupation} from '../../Redux/actions/index'
 import {Form, Input, Select, Row, Col, Button, DatePicker} from 'antd';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
-let country
+let country,industryData,occupationData
 function handleChange(value) {
     console.log(`selected ${value}`);
 }
@@ -15,10 +16,18 @@ class BasicInfoUC extends React.Component {
         country = this.props.Country.map(function (item) {
             return <Option value={item.encode+'%%'+item.name} key={item.encode+item.id}>{item.name}</Option>
         })
+        industryData = this.props.Industry.map(function (item) {
+            return <Option value={item.nameEn+'%%'+item.nameCn} key={item.nameEn+item.id}>{item.nameCn}</Option>
+        })
     }
 
     industryChange(value) {
         console.log(`selected ${value}`);
+        if (value.split('%%').length > 0) {
+            console.log(value.split('%%')[0])
+            const {dispatch} = this.props
+            dispatch(getOccupation({industry: value.split('%%')[0]}))
+        }
     }
 
     render() {
@@ -33,6 +42,10 @@ class BasicInfoUC extends React.Component {
                 offset: 6,
             },
         };
+        if (this.props.Occupation != null) {
+            occupationData = this.props.Occupation.map((item) => <Option key={item.nameEn+item.id}
+                                                                         value={item.nameEn + '%%' + item.nameCn}>{item.nameCn}</Option>)
+        }
 
         return (
 
@@ -156,7 +169,8 @@ class BasicInfoUC extends React.Component {
                 })(
                     //<Cascader options={residences} />
                     <Select size="large" style={{width: 240}} onChange={this.industryChange.bind(this)}>
-                  </Select>
+                                    {industryData}
+                                </Select>
                 )}
               </FormItem>
             </Col>
@@ -176,6 +190,7 @@ class BasicInfoUC extends React.Component {
                 })(
                     //<Cascader options={residences} />
                     <Select size="large" style={{width: 240}} onChange={handleChange}>
+                        {occupationData}
                   </Select>
                 )}
               </FormItem>
