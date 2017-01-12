@@ -113,7 +113,7 @@ class InformationConfirmation extends React.Component {
                       <GoldenWay {...this.state.page} {...this.props}  changeP={this.changeP}/>
                     </div>
                 }
-                {JSON.stringify(this.props.getsProfile.base_profile)}
+                <div style={{wordBreak:'break-all'}}>{JSON.stringify(this.props.getsProfile.base_profile)}</div>
         </div>
         )
     }
