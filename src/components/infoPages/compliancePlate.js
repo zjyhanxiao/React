@@ -32,6 +32,7 @@ class CompliancePlate extends React.Component {
   }
 
   render() {
+    const data=this.props.getsProfile.base_profile
     return (
       <div style={{width: '100%', background: '#fff', overflow: 'hidden'}}>
         <Row style={{paddingTop:'30px'}}>
@@ -61,15 +62,15 @@ class CompliancePlate extends React.Component {
 
         <Row style={{marginTop:'5px'}}>
           <Col span={3} offset={2}><span style={{fontWeight:'600'}}>姓名</span></Col>
-          <Col span={17}><p>Yue cheng Zhao</p></Col>
+          <Col span={17}><p>{data!=undefined&&data.accreditation.spouse_first_name!=undefined&&data.accreditation.spouse_first_name!=undefined?data.accreditation.spouse_first_name+' '+data.accreditation.spouse_last_name:''}</p></Col>
         </Row>
         <Row style={{marginTop:'5px'}}>
           <Col span={3} offset={2}><span style={{fontWeight:'600'}}>电话</span></Col>
-          <Col span={17}><p>Yue cheng Zhao</p></Col>
+          <Col span={17}><p>{data!=undefined&&data.accreditation.spouse_phone!=undefined?data.accreditation.spouse_phone:''}</p></Col>
         </Row>
         <Row style={{marginTop:'5px'}}>
           <Col span={3} offset={2}><span style={{fontWeight:'600'}}>邮箱</span></Col>
-          <Col span={17}><p>Yue cheng Zhao</p></Col>
+          <Col span={17}><p>{data!=undefined&&data.accreditation.spouse_email!=undefined?data.accreditation.spouse_email:''}</p></Col>
         </Row>
 
 

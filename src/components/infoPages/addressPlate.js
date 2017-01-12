@@ -11,7 +11,7 @@ class AddressPlate extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            a: true,
+            a: false,
             third: true,
             is_single:true
         }
@@ -84,9 +84,75 @@ class AddressPlate extends React.Component {
         </Row>
 
         <Row style={{marginTop: '5px'}}>
-          <Col span={20} offset={2}><p style={{fontWeight: '600'}}>sdfghjklk,jmnbbvcertryujkmjhgbfvrgtyjh</p></Col>
+          <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
 
+          </p></Col>
+          <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
+
+          </p></Col>
+          <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
+
+          </p></Col>
+          <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
+
+          </p></Col>
         </Row>
+
+
+
+
+              {data!=undefined&&data.address_type!=undefined?data.address_type == 'CN'?
+                  <Row style={{marginTop: '5px'}}>
+                    <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
+                      {data.address_cn.region} {data.address_cn.city} {data.address_cn.district}
+                    </p></Col>
+                    <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
+                      {data.address_cn.detail}
+                    </p></Col>
+                    <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
+                      {data.address_cn.postal_code}
+                    </p></Col>
+                  </Row>
+
+                  :
+
+                  <Row style={{marginTop: '5px'}}>
+                    <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
+                      {data.address_non_cn.line1}
+                    </p></Col>
+                    <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
+                      {data.address_non_cn.line2||''}
+                    </p></Col>
+                    <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
+                      {data.address_non_cn.city} {data.address_non_cn.region}
+                    </p></Col>
+                    <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
+                      {data.address_non_cn.country}
+                    </p></Col>
+                  </Row>
+
+                :
+                ''
+              }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 {this.state.a ?
                     <Row style={{}}>
                       <Col span={20} offset={2}><p style={{color: '#fe593e'}}>地址证明已经失效，请重新<a
