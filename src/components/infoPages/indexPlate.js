@@ -6,10 +6,15 @@ import BankPlate from './bankPlate'
 import BasicPlate from './basicPlate'
 import CompliancePlate from './compliancePlate'
 
+import $ from 'jquery'
+
 class IndexPlate extends React.Component {
   constructor(props) {
     super(props);
   }
+
+
+
 
   render() {
     return (

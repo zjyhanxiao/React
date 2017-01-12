@@ -221,23 +221,7 @@ class BankInformation extends React.Component {
 
                      ****************************************************************/
                     console.log(data)
-                    $.ajax({
-                      type: 'post',
-                      url: 'https://gl-api2.meixincn.com/web/invest/user_info',
-                      data: JSON.stringify(data),
-                      contentType: "application/json; charset=utf-8",
-                      headers: {
-                        "mx_token": "3952a10e64671c9995367254766bbfa5",
-                        "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
-                      },
 
-                      success: json => {
-                        console.log(json)
-                      }
-
-                    })
-
-                    console.log(data)
                     this.props.changeMessage(e)
                     const {dispatch} = this.props
                     dispatch(updateProfile(data, this.success))
