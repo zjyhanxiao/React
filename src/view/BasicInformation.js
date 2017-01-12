@@ -1,7 +1,6 @@
 import React, {Component, PropTypes}from 'react';
 import {Form, Row, Col, Button} from 'antd';
 import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
 import moment from 'moment'
 import {saveFields} from '../Redux/actions/index'
 import BasicInfoUC from '../components/basic/BasicInfoUC'

@@ -100,23 +100,24 @@ class InformationConfirmation extends React.Component {
 
 
                 {this.props.getsProfile.Complete ?
-                    <div style={{width: '900px', margin: '0 auto'}}>
-                      <p style={{
-                          width: '900px',
-                          textAlign: 'center',
-                          background: '#ffffff',
-                          padding: '40px 0',
-                          color: '#bbb',
-                          fontSize: '16px'
-                      }}>您的个人信息尚未完善,请填写后继续投资。</p>
-                      <IndexButton {...this.props.getsProfile.Complete} changeMessage={this.changeMessage} />
-                    </div>
+                  <div style={{width: '900px', margin: '0 auto'}}>
+                    <IndexPlate {...this.state.page} {...this.props}  changeP={this.changeP}/>
+                    <ConfirmInvestment {...this.state.page} {...this.props}  changeP={this.changeP}/>
+                    <GoldenWay {...this.state.page} {...this.props}  changeP={this.changeP}/>
+                  </div>
                     :
-                    <div style={{width: '900px', margin: '0 auto'}}>
-                      <IndexPlate {...this.state.page} {...this.props}  changeP={this.changeP}/>
-                      <ConfirmInvestment {...this.state.page} {...this.props}  changeP={this.changeP}/>
-                      <GoldenWay {...this.state.page} {...this.props}  changeP={this.changeP}/>
-                    </div>
+                  <div style={{width: '900px', margin: '0 auto'}}>
+                    <p style={{
+                      width: '900px',
+                      textAlign: 'center',
+                      background: '#ffffff',
+                      padding: '40px 0',
+                      color: '#bbb',
+                      fontSize: '16px'
+                    }}>您的个人信息尚未完善,请填写后继续投资。</p>
+                    <IndexButton {...this.props.getsProfile.Complete} changeMessage={this.changeMessage} />
+                  </div>
+
                 }
 
                 <div style={{wordBreak:'break-all'}}>{JSON.stringify(this.props.getsProfile.base_profile)}</div>
