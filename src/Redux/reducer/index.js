@@ -44,7 +44,23 @@ const getsProfile = (state = {}, action) => {
                  date_of_birth: action.json.body.date_of_birth,
                  passport_photo: null*/
                 base_profile: {
-                    ...action.json.body
+                    email:action.json.body.email,
+                    phone:action.json.body.phone,
+                    investor_type:action.json.body.investor_type,
+                    first_name:action.json.body.first_name,
+                    last_name:action.json.body.last_name,
+
+
+                    date_of_birth:action.json.body.base_info.date_of_birth,
+                    country_of_birth:action.json.body.base_info.country_of_birth,
+                    nationality:action.json.body.base_info.nationality,
+                    industry:action.json.body.base_info.industry,
+                    occupation:action.json.body.base_info.occupation,
+                    source_of_capital:action.json.body.base_info.source_of_capital,
+                    country_of_tax_residency:action.json.body.base_info.country_of_tax_residency,
+                    foreign_tax_number:action.json.body.base_info.foreign_tax_number,
+                    ssn:action.json.body.base_info.ssn,
+
                 }
             });
         case types.UPDATE_UPLOADER:
