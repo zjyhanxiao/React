@@ -1,5 +1,6 @@
 import React from 'react';
 import {Row,Col,Button} from 'antd';
+import {updateProfile, saveFields,updateSignature,createOrder} from '../Redux/actions/index'
 
 import ItemAmount from '../components/infoPages/ItemAmount';
 import ItemName from '../components/infoPages/ItemName';
@@ -18,7 +19,14 @@ class ConfirmInvestment extends React.Component {
     }
   }
     signature(e){
-        this.props.changeP(e)
+      this.props.changeP(e)
+      console.log(this.props)
+      let data  = {}
+        data.signature = this.props.getsProfile.base_profile.signature||'';
+        data.spouse_signature = this.props.getsProfile.base_profile.spouse_signature||'';
+      console.log(data)
+      dispatch(updateSignature(data, this.success))
+      // dispatch(createOrder(this.props, this.success))
     }
 
   render() {
@@ -39,7 +47,7 @@ class ConfirmInvestment extends React.Component {
           <Row style={{paddingTop: '10px', paddingBottom: '10px'}}>
             <Col span={20} offset={2}>
               <Signature id='signature' getSignature={this.signature} {...this.props} />
-              <Signature id='spouseSignature' getSignature={this.signature} {...this.props} />
+              <Signature id='spouse_signature' getSignature={this.signature} {...this.props} />
             </Col>
           </Row>
         </div>
@@ -54,7 +62,7 @@ class ConfirmInvestment extends React.Component {
                 background: '#223976',
                 color: '#fff',
                 fontSize: '18px'
-              }} type="primary" htmlType="submit" name="three" onClick={this.signature.bind(this)} size="large">下一步</Button>
+              }} type="primary" htmlType="submit" name="three" onClick={this.signature.bind(this)} size="large">确认订单</Button>
             </Col>
           </Row>
         </div>
