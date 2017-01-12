@@ -40,7 +40,7 @@ const getsProfile = (state = {}, action) => {
                  date_of_birth: action.json.body.date_of_birth,
                  passport_photo: null*/
                 base_profile: {
-                    investor_type:1
+                    ...action.json.body
                 }
             });
         case types.UPDATE_UPLOADER:

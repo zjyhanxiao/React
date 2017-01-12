@@ -111,7 +111,7 @@ class InformationConfirmation extends React.Component {
                       <GoldenWay {...this.state.page} {...this.props}  changeP={this.changeP}/>
                     </div>
                 }
-
+<div>{JSON.stringify(this.props)}</div>
         </div>
         )
     }

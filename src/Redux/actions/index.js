@@ -39,13 +39,7 @@ const requestPosts = () => {
     }
 }
 
-//获取数据成功
-const receivePosts = (json) => {
-    return {
-        type: types.GET_PROFILE_SUCCESS,
-        json
-    }
-}
+
 //获取国家数据成功
 const getCountrySuccess = (json) => {
     return {
@@ -213,12 +207,29 @@ const getOccupationSuccess=(json)=>{
 
 // 获取profile信息
 export const fetchPosts = () => {
-    let url = 'https://api.meixinglobal.com/web/profile/get?mx_token=25b6ca3901730fba2cb6098d34912f34&mx_secret=da9d83c022637e7eda9fb59299026e7c';
+    let url = baseUrl + '/web/invest/get_user_info';
     return dispatch => {
-        dispatch(requestPosts())
-        return fetch(url)
-            .then(response => response.json())
-            .then(json => dispatch(receivePosts(json)))
+        $.ajax({
+            type: 'get',
+            url: url,
+            // url: 'https://api.meixinglobal.com/web/profile/update',
+            data: '',
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "mx_token": "3952a10e64671c9995367254766bbfa5",
+                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+            },
+
+            success: json => dispatch(receivePosts(json))
+
+        })
+    }
+}
+//获取数据成功
+const receivePosts = (json) => {
+    return {
+        type: types.GET_PROFILE_SUCCESS,
+        json
     }
 }
 // 提交profile信息
