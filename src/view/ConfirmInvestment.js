@@ -10,8 +10,8 @@ import Signature from '../components/signature/index';
 
 class ConfirmInvestment extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       a:true,
       profile:{}
@@ -34,7 +34,7 @@ class ConfirmInvestment extends React.Component {
         <div style={{width:'900px',margin:'0 auto',background:'#ffffff'}}>
           <Row style={{paddingTop: '10px', paddingBottom: '10px'}}>
             <Col span={20} offset={2}>
-              <Signature/>
+              <Signature {...this.props} />
             </Col>
           </Row>
         </div>

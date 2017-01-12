@@ -28,6 +28,7 @@ class ComplianceSpouse extends React.Component {
       }
     });
   }
+
   render() {
 
     const { size } = this.props;
@@ -44,6 +45,20 @@ class ComplianceSpouse extends React.Component {
         offset: 6,
       },
     };
+
+
+
+    const prefixSelector = getFieldDecorator('prefix', {
+      initialValue: '86',
+    })(
+      <Select className="icp-selector" onChange={this.phone}>
+        <Option value="86">中国</Option>
+        <Option value="1">香港</Option>
+        <Option value="2">美国</Option>
+      </Select>
+    );
+
+
     return (
       <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
 
@@ -89,29 +104,34 @@ class ComplianceSpouse extends React.Component {
           </Row>
           <Row>
             <Col span={12}>
+
+
+
               <FormItem
                 {...formItemLayout}
-                label='电话'
+                label="电话"
                 labelCol={{span: 4,offset: 4}}
-                wrapperCol={{span: 13}}
+                wrapperCol={{span: 14}}
               >
-                <span>
-                  <Select
-                    value={state.currency}
-                    size={size}
-                    style={{ width: '32%',marginRight:'3%'}}
-                  >
-                    <Option value='rmb'>RMB</Option>
-                    <Option value='dollar'>Dollar</Option>
-                  </Select>
-                  <Input
-                    type='text'
-                    size={size}
-                    value={state.number}
-                    style={{ width: '64%',height:'32px'}}
-                  />
-                </span>
+                {getFieldDecorator('phone', {
+                  rules: [{ required: true, message: 'Please input your phone number!' }],
+                })(
+                  <Input addonBefore={prefixSelector} style={{width: 170}}/>
+                )}
               </FormItem>
+
+
+
+
+
+
+
+
+
+
+
+
+
             </Col>
             <Col span={12}>
               <FormItem
@@ -149,4 +169,28 @@ ComplianceSpouse.defaultProps = {};
 export default connect(mapStateToProps)(ComplianceSpouse)
 
 
-
+/***************
+<FormItem
+{...formItemLayout}
+label='电话'
+labelCol={{span: 4,offset: 4}}
+wrapperCol={{span: 13}}
+>
+<span>
+<Select
+value={state.currency}
+size={size}
+style={{ width: '32%',marginRight:'3%'}}
+>
+<Option value='rmb'>RMB</Option>
+  <Option value='dollar'>Dollar</Option>
+  </Select>
+  <Input
+type='text'
+size={size}
+value={state.number}
+style={{ width: '64%',height:'32px'}}
+/>
+</span>
+</FormItem>
+  *********************/

@@ -7,6 +7,8 @@ import BankFast from '../components/bank/BankFast'
 import BanknoUSA from '../components/bank/BanknoUSA'
 import BankUSA from '../components/bank/BankUSA'
 
+import $ from 'jquery'
+
 const FormItem = Form.Item;
 
 class BankInformation extends React.Component {
@@ -38,6 +40,13 @@ class BankInformation extends React.Component {
                     data.last_name = this.props.getsProfile.base_profile.last_name;
                     data.investor_type = this.props.getsProfile.base_profile.investor_type;
                     data.address_type = this.props.getsProfile.base_profile.investor_type == 1 ? 'CN' : 'NON_CN';
+                    data.bank_type = this.props.getsProfile.base_profile.bank_type||'';
+
+                    data.signature = this.props.getsProfile.base_profile.signature||'';
+                    data.spouse_signature = this.props.getsProfile.base_profile.spouse_signature||'';
+
+
+
                     data.passport_expire_date = this.props.getsProfile.base_profile.passport_expire_date || '';
                     data.passport_number = this.props.getsProfile.base_profile.passport_number || '';
                     data.passport_url = this.props.getsProfile.base_profile.passport_url || '';
@@ -205,6 +214,21 @@ class BankInformation extends React.Component {
 
                      ****************************************************************/
 
+                    $.ajax({
+                      type: 'post',
+                      url: 'https://gl-api2.meixincn.com/web/invest/user_info',
+                      data: JSON.stringify(data),
+                      contentType: "application/json; charset=utf-8",
+                      headers: {
+                        "mx_token": "3952a10e64671c9995367254766bbfa5",
+                        "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+                      },
+
+                      success: json => {
+                        console.log(json)
+                      }
+
+                    })
 
                     console.log(data)
                     this.props.changeMessage(e)
