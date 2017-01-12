@@ -80,7 +80,6 @@ class BankUSA extends React.Component {
               wrapperCol={{span: 16}}
             >
               {getFieldDecorator('bank_address', {
-                initialValue:'yang',
                 rules: [{
                   required: true, message: '请填写您的银行地址!'
                 }],
