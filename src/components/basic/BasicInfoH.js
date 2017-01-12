@@ -23,6 +23,7 @@ class BasicInfoH extends React.Component {
     industryChange(value) {
         console.log(`selected ${value}`);
         if (value.split('%%').length > 0) {
+            console.log(value.split('%%')[0])
             const {dispatch} = this.props
             dispatch(getOccupation({nameEn: value.split('%%')[0]}))
         }
