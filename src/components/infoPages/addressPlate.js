@@ -35,6 +35,7 @@ class AddressPlate extends React.Component {
     }
 
     render() {
+        const data=this.props.getsProfile.base_profile
         return (
             <div style={{width: '100%', background: '#fff', overflow: 'hidden'}}>
 
@@ -43,10 +44,11 @@ class AddressPlate extends React.Component {
                   <p style={{fontWeight: '900', fontSize: '16px'}}>地址&nbsp;&nbsp;
 
 
-                    {this.props.getsProfile.base_profile.investor_type == 1?
+                    {data!=undefined&&data.investor_type!=undefined?data.investor_type == 1?
                       <span style={{fontWeight: '100', fontSize: '12px'}}>由于产品需要，您所填写的中文地址我们已经自动的为您转换为英文地址。</span>
                       :
                       ''
+                        :''
                     }
 
                   </p>

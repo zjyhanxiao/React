@@ -58,7 +58,7 @@ class BasicPlate extends React.Component {
         <BasicInformation {...this.state} handleCancel={this.handleCancel} />
       </Modal>
 
-{/*
+
 
 
             <Row style={{margin: '15px 0',}}>
@@ -69,30 +69,34 @@ class BasicPlate extends React.Component {
 
             <Row style={{marginTop: '5px'}}>
               <Col span={3} offset={2}><span style={{fontWeight: '600'}}>出生日期</span></Col>
-              <Col span={7}><p>{this.props.getsProfile.base_profile.date_of_birth}</p></Col>
+              <Col span={7}><p>{data!=undefined&&data.date_of_birth!=undefined?data.date_of_birth:''}</p></Col>
               <Col span={3} offset={2}><span style={{fontWeight: '600'}}>出生国家</span></Col>
-              <Col span={6}><p>{this.props.getsProfile.base_profile.country_of_birth}</p></Col>
+              <Col span={6}><p>{data!=undefined&&data.country_of_birth!=undefined?data.country_of_birth:''}</p></Col>
             </Row>
 
               {
-                  this.props.getsProfile.base_profile.investor_type == 2 ?
+                  data!=undefined&&data.investor_type!=undefined?data.investor_type == 2 ?
                       <Row style={{marginTop: '5px'}}>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>SSN</span></Col>
-                  <Col span={7}><p>{this.props.getsProfile.base_profile.ssn}</p></Col>
+                  <Col span={7}><p>{data!=undefined&&data.ssn!=undefined?data.ssn:''}</p></Col>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>国籍</span></Col>
-                  <Col span={6}><p>{this.props.getsProfile.base_profile.nationality}</p></Col>
+                  <Col span={6}><p>{data!=undefined&&data.nationality!=undefined?data.nationality:''}</p></Col>
                 </Row>
+                      :
+                      ''
                       :
                       ''
               }
               {
-                  this.props.getsProfile.base_profile.investor_type == 99 ?
+                  data!=undefined&&data.investor_type!=undefined?data.investor_type == 99 ?
                       <Row style={{marginTop: '5px'}}>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>国籍</span></Col>
-                  <Col span={7}><p>{this.props.getsProfile.base_profile.nationality}</p></Col>
+                  <Col span={7}><p>{data!=undefined&&data.nationality!=undefined?data.nationality:''}</p></Col>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>资金来源</span></Col>
-                  <Col span={6}><p>{this.props.getsProfile.base_profile.source_of_capital}</p></Col>
+                  <Col span={6}><p>{data!=undefined&&data.source_of_capital!=undefined?data.source_of_capital:''}</p></Col>
                 </Row>
+                      :
+                      ''
                       :
                       ''
               }
@@ -100,41 +104,43 @@ class BasicPlate extends React.Component {
 
               <Row style={{marginTop: '5px'}}>
               <Col span={3} offset={2}><span style={{fontWeight: '600'}}>行业</span></Col>
-              <Col span={7}><p>{this.props.getsProfile.base_profile.industry}</p></Col>
+              <Col span={7}><p>{data!=undefined&&data.industry!=undefined?data.industry:''}</p></Col>
               <Col span={3} offset={2}><span style={{fontWeight: '600'}}>职业</span></Col>
-              <Col span={6}><p>{this.props.getsProfile.base_profile.occupation}</p></Col>
+              <Col span={6}><p>{data!=undefined&&data.occupation!=undefined?data.occupation:''}</p></Col>
             </Row>
 
               {
-                  this.props.getsProfile.base_profile.investor_type == 1 ?
+                  data!=undefined&&data.investor_type!=undefined?data.investor_type == 1 ?
                       <Row style={{marginTop: '5px'}}>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>资金来源</span></Col>
-                  <Col span={7}><p>{this.props.getsProfile.base_profile.source_of_capital}</p></Col>
+                  <Col span={7}><p>{data!=undefined&&data.source_of_capital!=undefined?data.source_of_capital:''}</p></Col>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}></span></Col>
                   <Col span={6}><p></p></Col>
                 </Row>
                       :
                       ''
+                      :''
               }
 
               {
-                  this.props.getsProfile.base_profile.investor_type == 99 ?
+                  data!=undefined&&data.investor_type!=undefined?data.investor_type == 99 ?
                       <Row style={{marginTop: '5px'}}>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>纳税国</span></Col>
-                  <Col span={7}><p>{this.props.getsProfile.base_profile.country_of_tax_residency}</p></Col>
+                  <Col span={7}><p>{data!=undefined&&data.country_of_tax_residency!=undefined?data.country_of_tax_residency:''}</p></Col>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>纳税号</span></Col>
-                  <Col span={6}><p>{this.props.getsProfile.base_profile.foreign_tax_number}</p></Col>
+                  <Col span={6}><p>{data!=undefined&&data.foreign_tax_number!=undefined?data.foreign_tax_number:''}</p></Col>
                 </Row>
                       :
                       ''
+                      :''
               }
 
 
               <Row style={{marginTop: '5px'}}>
               <Col span={3} offset={2}><span style={{fontWeight: '600'}}>护照号</span></Col>
-              <Col span={7}><p>{this.props.getsProfile.base_profile.passport_number}</p></Col>
+              <Col span={7}><p>{data!=undefined&&data.passport_number!=undefined?data.passport_number:''}</p></Col>
               <Col span={3} offset={2}><span style={{fontWeight: '600'}}>有效期</span></Col>
-              <Col span={6}><p>{this.props.getsProfile.base_profile.passport_expire_date}</p></Col>
+              <Col span={6}><p>{data!=undefined&&data.passport_expire_date!=undefined?data.passport_expire_date:''}</p></Col>
             </Row>
               {this.state.huzhao ?
                   <Row style={{}}>
@@ -148,13 +154,13 @@ class BasicPlate extends React.Component {
 
 
               {
-                  this.props.getsProfile.base_profile.investor_type == 99 ?
+                  data!=undefined&&data.investor_type!=undefined?data.investor_type == 99 ?
                       <div>
                   <Row style={{marginTop: '5px'}}>
                     <Col span={3} offset={2}><span style={{fontWeight: '600'}}>身份证号</span></Col>
-                    <Col span={7}><p>{this.props.getsProfile.base_profile.id_card_number || ''}</p></Col>
+                    <Col span={7}><p>{data!=undefined&&data.id_card_number!=undefined?data.id_card_number: ''}</p></Col>
                     <Col span={3} offset={2}><span style={{fontWeight: '600'}}>有效期</span></Col>
-                    <Col span={6}><p>{this.props.getsProfile.base_profile.id_card_expire_date || ''}</p></Col>
+                    <Col span={6}><p>{data!=undefined&&data.id_card_expire_date!=undefined?data.id_card_expire_date: ''}</p></Col>
                   </Row>
                           {this.state.shenfenzheng ?
                               <Row style={{}}>
@@ -167,7 +173,9 @@ class BasicPlate extends React.Component {
                 </div>
                       :
                       ''
-              }*/}
+                      :
+                      ''
+              }
 
           </div>
 

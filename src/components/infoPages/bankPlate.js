@@ -35,6 +35,7 @@ class BankPlate extends React.Component {
   }
 
   render() {
+      const data=this.props.getsProfile.base_profile
     return (
       <div style={{width: '100%', background: '#fff', overflow: 'hidden'}}>
         <Row style={{paddingTop: '30px'}}>
@@ -42,10 +43,11 @@ class BankPlate extends React.Component {
             <p style={{fontWeight: '900', fontSize: '16px'}}>银行信息&nbsp;&nbsp;
 
 
-              {this.props.getsProfile.base_profile.investor_type == 1?
+              {data!=undefined&&data.investor_type!=undefined?data.investor_type == 1?
                 <span style={{fontWeight: '100', fontSize: '12px',color:'#ff6600'}}>如您将采用ACH自动扣款功能，此处需填写美国银行，如需更换请点击修改。</span>
                 :
                 ''
+                  :''
               }
 
             </p>
