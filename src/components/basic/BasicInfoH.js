@@ -13,10 +13,10 @@ let country,industryData,occupationData
 class BasicInfoH extends React.Component {
     constructor(props) {
         super(props)
-        country = this.props.Country.map(function (item) {
+        country = this.props.getsProfile.Country.map(function (item) {
             return <Option value={item.encode+'%%'+item.name} key={item.encode+item.id}>{item.name}</Option>
         })
-        industryData = this.props.Industry.map(function (item) {
+        industryData = this.props.getsProfile.Industry.map(function (item) {
             return <Option value={item.nameEn+'%%'+item.nameCn} key={item.nameEn+item.id}>{item.nameCn}</Option>
         })
     }
@@ -27,6 +27,9 @@ class BasicInfoH extends React.Component {
             const {dispatch} = this.props
             dispatch(getOccupation({industry: value.split('%%')[0]}))
         }
+        this.props.form.setFieldsValue({
+            occupation: ''
+        })
     }
     render() {
         const {getFieldDecorator} = this.props.getFieldDecorator
@@ -34,8 +37,8 @@ class BasicInfoH extends React.Component {
             labelCol: {span: 6},
             wrapperCol: {span: 14},
         };
-        if (this.props.Occupation != null) {
-            occupationData = this.props.Occupation.map((item) => <Option key={item.nameEn+item.id}
+        if (this.props.getsProfile.Occupation != null) {
+            occupationData = this.props.getsProfile.Occupation.map((item) => <Option key={item.nameEn+item.id}
                                                                                value={item.nameEn + '%%' + item.nameCn}>{item.nameCn}</Option>)
         }
         return (
