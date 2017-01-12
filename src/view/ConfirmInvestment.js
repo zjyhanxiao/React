@@ -27,8 +27,11 @@ class ConfirmInvestment extends React.Component {
 
 
         <div style={{width:'900px',margin:'0 auto'}}>
-          <Docs/>
+          <Docs {...this.props} />
         </div>
+
+        {this.props.getsProfile.base_profile.investor_type == 99?'可以拿到':'不能拿到'}
+
 
 
         <div style={{width:'900px',margin:'0 auto',background:'#ffffff'}}>
