@@ -220,7 +220,6 @@ class BankInformation extends React.Component {
                     }
 
                      ****************************************************************/
-                    console.log(country)
                     console.log(data)
                     $.ajax({
                       type: 'post',
