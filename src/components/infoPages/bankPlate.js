@@ -68,26 +68,63 @@ class BankPlate extends React.Component {
           </Col>
         </Row>
 
-        <Row style={{marginTop:'5px'}}>
-          <Col span={4} offset={2}><span style={{fontWeight:'600'}}>银行名称</span></Col>
-          <Col span={16}><p>Yue cheng Zhao</p></Col>
-        </Row>
-        <Row style={{marginTop:'5px'}}>
-          <Col span={4} offset={2}><span style={{fontWeight:'600'}}>银行地址</span></Col>
-          <Col span={16}><p>Yue cheng Zhao</p></Col>
-        </Row>
-        <Row style={{marginTop:'5px'}}>
-          <Col span={4} offset={2}><span style={{fontWeight:'600'}}>ABA / routing #</span></Col>
-          <Col span={16}><p>Yue cheng Zhao</p></Col>
-        </Row>
-        <Row style={{marginTop:'5px'}}>
-          <Col span={4} offset={2}><span style={{fontWeight:'600'}}>银行账户姓名</span></Col>
-          <Col span={16}><p>Yue cheng Zhao</p></Col>
-        </Row>
-        <Row style={{marginTop:'5px',marginBottom:'20px'}}>
-          <Col span={4} offset={2}><span style={{fontWeight:'600'}}>账户号</span></Col>
-          <Col span={16}><p>Yue cheng Zhao</p></Col>
-        </Row>
+
+
+
+        {data!=undefined&&data.bank_type!=undefined?data.bank_type == 'US'?
+            <div>
+              <Row style={{marginTop:'5px'}}>
+                <Col span={4} offset={2}><span style={{fontWeight:'600'}}>银行名称</span></Col>
+                <Col span={16}><p>{data!=undefined&&data.bank_us.bank_name!=undefined?data.bank_us.bank_name:''}</p></Col>
+              </Row>
+              <Row style={{marginTop:'5px'}}>
+              <Col span={4} offset={2}><span style={{fontWeight:'600'}}>银行地址</span></Col>
+              <Col span={16}><p>{data!=undefined&&data.bank_us.bank_address!=undefined?data.bank_us.bank_address:''}</p></Col>
+              </Row>
+              <Row style={{marginTop:'5px'}}>
+              <Col span={4} offset={2}><span style={{fontWeight:'600'}}>ABA / routing #</span></Col>
+              <Col span={16}><p>{data!=undefined&&data.bank_us.routing_number!=undefined?data.bank_us.routing_number:''}</p></Col>
+              </Row>
+              <Row style={{marginTop:'5px'}}>
+              <Col span={4} offset={2}><span style={{fontWeight:'600'}}>银行账户姓名</span></Col>
+              <Col span={16}><p>{data!=undefined&&data.first_name!=undefined&&data.last_name!=undefined?data.first_name+' '+data.last_name:''}</p></Col>
+              </Row>
+              <Row style={{marginTop:'5px',marginBottom:'20px'}}>
+              <Col span={4} offset={2}><span style={{fontWeight:'600'}}>账户号</span></Col>
+              <Col span={16}><p>{data!=undefined&&data.bank_us.account_number!=undefined?data.bank_us.account_number:''}</p></Col>
+              </Row>
+            </div>
+            :
+            <div>
+              <Row style={{marginTop:'5px'}}>
+                <Col span={4} offset={2}><span style={{fontWeight:'600'}}>银行名称</span></Col>
+                <Col span={16}><p>{data!=undefined&&data.bank_non_us.bank_name!=undefined?data.bank_non_us.bank_name:''}</p></Col>
+              </Row>
+              <Row style={{marginTop:'5px'}}>
+                <Col span={4} offset={2}><span style={{fontWeight:'600'}}>银行地址</span></Col>
+                <Col span={16}><p>{data!=undefined&&data.bank_non_us.bank_address!=undefined?data.bank_non_us.bank_address:''}</p></Col>
+              </Row>
+              <Row style={{marginTop:'5px'}}>
+                <Col span={4} offset={2}><span style={{fontWeight:'600'}}>ABA / routing #</span></Col>
+                <Col span={16}><p>{data!=undefined&&data.bank_non_us.routing_number!=undefined?data.bank_non_us.routing_number:''}</p></Col>
+              </Row>
+              <Row style={{marginTop:'5px'}}>
+                <Col span={4} offset={2}><span style={{fontWeight:'600'}}>银行账户姓名</span></Col>
+                <Col span={16}><p>{data!=undefined&&data.first_name!=undefined&&data.last_name!=undefined?data.first_name+' '+data.last_name:''}</p></Col>
+              </Row>
+              <Row style={{marginTop:'5px',marginBottom:'20px'}}>
+                <Col span={4} offset={2}><span style={{fontWeight:'600'}}>账户号</span></Col>
+                <Col span={16}><p>{data!=undefined&&data.bank_non_us.account_number!=undefined?data.bank_non_us.account_number:''}</p></Col>
+              </Row>
+            </div>
+
+
+
+          :
+          ''
+        }
+
+
 
 
       </div>

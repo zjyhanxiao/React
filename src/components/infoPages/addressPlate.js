@@ -89,9 +89,9 @@ class AddressPlate extends React.Component {
         </Row>
                 {this.state.a ?
                     <Row style={{}}>
-            <Col span={20} offset={2}><p style={{color: '#fe593e'}}>地址证明已经失效，请重新<a
-                style={{color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>上传</a></p></Col>
-          </Row>
+                      <Col span={20} offset={2}><p style={{color: '#fe593e'}}>地址证明已经失效，请重新<a
+                          style={{color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>上传</a></p></Col>
+                    </Row>
                     : ''}
 
       </div>

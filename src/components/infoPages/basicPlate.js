@@ -87,6 +87,7 @@ class BasicPlate extends React.Component {
                       :
                       ''
               }
+
               {
                   data!=undefined&&data.investor_type!=undefined?data.investor_type == 99 ?
                       <Row style={{marginTop: '5px'}}>
@@ -119,7 +120,8 @@ class BasicPlate extends React.Component {
                 </Row>
                       :
                       ''
-                      :''
+                      :
+                      ''
               }
 
               {
@@ -132,7 +134,8 @@ class BasicPlate extends React.Component {
                 </Row>
                       :
                       ''
-                      :''
+                      :
+                      ''
               }
 
 
@@ -144,33 +147,32 @@ class BasicPlate extends React.Component {
             </Row>
               {this.state.huzhao ?
                   <Row style={{}}>
-                <Col span={20} offset={2}><p style={{color: '#fe593e'}}>护照证件已经失效，请重新<a
-                    style={{color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>上传</a></p></Col>
-
-              </Row>
-
-                  : ''
+                    <Col span={20} offset={2}><p style={{color: '#fe593e'}}>护照证件已经失效，请重新<a
+                        style={{color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>上传</a></p></Col>
+                  </Row>
+                  :
+                  ''
               }
 
 
               {
                   data!=undefined&&data.investor_type!=undefined?data.investor_type == 99 ?
                       <div>
-                  <Row style={{marginTop: '5px'}}>
-                    <Col span={3} offset={2}><span style={{fontWeight: '600'}}>身份证号</span></Col>
-                    <Col span={7}><p>{data!=undefined&&data.id_card_number!=undefined?data.id_card_number: ''}</p></Col>
-                    <Col span={3} offset={2}><span style={{fontWeight: '600'}}>有效期</span></Col>
-                    <Col span={6}><p>{data!=undefined&&data.id_card_expire_date!=undefined?data.id_card_expire_date: ''}</p></Col>
-                  </Row>
-                          {this.state.shenfenzheng ?
-                              <Row style={{}}>
-                      <Col span={20} offset={2}><p style={{color: '#fe593e'}}>身份证证件已经失效，请重新<a
-                          style={{color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>上传</a></p></Col>
+                        <Row style={{marginTop: '5px'}}>
+                          <Col span={3} offset={2}><span style={{fontWeight: '600'}}>身份证号</span></Col>
+                          <Col span={7}><p>{data!=undefined&&data.id_card_number!=undefined?data.id_card_number: ''}</p></Col>
+                          <Col span={3} offset={2}><span style={{fontWeight: '600'}}>有效期</span></Col>
+                          <Col span={6}><p>{data!=undefined&&data.id_card_expire_date!=undefined?data.id_card_expire_date: ''}</p></Col>
+                        </Row>
+                                {this.state.shenfenzheng ?
+                                    <Row style={{}}>
+                                      <Col span={20} offset={2}><p style={{color: '#fe593e'}}>身份证证件已经失效，请重新<a
+                                          style={{color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>上传</a></p></Col>
 
-                    </Row>
-                              : ''
-                          }
-                </div>
+                                    </Row>
+                                    : ''
+                                }
+                      </div>
                       :
                       ''
                       :
