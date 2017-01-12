@@ -13,18 +13,17 @@ let country, regionData
 class AddressOther extends React.Component {
     constructor(props) {
         super(props)
-        country = this.props.getsProfile.country.map(function (item) {
-            return <Option value={item.encode + '_' + item.name}>{item.name}</Option>
+        country = this.props.getsProfile.Country.map(function (item) {
+            return <Option value={item.encode + '%%' + item.name}>{item.name}</Option>
         })
     }
 
     changeCountry(value) {
         console.log(`selected ${value}`);
-        console.log(value.split('_').length);
-        if (value.split('_').length > 0) {
-            console.log(value.split('_')[0])
+        if (value.split('%%').length > 0) {
+            console.log(value.split('%%')[0])
             const {dispatch} = this.props
-            dispatch(getState({country: value.split('_')[0]}))
+            dispatch(getState({country: value.split('%%')[0]}))
         }
 
         this.props.form.setFieldsValue({
@@ -44,9 +43,9 @@ class AddressOther extends React.Component {
     render() {
         const {getFieldDecorator} = this.props.getFieldDecorator;
 
-        if (this.props.getsProfile.region != undefined) {
-            regionData = this.props.getsProfile.region.map((region) => <Option key={region.id}
-                                                                               value={region.encode + '_' + region.name}>{region.name}</Option>)
+        if (this.props.getsProfile.Region != undefined) {
+            regionData = this.props.getsProfile.Region.map((region) => <Option key={region.encode + region.id}
+                                                                               value={region.encode + '%%' + region.name}>{region.name}</Option>)
         }
         const formItemLayout = {
             labelCol: {span: 6},

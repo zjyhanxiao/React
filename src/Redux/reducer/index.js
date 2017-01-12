@@ -7,23 +7,31 @@ const getsProfile = (state = {}, action) => {
     switch (action.type) {
         case types.GET_PRODUCT:
             return Object.assign({}, state, {
-                product: action.json.body
+                Product: action.json.body
+            });
+        case types.GET_INDUSTRY:
+            return Object.assign({}, state, {
+                Industry: action.json.body
+            });
+        case types.GET_OCCUPATION:
+            return Object.assign({}, state, {
+                Occupation: action.json.body
             });
         case types.GET_COUNTRY:
             return Object.assign({}, state, {
-                country: action.json.body
+                Country: action.json.body
             });
         case types.GET_STATE:
             return Object.assign({}, state, {
-                region: action.json.body
+                Region: action.json.body
             });
         case types.GET_CITY:
             return Object.assign({}, state, {
-                city: action.json.body
+                City: action.json.body
             });
         case types.GET_COUNTY:
             return Object.assign({}, state, {
-                county: action.json.body
+                County: action.json.body
             });
         case types.GET_PROFILE_SUCCESS:
             return Object.assign({}, state, {

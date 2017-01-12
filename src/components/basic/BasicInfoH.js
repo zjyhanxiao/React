@@ -2,112 +2,41 @@ import React from 'react'
 import {Form, Input, Select, Row, Col, Button, DatePicker} from 'antd'
 import moment from 'moment'
 import {connect} from 'react-redux'
+import {getOccupation} from '../../Redux/actions/index'
 const FormItem = Form.Item;
 const Option = Select.Option;
 
 function handleChange(value) {
     console.log(`selected ${value}`);
 }
-let country
-const industry = [
-    {
-        'name': '计算机/互联网/通讯/电子',
-        'list': [
-            "硬件工程师,Hardware Engineer",
-            "软件工程师,Software Engineer",
-            "测试工程师,Test Engineer",
-            "产品经理,Product Manager",
-            "项目经理,Project Manager",
-            "网站策划,Web Producer",
-            "网站编辑,Web Editor"
-        ]
-    },
-    {
-        'name': '销售/商务/客服',
-        'list': [
-            "销售经理,Sales Manager",
-            "渠道分销经理,Channel Distribution Manager",
-            "客户经理,Sales Account Manager",
-            "区域销售经理,Regional Sales Manager",
-            "销售代表,Sales Representative Executive",
-            "渠道分销专员,ChannelDistribution Representative",
-            "客户代表,Sales Account Representative",
-            "电话销售,Telesales",
-            "经销商,Distributor",
-            "商务经理,Business Manager",
-            "售前售后技术支持经理,Technical Support Manager",
-            "售前售后技术支持工程师,Technical Support Engineer",
-            "咨询热线呼叫中心服务人员,Customer Hot LineCall Center Staff"
-        ]
-    },
-    {
-        'name': '财务/证券/银行/保险/律师',
-        'list': [
-            "首席财务官,Chief Financial Officer",
-            "财务总监,Finance Director",
-            "财务顾问,Finance Consultant",
-            "会计,Accountant",
-            "出纳员,Cashier",
-            "审计经理主管,Audit Manager",
-            "统计员,Statistician",
-            "金融经济研究员,Financial Analyst",
-            "投资基金项目经理,Investment Manager",
-            "投资理财顾问,Investment Financial Management Advisor",
-            "投资银行业务, Investment Banking Specialist",
-            "融资专员,Treasury Specialist",
-            "拍卖师,Auction",
-            "清算人员,Settlement Officer",
-            "高级客户经理客户经理,Senior Relationship Manager",
-            "保险精算师,Actuary",
-            "保险产品开发项目策划,Product Development Planner",
-            "保险代理经纪人客户经理,Agent BrokerAccount Manager",
-            "理财顾问财务规划师,Financial AdvisorFinancial Planner",
-            "储蓄经理人,Agency Management Associate",
-            "律师,Lawyer",
-            "法务经理,Corporate Counsel/Compliance Officer",
-            "专利顾问,Patent Advisor"
-        ]
-    },
-]
+let country,industryData,occupationData
 class BasicInfoH extends React.Component {
     constructor(props) {
         super(props)
-
-        country = this.props.country.map(function (item) {
-            return <Option value={item.encode+'_'+item.name} key={item.id}>{item.name}</Option>
+        country = this.props.Country.map(function (item) {
+            return <Option value={item.encode+'%%'+item.name} key={item.encode+item.id}>{item.name}</Option>
         })
-        this.state = {
-            industry: industry.map(function (item) {
-                return item.name
-            }),
-            occupation: null
-        }
+        industryData = this.props.Industry.map(function (item) {
+            return <Option value={item.nameEn+'%%'+item.nameCn} key={item.nameEn+item.id}>{item.nameCn}</Option>
+        })
     }
     industryChange(value) {
         console.log(`selected ${value}`);
-        let data = industry.map(function (item) {
-            if (item.name == value) {
-                return item.list
-            }
-        })
-        data.map(function (item) {
-            if (item != null) {
-                data = item
-            }
-        })
-        this.setState({
-            occupation: data
-        })
+        if (value.split('%%').length > 0) {
+            const {dispatch} = this.props
+            dispatch(getOccupation({nameEn: value.split('%%')[0]}))
+        }
     }
     render() {
         const {getFieldDecorator} = this.props.getFieldDecorator
-        const industryData = this.state.industry.map(function (item, index) {
-            return <Option value={item} key={item + '_' + index}>{item}</Option>
-        })
         const formItemLayout = {
             labelCol: {span: 6},
             wrapperCol: {span: 14},
         };
+        if (this.props.Occupation != null) {
+            occupationData = this.props.Occupation.map((item) => <Option key={item.nameEn+item.id}
+                                                                               value={item.nameEn + '%%' + item.nameCn}>{item.nameCn}</Option>)
+        }
         return (
 
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
@@ -145,7 +74,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('country_of_birth', {
-                                initialValue: this.props.getsProfile.base_profile.investor_type==99?'Hong Kong':'China',
+                                initialValue: this.props.getsProfile.base_profile.investor_type==99?'香港':'中国',
                                 rules: [{
                                     type: 'string',
                                     required: true,
@@ -171,7 +100,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('nationality', {
-                                initialValue: this.props.getsProfile.base_profile.investor_type==99?'Hong Kong':'China',
+                                initialValue: this.props.getsProfile.base_profile.investor_type==99?'香港':'中国',
                                 rules: [{
                                     type: 'string',
                                     required: true,
@@ -249,14 +178,7 @@ class BasicInfoH extends React.Component {
                                 }],
                             })(
                                 <Select size="large" style={{width: 240}} onChange={handleChange}>
-                                    {this.state.occupation != null ?
-                                        this.state.occupation.map(function (item, index) {
-                                            return <Option value={item.split(',')[1]} key={item.split(',')[1] + '_' + index}>{item.split(',')[0]}</Option>
-
-                                        })
-                                        :
-                                        <Option value='' />
-                                    }
+                                   {occupationData}
                                 </Select>
                             )}
                         </FormItem>
@@ -273,7 +195,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('country_of_tax_residency', {
-                                initialValue: this.props.getsProfile.base_profile.investor_type==99?'Hong Kong':'China',
+                                initialValue: this.props.getsProfile.base_profile.investor_type==99?'香港':'中国',
                                 rules: [{
                                     type: 'string',
                                     required: true,

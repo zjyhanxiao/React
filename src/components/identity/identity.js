@@ -119,11 +119,11 @@ class Identity extends React.Component {
                 console.log('Received values of form: ', JSON.stringify(values));
                 if (this.props.getsProfile.base_profile.investor_type == 1) {
                     const {dispatch} = this.props
-                    dispatch(getState({country:this.props.getsProfile.base_profile.country.split('_')[0]}))
+                    dispatch(getState({country:this.props.getsProfile.base_profile.country.split('%%')[0]}))
                 }
                 if (this.props.getsProfile.base_profile.investor_type == 2) {
                     const {dispatch} = this.props
-                    dispatch(getState({country:this.props.getsProfile.base_profile.country.split('_')[0]}))
+                    dispatch(getState({country:this.props.getsProfile.base_profile.country.split('%%')[0]}))
                 }
                 this.props.changeIndex(e)
                 // const { dispatch } = this.props

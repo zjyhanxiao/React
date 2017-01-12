@@ -1,13 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {Form, Input, Select, Row, Col, Button, DatePicker} from 'antd';
-import {getCity,getCounty} from '../../Redux/actions/index'
+import {getCity, getCounty} from '../../Redux/actions/index'
 const FormItem = Form.Item;
 const Option = Select.Option;
 function handleChange(value) {
     console.log(`selected ${value}`);
 }
-let regionData,cityData,countyData
+let regionData, cityData, countyData
 class AddressChina extends React.Component {
     constructor(props) {
         super(props)
@@ -15,27 +15,35 @@ class AddressChina extends React.Component {
 
     regionChange(value) {
         console.log(`selected ${value}`);
-        if (value.split('_').length > 0) {
-            console.log(value.split('_')[0])
+        if (value.split('%%').length > 0) {
+            console.log(value.split('%%')[0])
             const {dispatch} = this.props
-            dispatch(getCity({country:this.props.getsProfile.base_profile.country.split('_')[0],region:value.split('_')[0]}))
+            dispatch(getCity({
+                country: this.props.getsProfile.base_profile.country.split('%%')[0],
+                region: value.split('%%')[0]
+            }))
         }
         this.props.form.setFieldsValue({
-            city:'',
-            district:''
+            city: '',
+            district: ''
         })
     }
+
     cityChange(value) {
         console.log(`selected ${value}`);
-        console.log(value.split('_').length);
-        if (value.split('_').length > 0) {
-            console.log(value.split('_')[1])
+        console.log(value.split('%%').length);
+        if (value.split('%%').length > 0) {
+            console.log(value.split('%%')[1])
             const {dispatch} = this.props
-            dispatch(getCounty({country:this.props.getsProfile.base_profile.country.split('_')[0],region:this.props.getsProfile.base_profile.region.split('_')[0],city:value.split('_')[0]}))
+            dispatch(getCounty({
+                country: this.props.getsProfile.base_profile.country.split('%%')[0],
+                region: this.props.getsProfile.base_profile.region.split('%%')[0],
+                city: value.split('%%')[0]
+            }))
         }
 
         this.props.form.setFieldsValue({
-            district:''
+            district: ''
         })
     }
 
@@ -54,14 +62,17 @@ class AddressChina extends React.Component {
             labelCol: {span: 6},
             wrapperCol: {span: 14},
         };
-        if (this.props.getsProfile.region != undefined) {
-            regionData = this.props.getsProfile.region.map((region) => <Option key={region.id} value={region.encode + '_' + region.name}>{region.name}</Option>)
+        if (this.props.getsProfile.Region != undefined) {
+            regionData = this.props.getsProfile.Region.map((region) => <Option key={region.encode + region.id}
+                                                                               value={region.encode + '%%' + region.name}>{region.name}</Option>)
         }
-        if (this.props.getsProfile.city != null) {
-            cityData = this.props.getsProfile.city.map((city) =><Option key={city.id} value={city.encode + '_' + city.name}>{city.name}</Option>)
+        if (this.props.getsProfile.City != null) {
+            cityData = this.props.getsProfile.City.map((city) => <Option key={city.encode + city.id}
+                                                                         value={city.encode + '%%' + city.name}>{city.name}</Option>)
         }
-        if (this.props.getsProfile.county != null) {
-            countyData = this.props.getsProfile.county.map((county) =><Option key={county.id} value={county.encode + '_' + county.name}>{county.name}</Option>)
+        if (this.props.getsProfile.County != null) {
+            countyData = this.props.getsProfile.County.map((county) => <Option key={county.encode + county.id}
+                                                                               value={county.encode + '%%' + county.name}>{county.name}</Option>)
         }
 
         const tailFormItemLayout = {

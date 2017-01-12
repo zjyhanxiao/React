@@ -156,6 +156,60 @@ export const getCounty = (data) => {
         })
     }
 }
+// 获取行业信息
+export const getIndustry = (data) => {
+    let url = baseUrl + '/web/invest/access_careers';
+    return dispatch => {
+        $.ajax({
+            type: 'post',
+            url: url,
+            // url: 'https://api.meixinglobal.com/web/profile/update',
+            data: JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "mx_token": "3952a10e64671c9995367254766bbfa5",
+                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+            },
+
+            success: json => dispatch(getIndustrySuccess(json))
+
+        })
+    }
+}
+// 获取行业信息成功
+const getIndustrySuccess=(json)=>{
+    return {
+        type: types.GET_INDUSTRY,
+        json
+    }
+}
+// 获取行业信息
+export const getOccupation = (data) => {
+    let url = baseUrl + '/web/invest/access_careers';
+    return dispatch => {
+        $.ajax({
+            type: 'post',
+            url: url,
+            // url: 'https://api.meixinglobal.com/web/profile/update',
+            data: JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "mx_token": "3952a10e64671c9995367254766bbfa5",
+                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+            },
+
+            success: json => dispatch(getOccupationSuccess(json))
+
+        })
+    }
+}
+// 获取行业信息成功
+const getOccupationSuccess=(json)=>{
+    return {
+        type: types.GET_OCCUPATION,
+        json
+    }
+}
 
 // 获取profile信息
 export const fetchPosts = () => {
