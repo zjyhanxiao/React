@@ -242,7 +242,7 @@ class BankInformation extends React.Component {
                      ****************************************************************/
                     console.log(this.props.getsProfile.base_profile)
 
-                    this.props.changeMessage(e)
+                    // this.props.changeMessage(e)
                     const {dispatch} = this.props
                     dispatch(updateProfile(this.props.getsProfile.base_profile, this.success))
                     this.props.handleOk(e);

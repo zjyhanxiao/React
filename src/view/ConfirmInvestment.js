@@ -25,14 +25,16 @@ class ConfirmInvestment extends React.Component {
         data.signature = this.props.getsProfile.base_profile.signature || '';
         data.spouseSignature = this.props.getsProfile.base_profile.spouse_signature || '';
         const {dispatch} = this.props
-        dispatch(updateSignature(data, this.success))
+        dispatch(updateSignature(data, this.success(this.props)))
         // dispatch(createOrder(this.props, this.success))
     }
 
-    success() {
-        const {dispatch} = this.props
+    success(props) {
+      console.log('1')
+        const {dispatch} = props
         let data = {}
-        data.product_id = this.props.getsProfile.Product.product_id
+        console.log(this.props.getsProfile.Product.id)
+        data.product_id = this.props.getsProfile.Product.id
         data.invest_amount = this.props.getsProfile.invest_amount
         data.mx_token=cookie.load('mx_token')||'7f23a1447d1093661b84972fbc3845aa'
         data.mx_secret=cookie.load('mx_secret')||'bf89a88d6fa2434a83de33d6a0cf3a51'
