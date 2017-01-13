@@ -219,7 +219,7 @@ class BasicInfoUC extends React.Component {
                       <Select size="large" style={{width: 240}} onChange={handleChange}>
                       <Option value="savings">存款/Savings</Option>
                       <Option value="heritage">继承/Heritage</Option>
-                      <Option value="other">其他/Others</Option>
+                      <Option value="other">其他/Other</Option>
                     </Select>
                   )}
                 </FormItem>
