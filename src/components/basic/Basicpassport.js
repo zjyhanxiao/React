@@ -76,7 +76,7 @@ class BasicPassport extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator(this.props.test.validityfield, {
-                              initialValue: this.props.test.validityfieldDefault,
+                              initialValue: this.props.test.validityfieldDefault!=''?moment(this.props.test.validityfieldDefault):null,
                                 rules: [{type: 'object', required: true, message: '请输入日期!'}],
                             })(
                                 <DatePicker size="large" style={{width: 240}}></DatePicker>
