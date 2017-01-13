@@ -17,7 +17,7 @@ class AddressChina extends React.Component {
         console.log(`selected ${value}`);
         const {dispatch} = this.props
         dispatch(getCity({
-            country: this.props.getsProfile.base_profile.country,
+            country: this.props.getsProfile.base_profile.address_cn.country,
             region: value
         }))
         this.props.form.setFieldsValue({
@@ -30,8 +30,8 @@ class AddressChina extends React.Component {
         console.log(`selected ${value}`);
         const {dispatch} = this.props
         dispatch(getCounty({
-            country: this.props.getsProfile.base_profile.country,
-            region: this.props.getsProfile.base_profile.region,
+            country: this.props.getsProfile.base_profile.address_cn.country,
+            region: this.props.getsProfile.base_profile.address_cn.region,
             city: value
         }))
 
