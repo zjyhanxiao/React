@@ -116,6 +116,7 @@ class BasicInfoUC extends React.Component {
                       wrapperCol={{span: 14}}
                   >
                     {getFieldDecorator('ssn', {
+                        initialValue: this.props.getsProfile.base_profile.base_info.ssn||'',
                         rules: [{
                             required: true, message: '请输入您的SSN!',
                         }],
