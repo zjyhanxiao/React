@@ -15,14 +15,11 @@ class AddressChina extends React.Component {
 
     regionChange(value) {
         console.log(`selected ${value}`);
-        if (value.split('%%').length > 0) {
-            console.log(value.split('%%')[0])
-            const {dispatch} = this.props
-            dispatch(getCity({
-                country: this.props.getsProfile.base_profile.country.split('%%')[0],
-                region: value.split('%%')[0]
-            }))
-        }
+        const {dispatch} = this.props
+        dispatch(getCity({
+            country: this.props.getsProfile.base_profile.country,
+            region: value
+        }))
         this.props.form.setFieldsValue({
             city: '',
             district: ''
@@ -31,16 +28,12 @@ class AddressChina extends React.Component {
 
     cityChange(value) {
         console.log(`selected ${value}`);
-        console.log(value.split('%%').length);
-        if (value.split('%%').length > 0) {
-            console.log(value.split('%%')[1])
-            const {dispatch} = this.props
-            dispatch(getCounty({
-                country: this.props.getsProfile.base_profile.country.split('%%')[0],
-                region: this.props.getsProfile.base_profile.region.split('%%')[0],
-                city: value.split('%%')[0]
-            }))
-        }
+        const {dispatch} = this.props
+        dispatch(getCounty({
+            country: this.props.getsProfile.base_profile.country,
+            region: this.props.getsProfile.base_profile.region,
+            city: value
+        }))
 
         this.props.form.setFieldsValue({
             district: ''
@@ -64,15 +57,15 @@ class AddressChina extends React.Component {
         };
         if (this.props.getsProfile.Region != undefined) {
             regionData = this.props.getsProfile.Region.map((region) => <Option key={region.encode + region.id}
-                                                                               value={region.encode + '%%' + region.name}>{region.name}</Option>)
+                                                                               value={region.name}>{region.name}</Option>)
         }
         if (this.props.getsProfile.City != null) {
             cityData = this.props.getsProfile.City.map((city) => <Option key={city.encode + city.id}
-                                                                         value={city.encode + '%%' + city.name}>{city.name}</Option>)
+                                                                         value={city.name}>{city.name}</Option>)
         }
         if (this.props.getsProfile.County != null) {
             countyData = this.props.getsProfile.County.map((county) => <Option key={county.encode + county.id}
-                                                                               value={county.encode + '%%' + county.name}>{county.name}</Option>)
+                                                                               value={county.name}>{county.name}</Option>)
         }
 
         const tailFormItemLayout = {

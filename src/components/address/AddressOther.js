@@ -14,17 +14,14 @@ class AddressOther extends React.Component {
     constructor(props) {
         super(props)
         country = this.props.getsProfile.Country.map(function (item) {
-            return <Option value={item.encode + '%%' + item.name}>{item.name}</Option>
+            return <Option value={item.name}>{item.name}</Option>
         })
     }
 
     changeCountry(value) {
         console.log(`selected ${value}`);
-        if (value.split('%%').length > 0) {
-            console.log(value.split('%%')[0])
             const {dispatch} = this.props
-            dispatch(getState({country: value.split('%%')[0]}))
-        }
+            dispatch(getState({country: value}))
 
         this.props.form.setFieldsValue({
             region:''
