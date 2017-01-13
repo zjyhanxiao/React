@@ -58,6 +58,7 @@ class BasicPassport extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator(this.props.test.numberfield, {
+                              initialValue: this.props.test.numberfieldDefault,
                                 //initialValue: 'E35456464',
                                 rules: [{
                                     required: true, message: '请输入您的护照号!',
@@ -75,6 +76,7 @@ class BasicPassport extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator(this.props.test.validityfield, {
+                              initialValue: this.props.test.validityfieldDefault,
                                 rules: [{type: 'object', required: true, message: '请输入日期!'}],
                             })(
                                 <DatePicker size="large" style={{width: 240}}></DatePicker>
@@ -87,7 +89,7 @@ class BasicPassport extends React.Component {
               {/*required:this.props.test.certificate*/}
                 <FormItem style={{width: 346, margin: '0 auto'}}>
                     {getFieldDecorator(this.props.test.urlfield, {
-                        initialValue: data!=null&&data.passport_url!=undefined?data.passport_url:null,
+                      initialValue: this.props.test.urlfieldDefault,
                         rules: [{ required:false, message: '请上传证件!'}]
                     })(
                         <Uploader {...data} />

@@ -61,7 +61,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('date_of_birth', {
-                                //initialValue: (this.props != null && this.props.date_of_birth != null) ? moment(this.props.date_of_birth) : null,
+                              initialValue: this.props.getsProfile.base_profile.base_info.date_of_birth||'',
                                 rules: [{type: 'object', required: true, message: '请输入日期!'}],
                             })(
                                 <DatePicker size="large" style={{width: 240}}></DatePicker>
@@ -76,7 +76,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('country_of_birth', {
-                                initialValue: this.props.getsProfile.base_profile.investor_type==99?'香港':'中国',
+                              initialValue: this.props.getsProfile.base_profile.base_info.country_of_birth||'',
                                 rules: [{
                                     type: 'string',
                                     required: true,
@@ -102,7 +102,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('nationality', {
-                                initialValue: this.props.getsProfile.base_profile.investor_type==99?'香港':'中国',
+                              initialValue: this.props.getsProfile.base_profile.base_info.nationality||'',
                                 rules: [{
                                     type: 'string',
                                     required: true,
@@ -124,6 +124,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('source_of_capital', {
+                              initialValue: this.props.getsProfile.base_profile.base_info.source_of_capital||'',
                                 rules: [{
                                     type: 'string',
                                     required: true,
@@ -151,7 +152,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('industry', {
-                                //initialValue: 'CN',
+                              initialValue: this.props.getsProfile.base_profile.base_info.industry||'',
                                 rules: [{
                                     type: 'string',
                                     required: true,
@@ -173,6 +174,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('occupation', {
+                              initialValue: this.props.getsProfile.base_profile.base_info.occupation||'',
                                 rules: [{
                                     type: 'string',
                                     required: true,
@@ -197,7 +199,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('country_of_tax_residency', {
-                                initialValue: this.props.getsProfile.base_profile.investor_type==99?'香港':'中国',
+                              initialValue: this.props.getsProfile.base_profile.base_info.country_of_tax_residency||'',
                                 rules: [{
                                     type: 'string',
                                     required: true,
@@ -219,6 +221,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('foreign_tax_number', {
+                              initialValue: this.props.getsProfile.base_profile.base_info.foreign_tax_number||'',
                                 //initialValue: this.props.passport_code,
                                 rules: [{
                                     required: true, message: '请输入您的纳税号！',
