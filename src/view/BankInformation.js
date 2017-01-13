@@ -27,6 +27,21 @@ class BankInformation extends React.Component {
 
 
     handleSubmit(e) {
+        let pro=this.props.getsProfile.base_profile
+        if(
+            pro.bank_non_us.middle_bank_address!=null&&
+            pro.bank_non_us.middle_bank_name!=null&&
+            pro.bank_non_us.middle_bank_swift_code!=null&&
+            pro.bank_non_us.middle_bank_address!=''&&
+            pro.bank_non_us.middle_bank_name!=''&&
+            pro.bank_non_us.middle_bank_swift_code!=''
+        ){
+            const {dispatch}=this.props
+            dispatch(saveFields('base_info', {
+                ...props.getsProfile.base_profile.bank_non_us,
+                'have_middlebank': 1
+            }));
+        }
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
