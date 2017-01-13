@@ -195,11 +195,19 @@ ComplianceReview = Form.create({
       let val = changedFields[i].value
       console.log(val)
       if (val != undefined && val != '' && val != null) {
-        if (key == 'date_of_birth') {
-          let val = changedFields[i].value.format('YYYY-MM-DD')
-          props.dispatch(saveFields(key, val));
-        } else {
-          props.dispatch(saveFields(key, val));
+        if (
+            key == 'debt_amount'||
+            key == 'spouse_email'||
+            key == 'spouse_first_name'||
+            key == 'spouse_last_name'||
+            key == 'spouse_phone'||
+            key == 'type'||
+            key == 'with_spouse'
+        ) {
+            props.dispatch(saveFields('base_info', {
+                ...props.getsProfile.base_profile.accreditation,
+                [key]: val
+            }));
         }
       }
 
