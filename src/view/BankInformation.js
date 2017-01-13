@@ -84,7 +84,9 @@ class BankInformation extends React.Component {
                         data.address_non_cn.postal_code = this.props.getsProfile.base_profile.postal_code || '';
                         data.address_non_cn.region = region || '';
                     }
-                    /********************************如果是美国投资人(accreditation)**********************/
+
+
+                    /********************************如果是美国投资人(accreditation)*********************
                     if (this.props.getsProfile.base_profile.investor_type == 2) {
                         data.base_info.ssn = this.props.getsProfile.base_profile.ssn || '';
                         data.base_info.nationality = nationality || '';
@@ -103,6 +105,9 @@ class BankInformation extends React.Component {
                         data.accreditation.type = this.props.getsProfile.base_profile.type || '';
                         data.accreditation.with_spouse = this.props.getsProfile.base_profile.with_spouse || '';
                     }
+
+                    ********************************************************************************/
+
                     /********************************如果是火星投资人(accreditation)**********************/
                     if (this.props.getsProfile.base_profile.investor_type == 99) {
                         data.base_info.nationality = nationality || '';
