@@ -301,14 +301,7 @@ export const updateProfile = (data, success) => {
         })
     }
 }
-// 提交信息成功
-export const updateUploader = (path, key) => {
-    return {
-        type: types.UPDATE_UPLOADER,
-        data: path,
-        key: key
-    }
-}
+
 // 提交签名信息
 export const updateSignature = (data, success) => {
     return dispatch => {
@@ -382,6 +375,14 @@ export const changeInvestorType = (key, val) => {
         type: types.INVESTOR_TYPE,
         key: key,
         val: val
+    }
+}
+// 证件上传
+export const updateUploader = (path, key) => {
+    return {
+        type: types.UPDATE_UPLOADER,
+        data: path,
+        key: key
     }
 }
 
