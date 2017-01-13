@@ -48,7 +48,7 @@ class BankInformation extends React.Component {
                     data.last_name = this.props.getsProfile.base_profile.last_name;
                     data.investor_type = this.props.getsProfile.base_profile.investor_type;
                     data.address_type = this.props.getsProfile.base_profile.investor_type == 1 ? 'CN' : 'NON_CN';
-                    data.bank_type = this.props.getsProfile.base_profile.bank_type||'';
+                    data.bank_type = this.props.getsProfile.base_profile.bank_type || '';
 
 
                     data.passport_expire_date = this.props.getsProfile.base_profile.passport_expire_date || '';
@@ -56,7 +56,7 @@ class BankInformation extends React.Component {
                     data.passport_url = this.props.getsProfile.base_profile.passport_url || '';
                     data.base_info = {}
                     data.base_info.date_of_birth = this.props.getsProfile.base_profile.date_of_birth || '';
-                    data.base_info.country_of_birth = country_of_birth|| '';
+                    data.base_info.country_of_birth = country_of_birth || '';
                     data.base_info.industry = industry || '';
                     data.base_info.occupation = occupation || '';
                     /**********************如果是中国大陆投资人（address_non_cn||address_cn）*******************/
@@ -87,7 +87,7 @@ class BankInformation extends React.Component {
 
 
                     /********************************如果是美国投资人(accreditation)*********************
-                    if (this.props.getsProfile.base_profile.investor_type == 2) {
+                     if (this.props.getsProfile.base_profile.investor_type == 2) {
                         data.base_info.ssn = this.props.getsProfile.base_profile.ssn || '';
                         data.base_info.nationality = nationality || '';
 
@@ -106,7 +106,7 @@ class BankInformation extends React.Component {
                         data.accreditation.with_spouse = this.props.getsProfile.base_profile.with_spouse || '';
                     }
 
-                    ********************************************************************************/
+                     ********************************************************************************/
 
                     /********************************如果是火星投资人(accreditation)**********************/
                     if (this.props.getsProfile.base_profile.investor_type == 99) {
@@ -400,15 +400,38 @@ class BankInformation extends React.Component {
 
 BankInformation = Form.create({
     onFieldsChange(props, changedFields) {
-        console.log(JSON.stringify(changedFields))
         for (let i in changedFields) {
             let key = changedFields[i].name
             let val = changedFields[i].value
-            console.log(val)
             if (val != undefined && val != '' && val != null) {
-                if (key == 'expire_date') {
-                    let val = changedFields[i].value.format('YYYY-MM-DD')
-                    props.dispatch(saveFields(key, val));
+                if (props.getsProfile.base_profile.bank_type == 'US') {
+                    if (
+                        key == 'account_number' ||
+                        key == 'account_type' ||
+                        key == 'bank_address' ||
+                        key == 'bank_name' ||
+                        key == 'routing_number'
+                    ) {
+                        props.dispatch(saveFields('base_info', {
+                            ...props.getsProfile.base_profile.bank_us,
+                            [key]: val
+                        }));
+                    }
+                }else if (props.getsProfile.base_profile.bank_type == 'NON_US') {
+                    if (
+                        key == 'account_number' ||
+                        key == 'bank_address' ||
+                        key == 'bank_name' ||
+                        key == 'middle_bank_address' ||
+                        key == 'middle_bank_name' ||
+                        key == 'middle_bank_swift_code' ||
+                        key == 'swift_code'
+                    ) {
+                        props.dispatch(saveFields('base_info', {
+                            ...props.getsProfile.base_profile.bank_non_us,
+                            [key]: val
+                        }));
+                    }
                 } else {
                     props.dispatch(saveFields(key, val));
                 }
