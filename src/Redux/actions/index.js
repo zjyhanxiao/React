@@ -285,7 +285,8 @@ export const updateProfile = (data, success) => {
     return dispatch => {
         $.ajax({
             type: 'post',
-            url: baseUrl + '/web/invest/user_info_confirm',
+            url: baseUrl+'/web/invest/user_info',
+            //baseUrl + '/web/invest/user_info_confirm',
             // url: 'https://api.meixinglobal.com/web/profile/update',
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",

@@ -68,7 +68,7 @@ class BankInformation extends React.Component {
                         data.address_cn = {}
                         var country = this.props.getsProfile.base_profile.country.split('%%')
                         data.address_cn.city = this.props.getsProfile.base_profile.city || '';
-                        data.address_cn.country = country || '';
+                        data.address_cn.country = this.props.getsProfile.base_profile.country || '';
                         data.address_cn.detail = this.props.getsProfile.base_profile.detail || '';
                         data.address_cn.district = this.props.getsProfile.base_profile.district || '';
                         data.address_cn.postal_code = this.props.getsProfile.base_profile.postal_code || '';
@@ -77,7 +77,7 @@ class BankInformation extends React.Component {
                         data.address_non_cn = {}
                         data.address_non_cn.city = this.props.getsProfile.base_profile.city || '';
 
-                        data.address_non_cn.country = country || '';
+                        data.address_non_cn.country = this.props.getsProfile.base_profile.country || '';
 
                         data.address_non_cn.line1 = this.props.getsProfile.base_profile.line1 || '';
                         data.address_non_cn.line2 = this.props.getsProfile.base_profile.line2 || '';

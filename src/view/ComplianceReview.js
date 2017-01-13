@@ -53,7 +53,7 @@ class ComplianceReview extends React.Component {
 
         data.address_non_cn = {}
         data.address_non_cn.city = this.props.getsProfile.base_profile.city || '';
-        data.address_non_cn.country = country|| '';
+        data.address_non_cn.country = this.props.getsProfile.base_profile.country|| '';
         data.address_non_cn.line1 = this.props.getsProfile.base_profile.line1 || '';
         data.address_non_cn.line2 = this.props.getsProfile.base_profile.line2 || '';
         data.address_non_cn.postal_code = this.props.getsProfile.base_profile.postal_code || '';
