@@ -123,7 +123,7 @@ class InformationConfirmation extends React.Component {
 
                 }
 
-                <div style={{wordBreak: 'break-all'}}>{JSON.stringify(this.props.getsProfile.base_profile)}</div>
+                {/*<div style={{wordBreak: 'break-all'}}>{JSON.stringify(this.props.getsProfile.base_profile)}</div>*/}
         </div>
         )
     }
