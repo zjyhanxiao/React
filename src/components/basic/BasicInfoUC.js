@@ -6,7 +6,7 @@ import {Form, Input, Select, Row, Col, Button, DatePicker} from 'antd';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
-let country,industryData,occupationData
+let country, industryData, occupationData
 function handleChange(value) {
     console.log(`selected ${value}`);
 }
@@ -14,17 +14,17 @@ class BasicInfoUC extends React.Component {
     constructor(props) {
         super(props)
         country = this.props.getsProfile.Country.map(function (item) {
-            return <Option value={item.name} key={item.encode+item.id}>{item.name}</Option>
+            return <Option value={item.name} key={item.encode + item.id}>{item.name}</Option>
         })
         industryData = this.props.getsProfile.Industry.map(function (item) {
-            return <Option value={item.nameCn} key={item.nameEn+item.id}>{item.nameCn}</Option>
+            return <Option value={item.nameCn} key={item.nameEn + item.id}>{item.nameCn}</Option>
         })
     }
 
     industryChange(value) {
         console.log(`selected ${value}`);
-            const {dispatch} = this.props
-            dispatch(getOccupation({industry: value}))
+        const {dispatch} = this.props
+        dispatch(getOccupation({industry: value}))
 
         this.props.form.setFieldsValue({
             occupation: ''
@@ -44,8 +44,8 @@ class BasicInfoUC extends React.Component {
             },
         };
         if (this.props.getsProfile.Occupation != null) {
-            occupationData = this.props.getsProfile.Occupation.map((item) => <Option key={item.nameEn+item.id}
-                                                                         value={item.nameCn}>{item.nameCn}</Option>)
+            occupationData = this.props.getsProfile.Occupation.map((item) => <Option key={item.nameEn + item.id}
+                                                                                     value={item.nameCn}>{item.nameCn}</Option>)
         }
 
         return (
@@ -217,9 +217,9 @@ class BasicInfoUC extends React.Component {
                   })(
                       //<Cascader options={residences} />
                       <Select size="large" style={{width: 240}} onChange={handleChange}>
-                      <Option value="savings">存款/Savings</Option>
-                      <Option value="heritage">继承/Heritage</Option>
-                      <Option value="other">其他/Other</Option>
+                      <Option value="存款/Savings">存款/Savings</Option>
+                      <Option value="继承/Heritage">继承/Heritage</Option>
+                      <Option value="其他/Other">其他/Other</Option>
                     </Select>
                   )}
                 </FormItem>
