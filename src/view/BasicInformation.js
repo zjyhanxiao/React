@@ -112,7 +112,7 @@ class BasicInformation extends React.Component {
                                            getFieldDecorator={this.props.form} />
                     }
 
-                    {!this.props.single?
+                    {!this.props.single ?
                         <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
             <Col span={3} offset={6}>
               <Button style={{
@@ -139,7 +139,7 @@ class BasicInformation extends React.Component {
               </FormItem>
             </Col>
           </Row>
-                        :<Row style={{marginTop: '50px', paddingBottom: '40px'}}>
+                        : <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
             <Col span={3} offset={6}>
               <Button style={{
                   width: '120px',
@@ -174,13 +174,29 @@ class BasicInformation extends React.Component {
 }
 BasicInformation = Form.create({
     onFieldsChange(props, changedFields) {
+        console.log(JSON.stringify(props))
         for (let i in changedFields) {
             let key = changedFields[i].name
             let val = changedFields[i].value
             if (val != undefined && val != '' && val != null) {
-                if (key == 'date_of_birth' || key == 'passport_expire_date' || key == 'id_card_expire_date') {
+                if (key == 'passport_expire_date' || key == 'id_card_expire_date') {
                     let val = changedFields[i].value.format('YYYY-MM-DD')
-                    props.dispatch(saveFields('base_info',{[key]: val}));
+                    props.dispatch(saveFields(key, val));
+                }
+                else if (
+                    key == 'country_of_birth' ||
+                    key == 'country_of_tax_residency' ||
+                    key == 'foreign_tax_number' ||
+                    key == 'industry' ||
+                    key == 'nationality' ||
+                    key == 'occupation' ||
+                    key == 'source_of_capital' ||
+                    key == 'ssn'
+                ) {
+                    props.dispatch(saveFields('base_info', {...props.getsProfile.base_profile.base_info, [key]: val}));
+                } else if (key == 'date_of_birth') {
+                    let val = changedFields[i].value.format('YYYY-MM-DD')
+                    props.dispatch(saveFields('base_info', {...props.getsProfile.base_profile.base_info, [key]: val}));
                 } else {
                     props.dispatch(saveFields(key, val));
                 }
