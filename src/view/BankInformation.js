@@ -36,13 +36,13 @@ class BankInformation extends React.Component {
                 } else {
                     /*************************************************上传data***********************************************/
                     var data = {}
-                    var country = this.props.getsProfile.base_profile.country.split('%%')
-                    var industry = this.props.getsProfile.base_profile.industry.split('%%')
-                    var occupation = this.props.getsProfile.base_profile.occupation.split('%%')
-                    var region = this.props.getsProfile.base_profile.region.split('%%')
-                    var country_of_birth = this.props.getsProfile.base_profile.country_of_birth.split('%%')
-                    var nationality = this.props.getsProfile.base_profile.nationality.split('%%')
-                    var country_of_tax_residency = this.props.getsProfile.base_profile.country_of_tax_residency.split('%%')
+                    var country = this.props.getsProfile.base_profile.country
+                    var industry = this.props.getsProfile.base_profile.industry
+                    var occupation = this.props.getsProfile.base_profile.occupation
+                    var region = this.props.getsProfile.base_profile.region
+                    var country_of_birth = this.props.getsProfile.base_profile.country_of_birth
+                    var nationality = this.props.getsProfile.base_profile.nationality
+                    var country_of_tax_residency = this.props.getsProfile.base_profile.country_of_tax_residency
 
                     data.first_name = this.props.getsProfile.base_profile.first_name;
                     data.last_name = this.props.getsProfile.base_profile.last_name;
@@ -56,9 +56,9 @@ class BankInformation extends React.Component {
                     data.passport_url = this.props.getsProfile.base_profile.passport_url || '';
                     data.base_info = {}
                     data.base_info.date_of_birth = this.props.getsProfile.base_profile.date_of_birth || '';
-                    data.base_info.country_of_birth = country_of_birth[1] || '';
-                    data.base_info.industry = industry[1] || '';
-                    data.base_info.occupation = occupation[1] || '';
+                    data.base_info.country_of_birth = country_of_birth|| '';
+                    data.base_info.industry = industry || '';
+                    data.base_info.occupation = occupation || '';
                     /**********************如果是中国大陆投资人（address_non_cn||address_cn）*******************/
                     if (this.props.getsProfile.base_profile.investor_type == 1) {
                         data.id_card_expire_date = this.props.getsProfile.base_profile.id_card_expire_date || '';
@@ -68,26 +68,26 @@ class BankInformation extends React.Component {
                         data.address_cn = {}
                         var country = this.props.getsProfile.base_profile.country.split('%%')
                         data.address_cn.city = this.props.getsProfile.base_profile.city || '';
-                        data.address_cn.country = country[1] || '';
+                        data.address_cn.country = country || '';
                         data.address_cn.detail = this.props.getsProfile.base_profile.detail || '';
                         data.address_cn.district = this.props.getsProfile.base_profile.district || '';
                         data.address_cn.postal_code = this.props.getsProfile.base_profile.postal_code || '';
-                        data.address_cn.region = region[1] || '';
+                        data.address_cn.region = region || '';
                     } else {
                         data.address_non_cn = {}
                         data.address_non_cn.city = this.props.getsProfile.base_profile.city || '';
 
-                        data.address_non_cn.country = country[1] || '';
+                        data.address_non_cn.country = country || '';
 
                         data.address_non_cn.line1 = this.props.getsProfile.base_profile.line1 || '';
                         data.address_non_cn.line2 = this.props.getsProfile.base_profile.line2 || '';
                         data.address_non_cn.postal_code = this.props.getsProfile.base_profile.postal_code || '';
-                        data.address_non_cn.region = region[1] || '';
+                        data.address_non_cn.region = region || '';
                     }
                     /********************************如果是美国投资人(accreditation)**********************/
                     if (this.props.getsProfile.base_profile.investor_type == 2) {
                         data.base_info.ssn = this.props.getsProfile.base_profile.ssn || '';
-                        data.base_info.nationality = nationality[1] || '';
+                        data.base_info.nationality = nationality || '';
 
                         data.bill_expire_date = this.props.getsProfile.base_profile.bill_expire_date || '';
                         data.bill_url = this.props.getsProfile.base_profile.bill_url || '';
@@ -105,10 +105,10 @@ class BankInformation extends React.Component {
                     }
                     /********************************如果是火星投资人(accreditation)**********************/
                     if (this.props.getsProfile.base_profile.investor_type == 99) {
-                        data.base_info.nationality = nationality[1] || '';
+                        data.base_info.nationality = nationality || '';
                         data.base_info.source_of_capital = this.props.getsProfile.base_profile.source_of_capital || '';
                         data.base_info.foreign_tax_number = this.props.getsProfile.base_profile.foreign_tax_number || '';
-                        data.base_info.country_of_tax_residency = country_of_tax_residency[1] || '';
+                        data.base_info.country_of_tax_residency = country_of_tax_residency || '';
                         data.id_card_expire_date = this.props.getsProfile.base_profile.id_card_expire_date || '';
                         data.id_card_url = this.props.getsProfile.base_profile.id_card_url || '';
                         data.id_card_number = this.props.getsProfile.base_profile.id_card_number || '';

@@ -24,12 +24,12 @@ class ComplianceReview extends React.Component {
         console.log(this.props.getsProfile.base_profile)
 
         var data = {}
-        var country = this.props.getsProfile.base_profile.country.split('%%')
-        var industry = this.props.getsProfile.base_profile.industry.split('%%')
-        var occupation = this.props.getsProfile.base_profile.occupation.split('%%')
-        var region = this.props.getsProfile.base_profile.region.split('%%')
-        var country_of_birth = this.props.getsProfile.base_profile.country_of_birth.split('%%')
-        var nationality = this.props.getsProfile.base_profile.nationality.split('%%')
+        var country = this.props.getsProfile.base_profile.country
+        var industry = this.props.getsProfile.base_profile.industry
+        var occupation = this.props.getsProfile.base_profile.occupation
+        var region = this.props.getsProfile.base_profile.region
+        var country_of_birth = this.props.getsProfile.base_profile.country_of_birth
+        var nationality = this.props.getsProfile.base_profile.nationality
 
         data.first_name = this.props.getsProfile.base_profile.first_name;
         data.last_name = this.props.getsProfile.base_profile.last_name;
@@ -45,19 +45,19 @@ class ComplianceReview extends React.Component {
 
         data.base_info = {}
         data.base_info.date_of_birth = this.props.getsProfile.base_profile.date_of_birth || '';
-        data.base_info.country_of_birth = country_of_birth[1] || '';
-        data.base_info.industry = industry[1] || '';
-        data.base_info.occupation = occupation[1] || '';
+        data.base_info.country_of_birth = country_of_birth || '';
+        data.base_info.industry = industry || '';
+        data.base_info.occupation = occupation || '';
         data.base_info.ssn = this.props.getsProfile.base_profile.ssn || '';
-        data.base_info.nationality = nationality[1] || '';
+        data.base_info.nationality = nationality || '';
 
         data.address_non_cn = {}
         data.address_non_cn.city = this.props.getsProfile.base_profile.city || '';
-        data.address_non_cn.country = country[1] || '';
+        data.address_non_cn.country = country|| '';
         data.address_non_cn.line1 = this.props.getsProfile.base_profile.line1 || '';
         data.address_non_cn.line2 = this.props.getsProfile.base_profile.line2 || '';
         data.address_non_cn.postal_code = this.props.getsProfile.base_profile.postal_code || '';
-        data.address_non_cn.region = region[1] || '';
+        data.address_non_cn.region = region || '';
 
 
         data.accreditation = {}
