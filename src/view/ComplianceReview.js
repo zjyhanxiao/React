@@ -88,11 +88,11 @@ class ComplianceReview extends React.Component {
         }
 
 
-        console.log(data)
+        console.log(this.props.getsProfile.base_profile)
 
 
         const { dispatch } = this.props
-        dispatch(updateProfile(data,this.success))
+        dispatch(updateProfile(this.props.getsProfile.base_profile,this.success))
       }
     });
   }
