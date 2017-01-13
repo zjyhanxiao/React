@@ -51,7 +51,6 @@ IdentityConfirmation = Form.create({
     for (let i in changedFields) {
       let key = changedFields[i].name
       let val = changedFields[i].value
-      console.log(val)
       if (val != undefined && val != '' && val != null) {
           props.dispatch(saveFields(key, val));
       }

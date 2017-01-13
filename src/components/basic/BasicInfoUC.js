@@ -1,5 +1,6 @@
 import './BasicInfo.css'
 import React from 'react';
+import moment from 'moment'
 import {connect} from 'react-redux'
 import {getOccupation} from '../../Redux/actions/index'
 import {Form, Input, Select, Row, Col, Button, DatePicker} from 'antd';
@@ -32,6 +33,7 @@ class BasicInfoUC extends React.Component {
     }
 
     render() {
+        let baseData = this.props.getsProfile.base_profile;
         const {getFieldDecorator} = this.props.getFieldDecorator;
         const formItemLayout = {
             labelCol: {span: 6},
@@ -56,7 +58,7 @@ class BasicInfoUC extends React.Component {
               <Col span={2} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体'}}>个人信息</h2></Col>
               <Col span={11} offset={1}>
                 <p style={{fontFamily: '宋体', marginTop: '2px'}}>(
-                    {this.props.getsProfile.base_profile.first_name} {this.props.getsProfile.base_profile.last_name} {this.props.getsProfile.base_profile.investor_type == 1 ? '中国大陆投资人' : '美国投资人'}
+                    {baseData.first_name} {baseData.last_name} {baseData.investor_type == 1 ? '中国大陆投资人' : '美国投资人'}
                     )</p>
               </Col>
             </Row>
@@ -74,7 +76,7 @@ class BasicInfoUC extends React.Component {
                   wrapperCol={{span: 14}}
               >
                 {getFieldDecorator('date_of_birth', {
-                  initialValue: this.props.getsProfile.base_profile.base_info.date_of_birth||'',
+                    initialValue: baseData.base_info.date_of_birth != null && baseData.base_info.date_of_birth != undefined ? moment(baseData.base_info.date_of_birth) : '',
                     rules: [{type: 'object', required: true, message: '请输入日期!'}],
                 })(
                     <DatePicker size="large" style={{width: 240}}></DatePicker>
@@ -90,7 +92,7 @@ class BasicInfoUC extends React.Component {
               >
                 {getFieldDecorator('country_of_birth', {
 
-                    initialValue: this.props.getsProfile.base_profile.base_info.country_of_birth||'',
+                    initialValue: baseData.base_info.country_of_birth || '',
                     rules: [{
                         type: 'string',
                         required: true,
@@ -107,7 +109,7 @@ class BasicInfoUC extends React.Component {
           </Row>
 
 
-                {this.props.getsProfile.base_profile.investor_type == 2 ?
+                {baseData.investor_type == 2 ?
                     <div>
               <Row>
                 <Col span={12}>
@@ -118,7 +120,7 @@ class BasicInfoUC extends React.Component {
                       wrapperCol={{span: 14}}
                   >
                     {getFieldDecorator('ssn', {
-                        initialValue: this.props.getsProfile.base_profile.base_info.ssn||'',
+                        initialValue: baseData.base_info.ssn || '',
                         rules: [{
                             required: true, message: '请输入您的SSN!',
                         }],
@@ -135,7 +137,7 @@ class BasicInfoUC extends React.Component {
                       wrapperCol={{span: 14}}
                   >
                     {getFieldDecorator('nationality', {
-                        initialValue: this.props.getsProfile.base_profile.base_info.nationality||'',
+                        initialValue: baseData.base_info.nationality || '',
                         rules: [{
                             type: 'string',
                             required: true,
@@ -165,7 +167,7 @@ class BasicInfoUC extends React.Component {
                   wrapperCol={{span: 14}}
               >
                 {getFieldDecorator('industry', {
-                  initialValue: this.props.getsProfile.base_profile.base_info.industry||'',
+                    initialValue: baseData.base_info.industry || '',
                     rules: [{
                         type: 'string',
                         required: true,
@@ -187,7 +189,7 @@ class BasicInfoUC extends React.Component {
                   wrapperCol={{span: 14}}
                   offse>
                 {getFieldDecorator('occupation', {
-                  initialValue: this.props.getsProfile.base_profile.base_info.occupation||'',
+                    initialValue: baseData.base_info.occupation || '',
                     rules: [{
                         type: 'string',
                         required: true,
@@ -204,7 +206,7 @@ class BasicInfoUC extends React.Component {
           </Row>
 
 
-                {this.props.getsProfile.base_profile.investor_type == 1 ?
+                {baseData.investor_type == 1 ?
                     <Row>
               <Col span={12}>
                 <FormItem
@@ -214,7 +216,7 @@ class BasicInfoUC extends React.Component {
                     wrapperCol={{span: 14}}
                 >
                   {getFieldDecorator('source_of_capital', {
-                    initialValue: this.props.getsProfile.base_profile.base_info.source_of_capital||'',
+                      initialValue: baseData.base_info.source_of_capital || '',
                       rules: [{
                           type: 'string',
                           required: true,

@@ -62,10 +62,10 @@ class BasicInformation extends React.Component {
                 <Form horizontal>
                   {
                       this.props.getsProfile.base_profile.investor_type == 99 ?
-                          <BasicInfoH {...this.props} getFieldDecorator={this.props.form}
+                          <BasicInfoH getFieldDecorator={this.props.form}
                                       disabledDate={this.disabledDate} expire_date={this.expire_date} />
                           :
-                          <BasicInfoUC {...this.props} getFieldDecorator={this.props.form} />
+                          <BasicInfoUC getFieldDecorator={this.props.form} />
 
                   }
 
