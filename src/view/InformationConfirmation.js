@@ -2,7 +2,7 @@ import '../components/basic/BasicInfo.css'
 import React, {PropTypes} from 'react'
 import {Row, Col, Button} from 'antd'
 import {connect} from 'react-redux'
-import {isComplete,getProduct,getCountry,getIndustry,fetchPosts} from '../Redux/actions/index'
+import {isComplete, getProduct, getCountry, getIndustry, fetchPosts} from '../Redux/actions/index'
 import ItemAmount from '../components/infoPages/ItemAmount'
 import ItemName from '../components/infoPages/ItemName'
 import AmountShow from '../components/infoPages/amountShow'
@@ -24,35 +24,35 @@ class InformationConfirmation extends React.Component {
         this.state = {
             message: true,
             page: {
-              one: true,
-              two: false,
-              three:false,
-              current: 'one'
+                one: true,
+                two: false,
+                three: false,
+                current: 'one'
             }
         }
     }
 
-  changeP=(event)=>{
-    var cur
-    if (event.target.tagName == 'SPAN') {
-      cur = event.target.parentNode.name
-    }
-    if(event.target.tagName == 'BUTTON'){
-      cur = event.target.name
-    }
-    this.setState(
-      {
-        page: {
-          one: false,
-          two: false,
-          [cur]: true,
-          current: cur
+    changeP = (event) => {
+        var cur
+        if (event.target.tagName == 'SPAN') {
+            cur = event.target.parentNode.name
         }
-      }
-    )
-    event.preventDefault();
-  }
-
+        if (event.target.tagName == 'BUTTON') {
+            cur = event.target.name
+        }
+        this.setState(
+            {
+                page: {
+                    one: false,
+                    two: false,
+                    three: false,
+                    [cur]: true,
+                    current: cur
+                }
+            }
+        )
+        event.preventDefault();
+    }
 
 
     changeMessage = (event) => {
@@ -61,7 +61,7 @@ class InformationConfirmation extends React.Component {
 
     componentWillMount() {
         const {dispatch} = this.props
-        const product_id=getUrlParam('product_id')
+        const product_id = getUrlParam('product_id')
         dispatch(isComplete())
 
         dispatch(fetchPosts())
@@ -69,6 +69,7 @@ class InformationConfirmation extends React.Component {
         dispatch(getCountry({}))
         dispatch(getIndustry({}))
     }
+
     handleSubmit(e) {
         e.preventDefault()
         this.props.form.validateFieldsAndScroll((err, values) => {
@@ -82,45 +83,47 @@ class InformationConfirmation extends React.Component {
         return (
             <div style={{background: '#fff'}}>
 
+                {this.state.page.three ? '' :
 
-
-                <div style={{
-                  width: '920px',
-                  margin: '0 auto',
-                  position: 'relative',
-                  border: '1px solid #eee',
-                  borderRadius: '3px'
-                }}>
+                    <div style={{
+                        width: '920px',
+                        margin: '0 auto',
+                        position: 'relative',
+                        border: '1px solid #eee',
+                        borderRadius: '3px'
+                    }}>
                   <ItemName {...this.props.getsProfile.Product} />
                   <div style={{position: 'absolute', top: '30px', left: '60px'}}>
-                    {this.state.page.two ? <AmountShow {...this.props} /> :<ItemAmount {...this.props.getsProfile.Product} />}
+                    {this.state.page.two ? <AmountShow {...this.props} /> :
+                        <ItemAmount {...this.props.getsProfile.Product} />}
                   </div>
                 </div>
 
+                }
 
 
                 {this.props.getsProfile.Complete ?
-                  <div style={{width: '900px', margin: '0 auto'}}>
-                    <IndexPlate {...this.state.page} {...this.props}  changeP={this.changeP}/>
-                    <ConfirmInvestment {...this.state.page} {...this.props}  changeP={this.changeP}/>
-                    <GoldenWay {...this.state.page} {...this.props}  changeP={this.changeP}/>
+                    <div style={{width: '900px', margin: '0 auto'}}>
+                    <IndexPlate {...this.state.page} {...this.props} changeP={this.changeP} />
+                    <ConfirmInvestment {...this.state.page} {...this.props} changeP={this.changeP} />
+                    <GoldenWay {...this.state.page} {...this.props} changeP={this.changeP} />
                   </div>
                     :
-                  <div style={{width: '900px', margin: '0 auto'}}>
+                    <div style={{width: '900px', margin: '0 auto'}}>
                     <p style={{
-                      width: '900px',
-                      textAlign: 'center',
-                      background: '#ffffff',
-                      padding: '40px 0',
-                      color: '#bbb',
-                      fontSize: '16px'
+                        width: '900px',
+                        textAlign: 'center',
+                        background: '#ffffff',
+                        padding: '40px 0',
+                        color: '#bbb',
+                        fontSize: '16px'
                     }}>您的个人信息尚未完善,请填写后继续投资。</p>
                     <IndexButton {...this.props.getsProfile.Complete} changeMessage={this.changeMessage} />
                   </div>
 
                 }
 
-                <div style={{wordBreak:'break-all'}}>{JSON.stringify(this.props.getsProfile.base_profile)}</div>
+                <div style={{wordBreak: 'break-all'}}>{JSON.stringify(this.props.getsProfile.base_profile)}</div>
         </div>
         )
     }
