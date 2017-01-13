@@ -2,8 +2,8 @@
  * Created by robot on 2016/12/22.
  */
 import React from 'react';
-
 import {Modal, Button, Row, Col} from 'antd';
+import {updateProfile} from '../../Redux/actions/index'
 import BankInformation from '../../view/BankInformation'
 
 
@@ -32,6 +32,8 @@ class BankPlate extends React.Component {
     this.setState({
       visible: false,
     });
+    const {dispatch} = this.props
+    dispatch(updateProfile(this.props.getsProfile.base_profile, this.success))
   }
 
   render() {

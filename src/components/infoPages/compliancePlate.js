@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {updateProfile} from '../../Redux/actions/index'
 import {Modal, Button, Row, Col} from 'antd';
 import ComplianceReview from '../../view/ComplianceReview'
 
@@ -29,6 +29,8 @@ class CompliancePlate extends React.Component {
     this.setState({
       visible: false,
     });
+    const {dispatch} = this.props
+    dispatch(updateProfile(this.props.getsProfile.base_profile, this.success))
   }
 
   render() {

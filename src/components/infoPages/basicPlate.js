@@ -1,5 +1,6 @@
 import React from 'react';
 import {Modal, Button, Row, Col} from 'antd';
+import {updateProfile} from '../../Redux/actions/index'
 import BasicInformation from '../../view/BasicInformation'
 
 
@@ -32,7 +33,8 @@ class BasicPlate extends React.Component {
         this.setState({
             visible: false,
         });
-    }
+      const {dispatch} = this.props
+      dispatch(updateProfile(this.props.getsProfile.base_profile, this.success))    }
 
 
     render() {
