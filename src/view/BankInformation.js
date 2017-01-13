@@ -329,7 +329,7 @@ class BankInformation extends React.Component {
             {this.state.size == 'NON_US' ? <BanknoUSA {...this.props} getFieldDecorator={this.props.form} /> :
                 <BankUSA {...this.props} getFieldDecorator={this.props.form} />}
 
-            {this.props.single == false ?
+            {this.props.getsProfile.Complete == false ?
 
                 <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
             <Col span={3} offset={6}>
