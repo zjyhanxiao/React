@@ -84,7 +84,7 @@ const IndexButton = React.createClass({
                 <Modal title="" visible={this.state.visible}
                        onOk={this.handleOk} closable={false} footer={''} width={932}>
 
-                  <Indexbar {...this.state.pages} />
+                  <Indexbar {...this.state.pages} {...this.props} />
                   <IdentityConfirmation {...this.state.pages} changeIndex={this.changeIndex} />
                   <BasicInformation {...this.state.pages} changeIndex={this.changeIndex} />
                   <AddressInformation {...this.state.pages} changeIndex={this.changeIndex} />
