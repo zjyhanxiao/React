@@ -14,8 +14,8 @@ export const isComplete = () => {
             data: '',
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": "3952a10e64671c9995367254766bbfa5",
-                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+                "mx_token": "7f23a1447d1093661b84972fbc3845aa",
+                "mx_secret": "bf89a88d6fa2434a83de33d6a0cf3a51"
             },
 
             success: json => dispatch(isCompleteSuccess(json))
@@ -41,8 +41,8 @@ export const getProduct = (id) => {
             data: {product_id: id},
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": "3952a10e64671c9995367254766bbfa5",
-                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+                "mx_token": "7f23a1447d1093661b84972fbc3845aa",
+                "mx_secret": "bf89a88d6fa2434a83de33d6a0cf3a51"
             },
 
             success: json => dispatch(getProductSuccess(json))
@@ -108,8 +108,8 @@ export const getCountry = (data) => {
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": "3952a10e64671c9995367254766bbfa5",
-                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+                "mx_token": "7f23a1447d1093661b84972fbc3845aa",
+                "mx_secret": "bf89a88d6fa2434a83de33d6a0cf3a51"
             },
 
             success: json => dispatch(getCountrySuccess(json))
@@ -128,8 +128,8 @@ export const getState = (data) => {
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": "3952a10e64671c9995367254766bbfa5",
-                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+                "mx_token": "7f23a1447d1093661b84972fbc3845aa",
+                "mx_secret": "bf89a88d6fa2434a83de33d6a0cf3a51"
             },
 
             success: json => dispatch(getStateSuccess(json))
@@ -148,8 +148,8 @@ export const getCity = (data) => {
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": "3952a10e64671c9995367254766bbfa5",
-                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+                "mx_token": "7f23a1447d1093661b84972fbc3845aa",
+                "mx_secret": "bf89a88d6fa2434a83de33d6a0cf3a51"
             },
 
             success: json => dispatch(getCitySuccess(json))
@@ -168,8 +168,8 @@ export const getCounty = (data) => {
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": "3952a10e64671c9995367254766bbfa5",
-                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+                "mx_token": "7f23a1447d1093661b84972fbc3845aa",
+                "mx_secret": "bf89a88d6fa2434a83de33d6a0cf3a51"
             },
 
             success: json => dispatch(getCountySuccess(json))
@@ -188,8 +188,8 @@ export const getIndustry = (data) => {
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": "3952a10e64671c9995367254766bbfa5",
-                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+                "mx_token": "7f23a1447d1093661b84972fbc3845aa",
+                "mx_secret": "bf89a88d6fa2434a83de33d6a0cf3a51"
             },
 
             success: json => dispatch(getIndustrySuccess(json))
@@ -215,8 +215,8 @@ export const getOccupation = (data) => {
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": "3952a10e64671c9995367254766bbfa5",
-                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+                "mx_token": "7f23a1447d1093661b84972fbc3845aa",
+                "mx_secret": "bf89a88d6fa2434a83de33d6a0cf3a51"
             },
 
             success: json => dispatch(getOccupationSuccess(json))
@@ -243,8 +243,8 @@ export const fetchPosts = () => {
             data: '',
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": "3952a10e64671c9995367254766bbfa5",
-                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+                "mx_token": "7f23a1447d1093661b84972fbc3845aa",
+                "mx_secret": "bf89a88d6fa2434a83de33d6a0cf3a51"
             },
 
             success: json => dispatch(receivePosts(json))
@@ -290,8 +290,8 @@ export const updateProfile = (data, success) => {
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": "3952a10e64671c9995367254766bbfa5",
-                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+                "mx_token": "7f23a1447d1093661b84972fbc3845aa",
+                "mx_secret": "bf89a88d6fa2434a83de33d6a0cf3a51"
             },
 
             success: function (res) {
@@ -312,8 +312,8 @@ export const updateSignature = (data, success) => {
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": "3952a10e64671c9995367254766bbfa5",
-                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+                "mx_token": "7f23a1447d1093661b84972fbc3845aa",
+                "mx_secret": "bf89a88d6fa2434a83de33d6a0cf3a51"
             },
 
             success: function (res) {
@@ -333,8 +333,8 @@ export const createOrder = (data, success) => {
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": "3952a10e64671c9995367254766bbfa5",
-                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+                "mx_token": "7f23a1447d1093661b84972fbc3845aa",
+                "mx_secret": "bf89a88d6fa2434a83de33d6a0cf3a51"
             },
 
             success: function (res) {

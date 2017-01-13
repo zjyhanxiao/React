@@ -34,8 +34,8 @@ class ConfirmInvestment extends React.Component {
         let data = {}
         data.product_id = this.props.getsProfile.Product.product_id
         data.invest_amount = this.props.getsProfile.invest_amount
-        data.mx_token=cookie.load('mx_token')||'3952a10e64671c9995367254766bbfa5'
-        data.mx_secret=cookie.load('mx_secret')||'50e481d3822b00d5b520d07bf3de826b'
+        data.mx_token=cookie.load('mx_token')||'7f23a1447d1093661b84972fbc3845aa'
+        data.mx_secret=cookie.load('mx_secret')||'bf89a88d6fa2434a83de33d6a0cf3a51'
         dispatch(createOrder(data, this.success))
     }
 
