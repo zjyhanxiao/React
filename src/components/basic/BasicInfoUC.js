@@ -74,6 +74,7 @@ class BasicInfoUC extends React.Component {
                   wrapperCol={{span: 14}}
               >
                 {getFieldDecorator('date_of_birth', {
+                  initialValue: this.props.getsProfile.base_profile.base_info.date_of_birth||'',
                     rules: [{type: 'object', required: true, message: '请输入日期!'}],
                 })(
                     <DatePicker size="large" style={{width: 240}}></DatePicker>
@@ -88,7 +89,8 @@ class BasicInfoUC extends React.Component {
                   wrapperCol={{span: 14}}
               >
                 {getFieldDecorator('country_of_birth', {
-                    initialValue: '中国',
+
+                    initialValue: this.props.getsProfile.base_profile.base_info.country_of_birth||'',
                     rules: [{
                         type: 'string',
                         required: true,
@@ -133,7 +135,7 @@ class BasicInfoUC extends React.Component {
                       wrapperCol={{span: 14}}
                   >
                     {getFieldDecorator('nationality', {
-                        initialValue: '中国',
+                        initialValue: this.props.getsProfile.base_profile.base_info.nationality||'',
                         rules: [{
                             type: 'string',
                             required: true,
@@ -163,6 +165,7 @@ class BasicInfoUC extends React.Component {
                   wrapperCol={{span: 14}}
               >
                 {getFieldDecorator('industry', {
+                  initialValue: this.props.getsProfile.base_profile.base_info.industry||'',
                     rules: [{
                         type: 'string',
                         required: true,
@@ -184,6 +187,7 @@ class BasicInfoUC extends React.Component {
                   wrapperCol={{span: 14}}
                   offse>
                 {getFieldDecorator('occupation', {
+                  initialValue: this.props.getsProfile.base_profile.base_info.occupation||'',
                     rules: [{
                         type: 'string',
                         required: true,
@@ -210,6 +214,7 @@ class BasicInfoUC extends React.Component {
                     wrapperCol={{span: 14}}
                 >
                   {getFieldDecorator('source_of_capital', {
+                    initialValue: this.props.getsProfile.base_profile.base_info.source_of_capital||'',
                       rules: [{
                           type: 'string',
                           required: true,
