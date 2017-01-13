@@ -26,6 +26,7 @@ class Identity extends React.Component {
 
 
     changeType = (e) => {
+        const {dispatch} = this.props
         let data = this.state.pages_needed.investor_type
         this.setState({
             can_next: true,
@@ -41,21 +42,31 @@ class Identity extends React.Component {
             investor_type = 2
             country = '美国'
             address_type = 'NON_CN'
+            dispatch(changeInvestorType('address_non_cn', {
+                ...this.props.getsProfile.base_profile.address_non_cn,
+                'country': country
+            }))
         }
         if (e.target.value == '2' && state.cn == '1') {
             investor_type = 1
             country = '中国'
             address_type = 'CN'
+            dispatch(changeInvestorType('address_cn', {
+                ...this.props.getsProfile.base_profile.address_cn,
+                'country': country
+            }))
         }
         if (e.target.value == '2' && state.cn == '2') {
             investor_type = 99
             country = '香港'
             address_type = 'NON_CN'
+            dispatch(changeInvestorType('address_non_cn', {
+                ...this.props.getsProfile.base_profile.address_non_cn,
+                'country': country
+            }))
         }
         if (investor_type != null && investor_type != undefined) {
-            const {dispatch} = this.props
             dispatch(changeInvestorType('investor_type', investor_type))
-            dispatch(changeInvestorType('country', country))
             dispatch(changeInvestorType('address_type', address_type))
         }
         e.preventDefault();
@@ -63,6 +74,7 @@ class Identity extends React.Component {
 
 
     changeUs = (e) => {
+        const {dispatch} = this.props
         let data = this.state.pages_needed.investor_type
         this.setState({
             can_next: true,
@@ -73,22 +85,25 @@ class Identity extends React.Component {
                 }
             }
         })
-        let investor_type, country,address_type, state = this.state.pages_needed.investor_type
+        let investor_type, country, address_type, state = this.state.pages_needed.investor_type
         if (state.type == '1' && e.target.value == '1') {
             investor_type = 2
             country = '美国'
             address_type = 'NON_CN'
+            dispatch(changeInvestorType('address_non_cn', {
+                ...this.props.getsProfile.base_profile.address_non_cn,
+                'country': country
+            }))
         }
         if (investor_type != null && investor_type != undefined) {
-            const {dispatch} = this.props
             dispatch(changeInvestorType('investor_type', investor_type))
-            dispatch(changeInvestorType('country', country))
             dispatch(changeInvestorType('address_type', address_type))
         }
         e.preventDefault();
     }
 
     changeCn = (e) => {
+        const {dispatch} = this.props
         let data = this.state.pages_needed.investor_type
         this.setState({
             can_next: true,
@@ -99,21 +114,27 @@ class Identity extends React.Component {
                 }
             }
         })
-        let investor_type, country,address_type, state = this.state.pages_needed.investor_type
+        let investor_type, country, address_type, state = this.state.pages_needed.investor_type
         if (state.type == '2' && e.target.value == '1') {
             investor_type = 1
             country = '中国'
             address_type = 'CN'
+            dispatch(changeInvestorType('address_cn', {
+                ...this.props.getsProfile.base_profile.address_cn,
+                'country': country
+            }))
         }
         if (state.type == '2' && e.target.value == '2') {
             investor_type = 99
             country = '香港'
             address_type = 'NON_CN'
+            dispatch(changeInvestorType('address_non_cn', {
+                ...this.props.getsProfile.base_profile.address_non_cn,
+                'country': country
+            }))
         }
         if (investor_type != null && investor_type != undefined) {
-            const {dispatch} = this.props
             dispatch(changeInvestorType('investor_type', investor_type))
-            dispatch(changeInvestorType('country', country))
             dispatch(changeInvestorType('address_type', address_type))
         }
         e.preventDefault();
@@ -123,7 +144,6 @@ class Identity extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
-            console.log(this.props)
             if (!err) {
                 console.log('Received values of form: ', JSON.stringify(values));
                 if (this.props.getsProfile.base_profile.investor_type == 1) {
