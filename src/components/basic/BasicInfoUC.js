@@ -45,7 +45,7 @@ class BasicInfoUC extends React.Component {
         };
         if (this.props.getsProfile.Occupation != null) {
             occupationData = this.props.getsProfile.Occupation.map((item) => <Option key={item.nameEn+item.id}
-                                                                         value={item.nameEn + '%%' + item.nameCn}>{item.nameCn}</Option>)
+                                                                         value={item.nameCn}>{item.nameCn}</Option>)
         }
 
         return (
@@ -88,7 +88,7 @@ class BasicInfoUC extends React.Component {
                   wrapperCol={{span: 14}}
               >
                 {getFieldDecorator('country_of_birth', {
-                    initialValue: 'China',
+                    initialValue: '中国',
                     rules: [{
                         type: 'string',
                         required: true,
