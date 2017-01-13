@@ -15,12 +15,16 @@ class AddressPublic extends React.Component {
   constructor() {
     super();
     this.state = {
-      profile:{}
+      profile:{},
+      fileTYPE:'drive'
     }
   }
 
   handleChange=(value)=> {
     console.log(`selected ${value}`);
+    this.setState({
+      fileTYPE:value
+    })
   }
 
   handleSubmit(e) {
@@ -54,7 +58,7 @@ class AddressPublic extends React.Component {
           <Row style={{paddingTop: '30px'}}>
             <Col span={3} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体'}}>地址证明上传</h2></Col>
             <Col span={10} offset={1}><p style={{color: '#ff6600', fontFamily: '宋体', marginTop: '2px'}}>
-              {this.props.getsProfile.base_profile.file_type == 'bill'?
+              {this.state.fileTYPE == 'bill'?
                 '你的账单必须包含姓名与地址，并且账单日起为三个月内'
                 :
                 ''
@@ -71,6 +75,7 @@ class AddressPublic extends React.Component {
               wrapperCol={{span: 14}}
             >
               {getFieldDecorator('file_type', {
+                initialValue:'drive',
                 rules: [{
                   type: 'string',
                   required: true,
@@ -79,7 +84,7 @@ class AddressPublic extends React.Component {
               })(
                 //<Cascader options={residences} />
                 <Select size="large" style={{width: 240}} onChange={this.handleChange}>
-                  <Option value="drive ">美国驾照 （推荐选项）</Option>
+                  <Option value="drive">美国驾照 （推荐选项）</Option>
                   <Option value="bill">银行、水电费、网络或电话账单</Option>
                 </Select>
               )}
@@ -88,11 +93,11 @@ class AddressPublic extends React.Component {
           <Col span={12}>
             <FormItem
               {...formItemLayout}
-              label={this.props.getsProfile.base_profile.file_type=='bill'?'账单日期':'有效期至'}
+              label={this.state.fileTYPE=='bill'?'账单日期':'有效期至'}
               labelCol={{span: 4,offset: 2}}
               wrapperCol={{span: 14}}
             >
-              {getFieldDecorator(this.props.getsProfile.base_profile.file_type=='bill'?'bill_expire_date':'driving_license_expire_date', {
+              {getFieldDecorator(this.state.fileTYPE=='bill'?'bill_expire_date':'driving_license_expire_date', {
                 rules: [{ type: 'object', required: true, message: '请输入日期!' }],
               })(
                 <DatePicker size="large" style={{width: 240}}></DatePicker>
@@ -104,7 +109,7 @@ class AddressPublic extends React.Component {
             <Row style={{paddingTop: '30px'}}>
                 <Col span={8} offset={8}>
                   <FormItem style={{width: 346, margin: '0 auto'}}>
-                    {getFieldDecorator(this.props.getsProfile.base_profile.file_type=='bill'?'bill_url':'driving_license_url', {
+                    {getFieldDecorator(this.state.fileTYPE=='bill'?'bill_url':'driving_license_url', {
                       initialValue: this.props.passport_photo,
                       rules: [{required: false, message: '请上传证件!'}]
                     })(
