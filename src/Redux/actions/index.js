@@ -358,7 +358,6 @@ export const signature = (key,val) => {
 }
 // 投资金额
 export const investAmount = (val) => {
-    console.log(val)
     return {
         type: types.INVEST_AMOUNT,
         val: val
