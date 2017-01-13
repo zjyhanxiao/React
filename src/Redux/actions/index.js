@@ -285,13 +285,17 @@ export const updateProfile = (data, success) => {
     return dispatch => {
         $.ajax({
             type: 'post',
-            url: baseUrl + '/web/invest/user_info_confirm',
+            url: 'http://192.168.1.106:8001/web/invest/user_info_confirm',
+            // baseUrl + '/web/invest/user_info_confirm',
             // url: 'https://api.meixinglobal.com/web/profile/update',
+            //"mx_token": "3952a10e64671c9995367254766bbfa5",
+            //"mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": "3952a10e64671c9995367254766bbfa5",
-                "mx_secret": "50e481d3822b00d5b520d07bf3de826b"
+                "mx_token": "7b751a642ece82851809cf110899b810",
+                "mx_secret": "4cc13e901f3e506f1cd99acb4cb5dfdc"
             },
 
             success: function (res) {
