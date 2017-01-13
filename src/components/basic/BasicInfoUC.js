@@ -132,7 +132,7 @@ class BasicInfoUC extends React.Component {
                       wrapperCol={{span: 14}}
                   >
                     {getFieldDecorator('nationality', {
-                        initialValue: 'China',
+                        initialValue: '中国',
                         rules: [{
                             type: 'string',
                             required: true,
