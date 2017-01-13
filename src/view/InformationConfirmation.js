@@ -62,7 +62,7 @@ class InformationConfirmation extends React.Component {
     componentWillMount() {
         const {dispatch} = this.props
         const product_id=getUrlParam('product_id')
-        // dispatch(isComplete())
+        dispatch(isComplete())
 
         dispatch(fetchPosts())
         dispatch(getProduct(product_id))

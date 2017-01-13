@@ -28,6 +28,7 @@ class CompliancePublic extends React.Component {
   onChange = (e) => {
     this.setState({ a: e.target.checked });
     console.log(e.target.checked)
+
   }
 
   Change = (e) => {
@@ -165,6 +166,9 @@ class CompliancePublic extends React.Component {
           wrapperCol={{span: 20,offset:2}}
         >
           {getFieldDecorator('with_spouse', {
+            valuePropName: '',
+            initialValue: false,
+            defaultChecked:false
           })(
             <Checkbox style={{color:'#223976'}} onChange={this.onChange}>我的审查资料包括配偶信息</Checkbox>
           )}

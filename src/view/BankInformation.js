@@ -81,7 +81,7 @@ class BankInformation extends React.Component {
                         data.base_info.source_of_capital = this.props.getsProfile.base_profile.source_of_capital || '';
 
                         data.address_cn = {}
-                        var country = this.props.getsProfile.base_profile.country.split('%%')
+                        var country = this.props.getsProfile.base_profile.country
                         data.address_cn.city = this.props.getsProfile.base_profile.city || '';
                         data.address_cn.country = this.props.getsProfile.base_profile.country || '';
                         data.address_cn.detail = this.props.getsProfile.base_profile.detail || '';
@@ -240,12 +240,13 @@ class BankInformation extends React.Component {
                     }
 
                      ****************************************************************/
-                    console.log(data)
+                    console.log(this.props.getsProfile.base_profile)
 
                     this.props.changeMessage(e)
                     const {dispatch} = this.props
-                    dispatch(updateProfile(data, this.success))
+                    dispatch(updateProfile(this.props.getsProfile.base_profile, this.success))
                     this.props.handleOk(e);
+                    this.props.getsProfile.Complete == true
                 }
                 /**/
             }
@@ -328,7 +329,7 @@ class BankInformation extends React.Component {
             {this.state.size == 'NON_US' ? <BanknoUSA {...this.props} getFieldDecorator={this.props.form} /> :
                 <BankUSA {...this.props} getFieldDecorator={this.props.form} />}
 
-            {!this.props.single ?
+            {this.props.single == false ?
 
                 <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
             <Col span={3} offset={6}>
@@ -398,7 +399,7 @@ class BankInformation extends React.Component {
                           background: '#223976',
                           color: '#fff',
                           fontSize: '18px'
-                      }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)}
+                      }} type="primary" htmlType="submit" onClick={this.props.handleCancel}
                               size="large">确定</Button>
                     </FormItem>
                   </Col>

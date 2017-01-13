@@ -9,8 +9,8 @@ import Basicpassport from '../components/basic/Basicpassport'
 const FormItem = Form.Item;
 
 class BasicInformation extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
     }
 
     handleSubmit(e) {
@@ -119,7 +119,7 @@ class BasicInformation extends React.Component {
                                            getFieldDecorator={this.props.form} />
                     }
 
-                    {!this.props.single ?
+                  {this.props.single ==false ?
                         <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
             <Col span={3} offset={6}>
               <Button style={{
@@ -167,7 +167,7 @@ class BasicInformation extends React.Component {
                     background: '#223976',
                     color: '#fff',
                     fontSize: '18px'
-                }} type="primary" htmlType="submit" name="third" onClick={this.handleSubmit.bind(this)}
+                }} type="primary" htmlType="submit" name="third" onClick={this.props.handleCancel}
                         size="large">确定</Button>
               </FormItem>
             </Col>

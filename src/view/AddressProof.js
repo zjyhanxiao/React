@@ -78,7 +78,7 @@ class AddressInformation extends React.Component {
 
 
 
-                    {!this.props.single?
+                    {this.props.single ==false ?
                         <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
             <Col span={3} offset={6}>
               <Button style={{
@@ -126,7 +126,7 @@ class AddressInformation extends React.Component {
                     background: '#223976',
                     color: '#fff',
                     fontSize: '18px'
-                }} type="primary" htmlType="submit" name="fourth" onClick={this.handleSubmit.bind(this)} size="large">确定</Button>
+                }} type="primary" htmlType="submit" name="fourth" onClick={this.props.handleCancel} size="large">确定</Button>
               </FormItem>
             </Col>
           </Row>

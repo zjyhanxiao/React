@@ -49,12 +49,11 @@ class ComplianceSpouse extends React.Component {
 
 
     const prefixSelector = getFieldDecorator('prefix', {
-      initialValue: '86',
+      initialValue: '+86',
     })(
       <Select className="icp-selector" onChange={this.phone}>
-        <Option value="86">中国</Option>
-        <Option value="1">香港</Option>
-        <Option value="2">美国</Option>
+        <Option value="86">+86</Option>
+        <Option value="1">+1</Option>
       </Select>
     );
 
@@ -114,7 +113,7 @@ class ComplianceSpouse extends React.Component {
                 wrapperCol={{span: 14}}
               >
                 {getFieldDecorator('phone', {
-                  rules: [{ required: true, message: 'Please input your phone number!' }],
+                  rules: [{ required: true, message: '请输入您配偶的电话号码！' }],
                 })(
                   <Input addonBefore={prefixSelector} style={{width: 170}}/>
                 )}

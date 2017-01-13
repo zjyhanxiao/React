@@ -119,7 +119,7 @@ class ComplianceReview extends React.Component {
 
           <CompliancePublic {...this.props}  getFieldDecorator={this.props.form} />
 
-            {!this.props.is_single?
+            {this.props.is_single == false ?
 
                 <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
             <Col span={3} offset={6}>
@@ -172,7 +172,7 @@ class ComplianceReview extends React.Component {
                     background: '#223976',
                     color: '#fff',
                     fontSize: '18px'
-                }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">确定</Button>
+                }} type="primary" htmlType="submit" onClick={this.props.handleCancel} size="large">确定</Button>
               </FormItem>
             </Col>
           </Row>
