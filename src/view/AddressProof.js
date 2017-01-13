@@ -69,9 +69,9 @@ class AddressInformation extends React.Component {
                   }
                   {
                     this.props.getsProfile.base_profile.investor_type==1?
-                      <AddressChina {...this.props} getFieldDecorator={this.props.form} disabledDate={this.disabledDate} expire_date={this.expire_date} />
+                      <AddressChina {...this.props} getFieldDecorator={this.props.form} />
                       :
-                      <AddressOther {...this.props} getFieldDecorator={this.props.form} disabledDate={this.disabledDate} expire_date={this.expire_date} />
+                      <AddressOther {...this.props} getFieldDecorator={this.props.form} />
                   }
 
 
