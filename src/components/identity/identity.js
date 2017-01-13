@@ -36,23 +36,27 @@ class Identity extends React.Component {
                 }
             }
         })
-        let investor_type, country, state = this.state.pages_needed.investor_type
+        let investor_type, country, address_type, state = this.state.pages_needed.investor_type
         if (e.target.value == '1' && state.us == '1') {
             investor_type = 2
             country = '美国'
+            address_type = 'NON_CN'
         }
         if (e.target.value == '2' && state.cn == '1') {
             investor_type = 1
             country = '中国'
+            address_type = 'CN'
         }
         if (e.target.value == '2' && state.cn == '2') {
             investor_type = 99
             country = '香港'
+            address_type = 'NON_CN'
         }
         if (investor_type != null && investor_type != undefined) {
             const {dispatch} = this.props
             dispatch(changeInvestorType('investor_type', investor_type))
             dispatch(changeInvestorType('country', country))
+            dispatch(changeInvestorType('address_type', address_type))
         }
         e.preventDefault();
     }
@@ -69,15 +73,17 @@ class Identity extends React.Component {
                 }
             }
         })
-        let investor_type, country, state = this.state.pages_needed.investor_type
+        let investor_type, country,address_type, state = this.state.pages_needed.investor_type
         if (state.type == '1' && e.target.value == '1') {
             investor_type = 2
             country = '美国'
+            address_type = 'NON_CN'
         }
         if (investor_type != null && investor_type != undefined) {
             const {dispatch} = this.props
             dispatch(changeInvestorType('investor_type', investor_type))
             dispatch(changeInvestorType('country', country))
+            dispatch(changeInvestorType('address_type', address_type))
         }
         e.preventDefault();
     }
@@ -93,19 +99,22 @@ class Identity extends React.Component {
                 }
             }
         })
-        let investor_type, country, state = this.state.pages_needed.investor_type
+        let investor_type, country,address_type, state = this.state.pages_needed.investor_type
         if (state.type == '2' && e.target.value == '1') {
             investor_type = 1
             country = '中国'
+            address_type = 'CN'
         }
         if (state.type == '2' && e.target.value == '2') {
             investor_type = 99
             country = '香港'
+            address_type = 'NON_CN'
         }
         if (investor_type != null && investor_type != undefined) {
             const {dispatch} = this.props
             dispatch(changeInvestorType('investor_type', investor_type))
             dispatch(changeInvestorType('country', country))
+            dispatch(changeInvestorType('address_type', address_type))
         }
         e.preventDefault();
     }
@@ -119,11 +128,11 @@ class Identity extends React.Component {
                 console.log('Received values of form: ', JSON.stringify(values));
                 if (this.props.getsProfile.base_profile.investor_type == 1) {
                     const {dispatch} = this.props
-                    dispatch(getState({country:this.props.getsProfile.base_profile.country}))
+                    dispatch(getState({country: this.props.getsProfile.base_profile.country}))
                 }
                 if (this.props.getsProfile.base_profile.investor_type == 2) {
                     const {dispatch} = this.props
-                    dispatch(getState({country:this.props.getsProfile.base_profile.country}))
+                    dispatch(getState({country: this.props.getsProfile.base_profile.country}))
                 }
                 this.props.changeIndex(e)
                 // const { dispatch } = this.props

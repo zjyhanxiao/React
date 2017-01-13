@@ -142,16 +142,37 @@ class AddressInformation extends React.Component {
 
 AddressInformation = Form.create({
     onFieldsChange(props, changedFields) {
-        console.log(JSON.stringify(changedFields))
         for (let i in changedFields) {
             let key = changedFields[i].name
             let val = changedFields[i].value
-            console.log(val)
             if (val != undefined && val != '' && val != null) {
-                if (key == 'id_card_expire_date') {
+                if (key == 'id_card_expire_date'||key == 'bill_expire_date'||key == 'driving_license_expire_date') {
                     let val = changedFields[i].value.format('YYYY-MM-DD')
                     props.dispatch(saveFields(key, val));
-                } else {
+                }else if(props.getsProfile.base_profile.address_type=='NON_CN'){
+                    if(
+                        key=='city'||
+                        key=='country'||
+                        key=='line1'||
+                        key=='line2'||
+                        key=='postal_code'||
+                        key=='region'
+                    ){
+                        props.dispatch(saveFields('base_info', {...props.getsProfile.base_profile.address_non_cn, [key]: val}));
+                    }
+                }else if(props.getsProfile.base_profile.address_type=='CN'){
+                    if(
+                        key=='city'||
+                        key=='country'||
+                        key=='detail'||
+                        key=='district'||
+                        key=='postal_code'||
+                        key=='region'
+                    ){
+                        props.dispatch(saveFields('base_info', {...props.getsProfile.base_profile.address_cn, [key]: val}));
+                    }
+                }
+                else {
                     props.dispatch(saveFields(key, val));
                 }
             }
