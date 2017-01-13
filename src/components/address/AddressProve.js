@@ -50,7 +50,7 @@ class AddressProve extends React.Component {
             <Row>
               <Col span={20} offset={2}><p
                   style={{color: '#ff6600', fontFamily: '宋体'}}>
-                {this.props.getsProfile.base_profile.investor_type == 1?
+                {data.investor_type == 1?
                 '请上传您的中国身份证照片或扫描文件作为您的地址证明。'
                   :
                   '请上传银行、水电费、网络或电话账单照片或扫描文件作为您的地址证明，长电脑上必须包含姓名与地址，并且账单日起为3个月以内。'
@@ -61,11 +61,11 @@ class AddressProve extends React.Component {
           <Row>
             <FormItem
                 {...formItemLayout}
-                label={this.props.getsProfile.base_profile.investor_type == 1?'账单日期':'有效期至'}
+                label={data.investor_type == 1?'账单日期':'有效期至'}
                 labelCol={{span: 2, offset: 8}}
                 wrapperCol={{span: 12}}
             >
-              {getFieldDecorator(this.props.getsProfile.base_profile.investor_type == 1?'id_card_expire_date':'bill_expire_date', {
+              {getFieldDecorator(data.investor_type == 1?'id_card_expire_date':'bill_expire_date', {
                   rules: [{type: 'object', required: true, message: '请输入日期!'}],
               })(
                   <DatePicker size="large" style={{width: 220}}></DatePicker>
@@ -76,7 +76,7 @@ class AddressProve extends React.Component {
             <Row>
                 <Col span={8} offset={8}>
                   <FormItem style={{width: 346, margin: '0 auto'}}>
-                    {getFieldDecorator(this.props.getsProfile.base_profile.investor_type == 1?'id_card_url':'bill_url', {
+                    {getFieldDecorator(data.investor_type == 1?'id_card_url':'bill_url', {
                         initialValue: data!=null&&data.id_card_url!=null?data.id_card_url:null,
                         rules: [{required: false, message: '请上传证件!'}]
                     })(

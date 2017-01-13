@@ -51,6 +51,12 @@ class BasicInformation extends React.Component {
                 offset: 6,
             },
         };
+        let passport_number=this.props.getsProfile.base_profile.passport_number
+        let passport_expire_date=this.props.getsProfile.base_profile.passport_expire_date
+        let passport_url=this.props.getsProfile.base_profile.passport_url
+        let id_card_number=this.props.getsProfile.base_profile.id_card_number
+        let id_card_expire_date=this.props.getsProfile.base_profile.id_card_expire_date
+        let id_card_url=this.props.getsProfile.base_profile.id_card_url
 
         return (
             <div style={{
@@ -65,7 +71,7 @@ class BasicInformation extends React.Component {
                           <BasicInfoH {...this.props} getFieldDecorator={this.props.form}
                                       disabledDate={this.disabledDate} expire_date={this.expire_date} />
                           :
-                          <BasicInfoUC {...this.props} getFieldDecorator={this.props.form} />
+                          <BasicInfoUC {...this.props}  getFieldDecorator={this.props.form} />
 
                   }
 
@@ -82,9 +88,9 @@ class BasicInformation extends React.Component {
                                            numberfield: 'passport_number',
                                            validityfield: 'passport_expire_date',
                                            urlfield: 'passport_url',
-                                         numberfieldDefault: this.props.getsProfile.base_profile.passport_number||'',
-                                         validityfieldDefault:this.props.getsProfile.base_profile.passport_expire_date||'',
-                                         urlfieldDefault:this.props.getsProfile.base_profile.passport_url||'',
+                                         numberfieldDefault: passport_number||'',
+                                         validityfieldDefault:passport_expire_date||'',
+                                         urlfieldDefault:passport_url||'',
 
                                        }}
                                        getFieldDecorator={this.props.form} />
@@ -98,9 +104,9 @@ class BasicInformation extends React.Component {
                                            numberfield: 'id_card_number',
                                            validityfield: 'id_card_expire_date',
                                            urlfield: 'id_card_url',
-                                         numberfieldDefault: this.props.getsProfile.base_profile.id_card_number||'',
-                                         validityfieldDefault:this.props.getsProfile.base_profile.id_card_expire_date||'',
-                                         urlfieldDefault:this.props.getsProfile.base_profile.id_card_url||'',
+                                         numberfieldDefault: id_card_number||'',
+                                         validityfieldDefault:id_card_expire_date||'',
+                                         urlfieldDefault:id_card_url||'',
                                        }}
                                        getFieldDecorator={this.props.form} />
                       </div>
@@ -114,7 +120,10 @@ class BasicInformation extends React.Component {
                                                typeNumber: '护照号',
                                                numberfield: 'passport_number',
                                                validityfield: 'passport_expire_date',
-                                               urlfield: 'passport_url'
+                                               urlfield: 'passport_url',
+                                               numberfieldDefault: passport_number||'',
+                                               validityfieldDefault:passport_expire_date||'',
+                                               urlfieldDefault:passport_url||'',
                                            }}
                                            getFieldDecorator={this.props.form} />
                     }

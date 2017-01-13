@@ -428,7 +428,7 @@ BankInformation = Form.create({
                         key == 'bank_name' ||
                         key == 'routing_number'
                     ) {
-                        props.dispatch(saveFields('base_info', {
+                        props.dispatch(saveFields('bank_us', {
                             ...props.getsProfile.base_profile.bank_us,
                             [key]: val
                         }));
@@ -443,8 +443,8 @@ BankInformation = Form.create({
                         key == 'middle_bank_swift_code' ||
                         key == 'swift_code'
                     ) {
-                        props.dispatch(saveFields('base_info', {
-                            ...props.getsProfile.base_profile.bank_non_us,
+                        props.dispatch(saveFields('bank_us', {
+                            ...props.getsProfile.base_profile.bank_us,
                             [key]: val
                         }));
                     }

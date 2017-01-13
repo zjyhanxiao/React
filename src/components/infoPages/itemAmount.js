@@ -19,7 +19,6 @@ class ItemAmount extends React.Component {
 
     shouldComponentUpdate(nextprops, nextState) {
         const {dispatch} = this.props
-        console.log(this.props.getsProfile.invest_amount)
         if (this.props.getsProfile.invest_amount == undefined) {
             dispatch(investAmount(nextState.product.currentVal))
         }else if ( this.props.getsProfile.invest_amount != nextState.product.currentVal) {

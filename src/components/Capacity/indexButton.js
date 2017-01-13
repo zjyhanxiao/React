@@ -85,11 +85,11 @@ const IndexButton = React.createClass({
                        onOk={this.handleOk} closable={false} footer={''} width={932}>
 
                   <Indexbar {...this.state.pages} {...this.props} />
-                  <IdentityConfirmation {...this.state.pages} {...this.props} changeIndex={this.changeIndex} />
-                  <BasicInformation {...this.state.pages} {...this.props} changeIndex={this.changeIndex} />
-                  <AddressInformation {...this.state.pages} {...this.props} changeIndex={this.changeIndex} />
-                  <BankInformation  {...this.state.pages} handleOk={this.handleOk} {...this.props} changeIndex={this.changeIndex} />
-                  <ComplianceReview {...this.state.pages} handleOk={this.handleOk} {...this.props} changeIndex={this.changeIndex} />
+                  <IdentityConfirmation {...this.state.pages} changeIndex={this.changeIndex} />
+                  <BasicInformation {...this.state.pages} changeIndex={this.changeIndex} />
+                  <AddressInformation {...this.state.pages} changeIndex={this.changeIndex} />
+                  <BankInformation  {...this.state.pages} handleOk={this.handleOk} changeIndex={this.changeIndex} />
+                  <ComplianceReview {...this.state.pages} handleOk={this.handleOk} changeIndex={this.changeIndex} />
                     <div style={{wordBreak:'break-all'}}>
                 {JSON.stringify(this.props.getsProfile.base_profile)}</div>
                 </Modal>

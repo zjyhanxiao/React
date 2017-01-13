@@ -39,6 +39,7 @@ class BasicPassport extends React.Component {
                 offset: 6,
             },
         };
+        console.log(JSON.stringify(this.props.test))
         return (
 
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
@@ -58,7 +59,7 @@ class BasicPassport extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator(this.props.test.numberfield, {
-                              initialValue: this.props.test.numberfieldDefault,
+                              initialValue: this.props.test.numberfieldDefault||'',
                                 //initialValue: 'E35456464',
                                 rules: [{
                                     required: true, message: '请输入您的护照号!',
@@ -76,7 +77,7 @@ class BasicPassport extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator(this.props.test.validityfield, {
-                              initialValue: this.props.test.validityfieldDefault,
+                              initialValue: this.props.test.validityfieldDefault!=''?moment(this.props.test.validityfieldDefault):null,
                                 rules: [{type: 'object', required: true, message: '请输入日期!'}],
                             })(
                                 <DatePicker size="large" style={{width: 240}}></DatePicker>

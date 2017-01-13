@@ -69,9 +69,9 @@ class AddressInformation extends React.Component {
                   }
                   {
                     this.props.getsProfile.base_profile.investor_type==1?
-                      <AddressChina {...this.props} getFieldDecorator={this.props.form} disabledDate={this.disabledDate} expire_date={this.expire_date} />
+                      <AddressChina {...this.props} getFieldDecorator={this.props.form} />
                       :
-                      <AddressOther {...this.props} getFieldDecorator={this.props.form} disabledDate={this.disabledDate} expire_date={this.expire_date} />
+                      <AddressOther {...this.props} getFieldDecorator={this.props.form} />
                   }
 
 
@@ -158,7 +158,7 @@ AddressInformation = Form.create({
                         key=='postal_code'||
                         key=='region'
                     ){
-                        props.dispatch(saveFields('base_info', {...props.getsProfile.base_profile.address_non_cn, [key]: val}));
+                        props.dispatch(saveFields('address_non_cn', {...props.getsProfile.base_profile.address_non_cn, [key]: val}));
                     }
                 }else if(props.getsProfile.base_profile.address_type=='CN'){
                     if(
@@ -169,7 +169,7 @@ AddressInformation = Form.create({
                         key=='postal_code'||
                         key=='region'
                     ){
-                        props.dispatch(saveFields('base_info', {...props.getsProfile.base_profile.address_cn, [key]: val}));
+                        props.dispatch(saveFields('address_cn', {...props.getsProfile.base_profile.address_cn, [key]: val}));
                     }
                 }
                 else {
