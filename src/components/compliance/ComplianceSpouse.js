@@ -117,7 +117,7 @@ class ComplianceSpouse extends React.Component {
                     rules: [{required: baseData.with_spouse?true:false,
                         message: '请输入您配偶的电话号码！'}],
                 })(
-                    <Input style={{width: 240}} />
+                    <Input style={{width: 240}} placeholder="输入格式（+86 13800138000）" />
                 )}
               </FormItem>
             </Col>
