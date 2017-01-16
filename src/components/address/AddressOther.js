@@ -39,7 +39,7 @@ class AddressOther extends React.Component {
 
     render() {
         const {getFieldDecorator} = this.props.getFieldDecorator;
-
+        const baseData=this.props.getsProfile.base_profile.address_non_cn
         if (this.props.getsProfile.Region != undefined) {
             regionData = this.props.getsProfile.Region.map((region) => <Option key={region.encode + region.id}
                                                                                value={region.encode + '%%' + region.name}>{region.name}</Option>)
@@ -92,7 +92,7 @@ class AddressOther extends React.Component {
                       wrapperCol={{span: 15}}
                   >
               {getFieldDecorator('country', {
-                  initialValue: this.props.getsProfile.country!=null?'香港':'',
+                  initialValue: baseData.country||'香港',
                   rules: [{
                       type: 'string',
                       required: true,
@@ -101,7 +101,7 @@ class AddressOther extends React.Component {
               })(
                   //<Cascader options={residences} />
                   <Select size="large" style={{}} onChange={this.changeCountry.bind(this)}>
-                      {country?country:<Option value='Hong Kong_香港'>香港</Option>}
+                      {country}
                 </Select>
               )}
             </FormItem>
@@ -116,6 +116,7 @@ class AddressOther extends React.Component {
                 wrapperCol={{span: 15}}
             >
               {getFieldDecorator('line1', {
+                  initialValue: baseData.line1||'',
                   rules: [{
                       required: true, message: '请输入您所在的地址！',
                       pattern: /^[a-z \,\.\-\']+$/i, message: "请输入英文,.-'",}],
@@ -132,6 +133,7 @@ class AddressOther extends React.Component {
                 wrapperCol={{span: 15}}
             >
               {getFieldDecorator('line2', {
+                  initialValue: baseData.line2||'',
                   rules: [{
                       required: true, message: '请输入您所在的地址！',
                       pattern: /^[a-z \,\.\-\']+$/i, message: "请输入英文,.-'",}],
@@ -148,6 +150,7 @@ class AddressOther extends React.Component {
                 wrapperCol={{span: 15}}
             >
               {getFieldDecorator('city', {
+                  initialValue: baseData.city||'',
                   rules: [{
                       required: true, message: '请输入您所在的市！',
                       pattern: /^[a-z \,\.\-\']+$/i, message: "请输入英文,.-'",}],
@@ -164,6 +167,7 @@ class AddressOther extends React.Component {
                 wrapperCol={{span: 15}}
             >
               {getFieldDecorator('region', {
+                  initialValue: baseData.region||'',
                   rules: [{
                       type: 'string',
                       required: true,
@@ -185,6 +189,7 @@ class AddressOther extends React.Component {
                 wrapperCol={{span: 15}}
             >
               {getFieldDecorator('postal_code', {
+                  initialValue: baseData.postal_code||'',
                   rules: [{
                       required: true, message: '请输入您的邮编!',
                   }],

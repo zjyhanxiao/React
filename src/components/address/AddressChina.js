@@ -51,6 +51,8 @@ class AddressChina extends React.Component {
 
     render() {
         const {getFieldDecorator} = this.props.getFieldDecorator;
+        const baseData=this.props.getsProfile.base_profile.address_cn
+        console.log(JSON.stringify(this.props.getsProfile.base_profile.address_cn))
         const formItemLayout = {
             labelCol: {span: 6},
             wrapperCol: {span: 14},
@@ -85,6 +87,7 @@ class AddressChina extends React.Component {
                  wrapperCol={{span: 14}}
              >
                {getFieldDecorator('region', {
+                   initialValue: baseData.region || '',
                    rules: [{
                        type: 'string',
                        required: true,
@@ -104,6 +107,7 @@ class AddressChina extends React.Component {
                   wrapperCol={{span: 14}}
               >
                 {getFieldDecorator('city', {
+                    initialValue: baseData.city || '',
                     rules: [{
                         type: 'string',
                         required: true,
@@ -123,6 +127,7 @@ class AddressChina extends React.Component {
                   wrapperCol={{span: 14}}
               >
                 {getFieldDecorator('district', {
+                    initialValue: baseData.district || '',
                     rules: [{
                         type: 'string',
                         required: true,
@@ -144,6 +149,7 @@ class AddressChina extends React.Component {
                   wrapperCol={{span: 14}}
               >
                 {getFieldDecorator('detail', {
+                    initialValue: baseData.detail || '',
                     rules: [{
                         required: true, message: '请填写您的详细地址!'
                     }],
@@ -158,6 +164,7 @@ class AddressChina extends React.Component {
                   wrapperCol={{span: 14}}
               >
                 {getFieldDecorator('postal_code', {
+                    initialValue: baseData.postal_code || '',
                     rules: [{
                         required: true, message: '请输入邮编!',
                     }],
