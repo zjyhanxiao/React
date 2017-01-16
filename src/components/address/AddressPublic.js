@@ -4,6 +4,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux'
+import moment from 'moment'
 import {Form, Input, Select, Row, Col, Button,DatePicker} from 'antd';
 import Uploader from '../uploader/index'
 
@@ -40,6 +41,7 @@ class AddressPublic extends React.Component {
 
   render() {
     const {getFieldDecorator} = this.props.getFieldDecorator;
+    const base_data=this.props.getsProfile.base_profile
     const formItemLayout = {
       labelCol: {span: 6},
       wrapperCol: {span: 14},
@@ -75,7 +77,7 @@ class AddressPublic extends React.Component {
               wrapperCol={{span: 14}}
             >
               {getFieldDecorator('file_type', {
-                initialValue:'drive',
+                initialValue:base_data.driving_license_url!=null?'drive':base_data.bill_url!=null?'bill':'drive',
                 rules: [{
                   type: 'string',
                   required: true,
@@ -98,6 +100,8 @@ class AddressPublic extends React.Component {
               wrapperCol={{span: 14}}
             >
               {getFieldDecorator(this.state.fileTYPE=='bill'?'bill_expire_date':'driving_license_expire_date', {
+                initialValue:this.state.fileTYPE=='bill'&&base_data.bill_expire_date?moment(base_data.bill_expire_date):this.state.fileTYPE=='drive'&&base_data.driving_license_expire_date!=null?base_data.driving_license_expire_date:''
+                  ,
                 rules: [{ type: 'object', required: true, message: '请输入日期!' }],
               })(
                 <DatePicker size="large" style={{width: 240}}></DatePicker>

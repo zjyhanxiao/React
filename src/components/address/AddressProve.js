@@ -3,6 +3,7 @@
  */
 import React from 'react'
 import {connect} from 'react-redux'
+import moment from 'moment'
 import {Form, Input, Select, Row, Col, Button, DatePicker} from 'antd'
 import Uploader from '../uploader/index'
 
@@ -66,6 +67,7 @@ class AddressProve extends React.Component {
                 wrapperCol={{span: 12}}
             >
               {getFieldDecorator(data.investor_type == 1?'id_card_expire_date':'bill_expire_date', {
+                  initialValue: data.investor_type == 1&&data.id_card_expire_date!=null?moment(data.id_card_expire_date):data.investor_type == 99&&data.bill_expire_date!=null?moment(data.bill_expire_date):'',
                   rules: [{type: 'object', required: true, message: '请输入日期!'}],
               })(
                   <DatePicker size="large" style={{width: 220}}></DatePicker>
