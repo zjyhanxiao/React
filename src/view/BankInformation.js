@@ -15,29 +15,33 @@ class BankInformation extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            size: 'NON_US',
+            bankState:false
         }
     }
 
 
     handleSizeChange = (e) => {
-        this.setState({size: e.target.value});
+        // this.setState({size: e.target.value});
+        const {dispatch} = this.props
+        dispatch(saveFields('bank_type',e.target.value))
         console.log(e.target.value)
     }
 
-
+    showBank=()=>{
+        this.setState({bankState: true});
+    }
+    hideBank=()=>{
+        this.setState({bankState: false});
+    }
     handleSubmit(e) {
-        let pro=this.props.getsProfile.base_profile
-        if(
-            pro.bank_non_us.middle_bank_address!=null&&
-            pro.bank_non_us.middle_bank_name!=null&&
-            pro.bank_non_us.middle_bank_swift_code!=null&&
-            pro.bank_non_us.middle_bank_address!=''&&
-            pro.bank_non_us.middle_bank_name!=''&&
-            pro.bank_non_us.middle_bank_swift_code!=''
-        ){
+        let pro = this.props.getsProfile.base_profile
+        if (
+            pro.bank_non_us.middle_bank_address != null &&
+            pro.bank_non_us.middle_bank_name != null &&
+            pro.bank_non_us.middle_bank_swift_code != null
+        ) {
             const {dispatch}=this.props
-            dispatch(saveFields('base_info', {
+            dispatch(saveFields('bank_non_us', {
                 ...props.getsProfile.base_profile.bank_non_us,
                 'have_middlebank': 1
             }));
@@ -49,206 +53,12 @@ class BankInformation extends React.Component {
                 if (this.props.getsProfile.base_profile.investor_type == 2) {
                     this.props.changeIndex(e)
                 } else {
-                    /*************************************************上传data***********************************************/
-                    var data = {}
-                    var country = this.props.getsProfile.base_profile.country
-                    var industry = this.props.getsProfile.base_profile.industry
-                    var occupation = this.props.getsProfile.base_profile.occupation
-                    var region = this.props.getsProfile.base_profile.region
-                    var country_of_birth = this.props.getsProfile.base_profile.country_of_birth
-                    var nationality = this.props.getsProfile.base_profile.nationality
-                    var country_of_tax_residency = this.props.getsProfile.base_profile.country_of_tax_residency
-
-                    data.first_name = this.props.getsProfile.base_profile.first_name;
-                    data.last_name = this.props.getsProfile.base_profile.last_name;
-                    data.investor_type = this.props.getsProfile.base_profile.investor_type;
-                    data.address_type = this.props.getsProfile.base_profile.investor_type == 1 ? 'CN' : 'NON_CN';
-                    data.bank_type = this.props.getsProfile.base_profile.bank_type || '';
-
-
-                    data.passport_expire_date = this.props.getsProfile.base_profile.passport_expire_date || '';
-                    data.passport_number = this.props.getsProfile.base_profile.passport_number || '';
-                    data.passport_url = this.props.getsProfile.base_profile.passport_url || '';
-                    data.base_info = {}
-                    data.base_info.date_of_birth = this.props.getsProfile.base_profile.date_of_birth || '';
-                    data.base_info.country_of_birth = country_of_birth || '';
-                    data.base_info.industry = industry || '';
-                    data.base_info.occupation = occupation || '';
-                    /**********************如果是中国大陆投资人（address_non_cn||address_cn）*******************/
-                    if (this.props.getsProfile.base_profile.investor_type == 1) {
-                        data.id_card_expire_date = this.props.getsProfile.base_profile.id_card_expire_date || '';
-                        data.id_card_url = this.props.getsProfile.base_profile.id_card_url || '';
-                        data.base_info.source_of_capital = this.props.getsProfile.base_profile.source_of_capital || '';
-
-                        data.address_cn = {}
-                        var country = this.props.getsProfile.base_profile.country
-                        data.address_cn.city = this.props.getsProfile.base_profile.city || '';
-                        data.address_cn.country = this.props.getsProfile.base_profile.country || '';
-                        data.address_cn.detail = this.props.getsProfile.base_profile.detail || '';
-                        data.address_cn.district = this.props.getsProfile.base_profile.district || '';
-                        data.address_cn.postal_code = this.props.getsProfile.base_profile.postal_code || '';
-                        data.address_cn.region = region || '';
-                    } else {
-                        data.address_non_cn = {}
-                        data.address_non_cn.city = this.props.getsProfile.base_profile.city || '';
-
-                        data.address_non_cn.country = this.props.getsProfile.base_profile.country || '';
-
-                        data.address_non_cn.line1 = this.props.getsProfile.base_profile.line1 || '';
-                        data.address_non_cn.line2 = this.props.getsProfile.base_profile.line2 || '';
-                        data.address_non_cn.postal_code = this.props.getsProfile.base_profile.postal_code || '';
-                        data.address_non_cn.region = region || '';
-                    }
-
-
-                    /********************************如果是美国投资人(accreditation)*********************
-                     if (this.props.getsProfile.base_profile.investor_type == 2) {
-                        data.base_info.ssn = this.props.getsProfile.base_profile.ssn || '';
-                        data.base_info.nationality = nationality || '';
-
-                        data.bill_expire_date = this.props.getsProfile.base_profile.bill_expire_date || '';
-                        data.bill_url = this.props.getsProfile.base_profile.bill_url || '';
-                        data.driving_license_expire_date = this.props.getsProfile.base_profile.driving_license_expire_date || '';
-                        data.driving_license_url = this.props.getsProfile.base_profile.driving_license_url || '';
-
-                        data.accreditation = {}
-                        data.accreditation.debt_amount = this.props.getsProfile.base_profile.debt_amount || '';
-                        data.accreditation.spouse_email = this.props.getsProfile.base_profile.spouse_email || '';
-                        data.accreditation.spouse_first_name = this.props.getsProfile.base_profile.spouse_first_name || '';
-                        data.accreditation.spouse_last_name = this.props.getsProfile.base_profile.spouse_last_name || '';
-                        data.accreditation.spouse_phone = this.props.getsProfile.base_profile.spouse_phone || '';
-                        data.accreditation.type = this.props.getsProfile.base_profile.type || '';
-                        data.accreditation.with_spouse = this.props.getsProfile.base_profile.with_spouse || '';
-                    }
-
-                     ********************************************************************************/
-
-                    /********************************如果是火星投资人(accreditation)**********************/
-                    if (this.props.getsProfile.base_profile.investor_type == 99) {
-                        data.base_info.nationality = nationality || '';
-                        data.base_info.source_of_capital = this.props.getsProfile.base_profile.source_of_capital || '';
-                        data.base_info.foreign_tax_number = this.props.getsProfile.base_profile.foreign_tax_number || '';
-                        data.base_info.country_of_tax_residency = country_of_tax_residency || '';
-                        data.id_card_expire_date = this.props.getsProfile.base_profile.id_card_expire_date || '';
-                        data.id_card_url = this.props.getsProfile.base_profile.id_card_url || '';
-                        data.id_card_number = this.props.getsProfile.base_profile.id_card_number || '';
-                        data.bill_expire_date = this.props.getsProfile.base_profile.bill_expire_date || '';
-                        data.bill_url = this.props.getsProfile.base_profile.bill_url || '';
-                    }
-
-                    /**********************美国银行与非美国银行(bank_us||bank_non_us)*****************/
-                    if (this.props.getsProfile.base_profile.bank_type == 'US') {
-                        data.bank_us = {}
-                        data.bank_us.account_number = this.props.getsProfile.base_profile.account_number || '';
-                        data.bank_us.account_type = this.props.getsProfile.base_profile.account_type || ''
-                        data.bank_us.bank_address = this.props.getsProfile.base_profile.bank_address || ''
-                        data.bank_us.bank_name = this.props.getsProfile.base_profile.bank_name || ''
-                        data.bank_us.routing_number = this.props.getsProfile.base_profile.routing_number || ''
-                    } else {
-
-                        data.bank_non_us = {}
-                        data.bank_non_us.account_number = this.props.getsProfile.base_profile.account_number || '';
-                        data.bank_non_us.bank_address = this.props.getsProfile.base_profile.bank_address || ''
-                        data.bank_non_us.bank_name = this.props.getsProfile.base_profile.bank_name || ''
-                        data.bank_non_us.middle_bank_address = this.props.getsProfile.base_profile.middle_bank_address || '';
-                        data.bank_non_us.middle_bank_name = this.props.getsProfile.base_profile.middle_bank_name || '';
-                        data.bank_non_us.middle_bank_swift_code = this.props.getsProfile.base_profile.middle_bank_swift_code || '';
-                        data.bank_non_us.swift_code = this.props.getsProfile.base_profile.swift_code || '';
-                    }
-
-
-                    /****************************************************************
-                     let data = {
-                      'first_name':this.props.getsProfile.base_profile.first_name,
-                      'last_name':this.props.getsProfile.base_profile.last_name,
-                      'investor_type':this.props.getsProfile.base_profile.investor_type,
-                      'address_type':this.props.getsProfile.base_profile.investor_type==1?'CN':'NON_CN',
-                      'bank_type':this.props.getsProfile.base_profile.bank_type,
-                      'passport_expire_date':this.props.getsProfile.base_profile.passport_expire_date||'',
-                      'passport_number':this.props.getsProfile.base_profile.passport_number||'',
-                      'passport_url':this.props.getsProfile.base_profile.passport_url||'',
-                      'id_card_expire_date':this.props.getsProfile.base_profile.id_card_expire_date||'',
-                      'id_card_number':this.props.getsProfile.base_profile.id_card_number||'',
-                      'id_card_url':this.props.getsProfile.base_profile.id_card_url||'',
-                      'phone':this.props.getsProfile.base_profile.phone||'',
-                      'signature':this.props.getsProfile.base_profile.signature||'',
-                      'spouse_signature':this.props.getsProfile.base_profile.spouse_signature||'',
-                      'email':this.props.getsProfile.base_profile.email||'',
-                      'bill_expire_date':this.props.getsProfile.base_profile.bill_expire_date||'',
-                      'bill_number':this.props.getsProfile.base_profile.bill_number||'',
-                      'bill_url':this.props.getsProfile.base_profile.bill_url||'',
-                      'channel_code':this.props.getsProfile.base_profile.channel_code||'',
-                      'driving_license_expire_date':this.props.getsProfile.driving_license_expire_date||'',
-                      'driving_license_number':this.props.getsProfile.base_profile.driving_license_number||'',
-                      'driving_license_url':this.props.getsProfile.base_profile.driving_license_url||'',
-
-                      'base_info':{
-                        'date_of_birth':this.props.getsProfile.base_profile.date_of_birth||'',
-                        'country_of_birth':this.props.getsProfile.base_profile.country_of_birth||'',
-                        'nationality':this.props.getsProfile.base_profile.nationality||'',
-                        'industry':this.props.getsProfile.base_profile.industry||'',
-                        'foreign_tax_number':this.props.getsProfile.base_profile.foreign_tax_number||'',
-                        'country_of_tax_residency':this.props.getsProfile.base_profile.country_of_tax_residency||'',
-                        'occupation':this.props.getsProfile.base_profile.occupation||'',
-                        'source_of_capital':this.props.getsProfile.base_profile.source_of_capital||'',
-                        'ssn':this.props.getsProfile.base_profile.ssn||'',
-                      },
-
-                      'address_cn':{
-                        'city':this.props.getsProfile.base_profile.city||'',
-                        'country':this.props.getsProfile.base_profile.country||'',
-                        'detail':this.props.getsProfile.base_profile.detail||'',
-                        'district':this.props.getsProfile.base_profile.district||'',
-                        'postal_code':this.props.getsProfile.base_profile.postal_code||'',
-                        'region':this.props.getsProfile.base_profile.region||'',
-                      },
-                      'address_non_cn':{
-                        'city':this.props.getsProfile.base_profile.city||'',
-                        'country':this.props.getsProfile.base_profile.country||'',
-                        'line1':this.props.getsProfile.base_profile.line1||'',
-                        'line2':this.props.getsProfile.base_profile.line2||'',
-                        'postal_code':this.props.getsProfile.base_profile.postal_code||'',
-                        'region':this.props.getsProfile.base_profile.region||'',
-                      },
-
-                      'bank_non_us':{
-                        'account_number':this.props.getsProfile.base_profile.account_number||'',
-                        'bank_address':this.props.getsProfile.base_profile.bank_address||'',
-                        'bank_name':this.props.getsProfile.base_profile.bank_name||'',
-                        'middle_bank_address':this.props.getsProfile.base_profile.middle_bank_address||'',
-                        'middle_bank_name':this.props.getsProfile.base_profile.middle_bank_name||'',
-                        'middle_bank_swift_code':this.props.getsProfile.base_profile.middle_bank_swift_code||'',
-                        'swift_code':this.props.getsProfile.base_profile.swift_code||''
-                      },
-                      'bank_us':{
-                        'account_number':this.props.getsProfile.base_profile.account_number||'',
-                        'account_type':this.props.getsProfile.base_profile.account_type||'',
-                        'bank_address':this.props.getsProfile.base_profile.bank_address||'',
-                        'bank_name':this.props.getsProfile.base_profile.bank_name||'',
-                        'routing_number':this.props.getsProfile.base_profile.routing_number||'',
-                      },
-                      'accreditation':{
-                        'debt_amount':this.props.getsProfile.base_profile.debt_amount||'',
-                        'spouse_email':this.props.getsProfile.base_profile.spouse_email||'',
-                        'spouse_first_name':this.props.getsProfile.base_profile.spouse_first_name||'',
-                        'spouse_last_name':this.props.getsProfile.base_profile.spouse_last_name||'',
-                        'spouse_phone':this.props.getsProfile.base_profile.spouse_phone||'',
-                        'type':this.props.getsProfile.base_profile.routing_number||'',
-                        'with_spouse':this.props.getsProfile.base_profile.routing_number||'',
-                      }
-
-                    }
-
-                     ****************************************************************/
-                    console.log(this.props.getsProfile.base_profile)
-
                     // this.props.changeMessage(e)
                     const {dispatch} = this.props
                     dispatch(updateProfile(this.props.getsProfile.base_profile, this.success))
                     this.props.handleOk(e);
                     this.props.getsProfile.Complete == true
                 }
-                /**/
             }
         });
     }
@@ -258,8 +68,8 @@ class BankInformation extends React.Component {
     }
 
     render() {
-        const size = this.state.size;
         const {getFieldDecorator} = this.props.form;
+        let base_data = this.props.getsProfile.base_profile
         const formItemLayout = {
             labelCol: {span: 6},
             wrapperCol: {span: 14},
@@ -277,7 +87,9 @@ class BankInformation extends React.Component {
                 overflow: 'hidden',
                 display: this.props.fourth == true ? 'block' : 'none'
             }}>
-        <Form horizontal>
+
+                <div style={{display:this.state.bankState?'block':'none'}} ><BankFast hideBank={this.hideBank} /></div>
+        <Form horizontal  style={{display:this.state.bankState?'none':'block'}}>
 
 
           <FormItem>
@@ -296,7 +108,7 @@ class BankInformation extends React.Component {
              label=""
          >
             {getFieldDecorator('bank_type', {
-                initialValue: "NON_US",
+                initialValue: base_data.bank_type || "NON_US",
             })(
                 <Radio.Group onChange={this.handleSizeChange} style={{width: '600px', marginLeft: '150px'}}>
                    <Radio.Button span={6} offset={5} value="NON_US" style={{
@@ -319,15 +131,8 @@ class BankInformation extends React.Component {
             )}
           </FormItem>
 
-            {/*<div className={this.state.size == '非美国银行' ? 'show' : 'hide'}>*/}
-            {/*<BanknoUSA {...this.props}  getFieldDecorator={this.props.form} />*/}
-            {/*</div>*/}
-            {/*<div className={this.state.size == '美国银行' ? 'show' : 'hide'}>*/}
-            {/*<BankUSA {...this.props}  getFieldDecorator={this.props.form} />*/}
-            {/*</div>*/}
-
-            {this.state.size == 'NON_US' ? <BanknoUSA {...this.props} getFieldDecorator={this.props.form} /> :
-                <BankUSA {...this.props} getFieldDecorator={this.props.form} />}
+            {base_data.bank_type == 'NON_US' ? <BanknoUSA {...this.props} getFieldDecorator={this.props.form} showBank={this.showBank} /> :
+                <BankUSA {...this.props} getFieldDecorator={this.props.form} showBank={this.showBank} />}
 
             {this.props.getsProfile.Complete == false ?
 
@@ -433,7 +238,7 @@ BankInformation = Form.create({
                             [key]: val
                         }));
                     }
-                }else if (props.getsProfile.base_profile.bank_type == 'NON_US') {
+                } else if (props.getsProfile.base_profile.bank_type == 'NON_US') {
                     if (
                         key == 'account_number' ||
                         key == 'bank_address' ||
