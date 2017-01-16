@@ -33,6 +33,7 @@ class BankUSA extends React.Component {
   render() {
     const size = this.state.size;
     const {getFieldDecorator} = this.props.getFieldDecorator;
+    let baseData=this.props.getsProfile.base_profile.bank_us
     const formItemLayout = {
       labelCol: {span: 6},
       wrapperCol: {span: 14},
@@ -60,6 +61,7 @@ class BankUSA extends React.Component {
                 wrapperCol={{span: 18}}
               >
                 {getFieldDecorator('bank_name', {
+                    initialValue: baseData.bank_name || '',
                   rules: [{
                     required: true, message: '请输入您的银行名称！',
                   }],
@@ -80,6 +82,7 @@ class BankUSA extends React.Component {
               wrapperCol={{span: 16}}
             >
               {getFieldDecorator('bank_address', {
+                  initialValue: baseData.bank_address || '',
                 rules: [{
                   required: true, message: '请填写您的银行地址!'
                 }],
@@ -96,6 +99,7 @@ class BankUSA extends React.Component {
             wrapperCol={{span: 16}}
           >
             {getFieldDecorator('routing_number', {
+                initialValue: baseData.routing_number || '',
               rules: [{
                 required: true, message: '请输入ABA / Routing number',
               }],
@@ -112,6 +116,7 @@ class BankUSA extends React.Component {
               wrapperCol={{span: 16}}
             >
               {getFieldDecorator('account_number', {
+                  initialValue: baseData.account_number || '',
                 rules: [{
                   required: true, message: '请输入您的银行账户名！',
                 }],
@@ -130,6 +135,7 @@ class BankUSA extends React.Component {
           wrapperCol={{span: 16}}
         >
           {getFieldDecorator('account_type', {
+              initialValue: baseData.account_type || '',
             rules: [{
               required: true, message: '请选择您的账户类型!',
             }],

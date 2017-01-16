@@ -23,6 +23,7 @@ class BanknoUSA extends React.Component {
     });
   }
   render() {
+      let baseData=this.props.getsProfile.base_profile.bank_non_us
     const {getFieldDecorator} = this.props.getFieldDecorator;
     const formItemLayout = {
       labelCol: {span: 6},
@@ -52,10 +53,9 @@ class BanknoUSA extends React.Component {
                 wrapperCol={{span: 18}}
               >
                 {getFieldDecorator('bank_name', {
+                    initialValue: baseData.bank_name || '',
                   rules: [{
                     required: true, message: '请输入您的银行名称！',
-                  } ,{
-                    validator: this.checkConfirm,
                   }],
                 })(
                   <Input type="text" size="large" style={{}}/>
@@ -74,11 +74,9 @@ class BanknoUSA extends React.Component {
               wrapperCol={{span: 16}}
             >
               {getFieldDecorator('bank_address', {
-                initialValue:'yang',
+                  initialValue: baseData.bank_address || '',
                 rules: [{
                   required: true, message: '请填写您的银行地址！'
-                }, {
-                  validator: this.checkConfirm,
                 }],
               })(
                 <Input type="textarea" style={{width: '100%',height:88,resize:'none'}} />
@@ -93,10 +91,9 @@ class BanknoUSA extends React.Component {
               wrapperCol={{span: 16}}
             >
               {getFieldDecorator('swift_code', {
+                  initialValue: baseData.swift_code || '',
                 rules: [{
                   required: true, message: '请输入SwiftCode!',
-                } ,{
-                  validator: this.checkConfirm,
                 }],
               })(
                 <Input type="text" size="large" style={{}}/>
@@ -111,10 +108,9 @@ class BanknoUSA extends React.Component {
               wrapperCol={{span: 16}}
             >
               {getFieldDecorator('account_number', {
+                  initialValue: baseData.account_number || '',
                 rules: [{
                   required: true, message: '请输入您的银行账户名!',
-                } ,{
-                  validator: this.checkConfirm,
                 }],
               })(
                 <Input type="text" size="large" style={{}}/>
@@ -141,10 +137,9 @@ class BanknoUSA extends React.Component {
             wrapperCol={{span: 20,offset:2}}
           >
             {getFieldDecorator('middle_bank_name', {
+                initialValue: baseData.middle_bank_name || '',
               rules: [{
                 required: true, message: '请输入您的指定的中间行名称！',
-              } ,{
-                validator: this.checkConfirm,
               }],
             })(
               <Input type="text" size="large" style={{}}/>
@@ -157,10 +152,9 @@ class BanknoUSA extends React.Component {
             wrapperCol={{span: 20,offset:2}}
           >
             {getFieldDecorator('middle_bank_address', {
+                initialValue: baseData.middle_bank_address || '',
               rules: [{
                 required: true, message: '请输入您的指定的中间行地址！',
-              } ,{
-                validator: this.checkConfirm,
               }],
             })(
               <Input type="textarea" size="large" style={{height:'80px',resize:'none'}}/>
@@ -173,10 +167,9 @@ class BanknoUSA extends React.Component {
             wrapperCol={{span: 20,offset:2}}
           >
             {getFieldDecorator('middle_bank_swift_code', {
+                initialValue: baseData.middle_bank_swift_code || '',
               rules: [{
                 required: true, message: '请输入中间行Swiftcode',
-              } ,{
-                validator: this.checkConfirm,
               }],
             })(
               <Input type="text" size="large" style={{}}/>
