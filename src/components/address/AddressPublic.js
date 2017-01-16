@@ -1,7 +1,3 @@
-/**
- * Created by robot on 2016/12/19.
- */
-
 import React from 'react';
 import {connect} from 'react-redux'
 import moment from 'moment'
@@ -100,7 +96,7 @@ class AddressPublic extends React.Component {
               wrapperCol={{span: 14}}
             >
               {getFieldDecorator(this.state.fileTYPE=='bill'?'bill_expire_date':'driving_license_expire_date', {
-                initialValue:this.state.fileTYPE=='bill'&&base_data.bill_expire_date?moment(base_data.bill_expire_date):this.state.fileTYPE=='drive'&&base_data.driving_license_expire_date!=null?base_data.driving_license_expire_date:''
+                initialValue:this.state.fileTYPE=='bill'&&base_data.bill_expire_date!=null?moment(base_data.bill_expire_date):this.state.fileTYPE=='drive'&&base_data.driving_license_expire_date!=null?moment(base_data.driving_license_expire_date):null
                   ,
                 rules: [{ type: 'object', required: true, message: '请输入日期!' }],
               })(
