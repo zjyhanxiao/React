@@ -32,14 +32,12 @@ class BasicPassport extends React.Component {
             labelCol: {span: 6},
             wrapperCol: {span: 14},
         };
-        const mapPropsToFields = {}
         const tailFormItemLayout = {
             wrapperCol: {
                 span: 14,
                 offset: 6,
             },
         };
-        console.log(JSON.stringify(this.props.test))
         return (
 
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
