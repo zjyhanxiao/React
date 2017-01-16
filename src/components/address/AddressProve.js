@@ -61,7 +61,7 @@ class AddressProve extends React.Component {
           <Row>
             <FormItem
                 {...formItemLayout}
-                label={data.investor_type == 1?'账单日期':'有效期至'}
+                label={data.investor_type == 1?'有效期至':'账单日期'}
                 labelCol={{span: 2, offset: 8}}
                 wrapperCol={{span: 12}}
             >

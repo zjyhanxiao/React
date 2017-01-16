@@ -2,7 +2,7 @@ import '../components/basic/BasicInfo.css'
 import React, {PropTypes} from 'react'
 import {Row, Col, Button} from 'antd'
 import {connect} from 'react-redux'
-import {isComplete, getProduct, getCountry, getIndustry, fetchPosts} from '../Redux/actions/index'
+import {isComplete, getProduct, getCountry, getIndustry, fetchPosts,getBank} from '../Redux/actions/index'
 import ItemAmount from '../components/infoPages/ItemAmount'
 import ItemName from '../components/infoPages/ItemName'
 import AmountShow from '../components/infoPages/amountShow'
@@ -68,6 +68,8 @@ class InformationConfirmation extends React.Component {
         dispatch(getProduct(product_id))
         dispatch(getCountry({}))
         dispatch(getIndustry({}))
+        dispatch(getBank({type:1}))
+        dispatch(getBank({type:2}))
     }
 
     handleSubmit(e) {

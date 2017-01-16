@@ -232,6 +232,35 @@ const getOccupationSuccess = (json) => {
     }
 }
 
+
+// 获取银行信息
+export const getBank = (data) => {
+    let url = baseUrl + '/web/invest/access_bank_dic';
+    return dispatch => {
+        $.ajax({
+            type: 'get',
+            url: url,
+            // url: 'https://api.meixinglobal.com/web/profile/update',
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "mx_token": cookie.load('mx_token'),
+                "mx_secret": cookie.load('mx_secret')
+            },
+
+            success: json => dispatch(getBankSuccess(json,data))
+
+        })
+    }
+}
+// 获取银行信息成功
+const getBankSuccess = (json,data) => {
+    return {
+        type: types.GET_BANK,
+        json,
+        data
+    }
+}
 // 获取profile信息
 export const fetchPosts = () => {
     let url = baseUrl + '/web/invest/get_user_info';
