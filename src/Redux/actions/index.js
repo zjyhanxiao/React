@@ -414,4 +414,59 @@ export const updateUploader = (path, key) => {
         key: key
     }
 }
+//  获取支付信息
+export const getPayment = ( data ) => {
+  return dispatch => {
+    $.ajax({
+      type: 'get',
+      url: 'https://gl-api2.meixincn.com/web/product/payment_list/'+data.product_id,
+      // url: 'https://gl-api2.meixincn.com/web/product/payment_list/{product_id}',
+      data: data,
+      contentType: "application/json; charset=utf-8",
+      headers: {
+        "mx_token": cookie.load('mx_token'),
+        "mx_secret": cookie.load('mx_secret')
+      },
+
+      success: json => dispatch(getPaymentSuccess(json))
+
+    })
+  }
+}
+//  获取支付信息成功
+const getPaymentSuccess = (json) => {
+  return {
+    type: types.GET_PAYMENT,
+    json
+  }
+}
+
+//  获取文档信息
+export const getDocument = ( data ) => {
+  return dispatch => {
+    $.ajax({
+      type: 'get',
+      url: 'https://gl-api2.meixincn.com/web/product_document/get',
+      // url: 'https://gl-api2.meixincn.com/web/product_document/get',,
+      data: data,
+      contentType: "application/json; charset=utf-8",
+      headers: {
+        "mx_token": cookie.load('mx_token'),
+        "mx_secret": cookie.load('mx_secret')
+      },
+
+      success: json => dispatch(getDocumentSuccess(json))
+
+    })
+  }
+}
+//  获取文档信息成功
+const getDocumentSuccess = (json) => {
+  return {
+    type: types.GET_DOCUMENT,
+    json
+  }
+}
+
+
 

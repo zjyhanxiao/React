@@ -1,10 +1,8 @@
-/**
- * Created by robot on 2016/12/22.
- */
-import React from 'react';
+
+import React, {PropTypes} from 'react';
 
 import {Row, Col, Checkbox} from 'antd';
-
+import {connect} from 'react-redux'
 
 function onChange(e) {
   console.log(`checked = ${e.target.checked}`);
@@ -13,12 +11,13 @@ function onChange(e) {
 
 class ACH extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       profile:{}
     }
   }
+
 
   render() {
     return (
@@ -33,7 +32,7 @@ class ACH extends React.Component {
             <p style={{fontWeight:'600'}}>账户名</p>
           </Col>
           <Col span={14}>
-            <p style={{}}>Yuechen Zhao</p>
+            <p> aaaa </p>
           </Col>
         </Row>
         <Row style={{marginTop:'15px'}}>
@@ -41,7 +40,7 @@ class ACH extends React.Component {
             <p style={{fontWeight:'600'}}>银行名称</p>
           </Col>
           <Col span={14}>
-            <p style={{}}>Bank of America</p>
+            <p>Bank of America</p>
           </Col>
         </Row>
         <Row style={{marginTop:'15px'}}>
@@ -49,7 +48,7 @@ class ACH extends React.Component {
             <p style={{fontWeight:'600'}}>ABA / routing #</p>
           </Col>
           <Col span={14}>
-            <p style={{}}>026009593</p>
+            <p>026009593</p>
           </Col>
         </Row>
         <Row style={{marginTop:'15px'}}>

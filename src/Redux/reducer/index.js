@@ -126,6 +126,18 @@ const getsProfile = (state = {}, action) => {
             return Object.assign({}, state, {
                 invest_amount: action.val
             });
+
+        case types.GET_PAYMENT:
+          return Object.assign({}, state, {
+            Payment: action.json.body
+          });
+
+        case types.GET_DOCUMENT:
+          return Object.assign({}, state, {
+            document: action.json.body
+          });
+
+
         default:
             return state
     }

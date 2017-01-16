@@ -16,3 +16,7 @@ export const GET_BANK='GET_BANK'   // 获取银行信息
 
 export const SIGNATURE='SIGNATURE'   // 用户签名信息
 export const INVEST_AMOUNT='INVEST_AMOUNT'   // 投资金额
+
+
+export const GET_PAYMENT='GET_PAYMENT'   // 获取支付信息
+export const GET_DOCUMENT='GET_DOCUMENT'   // 获取支付信息

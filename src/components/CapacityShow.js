@@ -4,8 +4,8 @@ import GoldenWay from '../view/GoldenWay'
 import ConfirmInvestment from '../view/ConfirmInvestment'
 
 class CapacityShow extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
         }
     }

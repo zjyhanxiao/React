@@ -1,23 +1,22 @@
 import React from 'react';
 import {Row, Col, Button} from 'antd';
 import cookie from 'react-cookie'
-import {updateProfile, saveFields, updateSignature, createOrder} from '../Redux/actions/index'
+import {updateProfile, saveFields, updateSignature, createOrder,getPayment} from '../Redux/actions/index'
 
 import ItemAmount from '../components/infoPages/ItemAmount';
 import ItemName from '../components/infoPages/ItemName';
 import Docs from '../components/infoPages/docs';
 import Signature from '../components/signature/index';
+import $ from 'jquery'
 
 
 class ConfirmInvestment extends React.Component {
 
     constructor(props) {
-        super(props);
-        this.state = {
-            a: true,
-            profile: {}
-        }
+        super(props)
     }
+
+
 
     signature(e) {
         this.props.changeP(e)
@@ -25,21 +24,24 @@ class ConfirmInvestment extends React.Component {
         data.signature = this.props.getsProfile.base_profile.signature || '';
         data.spouseSignature = this.props.getsProfile.base_profile.spouse_signature || '';
         const {dispatch} = this.props
-        dispatch(updateSignature(data, this.success(this.props)))
+        dispatch(updateSignature(data))
         // dispatch(createOrder(this.props, this.success))
+
+      console.log(this.props.getsProfile.Payment.receive_bank.bank_name)
+
     }
 
-    success(props) {
-      console.log('1')
-        const {dispatch} = props
-        let data = {}
-        console.log(this.props.getsProfile.Product.id)
-        data.product_id = this.props.getsProfile.Product.id
-        data.invest_amount = this.props.getsProfile.invest_amount
-        data.mx_token=cookie.load('mx_token')||'7f23a1447d1093661b84972fbc3845aa'
-        data.mx_secret=cookie.load('mx_secret')||'bf89a88d6fa2434a83de33d6a0cf3a51'
-        dispatch(createOrder(data, this.success))
-    }
+    // success(props) {
+    //   console.log('1')
+    //     const {dispatch} = props
+    //     let data = {}
+    //     console.log(this.props.getsProfile.Product.id)
+    //     data.product_id = this.props.getsProfile.Product.id
+    //     data.invest_amount = this.props.getsProfile.invest_amount
+    //     data.mx_token=cookie.load('mx_token')||'7f23a1447d1093661b84972fbc3845aa'
+    //     data.mx_secret=cookie.load('mx_secret')||'bf89a88d6fa2434a83de33d6a0cf3a51'
+    //     dispatch(createOrder(data, this.success))
+    // }
 
     render() {
         return (
@@ -92,10 +94,7 @@ class ConfirmInvestment extends React.Component {
           </Row>
         </div>
 
-                {this.state.a ?
-                    ''
-                    :
-                    ''}
+
 
       </div>
         );

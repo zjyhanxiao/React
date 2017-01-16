@@ -19,4 +19,6 @@
 .ant-input,.ant-select-selection{
   border-radius: 0!important;
 }
-
+.ant-checkbox-group-item{
+  display: block;
+}

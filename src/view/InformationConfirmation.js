@@ -2,7 +2,8 @@ import '../components/basic/BasicInfo.css'
 import React, {PropTypes} from 'react'
 import {Row, Col, Button} from 'antd'
 import {connect} from 'react-redux'
-import {isComplete, getProduct, getCountry, getIndustry, fetchPosts,getBank} from '../Redux/actions/index'
+import cookie from 'react-cookie'
+import {isComplete, getProduct, getCountry, getIndustry, fetchPosts,getBank,getPayment,getDocument} from '../Redux/actions/index'
 import ItemAmount from '../components/infoPages/ItemAmount'
 import ItemName from '../components/infoPages/ItemName'
 import AmountShow from '../components/infoPages/amountShow'
@@ -20,7 +21,7 @@ function getUrlParam(name) {
 }
 class InformationConfirmation extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             message: true,
             page: {
@@ -62,23 +63,30 @@ class InformationConfirmation extends React.Component {
     componentWillMount() {
         const {dispatch} = this.props
         const product_id = getUrlParam('product_id')
-        dispatch(isComplete())
 
+      let data1 = {}
+      data1.product_id = product_id,
+        data1.mx_token = cookie.load('mx_token'),
+        data1.mx_secret = cookie.load('mx_secret'),
+        dispatch(getDocument(data1))
+      dispatch(getPayment(data1))
+
+        dispatch(isComplete())
+        console.log(product_id)
         dispatch(fetchPosts())
         dispatch(getProduct(product_id))
         dispatch(getCountry({}))
         dispatch(getIndustry({}))
         dispatch(getBank({type:1}))
         dispatch(getBank({type:2}))
+
+
     }
 
     handleSubmit(e) {
-        e.preventDefault()
-        this.props.form.validateFieldsAndScroll((err, values) => {
-            if (!err) {
-                console.log('Received values of form: ', values)
-            }
-        })
+
+      this.changeMessage(e);
+
     }
 
     render() {
@@ -120,7 +128,7 @@ class InformationConfirmation extends React.Component {
                         color: '#bbb',
                         fontSize: '16px'
                     }}>您的个人信息尚未完善,请填写后继续投资。</p>
-                    <IndexButton {...this.props.getsProfile.Complete} changeMessage={this.changeMessage} />
+                    <IndexButton {...this.props.getsProfile.Complete} changeMessage={this.handleSubmit.bind(this)} />
                   </div>
 
                 }
