@@ -20,7 +20,6 @@ class BankFast extends React.Component {
         if (this.state.size !== '') {
             const {dispatch}=this.props
             let baseBank=this.props.getsProfile.Bank
-            console.log(JSON.stringify(baseBank['2'][this.state.size].bank_name_cn))
             this.props.getsProfile.base_profile.bank_type == 'US' ?
                 dispatch(saveFields('bank_us', {
                     ...this.props.getsProfile.base_profile.bank_us,
