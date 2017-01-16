@@ -63,7 +63,7 @@ class BanknoUSA extends React.Component {
               </FormItem>
             </Col>
             <Col span={3} offset={1}>
-              <Button type="primary" style={{width:'100%',height:'32px',backgroundColor:'#223976',borderRadius:'0px'}}>查找常用银行</Button>
+              <Button onClick={this.props.showBank} type="primary" style={{width:'100%',height:'32px',backgroundColor:'#223976',borderRadius:'0px'}}>查找常用银行</Button>
             </Col>
           </Row>
           <Row>
