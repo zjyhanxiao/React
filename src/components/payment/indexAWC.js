@@ -58,12 +58,7 @@ class IndexAWC extends React.Component {
 
   render() {
     return (
-      <div  style={{width:'900PX',margin:'50px auto 0',textAlign:'center'}}>
-        {/*<Tabs onChange={callback} type="card" animated={false}>*/}
-          {/*<TabPane tab="自动扣款 / ACH" key="1"><ACH></ACH></TabPane>*/}
-          {/*<TabPane tab="银行电汇 / Wire" key="2"><Wire></Wire></TabPane>*/}
-          {/*<TabPane tab="支票 / Check" key="3"><Check></Check></TabPane>*/}
-        {/*</Tabs>*/}
+      <div  style={{width:'900px',margin:'50px auto 0',textAlign:'center'}}>
 
         <div style={{overflow:'hidden'}}>
           <div className="active" style={{width:'290px',height:'60px',background:'#ffffff',float:'left',textAlign:'center',lineHeight:'60px',fontSize:'18px',color:'#c9c9c9',border:'3px solid #ffffff',borderRadius:'4px 4px 0 0'}} name="first" onClick={this.handleClick.bind(this)}>自动扣款 / ACH</div>
