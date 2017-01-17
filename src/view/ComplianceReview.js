@@ -2,93 +2,85 @@ import React, {Component, PropTypes}from 'react';
 import {Form, Row, Col, Button} from 'antd';
 import {connect} from 'react-redux'
 import moment from 'moment'
-import {updateProfile, saveFields} from '../Redux/actions/index'
+import {saveFields,changeComplete} from '../Redux/actions/index'
 import CompliancePublic from '../components/compliance/CompliancePublic'
-
 
 
 const FormItem = Form.Item;
 
 class ComplianceReview extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      Complete:false
+    constructor(props) {
+        super(props)
     }
-  }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.form.validateFieldsAndScroll((err, values) => {
-      if (!err) {
-        this.props.changeMessage(e)
-        console.log('Received values of form: ', JSON.stringify(values));
-        this.props.handleOk(e);
-        console.log(this.props.getsProfile.base_profile)
-      }
-    });
-    this.setState({
-      Complete:true
-    })
-  }
+    handleSubmit(e) {
+        this.props.form.validateFieldsAndScroll((err, values) => {
+            if (!err) {
+                const {dispatch}=this.props
+                dispatch(changeComplete('true'))
+                this.props.handleOk(e);
+            }
+        })
+        e.preventDefault();
+    }
 
-  success(){
-    console.log('success')
-  }
+    success() {
+        console.log('success')
+    }
 
-  render() {
-    // const {getFieldDecorator} = this.props.form;
-    const formItemLayout = {
-      labelCol: {span: 6},
-      wrapperCol: {span: 14},
-    };
-    const tailFormItemLayout = {
-      wrapperCol: {
-        span: 14,
-        offset: 6,
-      },
-    };
-    return (
-      <div style={{width: 900, background: '#fff', overflow: 'hidden',display:this.props.fifth==true?'block':'none'}}>
+    render() {
+        // const {getFieldDecorator} = this.props.form;
+        const formItemLayout = {
+            labelCol: {span: 6},
+            wrapperCol: {span: 14},
+        };
+        const tailFormItemLayout = {
+            wrapperCol: {
+                span: 14,
+                offset: 6,
+            },
+        };
+        return (
+            <div style={{
+                width: 900,
+                background: '#fff',
+                overflow: 'hidden',
+                display: this.props.fifth == true ? 'block' : 'none'
+            }}>
         <Form horizontal>
 
-          <CompliancePublic {...this.props}  getFieldDecorator={this.props.form} />
+          <CompliancePublic {...this.props} getFieldDecorator={this.props.form} />
 
 
-
-
-
-
-
-            {this.props.getsProfile.isComplete == false?this.state.Complete ?
-                <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
+            {this.props.getsProfile.isComplete == false ?
+                    <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
                   <Col span={3} offset={6}>
                     <Button style={{
-                      width: '120px',
-                      height: '50px',
-                      borderRadius: '30px',
-                      background: '#ffffff',
-                      color: '#223976',
-                      fontSize: '18px'
+                        width: '120px',
+                        height: '50px',
+                        borderRadius: '30px',
+                        background: '#ffffff',
+                        color: '#223976',
+                        fontSize: '18px'
                     }} type="primary" name="fourth" onClick={this.props.handleCancel} size="large">取消</Button>
                   </Col>
 
                   <Col span={3} offset={6}>
                     <FormItem {...tailFormItemLayout}>
                       <Button style={{
-                        width: '120px',
-                        height: '50px',
-                        borderRadius: '30px',
-                        background: '#223976',
-                        color: '#fff',
-                        fontSize: '18px'
+                          width: '120px',
+                          height: '50px',
+                          borderRadius: '30px',
+                          background: '#223976',
+                          color: '#fff',
+                          fontSize: '18px'
                       }} type="primary" htmlType="submit" onClick={this.props.handleCancel} size="large">确定</Button>
                     </FormItem>
                   </Col>
                 </Row>
 
-                :
-                <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
+                    :
+                    <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
                   <Col span={3} offset={6}>
                     <Button style={{
                         width: '120px',
@@ -109,34 +101,8 @@ class ComplianceReview extends React.Component {
                           background: '#223976',
                           color: '#fff',
                           fontSize: '18px'
-                      }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)} size="large">完成</Button>
-                    </FormItem>
-                  </Col>
-                </Row>
-                :
-
-                <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
-                  <Col span={3} offset={6}>
-                    <Button style={{
-                        width: '120px',
-                        height: '50px',
-                        borderRadius: '30px',
-                        background: '#ffffff',
-                        color: '#223976',
-                        fontSize: '18px'
-                    }} type="primary" name="fourth" onClick={this.props.handleCancel} size="large">取消</Button>
-                  </Col>
-
-                  <Col span={3} offset={6}>
-                    <FormItem {...tailFormItemLayout}>
-                      <Button style={{
-                          width: '120px',
-                          height: '50px',
-                          borderRadius: '30px',
-                          background: '#223976',
-                          color: '#fff',
-                          fontSize: '18px'
-                      }} type="primary" htmlType="submit" onClick={this.props.handleCancel} size="large">确定</Button>
+                      }} type="primary" htmlType="submit" onClick={this.handleSubmit.bind(this)}
+                              size="large">完成</Button>
                     </FormItem>
                   </Col>
                 </Row>
@@ -147,48 +113,48 @@ class ComplianceReview extends React.Component {
         </Form>
 
       </div>
-    );
-  }
+        );
+    }
 }
 
 ComplianceReview = Form.create({
-  onFieldsChange(props, changedFields) {
-    console.log(JSON.stringify(changedFields))
-    for (let i in changedFields) {
-      let key = changedFields[i].name
-      let val = changedFields[i].value
-      console.log(val)
-      if (val != undefined && val != '' && val != null) {
-        if (
-            key == 'debt_amount'||
-            key == 'spouse_email'||
-            key == 'spouse_first_name'||
-            key == 'spouse_last_name'||
-            key == 'spouse_phone'||
-            key == 'type'||
-            key == 'with_spouse'
-        ) {
-            props.dispatch(saveFields('base_info', {
-                ...props.getsProfile.base_profile.accreditation,
-                [key]: val
-            }));
-        }
-      }
+    onFieldsChange(props, changedFields) {
+        console.log(JSON.stringify(changedFields))
+        for (let i in changedFields) {
+            let key = changedFields[i].name
+            let val = changedFields[i].value
+            console.log(val)
+            if (val != undefined && val != '' && val != null) {
+                if (
+                    key == 'debt_amount' ||
+                    key == 'spouse_email' ||
+                    key == 'spouse_first_name' ||
+                    key == 'spouse_last_name' ||
+                    key == 'spouse_phone' ||
+                    key == 'type' ||
+                    key == 'with_spouse'
+                ) {
+                    props.dispatch(saveFields('base_info', {
+                        ...props.getsProfile.base_profile.accreditation,
+                        [key]: val
+                    }));
+                }
+            }
 
-    }
-  },
+        }
+    },
 })(ComplianceReview);
 
 ComplianceReview.defaultProps = {};
 
 ComplianceReview.propTypes = {
-  dispatch: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {
-  return {
-    getsProfile: state.getsProfile
-  }
+    return {
+        getsProfile: state.getsProfile
+    }
 }
 
 

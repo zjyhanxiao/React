@@ -54,7 +54,10 @@ const getsProfile = (state = {}, action) => {
                  email: action.json.body.email,
                  date_of_birth: action.json.body.date_of_birth,
                  passport_photo: null*/
-                base_profile: action.json.body
+                base_profile: {...action.json.body,
+                    signature:null,
+                    spouse_signature:null,
+                }
 /*                    {
                     email:action.json.body.email,
                     phone:action.json.body.phone,
