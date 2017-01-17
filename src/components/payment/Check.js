@@ -20,7 +20,7 @@ class Check extends React.Component {
       let account_number = (baseData != undefined ? bank.account_number : '')
       account_number = account_number.replace(/^\d+(\d{4})$/, "****************$1")
     return (
-      <div style={{width: '100%', background: '#fff', overflow: 'hidden'}}>
+      <div style={{width: '100%', background: '#fff', overflow: 'hidden',textAlign:'left'}}>
         <Row style={{paddingTop:'30px'}}>
           <Col span={18} offset={3}>
             <p style={{color:'#159bd6',textAlign:'left'}}>请注意：请使用您之前选择的银行账户完成支付（<span>{baseData != undefined ? bank.bank_name:''}</span>, <span>{account_number}</span>)。</p>
@@ -32,7 +32,7 @@ class Check extends React.Component {
           </Col>
         </Row>
         <Row style={{marginTop:'30px'}}>
-          <Col span={4} offset={2}>
+          <Col span={4} offset={3}>
             <p style={{fontWeight:'600'}}>收款人</p>
           </Col>
           <Col span={14}>
@@ -40,7 +40,7 @@ class Check extends React.Component {
           </Col>
         </Row>
         <Row style={{marginTop:'15px'}}>
-          <Col span={4} offset={2}>
+          <Col span={4} offset={3}>
             <p style={{fontWeight:'600'}}>备注栏请填写</p>
           </Col>
           <Col span={14}>
@@ -48,7 +48,7 @@ class Check extends React.Component {
           </Col>
         </Row>
         <Row style={{marginTop:'15px', marginBottom:'30px'}}>
-          <Col span={4} offset={2}>
+          <Col span={4} offset={3}>
             <p style={{fontWeight:'600'}}>请将支票寄至以下地址</p>
           </Col>
           <Col span={14}>

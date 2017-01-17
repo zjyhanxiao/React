@@ -21,14 +21,14 @@ class ACH extends React.Component {
         account_number = account_number.replace(/^\d+(\d{4})$/, "****************$1")
 
         return (
-            <div style={{width: '100%', background: '#fff', overflow: 'hidden'}}>
+            <div style={{width: '100%', background: '#fff', overflow: 'hidden',textAlign:'left'}}>
         <Row style={{paddingTop: '30px'}}>
           <Col span={18} offset={3}>
             <p style={{color: '#159bd6', textAlign: 'left'}}>确认支付后，美信金融将在三个工作日内完成扣款操作，您可以在我的投资中查看订单状态。</p>
           </Col>
         </Row>
         <Row style={{marginTop: '30px'}}>
-          <Col span={4} offset={2}>
+          <Col span={4} offset={3}>
             <p style={{fontWeight: '600'}}>账户名</p>
           </Col>
           <Col span={14}>
@@ -36,7 +36,7 @@ class ACH extends React.Component {
           </Col>
         </Row>
         <Row style={{marginTop: '15px'}}>
-          <Col span={4} offset={2}>
+          <Col span={4} offset={3}>
             <p style={{fontWeight: '600'}}>银行名称</p>
           </Col>
           <Col span={14}>
@@ -44,7 +44,7 @@ class ACH extends React.Component {
           </Col>
         </Row>
         <Row style={{marginTop: '15px'}}>
-          <Col span={4} offset={2}>
+          <Col span={4} offset={3}>
             <p style={{fontWeight: '600'}}>ABA / routing #</p>
           </Col>
           <Col span={14}>
@@ -52,7 +52,7 @@ class ACH extends React.Component {
           </Col>
         </Row>
         <Row style={{marginTop: '15px'}}>
-          <Col span={4} offset={2}>
+          <Col span={4} offset={3}>
             <p style={{fontWeight: '600'}}>账户号</p>
           </Col>
           <Col span={14}>
