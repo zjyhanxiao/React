@@ -17,7 +17,6 @@ class IndexPlate extends React.Component {
 
 
   render() {
-    console.log(this.props)
     const data=this.props.getsProfile.base_profile
     return (
       <div style={{width: '100%', background: '#fff', overflow: 'hidden',display:this.props.one==true?'block':'none'}}>

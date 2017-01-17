@@ -358,7 +358,7 @@ export const createOrder = (data, success) => {
     return dispatch => {
         $.ajax({
             type: 'post',
-            url: baseUrl + '/web/order/create',
+            url: baseUrl + '/app/order/create',
             // url: 'https://api.meixinglobal.com/web/profile/update',
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",

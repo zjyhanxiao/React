@@ -103,11 +103,49 @@ class Wire extends React.Component {
         </Row>
 {/*是否显示中间行*/}
         {this.props.getsProfile.Payment != undefined && this.props.getsProfile.Payment.is_middle_bank_enabled ?
-            <Row style={{marginTop: '15px', marginBottom: '30px'}}>
+            <div>
+            <Row style={{marginTop: '15px'}}>
               <Col span={18} offset={3}>
                 <p style={{fontWeight: '600',fontSize:'16px',color:'#159bd6',textAlign:'left'}}>中间银行</p>
               </Col>
             </Row>
+
+            <Row style={{marginTop: '15px'}}>
+              <Col span={4} offset={3}>
+                <p style={{fontWeight: '600'}}>中间银行名称</p>
+              </Col>
+              <Col span={14}>
+                <p style={{}}>{this.props.getsProfile.Payment != undefined ? this.props.getsProfile.Payment.middle_bank.bank_name : ''}</p>
+              </Col>
+            </Row>
+
+            <Row style={{marginTop: '15px'}}>
+              <Col span={4} offset={3}>
+                <p style={{fontWeight: '600'}}>中间银行地址</p>
+              </Col>
+              <Col span={14}>
+                <p style={{}}>{this.props.getsProfile.Payment != undefined ? this.props.getsProfile.Payment.middle_bank.bank_address : ''}</p>
+              </Col>
+            </Row>
+
+            <Row style={{marginTop: '15px'}}>
+              <Col span={4} offset={3}>
+                <p style={{fontWeight: '600'}}>路径号</p>
+              </Col>
+              <Col span={14}>
+                <p style={{}}>{this.props.getsProfile.Payment != undefined ? this.props.getsProfile.Payment.middle_bank.routing_number : ''}</p>
+              </Col>
+            </Row>
+
+            <Row style={{marginTop: '15px', marginBottom: '30px'}}>
+              <Col span={4} offset={3}>
+                <p style={{fontWeight: '600'}}>Swift Code</p>
+              </Col>
+              <Col span={14}>
+                <p style={{}}>{this.props.getsProfile.Payment != undefined ? this.props.getsProfile.Payment.middle_bank.swift_code : ''}</p>
+              </Col>
+            </Row>
+            </div>
             : ''}
       </div>
         );
