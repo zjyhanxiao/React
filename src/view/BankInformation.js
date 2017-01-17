@@ -2,7 +2,7 @@ import React, {Component, PropTypes}from 'react';
 import {Form, Row, Col, Button, Radio} from 'antd';
 import {connect} from 'react-redux'
 import moment from 'moment'
-import {updateProfile, saveFields} from '../Redux/actions/index'
+import {updateProfile, saveFields,changeComplete} from '../Redux/actions/index'
 import BankFast from '../components/bank/BankFast'
 import BanknoUSA from '../components/bank/BanknoUSA'
 import BankUSA from '../components/bank/BankUSA'
@@ -35,20 +35,18 @@ class BankInformation extends React.Component {
         this.setState({bankState: false});
     }
     handleSubmit(e) {
+        const {dispatch}=this.props
         let pro = this.props.getsProfile.base_profile
         if (
             pro.bank_non_us.middle_bank_address != null &&
             pro.bank_non_us.middle_bank_name != null &&
             pro.bank_non_us.middle_bank_swift_code != null
         ) {
-            const {dispatch}=this.props
             dispatch(saveFields('bank_non_us', {
                 ...props.getsProfile.base_profile.bank_non_us,
                 'have_middlebank': 1
             }));
         }
-        e.preventDefault();
-
 
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
@@ -56,13 +54,12 @@ class BankInformation extends React.Component {
                 if (this.props.getsProfile.base_profile.investor_type == 2) {
                     this.props.changeIndex(e)
                 } else {
-                    // this.props.changeMessage(e)
-
+                    dispatch(changeComplete('true'))
                   this.props.handleOk(e);
                 }
             }
         });
-      this.setState({Complete:true})
+        e.preventDefault();
     }
 
     success() {
@@ -139,7 +136,7 @@ class BankInformation extends React.Component {
 
 
 
-            {this.props.getsProfile.isComplete == false?this.state.Complete ?
+            {this.props.getsProfile.isComplete == false?
               <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
                 <Col span={3} offset={6}>
                   <Button style={{
@@ -210,33 +207,6 @@ class BankInformation extends React.Component {
                     }
 
                 </Row>
-                :
-              <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
-                <Col span={3} offset={6}>
-                  <Button style={{
-                    width: '120px',
-                    height: '50px',
-                    borderRadius: '30px',
-                    background: '#ffffff',
-                    color: '#223976',
-                    fontSize: '18px'
-                  }} type="primary" name="third" onClick={this.props.handleCancel} size="large">取消</Button>
-                </Col>
-
-                <Col span={3} offset={6}>
-                  <FormItem {...tailFormItemLayout}>
-                    <Button style={{
-                      width: '120px',
-                      height: '50px',
-                      borderRadius: '30px',
-                      background: '#223976',
-                      color: '#fff',
-                      fontSize: '18px'
-                    }} type="primary" htmlType="submit" onClick={this.props.handleCancel}
-                            size="large">确定</Button>
-                  </FormItem>
-                </Col>
-              </Row>
 
             }
 

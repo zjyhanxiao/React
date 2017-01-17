@@ -9,6 +9,10 @@ const getsProfile = (state = {}, action) => {
             return Object.assign({}, state, {
                 Complete: action.json.body
             });
+        case types.CHANGE_COMPLETE:
+            return Object.assign({}, state, {
+                Complete: action.val
+            });
         case types.GET_BANK:
             return Object.assign({}, state, {
                 Bank: {

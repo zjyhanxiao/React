@@ -18,6 +18,13 @@ class AddressProve extends React.Component {
         super()
     }
 
+    shouldComponentUpdate(nextProps,nextState){
+        if(nextProps.getsProfile.base_profile!=undefined){
+            return true
+        }else{
+            return false
+        }
+    }
     handleSubmit(e) {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
@@ -67,7 +74,7 @@ class AddressProve extends React.Component {
                 wrapperCol={{span: 12}}
             >
               {getFieldDecorator(data.investor_type == 1?'id_card_expire_date':'bill_expire_date', {
-                  initialValue: data.investor_type == 1&&data.id_card_expire_date!=null?moment(data.id_card_expire_date):data.investor_type == 99&&data.bill_expire_date!=null?moment(data.bill_expire_date):'',
+                  initialValue: data.investor_type == 1&&data.id_card_expire_date!=null?moment(data.id_card_expire_date):data.investor_type == 99&&data.bill_expire_date!=null?moment(data.bill_expire_date):null,
                   rules: [{type: 'object', required: true, message: '请输入日期!'}],
               })(
                   <DatePicker size="large" style={{width: 220}}></DatePicker>

@@ -30,7 +30,6 @@ const IndexButton = React.createClass({
         });
     },
     handleOk() {
-        this.props.changeComplete();
         this.setState({
             visible: false,
         });

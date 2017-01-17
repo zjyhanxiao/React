@@ -467,6 +467,13 @@ const getDocumentSuccess = (json) => {
     json
   }
 }
+//  获取文档信息成功
+export const changeComplete = (val) => {
+    return {
+        type: types.CHANGE_COMPLETE,
+        val
+    }
+}
 
 
 
