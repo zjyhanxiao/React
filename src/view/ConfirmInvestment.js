@@ -19,12 +19,28 @@ class ConfirmInvestment extends React.Component {
 
 
     signature(e) {
-        this.props.changeP(e)
+
+      let pro = this.props.getsProfile.base_profile
+      if (
+        pro.bank_non_us.middle_bank_address != null &&
+        pro.bank_non_us.middle_bank_name != null &&
+        pro.bank_non_us.middle_bank_swift_code != null
+      ) {
+        const {dispatch}=this.props
+        dispatch(saveFields('bank_non_us', {
+          ...props.getsProfile.base_profile.bank_non_us,
+          'have_middlebank': 1
+        }));
+      }
+        const {dispatch} = this.props
+        dispatch(updateProfile(this.props.getsProfile.base_profile, this.success))
+
         let data = {}
         data.signature = this.props.getsProfile.base_profile.signature || '';
         data.spouseSignature = this.props.getsProfile.base_profile.spouse_signature || '';
-        const {dispatch} = this.props
         dispatch(updateSignature(data))
+
+        this.props.changeP(e)
         // dispatch(createOrder(this.props, this.success))
 
     }

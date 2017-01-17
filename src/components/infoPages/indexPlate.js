@@ -17,16 +17,17 @@ class IndexPlate extends React.Component {
 
 
   render() {
+    console.log(this.props)
     const data=this.props.getsProfile.base_profile
     return (
       <div style={{width: '100%', background: '#fff', overflow: 'hidden',display:this.props.one==true?'block':'none'}}>
-        <BasicPlate {...this.props} />
-        <AddressPlate {...this.props} />
-        <BankPlate {...this.props} />
+        <BasicPlate  {...this.props} />
+        <AddressPlate  {...this.props} />
+        <BankPlate  {...this.props} />
 
 
         {data!=undefined&&data.accreditation.with_spouse!=undefined?
-          <CompliancePlate {...this.props} />
+          <CompliancePlate  {...this.props} />
           :
           ''
         }

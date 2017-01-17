@@ -24,6 +24,7 @@ class InformationConfirmation extends React.Component {
         super(props);
         this.state = {
             message: true,
+            Complete:false,
             page: {
                 one: true,
                 two: false,
@@ -31,6 +32,11 @@ class InformationConfirmation extends React.Component {
                 current: 'one'
             }
         }
+    }
+
+
+    changeComplete = (e) =>{
+      this.setState({ Complete:true})
     }
 
     changeP = (event) => {
@@ -70,9 +76,9 @@ class InformationConfirmation extends React.Component {
         data1.mx_secret = cookie.load('mx_secret'),
         dispatch(getDocument(data1))
         dispatch(getPayment(data1))
-
         dispatch(isComplete())
-        console.log(product_id)
+
+
         dispatch(fetchPosts())
         dispatch(getProduct(product_id))
         dispatch(getCountry({}))
@@ -84,9 +90,7 @@ class InformationConfirmation extends React.Component {
     }
 
     handleSubmit(e) {
-
       this.changeMessage(e);
-
     }
 
     render() {
@@ -112,14 +116,14 @@ class InformationConfirmation extends React.Component {
                 }
 
 
-                {this.props.getsProfile.Complete ?
-                    <div style={{width: '900px', margin: '0 auto'}}>
+                {this.props.getsProfile.isComplete == false?this.state.Complete ?
+                  <div style={{width: '900px', margin: '0 auto'}}>
                     <IndexPlate {...this.state.page} {...this.props} changeP={this.changeP} />
                     <ConfirmInvestment {...this.state.page} {...this.props} changeP={this.changeP} />
                     <GoldenWay {...this.state.page} {...this.props} changeP={this.changeP} />
                   </div>
                     :
-                    <div style={{width: '900px', margin: '0 auto'}}>
+                  <div style={{width: '900px', margin: '0 auto'}}>
                     <p style={{
                         width: '900px',
                         textAlign: 'center',
@@ -128,9 +132,14 @@ class InformationConfirmation extends React.Component {
                         color: '#bbb',
                         fontSize: '16px'
                     }}>您的个人信息尚未完善,请填写后继续投资。</p>
-                    <IndexButton {...this.props.getsProfile.Complete} changeMessage={this.handleSubmit.bind(this)} />
+                    <IndexButton changeMessage={this.handleSubmit.bind(this)} changeComplete={this.changeComplete} />
                   </div>
-
+                    :
+                  <div style={{width: '900px', margin: '0 auto'}}>
+                    <IndexPlate {...this.state.page} {...this.state.Complete} {...this.props} changeP={this.changeP} />
+                    <ConfirmInvestment {...this.state.page} {...this.props} changeP={this.changeP} />
+                    <GoldenWay {...this.state.page} {...this.props} changeP={this.changeP} />
+                  </div>
                 }
 
                 {/*<div style={{wordBreak: 'break-all'}}>{JSON.stringify(this.props.getsProfile.base_profile)}</div>*/}

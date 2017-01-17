@@ -32,8 +32,6 @@ class BankPlate extends React.Component {
     this.setState({
       visible: false,
     });
-    const {dispatch} = this.props
-    dispatch(updateProfile(this.props.getsProfile.base_profile, this.success))
   }
 
   render() {

@@ -13,6 +13,9 @@ const FormItem = Form.Item;
 class AddressInformation extends React.Component {
     constructor(props) {
         super(props)
+      this.state = {
+        Complete:false,
+      }
     }
     handleSubmit(e) {
         e.preventDefault();
@@ -24,6 +27,9 @@ class AddressInformation extends React.Component {
                 dispatch(updateProfile(values, this.success))*/
             }
         });
+      this.setState({
+        Complete:true
+      })
     }
 
     disabledDate(current) {
@@ -78,58 +84,85 @@ class AddressInformation extends React.Component {
 
 
 
-                    {this.props.getsProfile.Complete ==false ?
+                    {this.props.getsProfile.isComplete == false?this.state.Complete ?
                         <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
-            <Col span={3} offset={6}>
-              <Button style={{
-                  width: '120px',
-                  height: '50px',
-                  borderRadius: '30px',
-                  background: '#ffffff',
-                  color: '#223976',
-                  fontSize: '18px'
-              }} type="primary" name="second" onClick={this.props.changeIndex} size="large">上一步</Button>
-            </Col>
+                          <Col span={3} offset={6}>
+                            <Button style={{
+                              width: '120px',
+                              height: '50px',
+                              borderRadius: '30px',
+                              background: '#ffffff',
+                              color: '#223976',
+                              fontSize: '18px'
+                            }} type="primary" name="second" onClick={this.props.handleCancel} size="large">取消</Button>
+                          </Col>
 
-            <Col span={3} offset={6}>
-              <FormItem {...tailFormItemLayout}>
-                <Button style={{
-                    width: '120px',
-                    height: '50px',
-                    borderRadius: '30px',
-                    background: '#223976',
-                    color: '#fff',
-                    fontSize: '18px'
-                }} type="primary" htmlType="submit" name="fourth" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
-              </FormItem>
-            </Col>
-          </Row>
+                          <Col span={3} offset={6}>
+                            <FormItem {...tailFormItemLayout}>
+                              <Button style={{
+                                width: '120px',
+                                height: '50px',
+                                borderRadius: '30px',
+                                background: '#223976',
+                                color: '#fff',
+                                fontSize: '18px'
+                              }} type="primary" htmlType="submit" name="fourth" onClick={this.props.handleCancel} size="large">确定</Button>
+                            </FormItem>
+                          </Col>
+                        </Row>
                         :
                         <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
-            <Col span={3} offset={6}>
-              <Button style={{
-                  width: '120px',
-                  height: '50px',
-                  borderRadius: '30px',
-                  background: '#ffffff',
-                  color: '#223976',
-                  fontSize: '18px'
-              }} type="primary" name="second" onClick={this.props.handleCancel} size="large">取消</Button>
-            </Col>
+                          <Col span={3} offset={6}>
+                            <Button style={{
+                                width: '120px',
+                                height: '50px',
+                                borderRadius: '30px',
+                                background: '#ffffff',
+                                color: '#223976',
+                                fontSize: '18px'
+                            }} type="primary" name="second" onClick={this.props.changeIndex} size="large">上一步</Button>
+                          </Col>
 
-            <Col span={3} offset={6}>
-              <FormItem {...tailFormItemLayout}>
-                <Button style={{
-                    width: '120px',
-                    height: '50px',
-                    borderRadius: '30px',
-                    background: '#223976',
-                    color: '#fff',
-                    fontSize: '18px'
-                }} type="primary" htmlType="submit" name="fourth" onClick={this.props.handleCancel} size="large">确定</Button>
-              </FormItem>
-            </Col>
-          </Row>
+                          <Col span={3} offset={6}>
+                            <FormItem {...tailFormItemLayout}>
+                              <Button style={{
+                                  width: '120px',
+                                  height: '50px',
+                                  borderRadius: '30px',
+                                  background: '#223976',
+                                  color: '#fff',
+                                  fontSize: '18px'
+                              }} type="primary" htmlType="submit" name="fourth" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
+                            </FormItem>
+                          </Col>
+                        </Row>
+                        :
+                      <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
+                        <Col span={3} offset={6}>
+                          <Button style={{
+                            width: '120px',
+                            height: '50px',
+                            borderRadius: '30px',
+                            background: '#ffffff',
+                            color: '#223976',
+                            fontSize: '18px'
+                          }} type="primary" name="second" onClick={this.props.handleCancel} size="large">取消</Button>
+                        </Col>
+
+                        <Col span={3} offset={6}>
+                          <FormItem {...tailFormItemLayout}>
+                            <Button style={{
+                              width: '120px',
+                              height: '50px',
+                              borderRadius: '30px',
+                              background: '#223976',
+                              color: '#fff',
+                              fontSize: '18px'
+                            }} type="primary" htmlType="submit" name="fourth" onClick={this.props.handleCancel} size="large">确定</Button>
+                          </FormItem>
+                        </Col>
+                      </Row>
+
                     }
 
 
