@@ -3,7 +3,16 @@ import React, {PropTypes} from 'react'
 import {Row, Col, Button} from 'antd'
 import {connect} from 'react-redux'
 import cookie from 'react-cookie'
-import {isComplete, getProduct, getCountry, getIndustry, fetchPosts,getBank,getPayment,getDocument} from '../Redux/actions/index'
+import {
+    isComplete,
+    getProduct,
+    getCountry,
+    getIndustry,
+    fetchPosts,
+    getBank,
+    getPayment,
+    getDocument
+} from '../Redux/actions/index'
 import ItemAmount from '../components/infoPages/ItemAmount'
 import ItemName from '../components/infoPages/ItemName'
 import AmountShow from '../components/infoPages/amountShow'
@@ -34,7 +43,7 @@ class InformationConfirmation extends React.Component {
     }
 
     changeP = (event) => {
-         var cur
+        var cur
         if (event.target.tagName == 'SPAN') {
             cur = event.target.parentNode.name
         }
@@ -64,28 +73,27 @@ class InformationConfirmation extends React.Component {
         const {dispatch} = this.props
         const product_id = getUrlParam('product_id')
 
-        let data1 = {}
-        data1.product_id = product_id,
-        data1.mx_token = cookie.load('mx_token'),
-        data1.mx_secret = cookie.load('mx_secret'),
-        dispatch(getDocument(data1))
-        dispatch(getPayment(data1))
+        let data = {}
+        data.product_id = product_id,
+        data.mx_token = cookie.load('mx_token'),
+        data.mx_secret = cookie.load('mx_secret'),
+        dispatch(getDocument(data))
+        dispatch(getPayment(data))
 
         dispatch(isComplete())
-        console.log(product_id)
         dispatch(fetchPosts())
         dispatch(getProduct(product_id))
         dispatch(getCountry({}))
         dispatch(getIndustry({}))
-        dispatch(getBank({type:1}))
-        dispatch(getBank({type:2}))
+        dispatch(getBank({type: 1}))
+        dispatch(getBank({type: 2}))
 
 
     }
 
     handleSubmit(e) {
 
-      this.changeMessage(e);
+        this.changeMessage(e);
 
     }
 
@@ -116,7 +124,7 @@ class InformationConfirmation extends React.Component {
                     <div style={{width: '900px', margin: '0 auto'}}>
                     <IndexPlate {...this.state.page} {...this.props} changeP={this.changeP} />
                     <ConfirmInvestment {...this.state.page} {...this.props} changeP={this.changeP} />
-                    <GoldenWay {...this.state.page} {...this.props} changeP={this.changeP} />
+                    <GoldenWay {...this.state.page} changeP={this.changeP} />
                   </div>
                     :
                     <div style={{width: '900px', margin: '0 auto'}}>
