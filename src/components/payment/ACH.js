@@ -22,7 +22,6 @@ class ACH extends React.Component {
 
         return (
             <div style={{width: '100%', background: '#fff', overflow: 'hidden'}}>
-                {account_number}
         <Row style={{paddingTop: '30px'}}>
           <Col span={18} offset={3}>
             <p style={{color: '#159bd6', textAlign: 'left'}}>确认支付后，美信金融将在三个工作日内完成扣款操作，您可以在我的投资中查看订单状态。</p>

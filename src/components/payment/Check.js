@@ -1,8 +1,5 @@
-/**
- * Created by robot on 2016/12/22.
- */
 import React from 'react';
-
+import {connect} from 'react-redux'
 import {Row, Col} from 'antd';
 
 class Check extends React.Component {
@@ -15,11 +12,18 @@ class Check extends React.Component {
   }
 
   render() {
+      let baseData = this.props.getsProfile.base_profile
+      let bank
+      if(baseData!=undefined){
+          bank=baseData.bank_type=='US'?this.props.getsProfile.base_profile.bank_us:this.props.getsProfile.base_profile.bank_non_us
+      }
+      let account_number = (baseData != undefined ? bank.account_number : '')
+      account_number = account_number.replace(/^\d+(\d{4})$/, "****************$1")
     return (
       <div style={{width: '100%', background: '#fff', overflow: 'hidden'}}>
         <Row style={{paddingTop:'30px'}}>
           <Col span={18} offset={3}>
-            <p style={{color:'#159bd6',textAlign:'left'}}>请注意：请使用您之前选择的银行账户完成支付（<span>Bank of America</span>, <span>************2809</span>)。</p>
+            <p style={{color:'#159bd6',textAlign:'left'}}>请注意：请使用您之前选择的银行账户完成支付（<span>{bank.bank_name}</span>, <span>{account_number}</span>)。</p>
           </Col>
         </Row>
         <Row style={{marginTop:'5px'}}>
@@ -32,7 +36,7 @@ class Check extends React.Component {
             <p style={{fontWeight:'600'}}>收款人</p>
           </Col>
           <Col span={14}>
-            <p style={{}}>FUNDAMERICA SECURITIES</p>
+            <p style={{}}>{this.props.getsProfile.Payment!=undefined?this.props.getsProfile.Payment.check.receiver_name:''}</p>
           </Col>
         </Row>
         <Row style={{marginTop:'15px'}}>
@@ -40,7 +44,7 @@ class Check extends React.Component {
             <p style={{fontWeight:'600'}}>备注栏请填写</p>
           </Col>
           <Col span={14}>
-            <p style={{}}>Yuechen Zhao Chapel Road Participation Reg S</p>
+            <p style={{}}>{this.props.getsProfile.Payment!=undefined?this.props.getsProfile.Payment.check.remark:''}</p>
           </Col>
         </Row>
         <Row style={{marginTop:'15px', marginBottom:'30px'}}>
@@ -48,10 +52,7 @@ class Check extends React.Component {
             <p style={{fontWeight:'600'}}>请将支票寄至以下地址</p>
           </Col>
           <Col span={14}>
-            <p style={{}}>FundAmerica Securities
-              3455 Peachtree Road, NE
-              5th Floor
-              Atlanta, GA 30326</p>
+            <p style={{}}>{this.props.getsProfile.Payment!=undefined?this.props.getsProfile.Payment.check.mailing_address:''}</p>
           </Col>
         </Row>
       </div>
@@ -61,4 +62,12 @@ class Check extends React.Component {
 
 Check.defaultProps = {};
 
-export default Check;
+const mapStateToProps = (state) => {
+    return {
+        getsProfile: state.getsProfile
+    }
+}
+
+
+export default connect(mapStateToProps)(Check)
+
