@@ -34,7 +34,7 @@ class InformationConfirmation extends React.Component {
     }
 
     changeP = (event) => {
-        var cur
+         var cur
         if (event.target.tagName == 'SPAN') {
             cur = event.target.parentNode.name
         }
@@ -64,12 +64,12 @@ class InformationConfirmation extends React.Component {
         const {dispatch} = this.props
         const product_id = getUrlParam('product_id')
 
-      let data1 = {}
-      data1.product_id = product_id,
+        let data1 = {}
+        data1.product_id = product_id,
         data1.mx_token = cookie.load('mx_token'),
         data1.mx_secret = cookie.load('mx_secret'),
         dispatch(getDocument(data1))
-      dispatch(getPayment(data1))
+        dispatch(getPayment(data1))
 
         dispatch(isComplete())
         console.log(product_id)
@@ -154,23 +154,3 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps)(InformationConfirmation)
 
-
-/********
- <Row style={{
-                          paddingTop: '40px',
-                          paddingBottom: '40px',
-                          margin: '0 auto',
-                          textAlign: 'center',
-                          background: '#ffffff'}}>
- <Col span={8} offset={8}>
- <Button style={{
-                              width: '120px',
-                              height: '50px',
-                              borderRadius: '30px',
-                              background: '#223976',
-                              color: '#fff',
-                              fontSize: '18px'
-                          }} type="primary" htmlType="submit" size="large">下一步</Button>
- </Col>
- </Row>
- *********/

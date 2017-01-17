@@ -27,8 +27,6 @@ class ConfirmInvestment extends React.Component {
         dispatch(updateSignature(data))
         // dispatch(createOrder(this.props, this.success))
 
-      console.log(this.props.getsProfile.Payment.receive_bank.bank_name)
-
     }
 
     // success(props) {
@@ -67,12 +65,18 @@ class ConfirmInvestment extends React.Component {
                              notice: '请注意：您的签名必须与已上传的证件上所提供的签名。'
                          }}
               />
-              <Signature id='spouse_signature' getSignature={this.signature} {...this.props}
-                         mode={{
+
+              {this.props.getsProfile.base_profile!=undefined&&this.props.getsProfile.base_profile.accreditation.with_spouse!=undefined?
+                <Signature id='spouse_signature' getSignature={this.signature} {...this.props}
+                           mode={{
                              people: '配偶签名',
                              notice: '温馨提示：此处必须有您配偶亲自签名。'
-                         }}
-              />
+                           }}
+                />
+                :
+                ''
+              }
+
 
             </Col>
           </Row>

@@ -31,7 +31,7 @@ class IndexW extends React.Component {
         {/*</Tabs>*/}
 
         <div style={{overflow:'hidden'}}>
-          <div className="active" style={{width:'900px',height:'60px',background:'#ffffff',float:'left',textAlign:'center',lineHeight:'60px',fontSize:'18px',color:'#c9c9c9',border:'3px solid #ffffff',borderRadius:'4px 4px 0 0'}} name="first">银行电汇 / Wire</div>
+          <div className="active" style={{width:'900px',height:'60px',background:'#ffffff',float:'left',textAlign:'center',lineHeight:'60px',fontSize:'18px',color:'#c9c9c9',border:'3px solid #ffffff',borderRadius:'4px 4px 0 0'}} name="second">银行电汇 / Wire</div>
         </div>
 
 
