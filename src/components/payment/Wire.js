@@ -26,7 +26,7 @@ class Wire extends React.Component {
       <div style={{width: "100%", background: '#fff', overflow: 'hidden'}}>
         <Row style={{paddingTop:'30px'}}>
           <Col span={18} offset={3}>
-            <p style={{color:'#159bd6',textAlign:'left'}}>请注意：请使用您之前选择的银行账户完成支付（<span>baseData != undefined ? bank.bank_name : ''</span>, <span>{account_number}</span>)。</p>
+            <p style={{color:'#159bd6',textAlign:'left'}}>请注意：请使用您之前选择的银行账户完成支付（<span>{baseData != undefined ? bank.bank_name:''}</span>, <span>{account_number}</span>)。</p>
           </Col>
         </Row>
         <Row style={{marginTop:'5px'}}>
