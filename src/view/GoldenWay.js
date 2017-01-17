@@ -16,9 +16,7 @@ class GoldenWay extends React.Component {
   }
 
 
-
   handleSubmit(e) {
-
         const {dispatch} = props
         let data = {}
         data.product_id = this.props.getsProfile.Product.id

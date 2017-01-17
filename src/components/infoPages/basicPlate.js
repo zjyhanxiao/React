@@ -29,13 +29,11 @@ class BasicPlate extends React.Component {
         });
     }
     handleCancel = (e) => {
-        console.log(e);
-        this.setState({
-            visible: false,
-        });
-      const {dispatch} = this.props
-      dispatch(updateProfile(this.props.getsProfile.base_profile, this.success))    }
-
+      console.log(e);
+      this.setState({
+        visible: false,
+      });
+    }
 
     render() {
         const data=this.props.getsProfile.base_profile

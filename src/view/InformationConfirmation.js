@@ -3,16 +3,7 @@ import React, {PropTypes} from 'react'
 import {Row, Col, Button} from 'antd'
 import {connect} from 'react-redux'
 import cookie from 'react-cookie'
-import {
-    isComplete,
-    getProduct,
-    getCountry,
-    getIndustry,
-    fetchPosts,
-    getBank,
-    getPayment,
-    getDocument
-} from '../Redux/actions/index'
+import {isComplete, getProduct, getCountry, getIndustry, fetchPosts,getBank,getPayment,getDocument} from '../Redux/actions/index'
 import ItemAmount from '../components/infoPages/ItemAmount'
 import ItemName from '../components/infoPages/ItemName'
 import AmountShow from '../components/infoPages/amountShow'
@@ -33,6 +24,7 @@ class InformationConfirmation extends React.Component {
         super(props);
         this.state = {
             message: true,
+            Complete:false,
             page: {
                 one: true,
                 two: false,
@@ -42,8 +34,13 @@ class InformationConfirmation extends React.Component {
         }
     }
 
+
+    changeComplete = (e) =>{
+      this.setState({ Complete:true})
+    }
+
     changeP = (event) => {
-        var cur
+         var cur
         if (event.target.tagName == 'SPAN') {
             cur = event.target.parentNode.name
         }
@@ -73,33 +70,32 @@ class InformationConfirmation extends React.Component {
         const {dispatch} = this.props
         const product_id = getUrlParam('product_id')
 
-        let data = {}
-        data.product_id = product_id,
-        data.mx_token = cookie.load('mx_token'),
-        data.mx_secret = cookie.load('mx_secret'),
-        dispatch(getDocument(data))
-        dispatch(getPayment(data))
-
+        let data1 = {}
+        data1.product_id = product_id,
+        data1.mx_token = cookie.load('mx_token'),
+        data1.mx_secret = cookie.load('mx_secret'),
+        dispatch(getDocument(data1))
+        dispatch(getPayment(data1))
         dispatch(isComplete())
+
+
         dispatch(fetchPosts())
         dispatch(getProduct(product_id))
         dispatch(getCountry({}))
         dispatch(getIndustry({}))
-        dispatch(getBank({type: 1}))
-        dispatch(getBank({type: 2}))
+        dispatch(getBank({type:1}))
+        dispatch(getBank({type:2}))
 
 
     }
 
     handleSubmit(e) {
-
-        this.changeMessage(e);
-
+      this.changeMessage(e);
     }
 
     render() {
         return (
-            <div style={{background: '#f4f4f4'}}>
+            <div style={{background: '#fff'}}>
 
                 {this.state.page.three ? '' :
 
@@ -120,14 +116,14 @@ class InformationConfirmation extends React.Component {
                 }
 
 
-                {this.props.getsProfile.Complete ?
-                    <div style={{width: '900px', margin: '0 auto'}}>
+                {this.props.getsProfile.isComplete == false?this.state.Complete ?
+                  <div style={{width: '900px', margin: '0 auto'}}>
                     <IndexPlate {...this.state.page} {...this.props} changeP={this.changeP} />
                     <ConfirmInvestment {...this.state.page} {...this.props} changeP={this.changeP} />
-                    <GoldenWay {...this.state.page} changeP={this.changeP} />
+                    <GoldenWay {...this.state.page} {...this.props} changeP={this.changeP} />
                   </div>
                     :
-                    <div style={{width: '900px', margin: '0 auto'}}>
+                  <div style={{width: '900px', margin: '0 auto'}}>
                     <p style={{
                         width: '900px',
                         textAlign: 'center',
@@ -136,9 +132,14 @@ class InformationConfirmation extends React.Component {
                         color: '#bbb',
                         fontSize: '16px'
                     }}>您的个人信息尚未完善,请填写后继续投资。</p>
-                    <IndexButton {...this.props.getsProfile.Complete} changeMessage={this.handleSubmit.bind(this)} />
+                    <IndexButton changeMessage={this.handleSubmit.bind(this)} changeComplete={this.changeComplete} />
                   </div>
-
+                    :
+                  <div style={{width: '900px', margin: '0 auto'}}>
+                    <IndexPlate {...this.state.page} {...this.state.Complete} {...this.props} changeP={this.changeP} />
+                    <ConfirmInvestment {...this.state.page} {...this.props} changeP={this.changeP} />
+                    <GoldenWay {...this.state.page} {...this.props} changeP={this.changeP} />
+                  </div>
                 }
 
                 {/*<div style={{wordBreak: 'break-all'}}>{JSON.stringify(this.props.getsProfile.base_profile)}</div>*/}
