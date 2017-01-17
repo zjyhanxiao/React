@@ -1,5 +1,10 @@
 import React from 'react';
 import {Row,Col,Button} from 'antd';
+import {connect} from 'react-redux'
+import cookie from 'react-cookie'
+import {
+    createOrder
+} from '../Redux/actions/index'
 import IndexAWC from '../components/payment/indexAWC'
 import IndexAW from '../components/payment/indexAW'
 import IndexW from '../components/payment/indexW'
@@ -16,18 +21,15 @@ class GoldenWay extends React.Component {
 
         const {dispatch} = props
         let data = {}
-        console.log(this.props.getsProfile.Product.id)
         data.product_id = this.props.getsProfile.Product.id
         data.invest_amount = this.props.getsProfile.invest_amount
-        data.mx_token=cookie.load('mx_token')||'7f23a1447d1093661b84972fbc3845aa'
-        data.mx_secret=cookie.load('mx_secret')||'bf89a88d6fa2434a83de33d6a0cf3a51'
-        dispatch(createOrder(data, this.success))
+        dispatch(createOrder(data))
   }
 
 
   render() {
     return (
-      <div style={{width: '100%', background: 'gray', overflow: 'hidden',display: this.props.three == true ? 'block' : 'none'}}>
+      <div style={{width: '100%', background: '#f4f4f4', overflow: 'hidden',display: this.props.three == true ? 'block' : 'none'}}>
         <p style={{width: '100%', textAlign:'center',color:'#159bd6',fontSize:'20px',margin:'50px 0'}}>选择入金方式</p>
         <IndexAWC {...this.props} />
         <IndexW {...this.props} />
@@ -57,4 +59,11 @@ class GoldenWay extends React.Component {
 
 GoldenWay.defaultProps = {};
 
-export default GoldenWay;
+const mapStateToProps = (state) => {
+    return {
+        getsProfile: state.getsProfile
+    }
+}
+
+
+export default connect(mapStateToProps)(GoldenWay)

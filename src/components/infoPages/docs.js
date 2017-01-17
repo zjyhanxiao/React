@@ -30,7 +30,7 @@ class Docs extends React.Component {
 
 
     if (a != undefined) {
-      dosc = a.map((dos) => <Row style={{paddingTop: '15px'}}>
+      dosc = a.map((dos,index) => <Row style={{paddingTop: '15px'}} key={index}>
         <Col span={20} offset={2}><Checkbox onChange={onChange} style={{color:'#159bd6'}}></Checkbox><a
           href="">dos</a> </Col>
       </Row>)

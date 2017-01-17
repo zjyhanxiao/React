@@ -82,7 +82,7 @@ class ConfirmInvestment extends React.Component {
                          }}
               />
 
-              {this.props.getsProfile.base_profile!=undefined&&this.props.getsProfile.base_profile.accreditation.with_spouse!=undefined?
+              {this.props.getsProfile.base_profile!=undefined&&this.props.getsProfile.base_profile.accreditation.with_spouse?
                 <Signature id='spouse_signature' getSignature={this.signature} {...this.props}
                            mode={{
                              people: '配偶签名',
