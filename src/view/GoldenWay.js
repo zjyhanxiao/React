@@ -29,7 +29,7 @@ class GoldenWay extends React.Component {
 
   render() {
     return (
-      <div style={{width: '100%', background: 'gray', overflow: 'hidden',display: this.props.three == true ? 'block' : 'none'}}>
+      <div style={{width: '100%', background: '#f4f4f4', overflow: 'hidden',display: this.props.three == true ? 'block' : 'none'}}>
         <p style={{width: '100%', textAlign:'center',color:'#159bd6',fontSize:'20px',margin:'50px 0'}}>选择入金方式</p>
         <IndexAWC {...this.props} />
         <IndexW {...this.props} />
