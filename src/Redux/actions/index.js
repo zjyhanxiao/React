@@ -419,7 +419,7 @@ export const getPayment = ( data ) => {
   return dispatch => {
     $.ajax({
       type: 'get',
-      url: 'https://gl-api2.meixincn.com/web/product/payment_list/'+data.product_id,
+      url: baseUrl+'/web/product/payment_list/'+data.product_id,
       // url: 'https://gl-api2.meixincn.com/web/product/payment_list/{product_id}',
       data: data,
       contentType: "application/json; charset=utf-8",
@@ -446,7 +446,7 @@ export const getDocument = ( data ) => {
   return dispatch => {
     $.ajax({
       type: 'get',
-      url: 'https://gl-api2.meixincn.com/web/product_document/get',
+      url: baseUrl+'/web/product_document/get',
       // url: 'https://gl-api2.meixincn.com/web/product_document/get',,
       data: data,
       contentType: "application/json; charset=utf-8",
