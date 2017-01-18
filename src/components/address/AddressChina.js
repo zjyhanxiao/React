@@ -52,7 +52,6 @@ class AddressChina extends React.Component {
     render() {
         const {getFieldDecorator} = this.props.getFieldDecorator;
         const baseData=this.props.getsProfile.base_profile.address_cn
-        console.log(JSON.stringify(this.props.getsProfile.base_profile.address_cn))
         const formItemLayout = {
             labelCol: {span: 6},
             wrapperCol: {span: 14},

@@ -325,7 +325,6 @@ export const updateProfile = (data, success) => {
             },
 
             success: function (res) {
-                console.log(res.body)
                 success&&success()
             }
         })
@@ -368,7 +367,6 @@ export const createOrder = (data, success) => {
             },
 
             success: function (res) {
-                console.log(res.body)
                 success&&success()
             }
         })

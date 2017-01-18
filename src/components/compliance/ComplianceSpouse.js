@@ -27,11 +27,10 @@ class ComplianceSpouse extends React.Component {
         });
     }
 
-    countryChange(e) {
+/*    countryChange(e) {
         let country = e.split('%%')[0]
-        console.log(country)
 
-    }
+    }*/
 
     render() {
         let baseData = this.props.getsProfile.base_profile.accreditation

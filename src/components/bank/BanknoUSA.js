@@ -9,10 +9,7 @@ const FormItem = Form.Item;
 
 class BanknoUSA extends React.Component {
   constructor() {
-    super();
-    this.state = {
-      profile:{}
-    }
+    super()
   }
   handleSubmit(e) {
     e.preventDefault();

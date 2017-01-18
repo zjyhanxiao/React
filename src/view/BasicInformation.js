@@ -216,7 +216,6 @@ class BasicInformation extends React.Component {
 }
 BasicInformation = Form.create({
     onFieldsChange(props, changedFields) {
-        console.log(JSON.stringify(props))
         for (let i in changedFields) {
             let key = changedFields[i].name
             let val = changedFields[i].value

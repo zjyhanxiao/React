@@ -11,7 +11,6 @@ class BankUSA extends React.Component {
   constructor() {
     super();
     this.state = {
-      profile:{},
       size: 'Checking'
     }
   }

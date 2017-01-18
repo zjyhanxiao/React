@@ -4,8 +4,8 @@ import {saveFields} from '../../Redux/actions/index'
 import {Row, Col, Button, Radio} from 'antd';
 
 class BankFast extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             profile: {},
             size: ''

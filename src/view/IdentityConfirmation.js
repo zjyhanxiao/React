@@ -47,7 +47,6 @@ class IdentityConfirmation extends React.Component {
 
 IdentityConfirmation = Form.create({
   onFieldsChange(props, changedFields) {
-    console.log(JSON.stringify(changedFields))
     for (let i in changedFields) {
       let key = changedFields[i].name
       let val = changedFields[i].value

@@ -90,8 +90,8 @@ const IndexButton = React.createClass({
                   <AddressInformation {...this.state.pages} changeIndex={this.changeIndex} />
                   <BankInformation  {...this.state.pages} {...this.state.isComplete} handleOk={this.handleOk} changeIndex={this.changeIndex} />
                   <ComplianceReview {...this.state.pages} handleOk={this.handleOk} changeIndex={this.changeIndex} />
-                    <div style={{wordBreak:'break-all'}}>
-                {JSON.stringify(this.props.getsProfile.base_profile)}</div>
+                    {/*<div style={{wordBreak:'break-all'}}>
+                {JSON.stringify(this.props.getsProfile.base_profile)}</div>*/}
                 </Modal>
 
             </div>
