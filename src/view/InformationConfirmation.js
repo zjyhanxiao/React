@@ -110,7 +110,7 @@ class InformationConfirmation extends React.Component {
                 }
 
 
-                {this.props.getsProfile.Complete ?
+                {this.props.getsProfile.Complete ==false ?
                     <div style={{width: '900px', margin: '0 auto'}}>
                     <IndexPlate {...this.state.page} {...this.props} changeP={this.changeP} />
                     <ConfirmInvestment {...this.state.page} {...this.props} changeP={this.changeP} />

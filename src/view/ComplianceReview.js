@@ -52,7 +52,7 @@ class ComplianceReview extends React.Component {
           <CompliancePublic {...this.props} getFieldDecorator={this.props.form} />
 
 
-            {this.props.getsProfile.isComplete == false ?
+            {this.props.getsProfile.isComplete == true ?
                     <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
                   <Col span={3} offset={6}>
                     <Button style={{

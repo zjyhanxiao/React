@@ -8,7 +8,7 @@ export const isComplete = () => {
     let url = baseUrl + '/app/invest/is_complete'
     return dispatch => {
         $.ajax({
-            type: 'post',
+            type: 'get',
             url: url,
             // url: 'https://api.meixinglobal.com/web/profile/update',
             data: '',
