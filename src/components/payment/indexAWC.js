@@ -34,9 +34,11 @@ class IndexAWC extends React.Component {
         data.payment_method=this.state.current!=''?this.state.current:Payment.is_ach_enabled?'ach':Payment.is_receive_bank_enabled?'wire':Payment.is_check_enabled?'check':''
         data.product_id = this.props.getsProfile.Product.id
         data.invest_amount = this.props.getsProfile.invest_amount
-        dispatch(createOrder(data))
+        dispatch(createOrder(data,this.success))
     }
-
+    success(){
+        window.location='/fa_invest/form_success.html'
+    }
     handleClick(event) {
         event.preventDefault();
         // console.log(event.target.getAttribute('name'))
