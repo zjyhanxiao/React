@@ -38,7 +38,7 @@ class BasicInformation extends React.Component {
 
     birth_date(current) {
         // can not select days before today and today
-        return current && current.valueOf() > Date.now() - 18 * 365 * 24 * 60 * 60 * 1000;
+        return current && current.valueOf() > Date.now();
     }
 
     expire_date(current) {
