@@ -89,7 +89,7 @@ class InformationConfirmation extends React.Component {
 
     render() {
         return (
-            <div style={{background: '#fff'}}>
+            <div style={{background: '#f4f4f4'}}>
 
                 {this.state.page.three ? '' :
 
