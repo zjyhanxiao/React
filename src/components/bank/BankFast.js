@@ -49,7 +49,28 @@ class BankFast extends React.Component {
         const bank_us = this.props.getsProfile.Bank['2']
         const bank_non_us = this.props.getsProfile.Bank['1']
         let bankData
-        bankData = this.props.getsProfile.base_profile.bank_type == 'NON_US' ?
+        bankData = this.props.getsProfile.base_profile.bank_type == 'US' ?
+            this.props.getsProfile.Bank['2'].map((data, index) => <Radio.Button key={data.bank_name_en+index} value={index}
+                                                                                style={{
+                                                                                    width: 260,
+                                                                                    height: 80,
+                                                                                    float: 'left',
+                                                                                    marginLeft: '20px',
+                                                                                    marginTop: '20px',
+                                                                                    borderRadius: '5px',
+                                                                                    position: 'relative'
+                                                                                }}>
+
+            <div style={{width: 50, height: 50, position: 'absolute', top: '15px', left: '15px', lineHeight: '50px'}}>
+              <img style={{width: '100%',}} src={data.bank_url} alt="" />
+            </div>
+            <div style={{width: 180, height: 55, position: 'absolute', top: '15px', right: '0px'}}>
+              <p style={{lineHeight: '1.5', wordBreak: 'break-all'}}>{data.bank_name_en}</p>
+            </div>
+
+          </Radio.Button>)
+
+            :
             this.props.getsProfile.Bank['1'].map((data, index) => <Radio.Button key={data.bank_name_en+index} value={index}
                                                                                 style={{
                                                                                     width: 260,
@@ -70,28 +91,6 @@ class BankFast extends React.Component {
             </div>
 
           </Radio.Button>)
-
-            :this.props.getsProfile.base_profile.bank_type == 'US' ?
-                this.props.getsProfile.Bank['2'].map((data, index) => <Radio.Button key={data.bank_name_en+index} value={index}
-                                                                                    style={{
-                                                                                        width: 260,
-                                                                                        height: 80,
-                                                                                        float: 'left',
-                                                                                        marginLeft: '20px',
-                                                                                        marginTop: '20px',
-                                                                                        borderRadius: '5px',
-                                                                                        position: 'relative'
-                                                                                    }}>
-
-            <div style={{width: 50, height: 50, position: 'absolute', top: '15px', left: '15px', lineHeight: '50px'}}>
-              <img style={{width: '100%',}} src={data.bank_url} alt="" />
-            </div>
-            <div style={{width: 180, height: 55, position: 'absolute', top: '15px', right: '0px'}}>
-              <p style={{lineHeight: '1.5', wordBreak: 'break-all'}}>{data.bank_name_en}</p>
-            </div>
-
-          </Radio.Button>)
-             : ''
         return (
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
 

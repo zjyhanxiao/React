@@ -140,7 +140,7 @@ class BankInformation extends React.Component {
             )}
           </FormItem>
 
-            {base_data.bank_type == 'NON_US' ? <BanknoUSA {...this.props} getFieldDecorator={this.props.form} showBank={this.showBank} /> :
+            {base_data.bank_type == 'NON_US' || base_data.bank_type==null? <BanknoUSA {...this.props} getFieldDecorator={this.props.form} showBank={this.showBank} /> :
                 <BankUSA {...this.props} getFieldDecorator={this.props.form} showBank={this.showBank} />}
 
 
