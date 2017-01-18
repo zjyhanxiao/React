@@ -43,7 +43,7 @@ class AddressPlate extends React.Component {
 
               <Row style={{paddingTop: '30px'}}>
                 <Col span={12} offset={2}>
-                  <p style={{fontWeight: '900', fontSize: '16px'}}>地址&nbsp;
+                  {/*<p style={{fontWeight: '900', fontSize: '16px'}}>地址&nbsp;
 
 
                     {data!=undefined&&data.investor_type!=undefined?data.investor_type == 1?
@@ -53,7 +53,7 @@ class AddressPlate extends React.Component {
                         :''
                     }
 
-                  </p>
+                  </p>*/}
                 </Col>
                 <Col span={1} offset={7}>
                   <a style={{marginBottom: '-5px', color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>修改</a>

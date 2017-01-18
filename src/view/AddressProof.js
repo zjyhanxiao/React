@@ -84,7 +84,7 @@ class AddressInformation extends React.Component {
 
 
 
-                    {this.props.getsProfile.isComplete == true?
+                    {this.props.getsProfile.Complete == true?
                         <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
                           <Col span={3} offset={6}>
                             <Button style={{
