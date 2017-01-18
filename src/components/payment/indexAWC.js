@@ -88,15 +88,18 @@ class IndexAWC extends React.Component {
         if (!baseData.is_ach_enabled && !baseData.is_receive_bank_enabled && !baseData.is_check_enabled) {
             tabBar = 'no payment'
         }
-        let itemWidth
+        let itemWidth,marginLeft
         if(tabBar==1||tabBar==2||tabBar==3){
             itemWidth=900
+            marginLeft=0
         }
         if(tabBar==12||tabBar==13||tabBar==23){
             itemWidth=440
+            marginLeft=20
         }
         if(tabBar==123){
             itemWidth=290
+            marginLeft=15
         }
         return (
             <div style={{width: '900px', margin: '50px auto 0', textAlign: 'center'}}>
@@ -122,7 +125,7 @@ class IndexAWC extends React.Component {
                             height: '60px',
                             background: '#ffffff',
                             float: 'left',
-                            marginLeft: '15px',
+                            marginLeft: marginLeft,
                             textAlign: 'center',
                             lineHeight: '60px',
                             fontSize: '18px',
@@ -139,7 +142,7 @@ class IndexAWC extends React.Component {
                         height: '60px',
                         background: '#ffffff',
                         float: 'left',
-                        marginLeft: '15px',
+                        marginLeft: marginLeft,
                         textAlign: 'center',
                         lineHeight: '60px',
                         fontSize: '18px',

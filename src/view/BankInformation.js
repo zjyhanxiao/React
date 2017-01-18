@@ -270,8 +270,8 @@ BankInformation = Form.create({
                         key == 'middle_bank_swift_code' ||
                         key == 'swift_code'
                     ) {
-                        props.dispatch(saveFields('bank_us', {
-                            ...props.getsProfile.base_profile.bank_us,
+                        props.dispatch(saveFields('bank_non_us', {
+                            ...props.getsProfile.base_profile.bank_non_us,
                             [key]: val
                         }));
                     }
