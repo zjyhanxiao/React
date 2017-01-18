@@ -100,14 +100,14 @@ class BanknoUSA extends React.Component {
           <Row>
             <FormItem
               {...formItemLayout}
-              label="账户名 / Account number"
+              label="账户号 / Account number"
               labelCol={{span: 4,offset: 2}}
               wrapperCol={{span: 16}}
             >
               {getFieldDecorator('account_number', {
                   initialValue: baseData.account_number || '',
                 rules: [{
-                  required: true, message: '请输入您的银行账户名!',
+                  required: true, message: '请输入您的银行账户号!',
                 }],
               })(
                 <Input type="text" size="large" style={{}}/>
