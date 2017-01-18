@@ -99,7 +99,7 @@ class AddressPublic extends React.Component {
                 initialValue:this.state.fileTYPE=='bill'&&base_data.bill_expire_date!=null?moment(base_data.bill_expire_date):this.state.fileTYPE=='drive'&&base_data.driving_license_expire_date!=null?moment(base_data.driving_license_expire_date):null,
                 rules: [{ type: 'object', required: true, message: '请输入日期!' }],
               })(
-                <DatePicker size="large" cardUrl={base_data.driving_license_url!=null?base_data.driving_license_url:base_data.bill_url!=null?base_data.bill_url:null} style={{width: 240}}></DatePicker>
+                <DatePicker size="large" style={{width: 240}}></DatePicker>
               )}
             </FormItem>
           </Col>
@@ -112,7 +112,7 @@ class AddressPublic extends React.Component {
                       initialValue: this.props,
                       rules: [{required: false, message: '请上传证件!'}]
                     })(
-                      <Uploader {...this.props}/>
+                      <Uploader {...this.props} cardUrl={base_data.driving_license_url!=null?base_data.driving_license_url:base_data.bill_url!=null?base_data.bill_url:null} />
                     )}
                   </FormItem>
                 </Col>
