@@ -65,7 +65,7 @@ class BasicInfoH extends React.Component {
                               initialValue: baseData.base_info.date_of_birth != null && baseData.base_info.date_of_birth != undefined ? moment(baseData.base_info.date_of_birth) : '',
                                 rules: [{type: 'object', required: true, message: '请输入日期!'}],
                             })(
-                                <DatePicker size="large" style={{width: 240}}></DatePicker>
+                                <DatePicker disabledDate={this.props.disabledDate} size="large" style={{width: 240}} />
                             )}
                         </FormItem>
                     </Col>

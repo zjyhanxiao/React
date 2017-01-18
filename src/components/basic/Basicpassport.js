@@ -16,7 +16,6 @@ class BasicPassport extends React.Component {
         super(props)
     }
 
-
     handleSubmit(e) {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
@@ -78,7 +77,7 @@ class BasicPassport extends React.Component {
                               initialValue: this.props.test.validityfieldDefault!=''?moment(this.props.test.validityfieldDefault):null,
                                 rules: [{type: 'object', required: true, message: '请输入日期!'}],
                             })(
-                                <DatePicker size="large" style={{width: 240}}></DatePicker>
+                                <DatePicker disabledDate={this.props.disabledDate} size="large" style={{width: 240}} />
                             )}
                         </FormItem>
                     </Col>

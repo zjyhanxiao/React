@@ -24,7 +24,8 @@ class BasicInformation extends React.Component {
         });
         e.preventDefault();
     }
-    changeSubmit(e){
+
+    changeSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 // console.log('Received values of form: ', JSON.stringify(values));
@@ -35,9 +36,9 @@ class BasicInformation extends React.Component {
         });
     }
 
-    disabledDate(current) {
+    birth_date(current) {
         // can not select days before today and today
-        return current && current.valueOf() < Date.now() - 90 * 24 * 60 * 60 * 1000;
+        return current && current.valueOf() > Date.now() - 18 * 365 * 24 * 60 * 60 * 1000;
     }
 
     expire_date(current) {
@@ -62,12 +63,12 @@ class BasicInformation extends React.Component {
                 offset: 6,
             },
         };
-        let passport_number=this.props.getsProfile.base_profile.passport_number
-        let passport_expire_date=this.props.getsProfile.base_profile.passport_expire_date
-        let passport_url=this.props.getsProfile.base_profile.passport_url
-        let id_card_number=this.props.getsProfile.base_profile.id_card_number
-        let id_card_expire_date=this.props.getsProfile.base_profile.id_card_expire_date
-        let id_card_url=this.props.getsProfile.base_profile.id_card_url
+        let passport_number = this.props.getsProfile.base_profile.passport_number
+        let passport_expire_date = this.props.getsProfile.base_profile.passport_expire_date
+        let passport_url = this.props.getsProfile.base_profile.passport_url
+        let id_card_number = this.props.getsProfile.base_profile.id_card_number
+        let id_card_expire_date = this.props.getsProfile.base_profile.id_card_expire_date
+        let id_card_url = this.props.getsProfile.base_profile.id_card_url
 
         return (
             <div style={{
@@ -80,9 +81,10 @@ class BasicInformation extends React.Component {
                   {
                       this.props.getsProfile.base_profile.investor_type == 99 ?
                           <BasicInfoH {...this.props} getFieldDecorator={this.props.form}
-                                      disabledDate={this.disabledDate} expire_date={this.expire_date} />
+                                      disabledDate={this.birth_date} />
                           :
-                          <BasicInfoUC {...this.props}  getFieldDecorator={this.props.form} />
+                          <BasicInfoUC {...this.props}
+                                       disabledDate={this.birth_date} getFieldDecorator={this.props.form} />
 
                   }
 
@@ -90,6 +92,7 @@ class BasicInformation extends React.Component {
                         this.props.getsProfile.base_profile.investor_type == 99 ?
                             <div>
                         <Basicpassport {...this.props.getsProfile}
+                                       disabledDate={this.expire_date}
                                        test={{
                                            type: '护照上传',
                                            explain: '请上传您的护照信息页照片或扫面文件',
@@ -99,9 +102,9 @@ class BasicInformation extends React.Component {
                                            numberfield: 'passport_number',
                                            validityfield: 'passport_expire_date',
                                            urlfield: 'passport_url',
-                                         numberfieldDefault: passport_number||'',
-                                         validityfieldDefault:passport_expire_date||'',
-                                         urlfieldDefault:passport_url||'',
+                                           numberfieldDefault: passport_number || '',
+                                           validityfieldDefault: passport_expire_date || '',
+                                           urlfieldDefault: passport_url || '',
 
                                        }}
                                        getFieldDecorator={this.props.form} />
@@ -115,14 +118,15 @@ class BasicInformation extends React.Component {
                                            numberfield: 'id_card_number',
                                            validityfield: 'id_card_expire_date',
                                            urlfield: 'id_card_url',
-                                         numberfieldDefault: id_card_number||'',
-                                         validityfieldDefault:id_card_expire_date||'',
-                                         urlfieldDefault:id_card_url||'',
+                                           numberfieldDefault: id_card_number || '',
+                                           validityfieldDefault: id_card_expire_date || '',
+                                           urlfieldDefault: id_card_url || '',
                                        }}
                                        getFieldDecorator={this.props.form} />
                       </div>
                             :
                             <Basicpassport {...this.props.getsProfile}
+                                           expire_date={this.expire_date}
                                            test={{
                                                type: '护照上传',
                                                explain: '请上传您的护照信息页照片或扫面文件',
@@ -132,48 +136,44 @@ class BasicInformation extends React.Component {
                                                numberfield: 'passport_number',
                                                validityfield: 'passport_expire_date',
                                                urlfield: 'passport_url',
-                                               numberfieldDefault: passport_number||'',
-                                               validityfieldDefault:passport_expire_date||'',
-                                               urlfieldDefault:passport_url||'',
+                                               numberfieldDefault: passport_number || '',
+                                               validityfieldDefault: passport_expire_date || '',
+                                               urlfieldDefault: passport_url || '',
                                            }}
                                            getFieldDecorator={this.props.form} />
                     }
 
 
+                    {this.props.getsProfile.Complete == true ?
 
-
-
-
-                  {this.props.getsProfile.Complete == true?
-
-                      <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
+                        <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
                         <Col span={3} offset={6}>
                           <Button style={{
-                            width: '120px',
-                            height: '50px',
-                            borderRadius: '30px',
-                            background: '#ffffff',
-                            color: '#223976',
-                            fontSize: '18px'
+                              width: '120px',
+                              height: '50px',
+                              borderRadius: '30px',
+                              background: '#ffffff',
+                              color: '#223976',
+                              fontSize: '18px'
                           }} type="primary" name="first" onClick={this.props.handleCancel} size="large">取消</Button>
                         </Col>
 
                         <Col span={3} offset={6}>
                           <FormItem {...tailFormItemLayout}>
                             <Button style={{
-                              width: '120px',
-                              height: '50px',
-                              borderRadius: '30px',
-                              background: '#223976',
-                              color: '#fff',
-                              fontSize: '18px'
+                                width: '120px',
+                                height: '50px',
+                                borderRadius: '30px',
+                                background: '#223976',
+                                color: '#fff',
+                                fontSize: '18px'
                             }} type="primary" htmlType="submit" name="third" onClick={this.changeSubmit.bind(this)}
                                     size="large">确定</Button>
                           </FormItem>
                         </Col>
                       </Row>
 
-                      :
+                        :
                         <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
                           <Col span={3} offset={6}>
                             <Button style={{
