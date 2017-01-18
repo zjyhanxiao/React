@@ -91,7 +91,7 @@ class BasicPassport extends React.Component {
                       initialValue: this.props.test.urlfieldDefault,
                         rules: [{ required:false, message: '请上传证件!'}]
                     })(
-                        <Uploader {...data} />
+                        <Uploader {...data} cardUrl={this.props.test.urlfieldDefault} />
                     )}
                 </FormItem>
                 <FormItem>
