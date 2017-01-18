@@ -192,7 +192,7 @@ class AddressOther extends React.Component {
                   initialValue: baseData.postal_code||'',
                   rules: [{
                       required: true, message: '请输入您的邮编!',
-                  }],
+                  }, {pattern: /^[0-9]+$/i, message: '请输入数字!',}],
               })(
                   <Input type="text" size="large" style={{}} />
               )}

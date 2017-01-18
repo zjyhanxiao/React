@@ -25,7 +25,7 @@ class Docs extends React.Component {
         let baseInfo=JSON.stringify({...this.props.getsProfile.base_profile})
         let invest_amount=this.props.getsProfile.invest_amount
         let docItem = docs!=[]? docs.map(function (item, index) {
-                let hrefUrl=item.need_mapped?'http://www.jingyu.com:8080/subdoc.html?document_id='+item.id+'&invest_amount='+invest_amount+'&user_Info='+baseInfo: item.url
+                let hrefUrl=item.need_mapped?'/subdoc.html?document_id='+item.id+'&invest_amount='+invest_amount+'&user_Info='+baseInfo: item.url
                 hrefUrl=encodeURI(hrefUrl)
                 return <Row style={{paddingTop: '15px'}} key={index}>
                         <Col span={20} offset={2}><Checkbox onChange={onChange} style={{color: '#159bd6'}}></Checkbox>我已阅读并接受<a
