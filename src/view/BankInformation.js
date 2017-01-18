@@ -34,25 +34,26 @@ class BankInformation extends React.Component {
         this.setState({bankState: false});
     }
     handleSubmit(e) {
-        const {dispatch}=this.props
         let pro = this.props.getsProfile.base_profile
         if (
             pro.bank_non_us.middle_bank_address != null &&
             pro.bank_non_us.middle_bank_name != null &&
             pro.bank_non_us.middle_bank_swift_code != null
         ) {
+            const {dispatch}=this.props
             dispatch(saveFields('bank_non_us', {
-                ...props.getsProfile.base_profile.bank_non_us,
+                ...this.props.getsProfile.base_profile.bank_non_us,
                 'have_middlebank': 1
             }));
         }
 
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', JSON.stringify(values));
+                // console.log('Received values of form: ', JSON.stringify(values));
                 if (this.props.getsProfile.base_profile.investor_type == 2) {
                     this.props.changeIndex(e)
                 } else {
+                    const {dispatch}=this.props
                     dispatch(changeComplete('true'))
                   this.props.handleOk(e);
                 }
@@ -63,7 +64,7 @@ class BankInformation extends React.Component {
     changeSubmit(e){
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', JSON.stringify(values));
+                // console.log('Received values of form: ', JSON.stringify(values));
                 this.props.handleCancel()
                 /*const {dispatch} = this.props
                  dispatch(updateProfile(values, this.success))*/
