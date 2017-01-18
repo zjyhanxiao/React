@@ -75,29 +75,25 @@ class BasicPlate extends React.Component {
             </Row>
 
               {
-                  data!=undefined&&data.investor_type!=undefined?data.investor_type == 2 ?
+                  data!=undefined&&data.investor_type!=undefined&&data.investor_type == 2 ?
                       <Row style={{marginTop: '5px'}}>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>SSN</span></Col>
-                  <Col span={7}><p>{data!=undefined&&data.ssn!=undefined?data.ssn:''}</p></Col>
+                  <Col span={7}><p>{data!=undefined&&data.base_info.ssn!=undefined?data.base_info.ssn:''}</p></Col>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>国籍</span></Col>
                   <Col span={6}><p>{data!=undefined&&data.base_info.nationality!=undefined?data.base_info.nationality:''}</p></Col>
                 </Row>
                       :
                       ''
-                      :
-                      ''
               }
 
               {
-                  data!=undefined&&data.investor_type!=undefined?data.investor_type == 99 ?
+                  data!=undefined&&data.investor_type!=undefined&&data.investor_type == 99 ?
                       <Row style={{marginTop: '5px'}}>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>国籍</span></Col>
                   <Col span={7}><p>{data!=undefined&&data.base_info.nationality!=undefined?data.base_info.nationality:''}</p></Col>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>资金来源</span></Col>
                   <Col span={6}><p>{data!=undefined&&data.base_info.source_of_capital!=undefined?data.base_info.source_of_capital:''}</p></Col>
                 </Row>
-                      :
-                      ''
                       :
                       ''
               }
@@ -111,7 +107,7 @@ class BasicPlate extends React.Component {
             </Row>
 
               {
-                  data!=undefined&&data.investor_type!=undefined?data.investor_type == 1 ?
+                  data!=undefined&&data.investor_type!=undefined&&data.investor_type == 1 ?
                       <Row style={{marginTop: '5px'}}>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>资金来源</span></Col>
                   <Col span={7}><p>{data!=undefined&&data.base_info.source_of_capital!=undefined?data.base_info.source_of_capital:''}</p></Col>
@@ -120,20 +116,16 @@ class BasicPlate extends React.Component {
                 </Row>
                       :
                       ''
-                      :
-                      ''
               }
 
               {
-                  data!=undefined&&data.investor_type!=undefined?data.investor_type == 99 ?
+                  data!=undefined&&data.investor_type!=undefined&&data.investor_type == 99 ?
                       <Row style={{marginTop: '5px'}}>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>纳税国</span></Col>
                   <Col span={7}><p>{data!=undefined&&data.base_info.country_of_tax_residency!=undefined?data.base_info.country_of_tax_residency:''}</p></Col>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>纳税号</span></Col>
                   <Col span={6}><p>{data!=undefined&&data.base_info.foreign_tax_number!=undefined?data.base_info.foreign_tax_number:''}</p></Col>
                 </Row>
-                      :
-                      ''
                       :
                       ''
               }
@@ -156,7 +148,7 @@ class BasicPlate extends React.Component {
 
 
               {
-                  data!=undefined&&data.investor_type!=undefined?data.investor_type == 99 ?
+                  data!=undefined&&data.investor_type!=undefined&&data.investor_type == 99 ?
                       <div>
                         <Row style={{marginTop: '5px'}}>
                           <Col span={3} offset={2}><span style={{fontWeight: '600'}}>身份证号</span></Col>
@@ -173,8 +165,6 @@ class BasicPlate extends React.Component {
                                     : ''
                                 }
                       </div>
-                      :
-                      ''
                       :
                       ''
               }
