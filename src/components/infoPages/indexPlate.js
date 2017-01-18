@@ -25,7 +25,7 @@ class IndexPlate extends React.Component {
         <BankPlate  {...this.props} />
 
 
-        {data!=undefined&&data.accreditation.with_spouse!=undefined?
+        {data!=undefined&&data.accreditation.with_spouse==true?
           <CompliancePlate  {...this.props} />
           :
           ''

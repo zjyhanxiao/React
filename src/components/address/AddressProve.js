@@ -89,7 +89,7 @@ class AddressProve extends React.Component {
                         initialValue: data!=null&&data.id_card_url!=null?data.id_card_url:null,
                         rules: [{required: false, message: '请上传证件!'}]
                     })(
-                        <Uploader {...data} />
+                        <Uploader {...data} cardUrl={data.id_card_url} />
                     )}
                   </FormItem>
                 </Col>

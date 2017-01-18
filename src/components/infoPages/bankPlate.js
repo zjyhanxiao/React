@@ -71,7 +71,7 @@ class BankPlate extends React.Component {
 
 
 
-        {data!=undefined&&data.bank_type!=undefined?data.bank_type == 'US'?
+        {data!=undefined&&data.bank_type!=undefined&&data.bank_type == 'US'?
             <div>
               <Row style={{marginTop:'5px'}}>
                 <Col span={4} offset={2}><span style={{fontWeight:'600'}}>银行名称</span></Col>
@@ -117,9 +117,6 @@ class BankPlate extends React.Component {
                 <Col span={16}><p>{data!=undefined&&data.bank_non_us.account_number!=undefined?data.bank_non_us.account_number:''}</p></Col>
               </Row>
             </div>
-
-          :
-          ''
         }
 
 

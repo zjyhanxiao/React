@@ -109,10 +109,10 @@ class AddressPublic extends React.Component {
                 <Col span={8} offset={8}>
                   <FormItem style={{width: 346, margin: '0 auto'}}>
                     {getFieldDecorator(this.state.fileTYPE=='bill'?'bill_url':'driving_license_url', {
-                      initialValue: this.props.passport_photo,
+                      initialValue: this.props,
                       rules: [{required: false, message: '请上传证件!'}]
                     })(
-                      <Uploader {...this.props.passport_photo}/>
+                      <Uploader {...this.props}/>
                     )}
                   </FormItem>
                 </Col>
