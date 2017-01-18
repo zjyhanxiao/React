@@ -141,7 +141,7 @@ const getsProfile = (state = {}, action) => {
 
         case types.GET_DOCUMENT:
           return Object.assign({}, state, {
-            document: action.json.body
+            Doc: action.json.body
           });
 
 
