@@ -16,7 +16,6 @@ class BankInformation extends React.Component {
         super(props)
         this.state = {
             bankState:false,
-            Complete:false,
         }
     }
 
@@ -60,6 +59,16 @@ class BankInformation extends React.Component {
             }
         });
         e.preventDefault();
+    }
+    changeSubmit(e){
+        this.props.form.validateFieldsAndScroll((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', JSON.stringify(values));
+                this.props.handleCancel()
+                /*const {dispatch} = this.props
+                 dispatch(updateProfile(values, this.success))*/
+            }
+        });
     }
 
     success() {
@@ -158,7 +167,7 @@ class BankInformation extends React.Component {
                       background: '#223976',
                       color: '#fff',
                       fontSize: '18px'
-                    }} type="primary" htmlType="submit" onClick={this.props.handleCancel}
+                    }} type="primary" htmlType="submit" onClick={this.changeSubmit.bind(this)}
                             size="large">确定</Button>
                   </FormItem>
                 </Col>

@@ -54,7 +54,7 @@ class BasicPlate extends React.Component {
               </Col>
             </Row>
       <Modal title="" visible={this.state.visible}
-             onOk={this.handleOk} onCancel={this.handleCancel} closable={false} footer={''} width={900}>
+             closable={false} footer={''} width={900}>
         <BasicInformation {...this.state} {...this.props} handleCancel={this.handleCancel} />
       </Modal>
 

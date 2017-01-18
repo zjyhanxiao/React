@@ -13,9 +13,6 @@ const FormItem = Form.Item;
 class AddressInformation extends React.Component {
     constructor(props) {
         super(props)
-      this.state = {
-        Complete:false,
-      }
     }
     handleSubmit(e) {
         e.preventDefault();
@@ -27,11 +24,18 @@ class AddressInformation extends React.Component {
                 dispatch(updateProfile(values, this.success))*/
             }
         });
-      this.setState({
-        Complete:true
-      })
     }
 
+    changeSubmit(e){
+        this.props.form.validateFieldsAndScroll((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', JSON.stringify(values));
+                this.props.handleCancel()
+                /*const {dispatch} = this.props
+                 dispatch(updateProfile(values, this.success))*/
+            }
+        });
+    }
     disabledDate(current) {
         // can not select days before today and today
         return current && current.valueOf() < Date.now() - 90 * 24 * 60 * 60 * 1000;

@@ -11,9 +11,6 @@ const FormItem = Form.Item;
 class BasicInformation extends React.Component {
     constructor(props) {
         super(props)
-      this.state = {
-        Complete:false,
-      }
     }
 
     handleSubmit(e) {
@@ -26,9 +23,16 @@ class BasicInformation extends React.Component {
             }
         });
         e.preventDefault();
-        this.setState({
-          Complete:true
-        })
+    }
+    changeSubmit(e){
+        this.props.form.validateFieldsAndScroll((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', JSON.stringify(values));
+                this.props.handleCancel()
+                /*const {dispatch} = this.props
+                 dispatch(updateProfile(values, this.success))*/
+            }
+        });
     }
 
     disabledDate(current) {
@@ -163,7 +167,7 @@ class BasicInformation extends React.Component {
                               background: '#223976',
                               color: '#fff',
                               fontSize: '18px'
-                            }} type="primary" htmlType="submit" name="third" onClick={this.props.handleCancel}
+                            }} type="primary" htmlType="submit" name="third" onClick={this.changeSubmit.bind(this)}
                                     size="large">确定</Button>
                           </FormItem>
                         </Col>

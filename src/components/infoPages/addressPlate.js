@@ -74,7 +74,7 @@ class AddressPlate extends React.Component {
 
 
     <Modal title="" visible={this.state.visible}
-           onOk={this.handleOk} onCancel={this.handleCancel} closable={false} footer={''} width={900}>
+            closable={false} footer={''} width={900}>
       <AddressProof {...this.state} handleCancel={this.handleCancel} />
     </Modal>
 

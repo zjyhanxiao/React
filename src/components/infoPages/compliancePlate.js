@@ -44,7 +44,7 @@ class CompliancePlate extends React.Component {
           </Col>
         </Row>
     <Modal title="" visible={this.state.visible}
-           onOk={this.handleOk} onCancel={this.handleCancel} closable={false} footer={''} width={900}>
+           closable={false} footer={''} width={900}>
       <ComplianceReview {...this.state} handleCancel={this.handleCancel}/>
     </Modal>
 
