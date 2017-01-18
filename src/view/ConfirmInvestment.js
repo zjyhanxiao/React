@@ -19,17 +19,6 @@ class ConfirmInvestment extends React.Component {
 
     signature(e) {
         const {dispatch}=this.props
-        let pro = this.props.getsProfile.base_profile
-        if (
-            pro.bank_non_us.middle_bank_address != null &&
-            pro.bank_non_us.middle_bank_name != null &&
-            pro.bank_non_us.middle_bank_swift_code != null
-        ) {
-            dispatch(saveFields('bank_non_us', {
-                ...props.getsProfile.base_profile.bank_non_us,
-                'have_middlebank': 1
-            }));
-        }
 
         let data = {...this.props.getsProfile.base_profile}
         data.signature = this.props.getsProfile.base_profile.signature || '';

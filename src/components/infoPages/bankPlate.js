@@ -41,14 +41,7 @@ class BankPlate extends React.Component {
         <Row style={{paddingTop: '30px'}}>
           <Col span={14} offset={2}>
             <p style={{fontWeight: '900', fontSize: '16px'}}>银行信息&nbsp;&nbsp;
-
-
-              {data!=undefined&&data.investor_type!=undefined?data.investor_type == 1?
                 <span style={{fontWeight: '100', fontSize: '12px',color:'#ff6600'}}>如您将采用ACH自动扣款功能，此处需填写美国银行，如需更换请点击修改。</span>
-                :
-                ''
-                  :''
-              }
 
             </p>
           </Col>
@@ -105,8 +98,8 @@ class BankPlate extends React.Component {
                 <Col span={16}><p>{data!=undefined&&data.bank_non_us.bank_address!=undefined?data.bank_non_us.bank_address:''}</p></Col>
               </Row>
               <Row style={{marginTop:'5px'}}>
-                <Col span={4} offset={2}><span style={{fontWeight:'600'}}>ABA / routing #</span></Col>
-                <Col span={16}><p>{data!=undefined&&data.bank_non_us.routing_number!=undefined?data.bank_non_us.routing_number:''}</p></Col>
+                <Col span={4} offset={2}><span style={{fontWeight:'600'}}>Swiftcode</span></Col>
+                <Col span={16}><p>{data!=undefined&&data.bank_non_us.swift_code!=undefined?data.bank_non_us.swift_code:''}</p></Col>
               </Row>
               <Row style={{marginTop:'5px'}}>
                 <Col span={4} offset={2}><span style={{fontWeight:'600'}}>银行账户姓名</span></Col>
@@ -116,6 +109,22 @@ class BankPlate extends React.Component {
                 <Col span={4} offset={2}><span style={{fontWeight:'600'}}>账户号</span></Col>
                 <Col span={16}><p>{data!=undefined&&data.bank_non_us.account_number!=undefined?data.bank_non_us.account_number:''}</p></Col>
               </Row>
+                {data!=undefined&&data.bank_non_us.have_middlebank==1?
+                    <div>
+                        <Row style={{marginTop:'5px'}}>
+                          <Col span={4} offset={2}><span style={{fontWeight:'600'}}>中间行名称</span></Col>
+                          <Col span={16}><p>{data!=undefined&&data.bank_non_us.middle_bank_name!=undefined?data.bank_non_us.middle_bank_name:''}</p></Col>
+                        </Row>
+                        <Row style={{marginTop:'5px'}}>
+                          <Col span={4} offset={2}><span style={{fontWeight:'600'}}>中间行地址</span></Col>
+                          <Col span={16}><p>{data!=undefined&&data.bank_non_us.middle_bank_address!=undefined?data.bank_non_us.middle_bank_address:''}</p></Col>
+                        </Row>
+                        <Row style={{marginTop:'5px',marginBottom:'20px'}}>
+                          <Col span={4} offset={2}><span style={{fontWeight:'600'}}>中间行Swiftcode</span></Col>
+                          <Col span={16}><p>{data!=undefined&&data.bank_non_us.middle_bank_swift_code!=undefined?data.bank_non_us.middle_bank_swift_code:''}</p></Col>
+                        </Row>
+                    </div>
+                    :''}
             </div>
         }
 

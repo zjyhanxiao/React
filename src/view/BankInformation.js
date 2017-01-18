@@ -38,7 +38,8 @@ class BankInformation extends React.Component {
         if (
             pro.bank_non_us.middle_bank_address != null &&
             pro.bank_non_us.middle_bank_name != null &&
-            pro.bank_non_us.middle_bank_swift_code != null
+            pro.bank_non_us.middle_bank_swift_code != null&&
+            pro.bank_type=='NON_US'
         ) {
             const {dispatch}=this.props
             dispatch(saveFields('bank_non_us', {
@@ -65,6 +66,19 @@ class BankInformation extends React.Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 // console.log('Received values of form: ', JSON.stringify(values));
+                let pro = this.props.getsProfile.base_profile
+                if (
+                    pro.bank_non_us.middle_bank_address != null &&
+                    pro.bank_non_us.middle_bank_name != null &&
+                    pro.bank_non_us.middle_bank_swift_code != null&&
+                    pro.bank_type=='NON_US'
+                ) {
+                    const {dispatch}=this.props
+                    dispatch(saveFields('bank_non_us', {
+                        ...this.props.getsProfile.base_profile.bank_non_us,
+                        'have_middlebank': 1
+                    }));
+                }
                 this.props.handleCancel()
                 /*const {dispatch} = this.props
                  dispatch(updateProfile(values, this.success))*/
