@@ -17,7 +17,7 @@ class ComplianceReview extends React.Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 const {dispatch}=this.props
-                dispatch(changeComplete('true'))
+                dispatch(changeComplete(true))
                 this.props.handleOk(e);
             }
         })
