@@ -25,7 +25,7 @@ class Avatar extends React.Component {
         this.state = {
             fileList: {
                 //url: 'https://s1.meixinglobal.com/static/version_1.6/dist/meixin_invest/img/upload_id_placeholder_518x348.png',
-                url: props.cardUrl||'images/shengfenzhen.png',
+                url: props.cardUrl||'https://test.meixincn.com/static/version_1.9/dist/meixin_invest/img/shengfenzhen.png',
                 thumbUrl:''
             }
         };
