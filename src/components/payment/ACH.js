@@ -16,9 +16,10 @@ class ACH extends React.Component {
 
 
     render() {
-        let baseData = this.props.getsProfile.base_profile
-        let account_number = (baseData != undefined ? baseData.bank_us.account_number : '')
-        account_number = account_number.replace(/^\d+(\d{4})$/, "****************$1")
+        let baseData = this.props.getsProfile.base_profile||''
+        let bank=baseData!=''&&baseData.bank_type=='US'?baseData.bank_us:baseData!=''&&this.bank_type=='NON_US'?baseData.bank_non_us:''
+        let account_number = (baseData != undefined ? bank.account_number : '')||''
+        account_number = account_number.replace(/^\d+(\d{4})$/, "****************$1")||''
 
         return (
             <div style={{width: '100%', background: '#fff', overflow: 'hidden',textAlign:'left'}}>
@@ -40,7 +41,7 @@ class ACH extends React.Component {
             <p style={{fontWeight: '600'}}>银行名称</p>
           </Col>
           <Col span={14}>
-            <p>{baseData != undefined ? baseData.bank_us.bank_name : ''}</p>
+            <p>{baseData != undefined ? bank.bank_name : ''}</p>
           </Col>
         </Row>
         <Row style={{marginTop: '15px'}}>
@@ -48,7 +49,7 @@ class ACH extends React.Component {
             <p style={{fontWeight: '600'}}>ABA / routing #</p>
           </Col>
           <Col span={14}>
-            <p>{baseData != undefined ? baseData.bank_us.routing_number : ''}</p>
+            <p>{baseData != undefined ? bank.routing_number : ''}</p>
           </Col>
         </Row>
         <Row style={{marginTop: '15px'}}>

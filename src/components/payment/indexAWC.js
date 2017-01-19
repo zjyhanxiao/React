@@ -41,20 +41,34 @@ class IndexAWC extends React.Component {
     }
     handleClick(event) {
         event.preventDefault();
-        // console.log(event.target.getAttribute('name'))
+        // console.log(event.target.nextSibling)
         // event.target.nextSibling.className = '';
         // event.target.previousSibling.className = '';
-        event.target.className = 'active'
         if (event.target.getAttribute('name') == 'ach') {
-            event.target.nextSibling.className = '';
-            event.target.nextSibling.nextSibling.className = '';
+            if(event.target.nextSibling!=null&&event.target.nextSibling!=undefined){
+                event.target.nextSibling.className = '';
+            }
+            if(event.target.nextSibling.nextSibling!=null&&event.target.nextSibling.nextSibling!=undefined){
+                event.target.nextSibling.nextSibling.className = '';
+            }
+
         } else if (event.target.getAttribute('name') == 'wire') {
-            event.target.previousSibling.className = '';
-            event.target.nextSibling.className = '';
+            if(event.target.previousSibling!=null&&event.target.previousSibling!=undefined){
+                event.target.previousSibling.className = '';
+            }
+            if(event.target.nextSibling!=null&&event.target.nextSibling!=undefined){
+                event.target.nextSibling.className = '';
+            }
         } else if (event.target.getAttribute('name') == 'check') {
-            event.target.previousSibling.className = '';
-            event.target.previousSibling.previousSibling.className = '';
+            if(event.target.previousSibling!=null&&event.target.previousSibling!=undefined){
+                event.target.previousSibling.className = '';
+            }
+            if(event.target.previousSibling.previousSibling!=null&&event.target.previousSibling.previousSibling!=undefined){
+                event.target.previousSibling.previousSibling.className = '';
+            }
         }
+
+        event.target.className = 'active'
         this.setState({
             Ach: false,
             Wire: false,
@@ -105,7 +119,7 @@ class IndexAWC extends React.Component {
         }
         return (
             <div style={{width: '900px', margin: '50px auto 0', textAlign: 'center'}}>
-                <div style={{overflow: 'hidden'}}>
+                <div style={{overflow: 'hidden'}} id='pay_ment'>
                     {tabBar == 1 || tabBar == 12 || tabBar == 123 ?
                         <div className={tabBar == 1 || tabBar == 12 || tabBar == 13 || tabBar == 123 ? 'active' : ''} style={{
                             width: itemWidth,
@@ -161,7 +175,7 @@ class IndexAWC extends React.Component {
                     <div>
                         {tabBar == 1 || tabBar == 12 || tabBar == 13 || tabBar == 123 ?
                             <div style={{
-                                display: this.state.Ach == true ? 'block'
+                                display: this.state.ach == true ? 'block'
                                 :
                                     (tabBar == 1 || tabBar == 12 || tabBar == 13 || tabBar == 123)&&this.state.current=='' ?'block'
                                 :
@@ -169,7 +183,7 @@ class IndexAWC extends React.Component {
                             }}><ACH /></div> : ''}
                         {tabBar == 2 || tabBar == 12 || tabBar == 23 || tabBar == 123 ?
                             <div style={{
-                                display: this.state.Wire == true ? 'block'
+                                display: this.state.wire == true ? 'block'
                                 :
                                 (tabBar == 2 || tabBar == 23 )&&this.state.current=='' ?'block'
                                 :
@@ -177,7 +191,7 @@ class IndexAWC extends React.Component {
                             }}><Wire /></div> : ''}
                         {tabBar == 3 || tabBar == 13 || tabBar == 23 || tabBar == 123 ?
                             <div style={{
-                                display: this.state.Check == true ? 'block'
+                                display: this.state.check == true ? 'block'
                                 :
                                 (tabBar == 3 )&&this.state.current=='' ?'block'
                                 :
