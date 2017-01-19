@@ -1,11 +1,8 @@
 import React, {Component, PropTypes}from 'react'
-import {Form, Row, Col, Button} from 'antd'
+import {Form} from 'antd'
 import {connect} from 'react-redux'
 import {saveFields} from '../Redux/actions/index'
-import moment from 'moment'
 import Identity from '../components/identity/identity'
-
-const FormItem = Form.Item;
 
 class IdentityConfirmation extends React.Component {
   constructor(props) {
@@ -31,11 +28,7 @@ class IdentityConfirmation extends React.Component {
     };
     return (
       <div style={{width: 900, background: '#fff', overflow: 'hidden',display:this.props.first==true?'block':'none'}}>
-        {/*{JSON.stringify(this.props.passport_photo)}*/}
         <Form horizontal>
-
-          {/*<AddressOther {...this.props}  getFieldDecorator={this.props.form} />*/}
-
           <Identity  {...this.props}  getFieldDecorator={this.props.form} />
 
         </Form>

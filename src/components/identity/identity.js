@@ -145,7 +145,7 @@ class Identity extends React.Component {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', JSON.stringify(values));
+                console.log('Received values of form: ', values);
                 if (this.props.getsProfile.base_profile.investor_type == 1) {
                     const {dispatch} = this.props
                     dispatch(getState({country: this.props.getsProfile.base_profile.address_cn.country}))

@@ -18,10 +18,7 @@ class AddressInformation extends React.Component {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                // console.log('Received values of form: ', JSON.stringify(values));
                 this.props.changeIndex(e)
-                /*const {dispatch} = this.props
-                dispatch(updateProfile(values, this.success))*/
             }
         });
     }
@@ -29,10 +26,7 @@ class AddressInformation extends React.Component {
     changeSubmit(e){
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                // console.log('Received values of form: ', JSON.stringify(values));
                 this.props.handleCancel()
-                /*const {dispatch} = this.props
-                 dispatch(updateProfile(values, this.success))*/
             }
         });
     }

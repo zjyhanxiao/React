@@ -1,7 +1,6 @@
 import React, {Component, PropTypes}from 'react';
 import {Form, Row, Col, Button} from 'antd';
 import {connect} from 'react-redux'
-import moment from 'moment'
 import {saveFields,changeComplete} from '../Redux/actions/index'
 import CompliancePublic from '../components/compliance/CompliancePublic'
 

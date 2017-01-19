@@ -1,7 +1,6 @@
 import React, {Component, PropTypes}from 'react';
 import {Form, Row, Col, Button} from 'antd';
 import {connect} from 'react-redux'
-import moment from 'moment'
 import {saveFields} from '../Redux/actions/index'
 import BasicInfoUC from '../components/basic/BasicInfoUC'
 import BasicInfoH from '../components/basic/BasicInfoH'
@@ -16,10 +15,7 @@ class BasicInformation extends React.Component {
     handleSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                // console.log('Received values of form: ', JSON.stringify(values));
                 this.props.changeIndex(e)
-                /*const {dispatch} = this.props
-                 dispatch(updateProfile(values, this.success))*/
             }
         });
         e.preventDefault();
@@ -28,10 +24,7 @@ class BasicInformation extends React.Component {
     changeSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                // console.log('Received values of form: ', JSON.stringify(values));
                 this.props.handleCancel()
-                /*const {dispatch} = this.props
-                 dispatch(updateProfile(values, this.success))*/
             }
         });
     }

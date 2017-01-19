@@ -268,7 +268,6 @@ export const fetchPosts = () => {
         $.ajax({
             type: 'get',
             url: url,
-            // url: 'https://api.meixinglobal.com/web/profile/update',
             data: '',
             contentType: "application/json; charset=utf-8",
             headers: {
@@ -288,26 +287,6 @@ const receivePosts = (json) => {
         json
     }
 }
-// 提交profile信息
-/*export const updateProfile = (data) => {
- let url = 'https://gl-api2.meixincn.com/web/invest/user_info_confirm';
- // let url = 'https://gl-api2.meixincn.com/web/invest/user_info';
- // let url = 'https://api.meixinglobal.com/web/profile/update';
- return dispatch => {
- dispatch(requestPosts(JSON.stringify(data)))
- return fetch(url, {
- method: 'POST',
- mode: "no-cors",
- headers: {
- "Content-Type": "application/json; charset=utf-8",
- "mx_token": "c75dd2dcbe05e153eb99dbf5525061da",
- "mx_secret": "4075f668c903ce41558377313bd3f7b8"
- }
- })
- .then(response => response.json())
- .then(json => dispatch(receivePosts(json)))
- }
- }*/
 
 // 提交信息
 export const updateProfile = (data, success) => {
@@ -358,7 +337,6 @@ export const createOrder = (data, success) => {
         $.ajax({
             type: 'post',
             url: baseUrl + '/web/order/create',
-            // url: 'https://api.meixinglobal.com/web/profile/update',
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
@@ -376,7 +354,6 @@ export const createOrder = (data, success) => {
 
 // 签名
 export const signature = (key,val) => {
-    console.log(val)
     return {
         type: types.SIGNATURE,
         key: key,

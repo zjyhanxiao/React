@@ -1,6 +1,5 @@
 import '../components/basic/BasicInfo.css'
 import React, {PropTypes} from 'react'
-import {Row, Col, Button} from 'antd'
 import cookie from 'react-cookie'
 import {connect} from 'react-redux'
 import {isComplete, getProduct, getCountry, getIndustry, fetchPosts,getBank,getDocument,getPayment} from '../Redux/actions/index'

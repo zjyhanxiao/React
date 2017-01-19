@@ -1,13 +1,10 @@
 import React from 'react';
 import {Row, Col, Button} from 'antd';
-import cookie from 'react-cookie'
-import {updateProfile, saveFields, updateSignature, createOrder, getPayment} from '../Redux/actions/index'
 
-import ItemAmount from '../components/infoPages/ItemAmount';
-import ItemName from '../components/infoPages/ItemName';
+import {updateProfile} from '../Redux/actions/index'
 import Docs from '../components/infoPages/docs';
 import Signature from '../components/signature/index';
-import $ from 'jquery'
+
 
 
 class ConfirmInvestment extends React.Component {
@@ -21,8 +18,11 @@ class ConfirmInvestment extends React.Component {
         const {dispatch}=this.props
 
         let data = {...this.props.getsProfile.base_profile}
-        data.signature = this.props.getsProfile.base_profile.signature || '';
-        data.spouse_signature = this.props.getsProfile.base_profile.spouse_signature || '';
+        data.signature = this.props.getsProfile.base_profile.signature || null;
+        data.spouse_signature = this.props.getsProfile.base_profile.spouse_signature || null;
+        if(data.signature==null||(data.investor_type==2&&data.accreditation.with_spouse==true)){
+
+        }
         dispatch(updateProfile(data, this.success))
 
         this.props.changeP(e)

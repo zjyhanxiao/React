@@ -1,13 +1,11 @@
 import React, {Component, PropTypes}from 'react';
 import {Form, Row, Col, Button, Radio} from 'antd';
 import {connect} from 'react-redux'
-import moment from 'moment'
-import {updateProfile, saveFields,changeComplete} from '../Redux/actions/index'
+import {saveFields,changeComplete} from '../Redux/actions/index'
 import BankFast from '../components/bank/BankFast'
 import BanknoUSA from '../components/bank/BanknoUSA'
 import BankUSA from '../components/bank/BankUSA'
 
-import $ from 'jquery'
 
 const FormItem = Form.Item;
 
@@ -21,7 +19,6 @@ class BankInformation extends React.Component {
 
 
     handleSizeChange = (e) => {
-        // this.setState({size: e.target.value});
         const {dispatch} = this.props
         dispatch(saveFields('bank_type',e.target.value))
         console.log(e.target.value)
@@ -50,7 +47,6 @@ class BankInformation extends React.Component {
 
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                // console.log('Received values of form: ', JSON.stringify(values));
                 if (this.props.getsProfile.base_profile.investor_type == 2) {
                     this.props.changeIndex(e)
                 } else {
@@ -65,7 +61,6 @@ class BankInformation extends React.Component {
     changeSubmit(e){
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                // console.log('Received values of form: ', JSON.stringify(values));
                 let pro = this.props.getsProfile.base_profile
                 if (
                     pro.bank_non_us.middle_bank_address != null &&
@@ -80,8 +75,6 @@ class BankInformation extends React.Component {
                     }));
                 }
                 this.props.handleCancel()
-                /*const {dispatch} = this.props
-                 dispatch(updateProfile(values, this.success))*/
             }
         });
     }
