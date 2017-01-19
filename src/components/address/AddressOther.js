@@ -119,7 +119,7 @@ class AddressOther extends React.Component {
                   initialValue: baseData.line1||'',
                   rules: [{
                       required: true, message: '请输入您所在的地址！',
-                      pattern: /^[a-z \,\.\-\']+$/i, message: "请输入英文,.-'",}],
+                      pattern: /^[a-z0-9 \,\.\-\']+$/i, message: "请输入英文数字,.-'",}],
               })(
                   <Input type="text" size="large" style={{}} />
               )}
@@ -136,7 +136,7 @@ class AddressOther extends React.Component {
                   initialValue: baseData.line2||'',
                   rules: [{
                       required: true, message: '请输入您所在的地址！',
-                      pattern: /^[a-z \,\.\-\']+$/i, message: "请输入英文,.-'",}],
+                      pattern: /^[a-z0-9 \,\.\-\']+$/i, message: "请输入英文数字,.-'",}],
               })(
                   <Input type="text" size="large" style={{}} />
               )}
@@ -153,7 +153,7 @@ class AddressOther extends React.Component {
                   initialValue: baseData.city||'',
                   rules: [{
                       required: true, message: '请输入您所在的市！',
-                      pattern: /^[a-z \,\.\-\']+$/i, message: "请输入英文,.-'",}],
+                      pattern: /^[a-z0-9 \,\.\-\']+$/i, message: "请输入英文数字,.-'",}],
               })(
                   <Input type="text" size="large" style={{}} />
               )}
@@ -171,7 +171,7 @@ class AddressOther extends React.Component {
                   rules: [{
                       type: 'string',
                       required: true,
-                      message: '请输入您所在的州省！'
+                      message: '请选择您所在的州省！'
                   }],
               })(
                   //<Cascader options={residences} />
