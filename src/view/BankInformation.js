@@ -124,7 +124,7 @@ class BankInformation extends React.Component {
              label=""
          >
             {getFieldDecorator('bank_type', {
-                initialValue: base_data.bank_type || "NON_US",
+                initialValue: base_data.bank_type!=null?base_data.bank_type : "NON_US",
             })(
                 <Radio.Group onChange={this.handleSizeChange} style={{width: '600px', marginLeft: '150px'}}>
                    <Radio.Button span={6} offset={5} value="NON_US" style={{
