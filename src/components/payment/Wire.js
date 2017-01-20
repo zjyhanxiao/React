@@ -20,10 +20,10 @@ class Wire extends React.Component {
         if (baseData != undefined) {
             bank = baseData.bank_type == 'US' ? this.props.getsProfile.base_profile.bank_us : this.props.getsProfile.base_profile.bank_non_us
         }
-        let account_number = (baseData != undefined ? bank.account_number : '')
-        account_number = account_number.replace(/^\d+(\d{4})$/, "****************$1")
+        let account_number = baseData != undefined ? bank.account_number : null
+        account_number = account_number != null ? account_number.replace(/^\d+(\d{4})$/, "****************$1") : null
         return (
-            <div style={{width: "100%", background: '#fff', overflow: 'hidden',textAlign:'left'}}>
+            <div style={{width: "100%", background: '#fff', overflow: 'hidden', textAlign: 'left'}}>
         <Row style={{paddingTop: '30px'}}>
           <Col span={18} offset={3}>
             <p style={{
@@ -101,12 +101,12 @@ class Wire extends React.Component {
             <p style={{}}>{this.props.getsProfile.Payment != undefined ? this.props.getsProfile.Payment.receive_bank.remark : ''}</p>
           </Col>
         </Row>
-{/*是否显示中间行*/}
-        {this.props.getsProfile.Payment != undefined && this.props.getsProfile.Payment.is_middle_bank_enabled ?
-            <div>
+                {/*是否显示中间行*/}
+                {this.props.getsProfile.Payment != undefined && this.props.getsProfile.Payment.is_middle_bank_enabled ?
+                    <div>
             <Row style={{marginTop: '15px'}}>
               <Col span={18} offset={3}>
-                <p style={{fontWeight: '600',fontSize:'16px',color:'#159bd6',textAlign:'left'}}>中间银行</p>
+                <p style={{fontWeight: '600', fontSize: '16px', color: '#159bd6', textAlign: 'left'}}>中间银行</p>
               </Col>
             </Row>
 
@@ -146,7 +146,7 @@ class Wire extends React.Component {
               </Col>
             </Row>
             </div>
-            : ''}
+                    : ''}
       </div>
         );
     }

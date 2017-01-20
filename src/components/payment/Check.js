@@ -17,8 +17,8 @@ class Check extends React.Component {
       if(baseData!=undefined){
           bank=baseData.bank_type=='US'?this.props.getsProfile.base_profile.bank_us:this.props.getsProfile.base_profile.bank_non_us
       }
-      let account_number = (baseData != undefined ? bank.account_number : '')
-      account_number = account_number.replace(/^\d+(\d{4})$/, "****************$1")
+      let account_number = baseData != undefined ? bank.account_number : null
+      account_number = account_number != null ?account_number.replace(/^\d+(\d{4})$/, "****************$1"):null
     return (
       <div style={{width: '100%', background: '#fff', overflow: 'hidden',textAlign:'left'}}>
         <Row style={{paddingTop:'30px'}}>

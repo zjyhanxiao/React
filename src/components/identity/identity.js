@@ -1,7 +1,7 @@
 import '../identity/identity.css'
 import React from 'react';
 import {connect} from 'react-redux'
-import {getState} from '../../Redux/actions/index'
+import {getState,saveFields} from '../../Redux/actions/index'
 import {bindActionCreators} from 'redux'
 import {changeInvestorType} from '../../Redux/actions/index'
 import {Form, Input, Row, Col, Button, Radio} from 'antd';
@@ -149,10 +149,18 @@ class Identity extends React.Component {
                 if (this.props.getsProfile.base_profile.investor_type == 1) {
                     const {dispatch} = this.props
                     dispatch(getState({country: this.props.getsProfile.base_profile.address_cn.country}))
+                    dispatch(saveFields('base_info',{
+                        ...this.props.getsProfile.base_profile.base_info,
+                        nationality:'中国'
+                    }))
                 }
                 if (this.props.getsProfile.base_profile.investor_type == 2) {
                     const {dispatch} = this.props
                     dispatch(getState({country: this.props.getsProfile.base_profile.address_non_cn.country}))
+                    dispatch(saveFields('accreditation',{
+                        ...this.props.getsProfile.base_profile.accreditation,
+                        type:'INCOME'
+                    }))
                 }
                 this.props.changeIndex(e)
                 // const { dispatch } = this.props

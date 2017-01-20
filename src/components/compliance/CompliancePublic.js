@@ -45,7 +45,6 @@ class CompliancePublic extends React.Component {
             ...this.props.getsProfile.base_profile.accreditation,
             type: e.target.value
         }))
-        console.log(e.target.value)
     }
 
 

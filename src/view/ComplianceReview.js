@@ -142,7 +142,7 @@ ComplianceReview = Form.create({
                     key == 'type' ||
                     key == 'with_spouse'
                 ) {
-                    props.dispatch(saveFields('base_info', {
+                    props.dispatch(saveFields('accreditation', {
                         ...props.getsProfile.base_profile.accreditation,
                         [key]: val
                     }));

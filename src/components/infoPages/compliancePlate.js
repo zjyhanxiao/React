@@ -52,27 +52,47 @@ class CompliancePlate extends React.Component {
             <p style={{width:'100%',height:'1px',background:'#cccccc'}}></p>
           </Col>
         </Row>
-
-        <Row style={{margin:'10px 0',}}>
-          <Col span={20} offset={2}>
-            <p style={{width:'100%',color:'#999999'}}>您选择了收入验证。您填写的配偶信息如下：</p>
-          </Col>
-        </Row>
-
-        <Row style={{marginTop:'5px'}}>
-          <Col span={3} offset={2}><span style={{fontWeight:'600'}}>姓名</span></Col>
-          <Col span={17}><p>{data!=undefined&&data.accreditation.spouse_first_name!=undefined&&data.accreditation.spouse_first_name!=undefined?data.accreditation.spouse_first_name+' '+data.accreditation.spouse_last_name:''}</p></Col>
-        </Row>
-        <Row style={{marginTop:'5px'}}>
-          <Col span={3} offset={2}><span style={{fontWeight:'600'}}>电话</span></Col>
-          <Col span={17}><p>{data!=undefined&&data.accreditation.spouse_phone!=undefined?data.accreditation.spouse_phone:''}</p></Col>
-        </Row>
-        <Row style={{marginTop:'5px'}}>
-          <Col span={3} offset={2}><span style={{fontWeight:'600'}}>邮箱</span></Col>
-          <Col span={17}><p>{data!=undefined&&data.accreditation.spouse_email!=undefined?data.accreditation.spouse_email:''}</p></Col>
-        </Row>
-
-
+          {data&&data.accreditation.type=='INCOME'?
+              <Row style={{margin:'10px 0',}}>
+                  <Col span={20} offset={2}>
+                    <p style={{width:'100%',color:'#999999'}}>您选择了收入审查
+              {data&&data.accreditation.with_spouse==true?'，您填写的配偶信息如下：':''}
+              </p>
+                  </Col>
+              </Row>
+          :
+          data&&data.accreditation.type=='NET_WORTH'?
+              <Row style={{margin:'10px 0',}}>
+                  <Col span={20} offset={2}>
+                    <p style={{width:'100%',color:'#999999'}}>您选择了净值审查
+                    {data&&data.accreditation.with_spouse==true?'，您填写的配偶信息如下：':''}
+                  </p>
+                  </Col>
+              </Row>
+          :
+              ''
+          }
+          {data && data.accreditation.with_spouse == true ?
+              <div>
+                  <Row style={{marginTop: '5px'}}>
+                  <Col span={3} offset={2}><span style={{fontWeight: '600'}}>姓名</span></Col>
+                  <Col
+                      span={17}><p>{data && data.accreditation.spouse_first_name != null? data.accreditation.spouse_first_name + ' ' + data.accreditation.spouse_last_name : ''}</p></Col>
+                  </Row>
+                  <Row style={{marginTop: '5px'}}>
+                  <Col span={3} offset={2}><span style={{fontWeight: '600'}}>电话</span></Col>
+                  <Col
+                      span={17}><p>{data && data.accreditation.spouse_phone != null ? data.accreditation.spouse_phone : ''}</p></Col>
+                  </Row>
+                  <Row style={{marginTop: '5px'}}>
+                  <Col span={3} offset={2}><span style={{fontWeight: '600'}}>邮箱</span></Col>
+                  <Col
+                      span={17}><p>{data && data.accreditation.spouse_email != null ? data.accreditation.spouse_email : ''}</p></Col>
+                  </Row>
+              </div>
+          :
+              ''
+          }
       </div>
     );
   }
