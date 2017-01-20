@@ -45,8 +45,8 @@ class BasicPlate extends React.Component {
             <Row style={{paddingTop: '30px'}}>
               <Col span={12} offset={2}>
                 <p style={{fontWeight: '900', fontSize: '16px'}}>基本信息&nbsp;&nbsp;<span style={{fontWeight: '100', fontSize: '12px'}}>（
-                      {data!=undefined&&data.first_name!=undefined?data.first_name:''} {data!=undefined&&data.last_name!=undefined?data.last_name:''}
-                      , {data!=undefined&&data.investor_type!=undefined?data.investor_type == 1 ? '非美国-中国大陆投资人' : '':''}{data!=undefined&&data.investor_type!=undefined?data.investor_type == 2 ? '美国投资人' : '':''}{data!=undefined&&data.investor_type!=undefined?data.investor_type == 99 ? '非美国-其他国家 / 港澳台地区投资人' : '':''}
+                      {data&&data.first_name!=null?data.first_name:''} {data&&data.last_name!=null?data.last_name:''}
+                      , {data&&data.investor_type!=null?data.investor_type == 1 ? '非美国-中国大陆投资人' : '':''}{data&&data.investor_type!=null?data.investor_type == 2 ? '美国投资人' : '':''}{data&&data.investor_type!=null?data.investor_type == 99 ? '非美国-其他国家 / 港澳台地区投资人' : '':''}
                       ）</span>
                 </p>
               </Col>
@@ -70,30 +70,30 @@ class BasicPlate extends React.Component {
 
             <Row style={{marginTop: '5px'}}>
               <Col span={3} offset={2}><span style={{fontWeight: '600'}}>出生日期</span></Col>
-              <Col span={7}><p>{data!=undefined&&data.base_info.date_of_birth!=undefined?data.base_info.date_of_birth:''}</p></Col>
+              <Col span={7}><p>{data&&data.base_info.date_of_birth!=null?data.base_info.date_of_birth:''}</p></Col>
               <Col span={3} offset={2}><span style={{fontWeight: '600'}}>出生国家</span></Col>
-              <Col span={6}><p>{data!=undefined&&data.base_info.country_of_birth!=undefined?data.base_info.country_of_birth:''}</p></Col>
+              <Col span={6}><p>{data&&data.base_info.country_of_birth!=null?data.base_info.country_of_birth:''}</p></Col>
             </Row>
 
               {
-                  data!=undefined&&data.investor_type!=undefined&&data.investor_type == 2 ?
+                  data&&data.investor_type!=null&&data.investor_type == 2 ?
                       <Row style={{marginTop: '5px'}}>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>SSN</span></Col>
-                  <Col span={7}><p>{data!=undefined&&data.base_info.ssn!=undefined?data.base_info.ssn:''}</p></Col>
+                  <Col span={7}><p>{data&&data.base_info.ssn!=null?data.base_info.ssn:''}</p></Col>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>国籍</span></Col>
-                  <Col span={6}><p>{data!=undefined&&data.base_info.nationality!=undefined?data.base_info.nationality:''}</p></Col>
+                  <Col span={6}><p>{data&&data.base_info.nationality!=null?data.base_info.nationality:''}</p></Col>
                 </Row>
                       :
                       ''
               }
 
               {
-                  data!=undefined&&data.investor_type!=undefined&&data.investor_type == 99 ?
+                  data&&data.investor_type!=null&&data.investor_type == 99 ?
                       <Row style={{marginTop: '5px'}}>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>国籍</span></Col>
-                  <Col span={7}><p>{data!=undefined&&data.base_info.nationality!=undefined?data.base_info.nationality:''}</p></Col>
+                  <Col span={7}><p>{data&&data.base_info.nationality!=null?data.base_info.nationality:''}</p></Col>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>资金来源</span></Col>
-                  <Col span={6}><p>{data!=undefined&&data.base_info.source_of_capital!=undefined?data.base_info.source_of_capital:''}</p></Col>
+                  <Col span={6}><p>{data&&data.base_info.source_of_capital!=null?data.base_info.source_of_capital:''}</p></Col>
                 </Row>
                       :
                       ''
@@ -102,16 +102,16 @@ class BasicPlate extends React.Component {
 
               <Row style={{marginTop: '5px'}}>
               <Col span={3} offset={2}><span style={{fontWeight: '600'}}>行业</span></Col>
-              <Col span={7}><p>{data!=undefined&&data.base_info.industry!=undefined?data.base_info.industry:''}</p></Col>
+              <Col span={7}><p>{data&&data.base_info.industry!=null?data.base_info.industry:''}</p></Col>
               <Col span={3} offset={2}><span style={{fontWeight: '600'}}>职业</span></Col>
-              <Col span={6}><p>{data!=undefined&&data.base_info.occupation!=undefined?data.base_info.occupation:''}</p></Col>
+              <Col span={6}><p>{data&&data.base_info.occupation!=null?data.base_info.occupation:''}</p></Col>
             </Row>
 
               {
-                  data!=undefined&&data.investor_type!=undefined&&data.investor_type == 1 ?
+                  data&&data.investor_type!=null&&data.investor_type == 1 ?
                       <Row style={{marginTop: '5px'}}>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>资金来源</span></Col>
-                  <Col span={7}><p>{data!=undefined&&data.base_info.source_of_capital!=undefined?data.base_info.source_of_capital:''}</p></Col>
+                  <Col span={7}><p>{data&&data.base_info.source_of_capital!=null?data.base_info.source_of_capital:''}</p></Col>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}></span></Col>
                   <Col span={6}><p></p></Col>
                 </Row>
@@ -120,12 +120,12 @@ class BasicPlate extends React.Component {
               }
 
               {
-                  data!=undefined&&data.investor_type!=undefined&&data.investor_type == 99 ?
+                  data&&data.investor_type!=null&&data.investor_type == 99 ?
                       <Row style={{marginTop: '5px'}}>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>纳税国</span></Col>
-                  <Col span={7}><p>{data!=undefined&&data.base_info.country_of_tax_residency!=undefined?data.base_info.country_of_tax_residency:''}</p></Col>
+                  <Col span={7}><p>{data&&data.base_info.country_of_tax_residency!=null?data.base_info.country_of_tax_residency:''}</p></Col>
                   <Col span={3} offset={2}><span style={{fontWeight: '600'}}>纳税号</span></Col>
-                  <Col span={6}><p>{data!=undefined&&data.base_info.foreign_tax_number!=undefined?data.base_info.foreign_tax_number:''}</p></Col>
+                  <Col span={6}><p>{data&&data.base_info.foreign_tax_number!=null?data.base_info.foreign_tax_number:''}</p></Col>
                 </Row>
                       :
                       ''
@@ -134,9 +134,9 @@ class BasicPlate extends React.Component {
 
               <Row style={{marginTop: '5px'}}>
               <Col span={3} offset={2}><span style={{fontWeight: '600'}}>护照号</span></Col>
-              <Col span={7}><p>{data!=undefined&&data.passport_number!=undefined?data.passport_number:''}</p></Col>
+              <Col span={7}><p>{data&&data.passport_number!=null?data.passport_number:''}</p></Col>
               <Col span={3} offset={2}><span style={{fontWeight: '600'}}>有效期</span></Col>
-              <Col span={6}><p>{data!=undefined&&data.passport_expire_date!=undefined?data.passport_expire_date:''}</p></Col>
+              <Col span={6}><p>{data&&data.passport_expire_date!=null?data.passport_expire_date:''}</p></Col>
             </Row>
               {this.state.huzhao ?
                   <Row style={{}}>
@@ -149,13 +149,13 @@ class BasicPlate extends React.Component {
 
 
               {
-                  data!=undefined&&data.investor_type!=undefined&&data.investor_type == 99 ?
+                  data&&data.investor_type!=null&&data.investor_type == 99 ?
                       <div>
                         <Row style={{marginTop: '5px'}}>
                           <Col span={3} offset={2}><span style={{fontWeight: '600'}}>身份证号</span></Col>
-                          <Col span={7}><p>{data!=undefined&&data.id_card_number!=undefined?data.id_card_number: ''}</p></Col>
+                          <Col span={7}><p>{data&&data.id_card_number!=null?data.id_card_number: ''}</p></Col>
                           <Col span={3} offset={2}><span style={{fontWeight: '600'}}>有效期</span></Col>
-                          <Col span={6}><p>{data!=undefined&&data.id_card_expire_date!=undefined?data.id_card_expire_date: ''}</p></Col>
+                          <Col span={6}><p>{data&&data.id_card_expire_date!=null?data.id_card_expire_date: ''}</p></Col>
                         </Row>
                                 {this.state.shenfenzheng ?
                                     <Row style={{}}>
