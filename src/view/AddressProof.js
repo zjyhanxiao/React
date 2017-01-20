@@ -16,20 +16,29 @@ class AddressInformation extends React.Component {
     }
 
     handleSubmit(e) {
-        e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
+                if(this.props.getsProfile.base_profile.address_type=='NON_CN'){
+                    const {dispatch}=this.props
+                    dispatch(saveFields('line2'),values.line2)
+                }
                 this.props.changeIndex(e)
             }
         });
+        e.preventDefault();
     }
 
     changeSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
+                if(this.props.getsProfile.base_profile.address_type=='NON_CN'){
+                    const {dispatch}=this.props
+                    dispatch(saveFields('line2'),values.line2)
+                }
                 this.props.handleCancel()
             }
         });
+        e.preventDefault();
     }
 
     disabledDate(current) {

@@ -15,6 +15,10 @@ class BasicInformation extends React.Component {
     handleSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
+                if(this.props.getsProfile.base_profile.investor_type==99){
+                    const {dispatch}=this.props
+                    dispatch(saveFields('id_card_number'),values.id_card_number)
+                }
                 this.props.changeIndex(e)
             }
         });
@@ -24,6 +28,10 @@ class BasicInformation extends React.Component {
     changeSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
+                if(this.props.getsProfile.base_profile.investor_type==99){
+                    const {dispatch}=this.props
+                    dispatch(saveFields('id_card_number'),values.id_card_number)
+                }
                 this.props.handleCancel()
             }
         });

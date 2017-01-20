@@ -16,6 +16,12 @@ class ComplianceReview extends React.Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 const {dispatch}=this.props
+                if(this.props.getsProfile.base_profile.investor_type==2&&this.props.getsProfile.base_profile.accreditation.type=='NET_WORTH'){
+                    dispatch(saveFields('accreditation',{
+                        ...this.props.getsProfile.base_profile.accreditation,
+                        debt_amount:values.debt_amount,
+                    }))
+                }
                 dispatch(changeComplete(true))
                 this.props.handleOk(e);
             }

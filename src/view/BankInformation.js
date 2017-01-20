@@ -1,7 +1,7 @@
 import React, {Component, PropTypes}from 'react';
 import {Form, Row, Col, Button, Radio} from 'antd';
 import {connect} from 'react-redux'
-import {saveFields,changeComplete} from '../Redux/actions/index'
+import {saveFields, changeComplete} from '../Redux/actions/index'
 import BankFast from '../components/bank/BankFast'
 import BanknoUSA from '../components/bank/BanknoUSA'
 import BankUSA from '../components/bank/BankUSA'
@@ -13,65 +13,90 @@ class BankInformation extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            bankState:false,
+            bankState: false,
         }
     }
 
 
     handleSizeChange = (e) => {
         const {dispatch} = this.props
-        dispatch(saveFields('bank_type',e.target.value))
+        dispatch(saveFields('bank_type', e.target.value))
         console.log(e.target.value)
     }
 
-    showBank=()=>{
+    showBank = () => {
         this.setState({bankState: true});
     }
-    hideBank=()=>{
+    hideBank = () => {
         this.setState({bankState: false});
     }
+
     handleSubmit(e) {
         let pro = this.props.getsProfile.base_profile
-        if (
-            pro.bank_non_us.middle_bank_address != null &&
-            pro.bank_non_us.middle_bank_name != null &&
-            pro.bank_non_us.middle_bank_swift_code != null&&
-            pro.bank_type=='NON_US'
-        ) {
-            const {dispatch}=this.props
-            dispatch(saveFields('bank_non_us', {
-                ...this.props.getsProfile.base_profile.bank_non_us,
-                'have_middlebank': 1
-            }));
-        }
 
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
+                const {dispatch}=this.props
+                if (
+                    (pro.bank_non_us.middle_bank_address != null &&
+                    pro.bank_non_us.middle_bank_name != null &&
+                    pro.bank_non_us.middle_bank_swift_code != null ||
+                    pro.bank_non_us.middle_bank_address != '' &&
+                    pro.bank_non_us.middle_bank_name != '' &&
+                    pro.bank_non_us.middle_bank_swift_code != '') &&
+                    pro.bank_type == 'NON_US'
+                ) {
+                    dispatch(saveFields('bank_non_us', {
+                        ...this.props.getsProfile.base_profile.bank_non_us,
+                        have_middlebank: 1
+                    }));
+                } else {
+                    dispatch(saveFields('bank_non_us', {
+                        ...this.props.getsProfile.base_profile.bank_non_us,
+                        have_middlebank: 0,
+                        middle_bank_address:values.middle_bank_address,
+                        middle_bank_name:values.middle_bank_name,
+                        middle_bank_swift_code:values.middle_bank_swift_code
+                    }));
+                }
                 if (this.props.getsProfile.base_profile.investor_type == 2) {
                     this.props.changeIndex(e)
                 } else {
                     const {dispatch}=this.props
                     dispatch(changeComplete(true))
-                  this.props.handleOk(e);
+                    this.props.handleOk(e);
                 }
             }
         });
         e.preventDefault();
     }
-    changeSubmit(e){
+
+    changeSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
+                const {dispatch}=this.props
                 let pro = this.props.getsProfile.base_profile
                 if (
-                    pro.bank_non_us.middle_bank_address != null &&
+                    (pro.bank_non_us.middle_bank_address != null &&
                     pro.bank_non_us.middle_bank_name != null &&
-                    pro.bank_non_us.middle_bank_swift_code != null&&
-                    pro.bank_type=='NON_US'
+                    pro.bank_non_us.middle_bank_swift_code != null ||
+                    pro.bank_non_us.middle_bank_address != '' &&
+                    pro.bank_non_us.middle_bank_name != '' &&
+                    pro.bank_non_us.middle_bank_swift_code != '') &&
+                    pro.bank_type == 'NON_US'
                 ) {
                     const {dispatch}=this.props
                     dispatch(saveFields('bank_non_us', {
                         ...this.props.getsProfile.base_profile.bank_non_us,
-                        'have_middlebank': 1
+                        have_middlebank: 1
+                    }));
+                } else {
+                    dispatch(saveFields('bank_non_us', {
+                        ...this.props.getsProfile.base_profile.bank_non_us,
+                        have_middlebank: 0,
+                        middle_bank_address:values.middle_bank_address,
+                        middle_bank_name:values.middle_bank_name,
+                        middle_bank_swift_code:values.middle_bank_swift_code
                     }));
                 }
                 this.props.handleCancel()
@@ -104,8 +129,9 @@ class BankInformation extends React.Component {
                 display: this.props.fourth == true ? 'block' : 'none'
             }}>
 
-                <div style={{display:this.state.bankState?'block':'none'}} ><BankFast hideBank={this.hideBank} /></div>
-        <Form horizontal  style={{display:this.state.bankState?'none':'block'}}>
+                <div style={{display: this.state.bankState ? 'block' : 'none'}}><BankFast
+                    hideBank={this.hideBank} /></div>
+        <Form horizontal style={{display: this.state.bankState ? 'none' : 'block'}}>
 
 
           <FormItem>
@@ -124,7 +150,7 @@ class BankInformation extends React.Component {
              label=""
          >
             {getFieldDecorator('bank_type', {
-                initialValue: base_data&&base_data.bank_type!=null?base_data.bank_type:null,
+                initialValue: base_data && base_data.bank_type != null ? base_data.bank_type : null,
             })(
                 <Radio.Group onChange={this.handleSizeChange} style={{width: '600px', marginLeft: '150px'}}>
                    <Radio.Button span={6} offset={5} value='NON_US' style={{
@@ -147,34 +173,33 @@ class BankInformation extends React.Component {
             )}
           </FormItem>
 
-            {base_data.bank_type == 'NON_US' || base_data.bank_type==null? <BanknoUSA {...this.props} getFieldDecorator={this.props.form} showBank={this.showBank} /> :
+            {base_data.bank_type == 'NON_US' || base_data.bank_type == null ?
+                <BanknoUSA {...this.props} getFieldDecorator={this.props.form} showBank={this.showBank} /> :
                 <BankUSA {...this.props} getFieldDecorator={this.props.form} showBank={this.showBank} />}
 
 
-
-
-            {this.props.getsProfile.Complete == true?
-              <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
+            {this.props.getsProfile.Complete == true ?
+                <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
                 <Col span={3} offset={6}>
                   <Button style={{
-                    width: '120px',
-                    height: '50px',
-                    borderRadius: '30px',
-                    background: '#ffffff',
-                    color: '#223976',
-                    fontSize: '18px'
+                      width: '120px',
+                      height: '50px',
+                      borderRadius: '30px',
+                      background: '#ffffff',
+                      color: '#223976',
+                      fontSize: '18px'
                   }} type="primary" name="third" onClick={this.props.handleCancel} size="large">取消</Button>
                 </Col>
 
                 <Col span={3} offset={6}>
                   <FormItem {...tailFormItemLayout}>
                     <Button style={{
-                      width: '120px',
-                      height: '50px',
-                      borderRadius: '30px',
-                      background: '#223976',
-                      color: '#fff',
-                      fontSize: '18px'
+                        width: '120px',
+                        height: '50px',
+                        borderRadius: '30px',
+                        background: '#223976',
+                        color: '#fff',
+                        fontSize: '18px'
                     }} type="primary" htmlType="submit" onClick={this.changeSubmit.bind(this)}
                             size="large">确定</Button>
                   </FormItem>
@@ -204,7 +229,8 @@ class BankInformation extends React.Component {
                                 background: '#223976',
                                 color: '#fff',
                                 fontSize: '18px'
-                            }} type="primary" htmlType="submit" name="fifth" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
+                            }} type="primary" htmlType="submit" name="fifth" onClick={this.handleSubmit.bind(this)}
+                                    size="large">下一步</Button>
                           </FormItem>
                         </Col>
                         :
@@ -274,7 +300,7 @@ BankInformation = Form.create({
             }
 
         }
-    },mapPropsToFields(props) {
+    }, mapPropsToFields(props) {
         return {
             bank_type: {
                 ...props.getsProfile.base_profile.bank_type,
