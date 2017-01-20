@@ -135,7 +135,7 @@ class AddressOther extends React.Component {
               {getFieldDecorator('line2', {
                   initialValue: baseData.line2||'',
                   rules: [{
-                      required: true, message: '请输入您所在的地址！',},{
+                      required: false, message: '请输入您所在的地址！',},{
                       pattern: /^[a-z0-9 \,\.\-\']+$/i, message: "请输入英文数字,.-'",}],
               })(
                   <Input type="text" size="large" style={{}} />

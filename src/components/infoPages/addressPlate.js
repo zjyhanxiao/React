@@ -104,34 +104,15 @@ class AddressPlate extends React.Component {
             <p style={{width: '100%', height: '1px', background: '#cccccc'}}></p>
           </Col>
         </Row>
-
-        <Row style={{marginTop: '5px'}}>
-          <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
-
-          </p></Col>
-          <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
-
-          </p></Col>
-          <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
-
-          </p></Col>
-          <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
-
-          </p></Col>
-        </Row>
-
-
-
-
               {data&&data.address_type == 'CN'?
                   <Row style={{marginTop: '5px'}}>
-                    <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
+                    <Col span={20} offset={2}><p>
                       {data.address_cn.region} {data.address_cn.city} {data.address_cn.district}
                     </p></Col>
-                    <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
+                    <Col span={20} offset={2}><p>
                       {data.address_cn.detail}
                     </p></Col>
-                    <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
+                    <Col span={20} offset={2}><p>
                       {data.address_cn.postal_code}
                     </p></Col>
                   </Row>
@@ -139,16 +120,16 @@ class AddressPlate extends React.Component {
                   :
                   data&&data.address_type == 'NON_CN'?
                   <Row style={{marginTop: '5px'}}>
-                    <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
+                    <Col span={20} offset={2}><p>
                       {data.address_non_cn.line1}
                     </p></Col>
-                    <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
+                    <Col span={20} offset={2}><p>
                       {data.address_non_cn.line2||''}
                     </p></Col>
-                    <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
-                      {data.address_non_cn.city} , {data.address_non_cn.region} ,{data.address_non_cn.postal_code}
+                    <Col span={20} offset={2}><p>
+                      {data.address_non_cn.city}, {data.address_non_cn.region} {data.address_non_cn.postal_code}
                     </p></Col>
-                    <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
+                    <Col span={20} offset={2}><p>
                       {data.address_non_cn.country}
                     </p></Col>
                   </Row>

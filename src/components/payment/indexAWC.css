@@ -13,3 +13,6 @@
   border-top: 3px solid #335095;
 }
 #pay_ment>div:first-child{margin-left: 0!important;}
+#pay_ment>div{
+  cursor:pointer
+}

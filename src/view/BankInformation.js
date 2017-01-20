@@ -279,11 +279,7 @@ BankInformation = Form.create({
             bank_type: {
                 ...props.getsProfile.base_profile.bank_type,
                 value: props.getsProfile.base_profile.bank_type,
-            },
-            account_number: {
-                ...props.getsProfile.base_profile.bank_non_us.account_number,
-                value: props.getsProfile.base_profile.bank_non_us.account_number,
-            },
+            }
         };
     }
 })(BankInformation);

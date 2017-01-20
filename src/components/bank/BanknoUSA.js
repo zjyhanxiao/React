@@ -20,7 +20,7 @@ class BanknoUSA extends React.Component {
     });
   }
   render() {
-      let baseData=this.props.getsProfile.base_profile.bank_non_us
+      let baseData=this.props.getsProfile.base_profile.bank_non_us||null
     const {getFieldDecorator} = this.props.getFieldDecorator;
     const formItemLayout = {
       labelCol: {span: 6},

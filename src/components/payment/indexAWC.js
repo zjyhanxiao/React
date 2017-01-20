@@ -141,7 +141,8 @@ class IndexAWC extends React.Component {
                         : ''
                     }
                     {tabBar == 2 || tabBar == 12 || tabBar == 23 || tabBar == 123 ?
-                        <div style={{
+                        <div className={tabBar == 2 || tabBar == 23 ? 'active' : ''}
+                            style={{
                             width: itemWidth,
                             height: '60px',
                             background: '#ffffff',
@@ -154,11 +155,12 @@ class IndexAWC extends React.Component {
                             border: '3px solid #ffffff',
                             borderRadius: '4px 4px 0 0',
                             boxShadow: '0px 5px 0px #888888'
-                        }} name='wire' onClick={this.handleClick.bind(this)}>银行电汇 / Wrie</div>
+                        }} name='wire' onClick={this.handleClick.bind(this)}>银行电汇 / Wire</div>
                         : ''
                     }
                     {tabBar == 3 || tabBar == 13 || tabBar == 23 || tabBar == 123 ?
-                        <div style={{
+                        <div className={tabBar == 3 ? 'active' : ''}
+                            style={{
                             width: itemWidth,
                             height: '60px',
                             background: '#ffffff',

@@ -32,7 +32,7 @@ class BankUSA extends React.Component {
   render() {
     const size = this.state.size;
     const {getFieldDecorator} = this.props.getFieldDecorator;
-    let baseData=this.props.getsProfile.base_profile.bank_us
+    let baseData=this.props.getsProfile.base_profile.bank_us||null
     const formItemLayout = {
       labelCol: {span: 6},
       wrapperCol: {span: 14},
