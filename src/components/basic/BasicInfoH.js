@@ -62,7 +62,7 @@ class BasicInfoH extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('date_of_birth', {
-                              initialValue: baseData.base_info.date_of_birth != null && baseData.base_info.date_of_birth != undefined ? moment(baseData.base_info.date_of_birth) : '',
+                              initialValue: baseData.base_info.date_of_birth != null? moment(baseData.base_info.date_of_birth) : null,
                                 rules: [{type: 'object', required: true, message: '请输入日期!'}],
                             })(
                                 <DatePicker disabledDate={this.props.disabledDate} size="large" style={{width: 240}} />

@@ -124,10 +124,10 @@ class BankInformation extends React.Component {
              label=""
          >
             {getFieldDecorator('bank_type', {
-                initialValue: base_data.bank_type!=null?base_data.bank_type : "NON_US",
+                initialValue: base_data&&base_data.bank_type!=null?base_data.bank_type:null,
             })(
                 <Radio.Group onChange={this.handleSizeChange} style={{width: '600px', marginLeft: '150px'}}>
-                   <Radio.Button span={6} offset={5} value="NON_US" style={{
+                   <Radio.Button span={6} offset={5} value='NON_US' style={{
                        width: '250px',
                        height: '32px',
                        borderRadius: '32px',
@@ -135,7 +135,7 @@ class BankInformation extends React.Component {
                        float: 'left'
                    }}>非美国银行</Radio.Button>
                     <div style={{width: '100px', float: 'left', textAlign: 'center'}}>OR</div>
-                   <Radio.Button span={6} offset={5} value="US" style={{
+                   <Radio.Button span={6} offset={5} value='US' style={{
                        width: '250px',
                        height: '32px',
                        borderRadius: '32px',

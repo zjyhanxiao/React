@@ -146,8 +146,9 @@ class Identity extends React.Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+
+                const {dispatch} = this.props
                 if (this.props.getsProfile.base_profile.investor_type == 1) {
-                    const {dispatch} = this.props
                     dispatch(getState({country: this.props.getsProfile.base_profile.address_cn.country}))
                     dispatch(saveFields('base_info',{
                         ...this.props.getsProfile.base_profile.base_info,
@@ -155,13 +156,21 @@ class Identity extends React.Component {
                     }))
                 }
                 if (this.props.getsProfile.base_profile.investor_type == 2) {
-                    const {dispatch} = this.props
                     dispatch(getState({country: this.props.getsProfile.base_profile.address_non_cn.country}))
                     dispatch(saveFields('accreditation',{
                         ...this.props.getsProfile.base_profile.accreditation,
                         type:'INCOME'
                     }))
                 }
+                if (this.props.getsProfile.base_profile.investor_type == 99) {
+                    dispatch(getState({country: this.props.getsProfile.base_profile.address_non_cn.country}))
+                    dispatch(saveFields('accreditation',{
+                        ...this.props.getsProfile.base_profile.accreditation,
+                        type:'INCOME'
+                    }))
+                }
+
+                dispatch(saveFields('bank_type','NON_US'))
                 this.props.changeIndex(e)
                 // const { dispatch } = this.props
                 // dispatch(updateProfile(this.props.getsProfile.base_profile,this.success))
