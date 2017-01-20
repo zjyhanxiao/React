@@ -159,28 +159,32 @@ class AddressOther extends React.Component {
               )}
             </FormItem>
           </Row>
-          <Row>
-            <FormItem
-                {...formItemLayout}
-                label="州省 / State or province"
-                labelCol={{span: 5, offset: 2}}
-                wrapperCol={{span: 15}}
-            >
-              {getFieldDecorator('region', {
-                  initialValue: baseData.region||'',
-                  rules: [{
-                      type: 'string',
-                      required: true,
-                      message: '请选择您所在的州省！'
-                  }],
-              })(
-                  //<Cascader options={residences} />
-                  <Select size="large" style={{}} onChange={handleChange}>
-                    {regionData}
-                </Select>
-              )}
-            </FormItem>
-          </Row>
+                {this.props.getsProfile.Region&&this.props.getsProfile.Region.length > 0 ?
+                    <Row>
+                        <FormItem
+                            {...formItemLayout}
+                            label="州省 / State or province"
+                            labelCol={{span: 5, offset: 2}}
+                            wrapperCol={{span: 15}}
+                        >
+                          {getFieldDecorator('region', {
+                              initialValue: baseData.region || '',
+                              rules: [{
+                                  type: 'string',
+                                  required: true,
+                                  message: '请选择您所在的州省！'
+                              }],
+                          })(
+                              //<Cascader options={residences} />
+                              <Select size="large" style={{}} onChange={handleChange}>
+                                {regionData}
+                            </Select>
+                          )}
+                        </FormItem>
+                    </Row>
+                :
+                    ''
+                }
           <Row>
             <FormItem
                 {...formItemLayout}
