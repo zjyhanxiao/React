@@ -77,7 +77,7 @@ class AddressProve extends React.Component {
                   initialValue: data.investor_type == 1&&data.id_card_expire_date!=null?moment(data.id_card_expire_date):data.investor_type == 99&&data.bill_expire_date!=null?moment(data.bill_expire_date):null,
                   rules: [{type: 'object', required: true, message: '请输入日期!'}],
               })(
-                  <DatePicker size="large" style={{width: 220}}></DatePicker>
+                  <DatePicker disabledDate={this.props.disabledDate} size="large" style={{width: 220}} />
               )}
             </FormItem>
           </Row>

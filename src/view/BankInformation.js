@@ -274,7 +274,10 @@ BankInformation = Form.create({
             }
 
         }
-    },
+    },mapPropsToFields(props) {
+        return {
+        };
+    }
 })(BankInformation);
 
 BankInformation.defaultProps = {};

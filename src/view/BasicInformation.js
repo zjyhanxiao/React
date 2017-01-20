@@ -102,6 +102,7 @@ class BasicInformation extends React.Component {
                                        }}
                                        getFieldDecorator={this.props.form} />
                         <Basicpassport {...this.props.getsProfile}
+                                       disabledDate={this.expire_date}
                                        test={{
                                            type: '身份证上传',
                                            explain: '如您所在的国家为您发行了身份证，请在此处上传。如没有，可不必上传。',
@@ -119,7 +120,7 @@ class BasicInformation extends React.Component {
                       </div>
                             :
                             <Basicpassport {...this.props.getsProfile}
-                                           expire_date={this.expire_date}
+                                           disabledDate={this.expire_date}
                                            test={{
                                                type: '护照上传',
                                                explain: '请上传您的护照信息页照片或扫面文件',
@@ -237,7 +238,7 @@ BasicInformation = Form.create({
             }
 
         }
-    }
+    },
 })(BasicInformation);
 BasicInformation.defaultProps = {};
 BasicInformation.propTypes = {
