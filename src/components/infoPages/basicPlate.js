@@ -1,6 +1,6 @@
 import React from 'react';
 import {Modal, Button, Row, Col} from 'antd';
-import {updateProfile} from '../../Redux/actions/index'
+import {updateProfile,getOccupation} from '../../Redux/actions/index'
 import BasicInformation from '../../view/BasicInformation'
 
 
@@ -19,6 +19,8 @@ class BasicPlate extends React.Component {
     }
 
     showModal = () => {
+        const {dispatch} = this.props
+        dispatch(getOccupation({industry: this.props.getsProfile.base_profile.base_info.industry}))
         this.setState({
             visible: true,
         });

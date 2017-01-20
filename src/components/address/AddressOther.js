@@ -42,7 +42,7 @@ class AddressOther extends React.Component {
         const baseData=this.props.getsProfile.base_profile.address_non_cn
         if (this.props.getsProfile.Region != undefined) {
             regionData = this.props.getsProfile.Region.map((region) => <Option key={region.encode + region.id}
-                                                                               value={region.encode + '%%' + region.name}>{region.name}</Option>)
+                                                                               value={ region.name}>{region.name}</Option>)
         }
         const formItemLayout = {
             labelCol: {span: 6},

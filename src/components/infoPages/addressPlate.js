@@ -1,9 +1,6 @@
-/**
- * Created by robot on 2016/12/22.
- */
 import React from 'react';
 import {Modal, Button, Row, Col} from 'antd';
-import {updateProfile} from '../../Redux/actions/index'
+import {updateProfile,getState,getCity,getCounty} from '../../Redux/actions/index'
 import AddressProof from '../../view/AddressProof'
 
 
@@ -19,6 +16,29 @@ class AddressPlate extends React.Component {
     }
 
     showModal = () => {
+
+        if (this.props.getsProfile.base_profile.investor_type == 1) {
+            const {dispatch} = this.props
+            dispatch(getState({country: this.props.getsProfile.base_profile.address_cn.country}))
+            dispatch(getCity({
+                country: this.props.getsProfile.base_profile.address_cn.country,
+                region: this.props.getsProfile.base_profile.address_cn.region
+            }))
+
+            dispatch(getCounty({
+                country: this.props.getsProfile.base_profile.address_cn.country,
+                region: this.props.getsProfile.base_profile.address_cn.region,
+                city: this.props.getsProfile.base_profile.address_cn.city
+            }))
+        }
+        if (this.props.getsProfile.base_profile.investor_type == 2) {
+            const {dispatch} = this.props
+            dispatch(getState({country: this.props.getsProfile.base_profile.address_non_cn.country}))
+        }
+        if (this.props.getsProfile.base_profile.investor_type == 99) {
+            const {dispatch} = this.props
+            dispatch(getState({country: this.props.getsProfile.base_profile.address_non_cn.country}))
+        }
         this.setState({
             visible: true,
         });
