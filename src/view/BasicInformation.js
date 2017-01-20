@@ -23,10 +23,12 @@ class BasicInformation extends React.Component {
 
     changeSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
+            alert(1)
             if (!err) {
                 this.props.handleCancel()
             }
         });
+        e.preventDefault();
     }
 
     birth_date(current) {
@@ -238,7 +240,18 @@ BasicInformation = Form.create({
             }
 
         }
-    },
+    }, mapPropsToFields(props) {
+        return {
+            passport_url: {
+                ...props.getsProfile.base_profile.passport_url,
+                value: props.getsProfile.base_profile.passport_url,
+            },
+            id_card_url: {
+                ...props.getsProfile.base_profile.id_card_url,
+                value: props.getsProfile.base_profile.id_card_url,
+            }
+        };
+    }
 })(BasicInformation);
 BasicInformation.defaultProps = {};
 BasicInformation.propTypes = {

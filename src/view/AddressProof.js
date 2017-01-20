@@ -14,6 +14,7 @@ class AddressInformation extends React.Component {
     constructor(props) {
         super(props)
     }
+
     handleSubmit(e) {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
@@ -23,13 +24,14 @@ class AddressInformation extends React.Component {
         });
     }
 
-    changeSubmit(e){
+    changeSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 this.props.handleCancel()
             }
         });
     }
+
     disabledDate(current) {
         // can not select days before today and today
         return current && current.valueOf() < Date.now() - 90 * 24 * 60 * 60 * 1000;
@@ -66,45 +68,45 @@ class AddressInformation extends React.Component {
                 <Form horizontal>
 
                   {
-                    this.props.getsProfile.base_profile.investor_type==2?
-                      <AddressPublic {...this.props} getFieldDecorator={this.props.form} disabledDate={this.disabledDate} expire_date={this.expire_date} />
-                      :
-                      <AddressProve {...this.props} getFieldDecorator={this.props.form} disabledDate={this.disabledDate} expire_date={this.expire_date} />
+                      this.props.getsProfile.base_profile.investor_type == 2 ?
+                          <AddressPublic {...this.props} getFieldDecorator={this.props.form}
+                                         disabledDate={this.disabledDate} expire_date={this.expire_date} />
+                          :
+                          <AddressProve {...this.props} getFieldDecorator={this.props.form}
+                                        disabledDate={this.disabledDate} expire_date={this.expire_date} />
                   }
-                  {
-                    this.props.getsProfile.base_profile.investor_type==1?
-                      <AddressChina {...this.props} getFieldDecorator={this.props.form} />
-                      :
-                      <AddressOther {...this.props} getFieldDecorator={this.props.form} />
-                  }
+                    {
+                        this.props.getsProfile.base_profile.investor_type == 1 ?
+                            <AddressChina {...this.props} getFieldDecorator={this.props.form} />
+                            :
+                            <AddressOther {...this.props} getFieldDecorator={this.props.form} />
+                    }
 
 
-
-
-
-                    {this.props.getsProfile.Complete == true?
+                    {this.props.getsProfile.Complete == true ?
                         <Row style={{marginTop: '50px', paddingBottom: '40px'}}>
                           <Col span={3} offset={6}>
                             <Button style={{
-                              width: '120px',
-                              height: '50px',
-                              borderRadius: '30px',
-                              background: '#ffffff',
-                              color: '#223976',
-                              fontSize: '18px'
+                                width: '120px',
+                                height: '50px',
+                                borderRadius: '30px',
+                                background: '#ffffff',
+                                color: '#223976',
+                                fontSize: '18px'
                             }} type="primary" name="second" onClick={this.props.handleCancel} size="large">取消</Button>
                           </Col>
 
                           <Col span={3} offset={6}>
                             <FormItem {...tailFormItemLayout}>
                               <Button style={{
-                                width: '120px',
-                                height: '50px',
-                                borderRadius: '30px',
-                                background: '#223976',
-                                color: '#fff',
-                                fontSize: '18px'
-                              }} type="primary" htmlType="submit" name="fourth" onClick={this.props.handleCancel} size="large">确定</Button>
+                                  width: '120px',
+                                  height: '50px',
+                                  borderRadius: '30px',
+                                  background: '#223976',
+                                  color: '#fff',
+                                  fontSize: '18px'
+                              }} type="primary" htmlType="submit" name="fourth" onClick={this.props.handleCancel}
+                                      size="large">确定</Button>
                             </FormItem>
                           </Col>
                         </Row>
@@ -130,7 +132,8 @@ class AddressInformation extends React.Component {
                                   background: '#223976',
                                   color: '#fff',
                                   fontSize: '18px'
-                              }} type="primary" htmlType="submit" name="fourth" onClick={this.handleSubmit.bind(this)} size="large">下一步</Button>
+                              }} type="primary" htmlType="submit" name="fourth" onClick={this.handleSubmit.bind(this)}
+                                      size="large">下一步</Button>
                             </FormItem>
                           </Col>
                         </Row>
@@ -150,30 +153,36 @@ AddressInformation = Form.create({
             let key = changedFields[i].name
             let val = changedFields[i].value
             if (val != undefined && val != '' && val != null) {
-                if (key == 'id_card_expire_date'||key == 'bill_expire_date'||key == 'driving_license_expire_date') {
+                if (key == 'id_card_expire_date' || key == 'bill_expire_date' || key == 'driving_license_expire_date') {
                     let val = changedFields[i].value.format('YYYY-MM-DD')
                     props.dispatch(saveFields(key, val));
-                }else if(props.getsProfile.base_profile.address_type=='NON_CN'){
-                    if(
-                        key=='city'||
-                        key=='country'||
-                        key=='line1'||
-                        key=='line2'||
-                        key=='postal_code'||
-                        key=='region'
-                    ){
-                        props.dispatch(saveFields('address_non_cn', {...props.getsProfile.base_profile.address_non_cn, [key]: val}));
+                } else if (props.getsProfile.base_profile.address_type == 'NON_CN') {
+                    if (
+                        key == 'city' ||
+                        key == 'country' ||
+                        key == 'line1' ||
+                        key == 'line2' ||
+                        key == 'postal_code' ||
+                        key == 'region'
+                    ) {
+                        props.dispatch(saveFields('address_non_cn', {
+                            ...props.getsProfile.base_profile.address_non_cn,
+                            [key]: val
+                        }));
                     }
-                }else if(props.getsProfile.base_profile.address_type=='CN'){
-                    if(
-                        key=='city'||
-                        key=='country'||
-                        key=='detail'||
-                        key=='district'||
-                        key=='postal_code'||
-                        key=='region'
-                    ){
-                        props.dispatch(saveFields('address_cn', {...props.getsProfile.base_profile.address_cn, [key]: val}));
+                } else if (props.getsProfile.base_profile.address_type == 'CN') {
+                    if (
+                        key == 'city' ||
+                        key == 'country' ||
+                        key == 'detail' ||
+                        key == 'district' ||
+                        key == 'postal_code' ||
+                        key == 'region'
+                    ) {
+                        props.dispatch(saveFields('address_cn', {
+                            ...props.getsProfile.base_profile.address_cn,
+                            [key]: val
+                        }));
                     }
                 }
                 else {
@@ -182,7 +191,22 @@ AddressInformation = Form.create({
             }
 
         }
-    },
+    }, mapPropsToFields(props) {
+        return {
+            bill_url: {
+                ...props.getsProfile.base_profile.bill_url,
+                value: props.getsProfile.base_profile.bill_url,
+            },
+            driving_license_url: {
+                ...props.getsProfile.base_profile.driving_license_url,
+                value: props.getsProfile.base_profile.driving_license_url,
+            },
+            id_card_url: {
+                ...props.getsProfile.base_profile.id_card_url,
+                value: props.getsProfile.base_profile.id_card_url,
+            }
+        };
+    }
 })(AddressInformation);
 
 AddressInformation.defaultProps = {};

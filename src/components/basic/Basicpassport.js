@@ -16,14 +16,6 @@ class BasicPassport extends React.Component {
         super(props)
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.form.validateFieldsAndScroll((err, values) => {
-            if (!err) {
-                console.log('Received values of form: ', values);
-            }
-        });
-    }
     render() {
         const {getFieldDecorator} = this.props.getFieldDecorator;
         let data=this.props.getsProfile.base_profile
@@ -59,7 +51,7 @@ class BasicPassport extends React.Component {
                               initialValue: this.props.test.numberfieldDefault||'',
                                 //initialValue: 'E35456464',
                                 rules: [{
-                                    required: true, message: '请输入您的护照号!',
+                                    required: this.props.test.certificate, message: '请输入您的' + this.props.test.typeNumber + '!',
                                 }],
                             })(
                                 <Input type="text" size="large" style={{width: 240}}/>
@@ -75,7 +67,7 @@ class BasicPassport extends React.Component {
                         >
                             {getFieldDecorator(this.props.test.validityfield, {
                               initialValue: this.props.test.validityfieldDefault!=''?moment(this.props.test.validityfieldDefault):null,
-                                rules: [{type: 'object', required: true, message: '请输入日期!'}],
+                                rules: [{type: 'object', required: this.props.test.certificate, message: '请输入日期!'}],
                             })(
                                 <DatePicker disabledDate={this.props.disabledDate} size="large" style={{width: 240}} />
                             )}
@@ -88,7 +80,7 @@ class BasicPassport extends React.Component {
                 <FormItem style={{width: 346, margin: '0 auto'}}>
                     {getFieldDecorator(this.props.test.urlfield, {
                       initialValue: this.props.test.urlfieldDefault,
-                        rules: [{ required:false, message: '请上传证件!'}]
+                        rules: [{ required:true, message: '请上传证件!'}]
                     })(
                         <Uploader {...data} cardUrl={this.props.test.urlfieldDefault} />
                     )}
