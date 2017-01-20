@@ -14,7 +14,7 @@ class AddressOther extends React.Component {
     constructor(props) {
         super(props)
         country = this.props.getsProfile.Country.map(function (item) {
-            return <Option value={item.name}>{item.name}</Option>
+            return <Option value={item.name}  key={item.name + item.id}>{item.name}</Option>
         })
     }
 

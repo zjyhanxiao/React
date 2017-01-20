@@ -123,7 +123,7 @@ class AddressPlate extends React.Component {
 
 
 
-              {data!=undefined&&data.address_type!=undefined?data.address_type == 'CN'?
+              {data&&data.address_type == 'CN'?
                   <Row style={{marginTop: '5px'}}>
                     <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
                       {data.address_cn.region} {data.address_cn.city} {data.address_cn.district}
@@ -137,7 +137,7 @@ class AddressPlate extends React.Component {
                   </Row>
 
                   :
-
+                  data&&data.address_type == 'NON_CN'?
                   <Row style={{marginTop: '5px'}}>
                     <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
                       {data.address_non_cn.line1}
@@ -146,7 +146,7 @@ class AddressPlate extends React.Component {
                       {data.address_non_cn.line2||''}
                     </p></Col>
                     <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
-                      {data.address_non_cn.city} {data.address_non_cn.region}
+                      {data.address_non_cn.city} , {data.address_non_cn.region} ,{data.address_non_cn.postal_code}
                     </p></Col>
                     <Col span={20} offset={2}><p style={{fontWeight: '600'}}>
                       {data.address_non_cn.country}
@@ -156,25 +156,6 @@ class AddressPlate extends React.Component {
                 :
                 ''
               }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 {this.state.a ?
                     <Row style={{}}>
                       <Col span={20} offset={2}><p style={{color: '#fe593e'}}>地址证明已经失效，请重新<a
