@@ -35,7 +35,6 @@ class CompliancePublic extends React.Component {
             ...this.props.getsProfile.base_profile.accreditation,
             debt_amount: e.target.value
         }))
-        console.log("负债金额为 " + e.target.value)
     }
 
 
@@ -47,15 +46,6 @@ class CompliancePublic extends React.Component {
         }))
     }
 
-
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.form.validateFieldsAndScroll((err, values) => {
-            if (!err) {
-                console.log('Received values of form: ', values);
-            }
-        });
-    }
 
 
     render() {
@@ -151,7 +141,7 @@ class CompliancePublic extends React.Component {
                               required: false, message: '请输入您的负债金额!',
                           }],
                       })(
-                          <Input type="number" min="0" step="100" size="large"
+                          <Input onChange={this.Change.bind(this)} type="number" min="0" step="100" size="large"
                                  style={{width: 200, textAlign: 'center'}} />
                       )}
                     </FormItem>

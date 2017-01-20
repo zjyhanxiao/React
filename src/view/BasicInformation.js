@@ -23,7 +23,6 @@ class BasicInformation extends React.Component {
 
     changeSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
-            alert(1)
             if (!err) {
                 this.props.handleCancel()
             }

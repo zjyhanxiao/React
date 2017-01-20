@@ -136,7 +136,7 @@ class BanknoUSA extends React.Component {
             {getFieldDecorator('middle_bank_name', {
                 initialValue: baseData.middle_bank_name || '',
               rules: [{
-                required: true, message: '请输入您的指定的中间行名称！',
+                required: false, message: '请输入您的指定的中间行名称！',
               }],
             })(
               <Input type="text" size="large" style={{}}/>
@@ -151,7 +151,7 @@ class BanknoUSA extends React.Component {
             {getFieldDecorator('middle_bank_address', {
                 initialValue: baseData.middle_bank_address || '',
               rules: [{
-                required: true, message: '请输入您的指定的中间行地址！',
+                required: false, message: '请输入您的指定的中间行地址！',
               }],
             })(
               <Input type="textarea" size="large" style={{height:'80px',resize:'none'}}/>
@@ -166,7 +166,7 @@ class BanknoUSA extends React.Component {
             {getFieldDecorator('middle_bank_swift_code', {
                 initialValue: baseData.middle_bank_swift_code || '',
               rules: [{
-                required: true, message: '请输入中间行Swiftcode',
+                required: false, message: '请输入中间行Swiftcode',
               }],
             })(
               <Input type="text" size="large" style={{}}/>

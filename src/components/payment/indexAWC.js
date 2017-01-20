@@ -83,7 +83,6 @@ class IndexAWC extends React.Component {
     render() {
         baseData = this.props.getsProfile.Payment != undefined ? this.props.getsProfile.Payment : ''
         let bank = this.props.getsProfile.base_profile && this.props.getsProfile.base_profile.bank_type == 'US' ? true : false
-        console.log(bank)
         if ((bank && baseData.is_ach_enabled) && baseData.is_receive_bank_enabled && baseData.is_check_enabled) {
             tabBar = 123
         }

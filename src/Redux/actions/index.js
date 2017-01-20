@@ -325,7 +325,6 @@ export const updateSignature = (data, success) => {
             },
 
             success: function (res) {
-                console.log(res.body)
                 success&&success()
             }
         })

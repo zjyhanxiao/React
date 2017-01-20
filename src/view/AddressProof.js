@@ -105,7 +105,7 @@ class AddressInformation extends React.Component {
                                   background: '#223976',
                                   color: '#fff',
                                   fontSize: '18px'
-                              }} type="primary" htmlType="submit" name="fourth" onClick={this.props.handleCancel}
+                              }} type="primary" htmlType="submit" name="fourth" onClick={this.changeSubmit.bind(this)}
                                       size="large">确定</Button>
                             </FormItem>
                           </Col>

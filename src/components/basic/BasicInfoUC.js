@@ -119,7 +119,7 @@ class BasicInfoUC extends React.Component {
                       labelCol={{span: 4, offset: 4}}
                       wrapperCol={{span: 14}}
                   >
-                    {getFieldDecorator('ssn', {
+                    {getFieldDecorator('SSN', {
                         initialValue: baseData.base_info.ssn || '',
                         rules: [{
                             required: true, message: '请输入您的SSN!',
