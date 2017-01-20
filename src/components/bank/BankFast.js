@@ -23,7 +23,6 @@ class BankFast extends React.Component {
             this.props.getsProfile.base_profile.bank_type == 'US' ?
                 dispatch(saveFields('bank_us', {
                     ...this.props.getsProfile.base_profile.bank_us,
-                    account_number:baseBank['2'][this.state.size].account_number,
                     account_type:baseBank['2'][this.state.size].account_type,
                     bank_address:baseBank['2'][this.state.size].bank_address,
                     bank_name:baseBank['2'][this.state.size].bank_name_en,
@@ -31,7 +30,6 @@ class BankFast extends React.Component {
                 })) :
                 dispatch(saveFields('bank_non_us', {
                     ...this.props.getsProfile.base_profile.bank_non_us,
-                    account_number:baseBank['1'][this.state.size].account_number||'',
                     bank_address:baseBank['1'][this.state.size].bank_address,
                     bank_name:baseBank['1'][this.state.size].bank_name_en,
                     have_middlebank:1,
@@ -61,10 +59,10 @@ class BankFast extends React.Component {
                                                                                     position: 'relative'
                                                                                 }}>
 
-            <div style={{width: 50, height: 50, position: 'absolute', top: '15px', left: '15px', lineHeight: '50px'}}>
+            <div style={{width: 80, height: 40, position: 'absolute', top: '15px', left: '0', lineHeight: '50px'}}>
               <img style={{width: '100%',}} src={data.bank_url} alt="" />
             </div>
-            <div style={{width: 180, height: 55, position: 'absolute', top: '15px', right: '0px'}}>
+            <div style={{width: 170, height: 55, position: 'absolute', top: '25px', right: '0px'}}>
               <p style={{lineHeight: '1.5', wordBreak: 'break-all'}}>{data.bank_name_en}</p>
             </div>
 
@@ -82,10 +80,10 @@ class BankFast extends React.Component {
                                                                                     position: 'relative'
                                                                                 }}>
 
-            <div style={{width: 50, height: 50, position: 'absolute', top: '15px', left: '15px', lineHeight: '50px'}}>
+            <div style={{width: 80, height: 40, position: 'absolute', top: '15px', left: '0', lineHeight: '50px'}}>
               <img style={{width: '100%',}} src={data.bank_url} alt="" />
             </div>
-            <div style={{width: 180, height: 55, position: 'absolute', top: '15px', right: '0px'}}>
+            <div style={{width: 170, height: 55, position: 'absolute', top: '15px', right: '0px'}}>
               <p style={{lineHeight: '1.5'}}>{data.bank_name_cn}</p>
               <p style={{lineHeight: '1.5'}}>{data.bank_name_en}</p>
             </div>
@@ -97,63 +95,11 @@ class BankFast extends React.Component {
         <Radio.Group onChange={this.handleSizeChange}
                      style={{width: 860, background: '#fff', overflow: 'hidden', margin: '0 auto'}}>
             {bankData}
-            {/*          <Radio.Button value="美国投资人"
-             style={{width: 260,height:80, float:'left',marginLeft:'20px',marginTop:'20px',borderRadius:'5px',position:'relative'}}>
-
-             <div style={{width: 50,height:50,position: 'absolute',top:'15px',left:'15px',lineHeight:'50px'}}>
-             <img style={{width:'100%',}} src="../images/bank-hua.png" alt=""/>
-             </div>
-             <div style={{width: 180,height:55,position: 'absolute',top:'15px',right:'0px'}}>
-             <p style={{lineHeight:'1.5'}}>中国银行-香港银行</p>
-             <p style={{lineHeight:'1.5'}}>China Merchants Bank (HongKong Branch)</p>
-             </div>
-
-             </Radio.Button>
-             <Radio.Button value="国投资人"
-             style={{width: 260,height:80, float:'left',marginLeft:'20px',marginTop:'20px',borderRadius:'5px',position:'relative'}}>
-
-             <div style={{width: 50,height:50,position: 'absolute',top:'15px',left:'15px',lineHeight:'50px'}}>
-             <img style={{width:'100%',}} src="../images/bank-hua.png" alt=""/>
-             </div>
-             <div style={{width: 180,height:55,position: 'absolute',top:'15px',right:'0px'}}>
-             <p style={{lineHeight:'1.5'}}>中国银行-香港银行</p>
-             <p style={{lineHeight:'1.5'}}>China Merchants Bank (Hong
-             Kong Branch)</p>
-             </div>
-
-             </Radio.Button>
-             <Radio.Button value="投资人"
-             style={{width: 260,height:80, float:'left',marginLeft:'20px',marginTop:'20px',borderRadius:'5px',position:'relative'}}>
-
-             <div style={{width: 50,height:50,position: 'absolute',top:'15px',left:'15px',lineHeight:'50px'}}>
-             <img style={{width:'100%',}} src="../images/bank-xin.jpg" alt=""/>
-             </div>
-             <div style={{width: 180,height:55,position: 'absolute',top:'15px',right:'0px'}}>
-             <p style={{lineHeight:'1.5'}}>中国银行-香港银行</p>
-             <p style={{lineHeight:'1.5'}}>China Merchants Bank (Hong
-             Kong Branch)</p>
-             </div>
-
-             </Radio.Button>
-             <Radio.Button value="投资"
-             style={{width: 260,height:80, float:'left',marginLeft:'20px',marginTop:'20px',borderRadius:'5px',position:'relative'}}>
-
-             <div style={{width: 50,height:50,position: 'absolute',top:'15px',left:'15px',lineHeight:'50px'}}>
-             <img style={{width:'100%',}} src="../images/bank-xin.jpg" alt=""/>
-             </div>
-             <div style={{width: 180,height:55,position: 'absolute',top:'15px',right:'0px'}}>
-             <p style={{lineHeight:'1.5'}}>中国银行-香港银行</p>
-             <p style={{lineHeight:'1.5'}}>China Merchants Bank (Hong
-             Kong Branch)</p>
-             </div>
-
-             </Radio.Button>*/}
-
         </Radio.Group>
 
 
 
-        <Row style={{marginTop: '50px'}}>
+        <Row style={{marginTop: '50px',marginBottom:30}}>
           <Col span={4} offset={6}><Button
               style={{width: '100%', height: '45px', fontSize: '18px', borderRadius: '45px'}} type="ghost"
               onClick={this.props.hideBank}>取消</Button></Col>
