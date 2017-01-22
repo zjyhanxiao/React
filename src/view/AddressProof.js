@@ -155,7 +155,11 @@ AddressInformation = Form.create({
             let val = changedFields[i].value
             if (val != undefined) {
                 if (key == 'id_card_expire_date' || key == 'bill_expire_date' || key == 'driving_license_expire_date') {
-                    let val = changedFields[i].value.format('YYYY-MM-DD')
+                    if (val == ''||val==null) {
+                        val = null
+                    } else {
+                        val = val.format('YYYY-MM-DD')
+                    }
                     props.dispatch(saveFields(key, val));
                 } else if (props.getsProfile.base_profile.address_type == 'NON_CN') {
                     if (

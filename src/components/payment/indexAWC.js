@@ -1,5 +1,6 @@
 require('components/payment/indexAWC.css');
 import React from 'react';
+import $ from 'jquery'
 import {Row, Col, Tabs, Button} from 'antd';
 import cookie from 'react-cookie'
 
@@ -30,6 +31,11 @@ class IndexAWC extends React.Component {
     handleSubmit(e) {
         const {dispatch} = this.props
         let data = {}
+        if($('#achAgreement').length>0){
+            if(!$('#achAgreement').is(':checked')){
+
+            }
+        }
         let Payment = this.props.getsProfile.Payment
         data.payment_method = this.state.current != '' ? this.state.current : Payment.is_ach_enabled ? 'ach' : Payment.is_receive_bank_enabled ? 'wire' : Payment.is_check_enabled ? 'check' : ''
         data.product_id = this.props.getsProfile.Product.id
@@ -83,7 +89,7 @@ class IndexAWC extends React.Component {
     render() {
         baseData = this.props.getsProfile.Payment != undefined ? this.props.getsProfile.Payment : ''
         let bank = this.props.getsProfile.base_profile && this.props.getsProfile.base_profile.bank_type == 'US' ? true : false
-        if ((bank && baseData.is_ach_enabled) && baseData.is_receive_bank_enabled && baseData.is_check_enabled) {
+        if ((baseData.is_ach_enabled) && baseData.is_receive_bank_enabled && baseData.is_check_enabled) {
             tabBar = 123
         }
         if ((!baseData.is_ach_enabled ||!bank && baseData.is_ach_enabled) && baseData.is_receive_bank_enabled && baseData.is_check_enabled) {

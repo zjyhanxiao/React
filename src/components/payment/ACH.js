@@ -62,7 +62,7 @@ class ACH extends React.Component {
         </Row>
         <Row style={{marginTop: '15px', marginBottom: '30px'}}>
           <Col span={18} offset={3} style={{textAlign: 'left'}}>
-            <Checkbox onChange={onChange} style={{}}>我已阅读并接受 <a target="_blank" href={this.props.getsProfile.Payment!=undefined?this.props.getsProfile.Payment.ach.document:''}
+            <Checkbox id="achAgreement" onChange={onChange} style={{}}>我已阅读并接受 <a target="_blank" href={this.props.getsProfile.Payment!=undefined?this.props.getsProfile.Payment.ach.document:''}
                 style={{color: '#159bd6'}}>自动扣款协议 / ACH Agreement</a></Checkbox>
           </Col>
         </Row>

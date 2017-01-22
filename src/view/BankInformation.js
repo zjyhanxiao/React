@@ -284,14 +284,14 @@ BankInformation = Form.create({
             }
 
         }
-    }, mapPropsToFields(props) {
+    },/* mapPropsToFields(props) {
         return {
             bank_type: {
                 ...props.getsProfile.base_profile.bank_type,
                 value: props.getsProfile.base_profile.bank_type,
             }
         };
-    }
+    }*/
 })(BankInformation);
 
 BankInformation.defaultProps = {};
