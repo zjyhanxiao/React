@@ -110,7 +110,7 @@ class AddressPublic extends React.Component {
                   <FormItem style={{width: 346, margin: '0 auto'}}>
                     {getFieldDecorator(this.state.fileTYPE=='bill'?'bill_url':'driving_license_url', {
                       initialValue: this.props,
-                      rules: [{required: true, message: '请上传证件!'}]
+                      rules: [{required: false, message: '请上传证件!'}]
                     })(
                       <Uploader {...this.props} cardUrl={base_data.driving_license_url!=null?base_data.driving_license_url:base_data.bill_url!=null?base_data.bill_url:null} />
                     )}

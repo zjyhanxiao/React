@@ -200,7 +200,7 @@ AddressInformation = Form.create({
             }
 
         }
-    }, mapPropsToFields(props) {
+    }/*, mapPropsToFields(props) {
         return {
             bill_url: {
                 ...props.getsProfile.base_profile.bill_url,
@@ -215,7 +215,7 @@ AddressInformation = Form.create({
                 value: props.getsProfile.base_profile.id_card_url,
             }
         };
-    }
+    }*/
 })(AddressInformation);
 
 AddressInformation.defaultProps = {};

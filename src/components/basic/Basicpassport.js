@@ -80,7 +80,7 @@ class BasicPassport extends React.Component {
                 <FormItem style={{width: 346, margin: '0 auto'}}>
                     {getFieldDecorator(this.props.test.urlfield, {
                       initialValue: this.props.test.urlfieldDefault,
-                        rules: [{ required:true, message: '请上传证件!'}]
+                        rules: [{ required:false, message: '请上传证件!'}]
                     })(
                         <Uploader {...data} cardUrl={this.props.test.urlfieldDefault} />
                     )}

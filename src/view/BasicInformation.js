@@ -247,7 +247,7 @@ BasicInformation = Form.create({
             }
 
         }
-    }, mapPropsToFields(props) {
+    }/*, mapPropsToFields(props) {
         return {
             passport_url: {
                 ...props.getsProfile.base_profile.passport_url,
@@ -258,7 +258,7 @@ BasicInformation = Form.create({
                 value: props.getsProfile.base_profile.id_card_url,
             }
         };
-    }
+    }*/
 })(BasicInformation);
 BasicInformation.defaultProps = {};
 BasicInformation.propTypes = {

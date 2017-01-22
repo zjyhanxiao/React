@@ -87,7 +87,7 @@ class AddressProve extends React.Component {
                   <FormItem style={{width: 346, margin: '0 auto'}}>
                     {getFieldDecorator(data.investor_type == 1?'id_card_url':'bill_url', {
                         initialValue: data!=null&&data.id_card_url!=null?data.id_card_url:null,
-                        rules: [{required: true, message: '请上传证件!'}]
+                        rules: [{required: false, message: '请上传证件!'}]
                     })(
                         <Uploader {...data} cardUrl={data.investor_type == 1?data.id_card_url:data.bill_url} />
                     )}
