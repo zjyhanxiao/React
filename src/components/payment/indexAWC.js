@@ -72,9 +72,9 @@ class IndexAWC extends React.Component {
 
         event.target.className = 'active'
         this.setState({
-            Ach: false,
-            Wire: false,
-            Check: false,
+            ach: false,
+            wire: false,
+            check: false,
             [event.target.getAttribute('name')]: true,
             current: event.target.getAttribute('name')
         })
