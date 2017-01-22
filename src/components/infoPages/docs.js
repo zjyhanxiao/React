@@ -11,8 +11,6 @@ function onChange(checkedValues) {
     console.log('checked = ', checkedValues);
 }
 
-
-let dosc
 class Docs extends React.Component {
     constructor(props) {
         super(props)
@@ -33,22 +31,15 @@ class Docs extends React.Component {
                       </Row>
         }):''
 
-        /*    if (a != undefined) {
-         dosc = a.map((dos,index) => <Row style={{paddingTop: '15px'}} key={index}>
-         <Col span={20} offset={2}><Checkbox onChange={onChange} style={{color:'#159bd6'}}></Checkbox><a
-         href="">dos</a> </Col>
-         </Row>)
-         }*/
-
 
         return (
             <div style={{width: '100%', background: '#fff', overflow: 'hidden'}}>
 
           <Row style={{paddingTop: '20px'}}>
-              <Col span={20} offset={2}><p style={{color: '#aaaaaa'}}>请认真查看以下文件并核对所填写的信息和已勾选的选项。</p></Col>
+              <Col span={20} offset={2}><p style={{color: '#aaaaaa'}}>请认真查看以下所有文件并核对所填写的信息和已勾选的选项。</p></Col>
           </Row>
 
-        <div>{docItem}</div>
+        <div  id="Docs">{docItem}</div>
 
 
                 {/*<Row style={{paddingTop: '15px'}}>*/}

@@ -1,10 +1,9 @@
 import React from 'react';
 import {Row, Col, Button} from 'antd';
-
+import $ from 'jquery'
 import {updateProfile} from '../Redux/actions/index'
 import Docs from '../components/infoPages/docs';
 import Signature from '../components/signature/index';
-
 
 
 class ConfirmInvestment extends React.Component {
@@ -13,16 +12,47 @@ class ConfirmInvestment extends React.Component {
         super(props)
     }
 
-
     signature(e) {
-        const {dispatch}=this.props
-
+        let canNext = true
         let data = {...this.props.getsProfile.base_profile}
+        const {dispatch}=this.props
+        document.getElementById('signature').style.border = '1px dotted #999'
+        $('.docs-error').remove()
+        if (data.investor_type == 2 && data.accreditation.with_spouse == true) {
+            document.getElementById('spouse_signature').style.border = '1px dotted #999'
+        }
+        if($('#Docs').find('input[type="checkbox"]:checked').length!=this.props.getsProfile.Doc.length){
+            let dom = $('<div class="docs-error" style="margin-left: 8.33333333%; margin-top: 15px; color: red">提示:请认真阅读并勾选以上所有文件</div>')
+            $('#Docs').after(dom)
+            canNext = false
+        }
+        /*let unChecked=$('#Docs').find('input[type="checkbox"]')
+        $.each($.makeArray(unChecked).reverse(), function () {
+            let dom = $('<div class="docs-error" style="margin-left: 8.33333333%; color: red"></div>')
+            if (!$(this).is(':checked')) {
+                dom.append($(this).closest('label').next('a').html())
+            }
+            $('#Docs').after(dom)
+        })*/
+        if ($('.docs-error').length > 0) {
+            canNext = false
+        }
+        if (data.signature == null) {
+            document.getElementById('signature').style.border = '1px solid red'
+            canNext = false
+        }
+        if (data.investor_type == 2 && data.accreditation.with_spouse == true) {
+            document.getElementById('spouse_signature').style.border = '1px solid red'
+            canNext = false
+        }
+        if (!canNext) {
+            return false
+        }
         data.signature = this.props.getsProfile.base_profile.signature || null;
         data.spouse_signature = this.props.getsProfile.base_profile.spouse_signature || null;
-        if(data.signature==null||(data.investor_type==2&&data.accreditation.with_spouse==true)){
+        /*if(data.signature==null||(data.investor_type==2&&data.accreditation.with_spouse==true)){
 
-        }
+         }*/
         dispatch(updateProfile(data, this.success))
 
         this.props.changeP(e)
@@ -73,7 +103,18 @@ class ConfirmInvestment extends React.Component {
 
         <div style={{width: '900px', margin: '0 auto', textAlign: 'center', background: '#ffffff'}}>
           <Row style={{paddingTop: '50px', paddingBottom: '40px'}}>
-            <Col span={8} offset={8}>
+            <Col span={3} offset={6}>
+              <Button style={{
+                  width: '120px',
+                  height: '50px',
+                  borderRadius: '30px',
+                  background: '#223976',
+                  color: '#fff',
+                  fontSize: '18px'
+              }} type="primary" htmlType="submit" name="one" onClick={this.props.changeP}
+                      size="large">上一步</Button>
+            </Col>
+            <Col span={3} offset={6}>
               <Button style={{
                   width: '120px',
                   height: '50px',
@@ -82,7 +123,7 @@ class ConfirmInvestment extends React.Component {
                   color: '#fff',
                   fontSize: '18px'
               }} type="primary" htmlType="submit" name="three" onClick={this.signature.bind(this)}
-                      size="large">确认订单</Button>
+                      size="large">下一步</Button>
             </Col>
           </Row>
         </div>

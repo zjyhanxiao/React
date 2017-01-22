@@ -25,12 +25,14 @@ class BankFast extends React.Component {
                     ...this.props.getsProfile.base_profile.bank_us,
                     account_type:baseBank['2'][this.state.size].account_type,
                     bank_address:baseBank['2'][this.state.size].bank_address,
+                    account_number:null,
                     bank_name:baseBank['2'][this.state.size].bank_name_en,
                     routing_number:baseBank['2'][this.state.size].routing_number
                 })) :
                 dispatch(saveFields('bank_non_us', {
                     ...this.props.getsProfile.base_profile.bank_non_us,
                     bank_address:baseBank['1'][this.state.size].bank_address,
+                    account_number:null,
                     bank_name:baseBank['1'][this.state.size].bank_name_en,
                     have_middlebank:1,
                     middle_bank_address:baseBank['1'][this.state.size].middle_bank_address,
