@@ -18,7 +18,11 @@ export const isComplete = () => {
                 "mx_secret": cookie.load('mx_secret')
             },
 
-            success: json => dispatch(isCompleteSuccess(json))
+            success: json => dispatch(isCompleteSuccess(json)),
+            complete:function (XHR, TS) {
+                console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
+                console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)
+            }
 
         })
     }
@@ -45,7 +49,11 @@ export const getProduct = (id) => {
                 "mx_secret": cookie.load('mx_secret')
             },
 
-            success: json => dispatch(getProductSuccess(json))
+            success: json => dispatch(getProductSuccess(json)),
+            complete:function (XHR, TS) {
+                console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
+                console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)
+            }
 
         })
     }
