@@ -46,6 +46,10 @@ const getsProfile = (state = {}, action) => {
             return Object.assign({}, state, {
                 County: action.json.body
             });
+        case types.CHANGE_ADDRESS_TYPE:
+            return Object.assign({}, state, {
+                AddressType: action.val
+            });
         case types.GET_PROFILE_SUCCESS:
             return Object.assign({}, state, {
                 base_profile: {...action.json.body,

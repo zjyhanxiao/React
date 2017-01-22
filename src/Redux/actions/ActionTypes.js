@@ -21,4 +21,5 @@ export const INVEST_AMOUNT='INVEST_AMOUNT'   // 投资金额
 export const GET_PAYMENT='GET_PAYMENT'   // 获取支付信息
 export const GET_DOCUMENT='GET_DOCUMENT'   // 获取支付信息
 export const CHANGE_COMPLETE='CHANGE_COMPLETE'   // 切换用户完善信息状态
+export const CHANGE_ADDRESS_TYPE='CHANGE_ADDRESS_TYPE'   // 美国投资人切换地址证明类型
 

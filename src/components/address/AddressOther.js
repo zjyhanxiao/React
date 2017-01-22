@@ -92,7 +92,7 @@ class AddressOther extends React.Component {
                       wrapperCol={{span: 15}}
                   >
               {getFieldDecorator('country', {
-                  initialValue: baseData.country||'香港',
+                  initialValue: baseData.country||'中国香港',
                   rules: [{
                       type: 'string',
                       required: true,

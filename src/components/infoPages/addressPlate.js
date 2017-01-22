@@ -1,6 +1,6 @@
 import React from 'react';
 import {Modal, Button, Row, Col} from 'antd';
-import {updateProfile,getState,getCity,getCounty} from '../../Redux/actions/index'
+import {updateProfile,getState,getCity,getCounty,changeAddressType} from '../../Redux/actions/index'
 import AddressProof from '../../view/AddressProof'
 
 
@@ -34,6 +34,11 @@ class AddressPlate extends React.Component {
         if (this.props.getsProfile.base_profile.investor_type == 2) {
             const {dispatch} = this.props
             dispatch(getState({country: this.props.getsProfile.base_profile.address_non_cn.country}))
+            if(this.props.getsProfile.base_profile.driving_license_url!=null){
+                dispatch(changeAddressType('drive'))
+            }else{
+                dispatch(changeAddressType('bill'))
+            }
         }
         if (this.props.getsProfile.base_profile.investor_type == 99) {
             const {dispatch} = this.props

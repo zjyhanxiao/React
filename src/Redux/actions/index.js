@@ -456,6 +456,13 @@ export const changeComplete = (val) => {
         val
     }
 }
+//  美国投资人切换地址证明类型
+export const changeAddressType = (val) => {
+    return {
+        type: types.CHANGE_ADDRESS_TYPE,
+        val
+    }
+}
 
 
 

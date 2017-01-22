@@ -16,6 +16,10 @@ class BasicInformation extends React.Component {
     handleSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
+                if(this.props.getsProfile.base_profile.passport_url==null){
+                    alert(1)
+                    return false
+                }
                 this.props.changeIndex(e)
             }
         });

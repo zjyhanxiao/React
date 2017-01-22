@@ -1,7 +1,7 @@
 import '../identity/identity.css'
 import React from 'react';
 import {connect} from 'react-redux'
-import {getState,saveFields} from '../../Redux/actions/index'
+import {getState,saveFields,changeAddressType} from '../../Redux/actions/index'
 import {bindActionCreators} from 'redux'
 import {changeInvestorType} from '../../Redux/actions/index'
 import {Form, Input, Row, Col, Button, Radio} from 'antd';
@@ -58,7 +58,7 @@ class Identity extends React.Component {
         }
         if (e.target.value == '2' && state.cn == '2') {
             investor_type = 99
-            country = '香港'
+            country = '中国香港'
             address_type = 'NON_CN'
             dispatch(changeInvestorType('address_non_cn', {
                 ...this.props.getsProfile.base_profile.address_non_cn,
@@ -126,7 +126,7 @@ class Identity extends React.Component {
         }
         if (state.type == '2' && e.target.value == '2') {
             investor_type = 99
-            country = '香港'
+            country = '中国香港'
             address_type = 'NON_CN'
             dispatch(changeInvestorType('address_non_cn', {
                 ...this.props.getsProfile.base_profile.address_non_cn,
@@ -161,6 +161,7 @@ class Identity extends React.Component {
                         ...this.props.getsProfile.base_profile.accreditation,
                         type:'INCOME'
                     }))
+                    dispatch(changeAddressType('drive'))
                 }
                 if (this.props.getsProfile.base_profile.investor_type == 99) {
                     dispatch(getState({country: this.props.getsProfile.base_profile.address_non_cn.country}))
