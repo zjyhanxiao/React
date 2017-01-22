@@ -21,27 +21,27 @@ class ConfirmInvestment extends React.Component {
         if (data.investor_type == 2 && data.accreditation.with_spouse == true) {
             document.getElementById('spouse_signature').style.border = '1px dotted #999'
         }
-        if($('#Docs').find('input[type="checkbox"]:checked').length!=this.props.getsProfile.Doc.length){
+        if ($('#Docs').find('input[type="checkbox"]:checked').length != this.props.getsProfile.Doc.length) {
             let dom = $('<div class="docs-error" style="margin-left: 8.33333333%; margin-top: 15px; color: red">提示:请认真阅读并勾选以上所有文件</div>')
             $('#Docs').after(dom)
             canNext = false
         }
         /*let unChecked=$('#Docs').find('input[type="checkbox"]')
-        $.each($.makeArray(unChecked).reverse(), function () {
-            let dom = $('<div class="docs-error" style="margin-left: 8.33333333%; color: red"></div>')
-            if (!$(this).is(':checked')) {
-                dom.append($(this).closest('label').next('a').html())
-            }
-            $('#Docs').after(dom)
-        })*/
+         $.each($.makeArray(unChecked).reverse(), function () {
+         let dom = $('<div class="docs-error" style="margin-left: 8.33333333%; color: red"></div>')
+         if (!$(this).is(':checked')) {
+         dom.append($(this).closest('label').next('a').html())
+         }
+         $('#Docs').after(dom)
+         })*/
         if ($('.docs-error').length > 0) {
             canNext = false
         }
-        if (data.signature == null) {
+        if (data.signature == null||data.signature == '') {
             document.getElementById('signature').style.border = '1px solid red'
             canNext = false
         }
-        if (data.investor_type == 2 && data.accreditation.with_spouse == true) {
+        if (data.investor_type == 2 && data.accreditation.with_spouse == true && (data.spouse_signature == null||data.spouse_signature == '')) {
             document.getElementById('spouse_signature').style.border = '1px solid red'
             canNext = false
         }
