@@ -21,7 +21,7 @@ class ItemAmount extends React.Component {
         const {dispatch} = this.props
         if (this.props.getsProfile.invest_amount == undefined) {
             dispatch(investAmount(nextState.product.currentVal))
-        }else if ( this.props.getsProfile.invest_amount != nextState.product.currentVal) {
+        } else if (this.props.getsProfile.invest_amount != nextState.product.currentVal) {
             dispatch(investAmount(nextState.product.currentVal))
 
         }
@@ -31,13 +31,30 @@ class ItemAmount extends React.Component {
     onChange = (e) => {
         if (!Number(e.target.value) && e.target.value != '') {
             alert('not a number')
-            e.preventDefault();
         } else {
             this.setState({
                 product: {
                     currentVal: e.target.value,
                 }
             })
+/*            if (e.target.value >= this.props.minimum_invest_amount) {
+                if (e.target.value % this.props.invest_par_value != 0) {
+                    let invest_par_value = this.props.invest_par_value
+                    alert('投资金额必须为' + invest_par_value + '的整数倍')
+                } else {
+                    this.setState({
+                        product: {
+                            currentVal: e.target.value,
+                        }
+                    })
+                }
+            } else {
+                this.setState({
+                    product: {
+                        currentVal: e.target.value,
+                    }
+                })
+            }*/
         }
         e.preventDefault();
     }
@@ -141,12 +158,21 @@ class ItemAmount extends React.Component {
     }
 }
 
-ItemAmount.defaultProps = {};
-const mapStateToProps = (state) => {
-    return {
-        getsProfile: state.getsProfile
+ItemAmount
+    .defaultProps = {};
+const
+    mapStateToProps = (state) => {
+        return {
+            getsProfile: state.getsProfile
+        }
     }
-}
 
 
-export default connect(mapStateToProps)(ItemAmount)
+export
+default
+
+connect(mapStateToProps)
+
+(
+    ItemAmount
+)

@@ -13,6 +13,13 @@ class IndexPlate extends React.Component {
     super(props);
   }
 
+  handleClick(e){
+      if(this.props.getsProfile.invest_amount%this.props.getsProfile.Product.invest_par_value!=0){
+        alert('投资金额必须为'+this.props.getsProfile.Product.invest_par_value+'的整数倍')
+          return false
+      }
+      this.props.changeP(e)
+  }
 
 
 
@@ -45,7 +52,7 @@ class IndexPlate extends React.Component {
               background: '#223976',
               color: '#fff',
               fontSize: '18px'
-            }} type="primary" htmlType="submit" name="two" onClick={this.props.changeP} size="large">下一步</Button>
+            }} type="primary" htmlType="submit" name="two" onClick={this.handleClick.bind(this)} size="large">下一步</Button>
           </Col>
         </Row>
 
