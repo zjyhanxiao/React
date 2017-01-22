@@ -18,10 +18,6 @@ class AddressInformation extends React.Component {
     handleSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                if(this.props.getsProfile.base_profile.address_type=='NON_CN'){
-                    const {dispatch}=this.props
-                    dispatch(saveFields('line2'),values.line2)
-                }
                 this.props.changeIndex(e)
             }
         });
@@ -31,10 +27,6 @@ class AddressInformation extends React.Component {
     changeSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                if(this.props.getsProfile.base_profile.address_type=='NON_CN'){
-                    const {dispatch}=this.props
-                    dispatch(saveFields('line2'),values.line2)
-                }
                 this.props.handleCancel()
             }
         });
@@ -161,7 +153,7 @@ AddressInformation = Form.create({
         for (let i in changedFields) {
             let key = changedFields[i].name
             let val = changedFields[i].value
-            if (val != undefined && val != '' && val != null) {
+            if (val != undefined) {
                 if (key == 'id_card_expire_date' || key == 'bill_expire_date' || key == 'driving_license_expire_date') {
                     let val = changedFields[i].value.format('YYYY-MM-DD')
                     props.dispatch(saveFields(key, val));

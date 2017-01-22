@@ -15,10 +15,6 @@ class BasicInformation extends React.Component {
     handleSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                if(this.props.getsProfile.base_profile.investor_type==99){
-                    const {dispatch}=this.props
-                    dispatch(saveFields('id_card_number'),values.id_card_number)
-                }
                 this.props.changeIndex(e)
             }
         });
@@ -28,10 +24,6 @@ class BasicInformation extends React.Component {
     changeSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                if(this.props.getsProfile.base_profile.investor_type==99){
-                    const {dispatch}=this.props
-                    dispatch(saveFields('id_card_number'),values.id_card_number)
-                }
                 this.props.handleCancel()
             }
         });
@@ -219,10 +211,11 @@ class BasicInformation extends React.Component {
 }
 BasicInformation = Form.create({
     onFieldsChange(props, changedFields) {
+        console.log(JSON.stringify(changedFields))
         for (let i in changedFields) {
             let key = changedFields[i].name
             let val = changedFields[i].value
-            if (val != undefined && val != '' && val != null) {
+            if (val != undefined) {
                 if (key == 'passport_expire_date' || key == 'id_card_expire_date') {
                     let val = changedFields[i].value.format('YYYY-MM-DD')
                     props.dispatch(saveFields(key, val));
@@ -248,17 +241,17 @@ BasicInformation = Form.create({
 
         }
     }/*, mapPropsToFields(props) {
-        return {
-            passport_url: {
-                ...props.getsProfile.base_profile.passport_url,
-                value: props.getsProfile.base_profile.passport_url,
-            },
-            id_card_url: {
-                ...props.getsProfile.base_profile.id_card_url,
-                value: props.getsProfile.base_profile.id_card_url,
-            }
-        };
-    }*/
+     return {
+     passport_url: {
+     ...props.getsProfile.base_profile.passport_url,
+     value: props.getsProfile.base_profile.passport_url,
+     },
+     id_card_url: {
+     ...props.getsProfile.base_profile.id_card_url,
+     value: props.getsProfile.base_profile.id_card_url,
+     }
+     };
+     }*/
 })(BasicInformation);
 BasicInformation.defaultProps = {};
 BasicInformation.propTypes = {

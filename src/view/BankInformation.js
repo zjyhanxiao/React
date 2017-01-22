@@ -40,7 +40,7 @@ class BankInformation extends React.Component {
                 if (
                     (pro.bank_non_us.middle_bank_address != null &&
                     pro.bank_non_us.middle_bank_name != null &&
-                    pro.bank_non_us.middle_bank_swift_code != null ||
+                    pro.bank_non_us.middle_bank_swift_code != null &&
                     pro.bank_non_us.middle_bank_address != '' &&
                     pro.bank_non_us.middle_bank_name != '' &&
                     pro.bank_non_us.middle_bank_swift_code != '') &&
@@ -49,14 +49,6 @@ class BankInformation extends React.Component {
                     dispatch(saveFields('bank_non_us', {
                         ...this.props.getsProfile.base_profile.bank_non_us,
                         have_middlebank: 1
-                    }));
-                } else {
-                    dispatch(saveFields('bank_non_us', {
-                        ...this.props.getsProfile.base_profile.bank_non_us,
-                        have_middlebank: 0,
-                        middle_bank_address:values.middle_bank_address,
-                        middle_bank_name:values.middle_bank_name,
-                        middle_bank_swift_code:values.middle_bank_swift_code
                     }));
                 }
                 if (this.props.getsProfile.base_profile.investor_type == 2) {
@@ -79,7 +71,7 @@ class BankInformation extends React.Component {
                 if (
                     (pro.bank_non_us.middle_bank_address != null &&
                     pro.bank_non_us.middle_bank_name != null &&
-                    pro.bank_non_us.middle_bank_swift_code != null ||
+                    pro.bank_non_us.middle_bank_swift_code != null &&
                     pro.bank_non_us.middle_bank_address != '' &&
                     pro.bank_non_us.middle_bank_name != '' &&
                     pro.bank_non_us.middle_bank_swift_code != '') &&
@@ -89,14 +81,6 @@ class BankInformation extends React.Component {
                     dispatch(saveFields('bank_non_us', {
                         ...this.props.getsProfile.base_profile.bank_non_us,
                         have_middlebank: 1
-                    }));
-                } else {
-                    dispatch(saveFields('bank_non_us', {
-                        ...this.props.getsProfile.base_profile.bank_non_us,
-                        have_middlebank: 0,
-                        middle_bank_address:values.middle_bank_address,
-                        middle_bank_name:values.middle_bank_name,
-                        middle_bank_swift_code:values.middle_bank_swift_code
                     }));
                 }
                 this.props.handleCancel()
@@ -265,7 +249,7 @@ BankInformation = Form.create({
         for (let i in changedFields) {
             let key = changedFields[i].name
             let val = changedFields[i].value
-            if (val != undefined && val != '' && val != null) {
+            if (val != undefined) {
                 if (props.getsProfile.base_profile.bank_type == 'US') {
                     if (
                         key == 'account_number' ||
