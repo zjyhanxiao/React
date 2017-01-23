@@ -81,6 +81,12 @@ class BasicIdCard extends React.Component {
 
                 <FormItem style={{width: 346, margin: '0 auto'}}>
                     {getFieldDecorator('id_card_url', {
+                        initialValue: this.props.getsProfile.base_profile.id_card_url != null &&
+                        this.props.getsProfile.base_profile.id_card_url!=''
+                            ?
+                            this.props.getsProfile.base_profile.id_card_url
+                            :
+                            null,
                         rules: [{ required:false, message: '请上传证件!'}]
                     })(
                         <Uploader {...data} cardUrl={this.props.getsProfile.base_profile.id_card_url} />

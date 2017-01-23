@@ -118,6 +118,17 @@ class AddressPublic extends React.Component {
                 <Col span={8} offset={8}>
                   <FormItem style={{width: 346, margin: '0 auto'}}>
                     {getFieldDecorator(this.props.getsProfile.AddressType == 'bill' ? 'bill_url' : 'driving_license_url', {
+                        initialValue: this.props.getsProfile.base_profile.bill_url != null &&
+                        this.props.getsProfile.base_profile.bill_url!=''
+                            ?
+                            this.props.getsProfile.base_profile.bill_url
+                            :
+                            this.props.getsProfile.base_profile.driving_license_url != null &&
+                            this.props.getsProfile.base_profile.driving_license_url!=''
+                                ?
+                                this.props.getsProfile.base_profile.driving_license_url
+                                :
+                            null,
                         rules: [{required: false, message: '请上传证件!'}]
                     })(
                         <Uploader {...this.props}

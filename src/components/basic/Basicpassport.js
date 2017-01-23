@@ -83,6 +83,12 @@ class BasicPassport extends React.Component {
 
                 <FormItem style={{width: 346, margin: '0 auto'}}>
                     {getFieldDecorator('passport_url', {
+                        initialValue: this.props.getsProfile.base_profile.passport_url != null &&
+                        this.props.getsProfile.base_profile.passport_url!=''
+                            ?
+                            this.props.getsProfile.base_profile.passport_url
+                            :
+                            null,
                         rules: [{ required:false, message: '请上传证件!'}]
                     })(
                         <Uploader {...data} cardUrl={this.props.getsProfile.base_profile.passport_url} />
