@@ -29,7 +29,7 @@ class Wire extends React.Component {
             <p style={{
                 color: '#159bd6',
                 textAlign: 'left'
-            }}>请注意：请使用您之前选择的银行账户完成支付（<span>{baseData != undefined ? bank.bank_name : ''}</span>, <span>{account_number}</span>)。</p>
+            }}>请注意：请使用您之前选择的银行账户完成支付(<span>{baseData != undefined ? bank.bank_name : ''}</span>, <span>{account_number}</span>)。</p>
           </Col>
         </Row>
         <Row style={{marginTop: '5px'}}>

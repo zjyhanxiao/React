@@ -168,7 +168,12 @@ class Identity extends React.Component {
                         ...this.props.getsProfile.base_profile.accreditation,
                         type:'INCOME'
                     }))
-                    dispatch(changeAddressType('drive'))
+
+                    if(this.props.getsProfile.base_profile.bill_url!=null&&this.props.getsProfile.base_profile.bill_url!=''){
+                        dispatch(changeAddressType('bill'))
+                    }else{
+                        dispatch(changeAddressType('drive'))
+                    }
                 }
                 if (this.props.getsProfile.base_profile.investor_type == 99) {
                     dispatch(getState({country: this.props.getsProfile.base_profile.address_non_cn.country}))

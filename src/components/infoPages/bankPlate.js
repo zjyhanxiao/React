@@ -108,7 +108,7 @@ class BankPlate extends React.Component {
                 <Col span={4} offset={2}><span style={{fontWeight:'600'}}>账户号</span></Col>
                 <Col span={16}><p>{data!=undefined&&data.bank_non_us.account_number!=undefined?data.bank_non_us.account_number.replace(/^\d+(\d{4})$/, "****************$1"):''}</p></Col>
               </Row>
-                {data!=undefined&&data.bank_non_us.have_middlebank==1?
+                {data!=undefined&&data.bank_non_us.have_middle_bank==1?
                     <div>
                         <Row style={{marginTop:'5px'}}>
                           <Col span={4} offset={2}><span style={{fontWeight:'600'}}>中间行名称</span></Col>

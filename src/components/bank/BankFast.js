@@ -34,7 +34,7 @@ class BankFast extends React.Component {
                     bank_address:baseBank['1'][this.state.size].bank_address,
                     account_number:null,
                     bank_name:baseBank['1'][this.state.size].bank_name_en,
-                    have_middlebank:1,
+                    have_middle_bank:1,
                     middle_bank_address:baseBank['1'][this.state.size].middle_bank_address,
                     middle_bank_name:baseBank['1'][this.state.size].middle_bank_name,
                     middle_bank_swift_code:baseBank['1'][this.state.size].middle_bank_swift_code,

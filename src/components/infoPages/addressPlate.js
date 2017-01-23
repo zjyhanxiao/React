@@ -34,10 +34,10 @@ class AddressPlate extends React.Component {
         if (this.props.getsProfile.base_profile.investor_type == 2) {
             const {dispatch} = this.props
             dispatch(getState({country: this.props.getsProfile.base_profile.address_non_cn.country}))
-            if(this.props.getsProfile.base_profile.driving_license_url!=null){
-                dispatch(changeAddressType('drive'))
-            }else{
+            if(this.props.getsProfile.base_profile.bill_url!=null&&this.props.getsProfile.base_profile.bill_url!=''){
                 dispatch(changeAddressType('bill'))
+            }else{
+                dispatch(changeAddressType('drive'))
             }
         }
         if (this.props.getsProfile.base_profile.investor_type == 99) {
