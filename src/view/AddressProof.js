@@ -17,40 +17,53 @@ class AddressInformation extends React.Component {
 
     handleSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
-            let baseProp=this.props.getsProfile
+            let baseProp = this.props.getsProfile
             if (!err) {
-                if(
-                    baseProp.base_profile.investor_type=='1'&&
-                    baseProp.base_profile.id_card_url==null)
-                {
+                const {dispatch}=this.props
+                if (
+                    baseProp.base_profile.investor_type == '1' &&
+                    baseProp.base_profile.id_card_url == null) {
                     alert('请上传您的身份证证件')
                     return false
                 }
-                if(baseProp.base_profile.investor_type=='2'){
-                    if(baseProp.AddressType=='drive'&&
-                        baseProp.base_profile.driving_license_url==null)
-                    {
-                        alert('请上传您的驾照证件')
-                        return false
+                if (baseProp.base_profile.investor_type == '2') {
+                    if (baseProp.AddressType == 'drive') {
+                        if (baseProp.base_profile.driving_license_url == null
+                            ||
+                            baseProp.base_profile.driving_license_url == ''
+                        ) {
+                            alert('请上传您的驾照证件')
+                            return false
+                        }
+                        dispatch(saveFields('bill_url',null))
+                        dispatch(saveFields('bill_number',null))
+                        dispatch(saveFields('bill_expire_date',null))
                     }
-                    if(baseProp.AddressType=='bill'&&
-                        baseProp.base_profile.bill_url==null)
-                    {
-                        alert('请上传您的水电账单')
-                        return false
+
+                    if (baseProp.AddressType == 'bill') {
+                        if (baseProp.base_profile.bill_url == null
+                            ||
+                            baseProp.base_profile.bill_url == '')
+                        {
+                            alert('请上传您的水电账单')
+                            return false
+                        }
+                        dispatch(saveFields('driving_license_url',null))
+                        dispatch(saveFields('driving_license_number',null))
+                        dispatch(saveFields('driving_license_expire_date',null))
                     }
                 }
 
-                if(
-                    baseProp.base_profile.investor_type=='99'&&
-                    baseProp.base_profile.bill_url==null)
-                {
+                if (
+                    baseProp.base_profile.investor_type == '99' &&
+                    baseProp.base_profile.bill_url == null) {
                     alert('请上传您的水电账单')
                     return false
                 }
                 this.props.changeIndex(e)
             }
-        });
+        })
+        ;
         e.preventDefault();
     }
 
@@ -185,7 +198,7 @@ AddressInformation = Form.create({
             let val = changedFields[i].value
             if (val != undefined) {
                 if (key == 'id_card_expire_date' || key == 'bill_expire_date' || key == 'driving_license_expire_date') {
-                    if (val == ''||val==null) {
+                    if (val == '' || val == null) {
                         val = null
                     } else {
                         val = val.format('YYYY-MM-DD')
@@ -227,21 +240,21 @@ AddressInformation = Form.create({
 
         }
     }/*, mapPropsToFields(props) {
-        return {
-            bill_url: {
-                ...props.getsProfile.base_profile.bill_url,
-                value: props.getsProfile.base_profile.bill_url,
-            },
-            driving_license_url: {
-                ...props.getsProfile.base_profile.driving_license_url,
-                value: props.getsProfile.base_profile.driving_license_url,
-            },
-            id_card_url: {
-                ...props.getsProfile.base_profile.id_card_url,
-                value: props.getsProfile.base_profile.id_card_url,
-            }
-        };
-    }*/
+     return {
+     bill_url: {
+     ...props.getsProfile.base_profile.bill_url,
+     value: props.getsProfile.base_profile.bill_url,
+     },
+     driving_license_url: {
+     ...props.getsProfile.base_profile.driving_license_url,
+     value: props.getsProfile.base_profile.driving_license_url,
+     },
+     id_card_url: {
+     ...props.getsProfile.base_profile.id_card_url,
+     value: props.getsProfile.base_profile.id_card_url,
+     }
+     };
+     }*/
 })(AddressInformation);
 
 AddressInformation.defaultProps = {};

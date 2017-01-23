@@ -20,14 +20,6 @@ class AddressPublic extends React.Component {
         dispatch(changeAddressType(value))
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.form.validateFieldsAndScroll((err, values) => {
-            if (!err) {
-                console.log('Received values of form: ', values);
-            }
-        });
-    }
 
 
     render() {
