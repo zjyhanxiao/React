@@ -86,15 +86,15 @@ class AddressPublic extends React.Component {
           <Col span={12}>
             <FormItem
                 {...formItemLayout}
-                label={this.state.fileTYPE == 'bill' ? '账单日期' : '有效期至'}
+                label={this.props.getsProfile.AddressType == 'bill' ? '账单日期' : '有效期至'}
                 labelCol={{span: 4, offset: 2}}
                 wrapperCol={{span: 14}}
             >
-              {getFieldDecorator(this.state.fileTYPE == 'bill' ? 'bill_expire_date' : 'driving_license_expire_date', {
-                  initialValue: this.state.fileTYPE == 'bill' && base_data.bill_expire_date != null ? moment(base_data.bill_expire_date) : this.state.fileTYPE == 'drive' && base_data.driving_license_expire_date != null ? moment(base_data.driving_license_expire_date) : null,
+              {getFieldDecorator(this.props.getsProfile.AddressType == 'bill' ? 'bill_expire_date' : 'driving_license_expire_date', {
+                  initialValue: this.props.getsProfile.AddressType == 'bill' && base_data.bill_expire_date != null ? moment(base_data.bill_expire_date) : this.props.getsProfile.AddressType == 'drive' && base_data.driving_license_expire_date != null ? moment(base_data.driving_license_expire_date) : null,
                   rules: [{type: 'object', required: true, message: '请输入日期!'}],
               })(
-                  <DatePicker size="large" style={{width: 240}}></DatePicker>
+                  <DatePicker size="large" style={{width: 240}} />
               )}
             </FormItem>
           </Col>
@@ -103,7 +103,7 @@ class AddressPublic extends React.Component {
             <Row style={{paddingTop: '30px'}}>
                 <Col span={8} offset={8}>
                   <FormItem style={{width: 346, margin: '0 auto'}}>
-                    {getFieldDecorator(this.state.fileTYPE == 'bill' ? 'bill_url' : 'driving_license_url', {
+                    {getFieldDecorator(this.props.getsProfile.AddressType == 'bill' ? 'bill_url' : 'driving_license_url', {
                         initialValue: this.props,
                         rules: [{required: false, message: '请上传证件!'}]
                     })(

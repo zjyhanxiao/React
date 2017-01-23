@@ -115,14 +115,14 @@ class BasicInfoUC extends React.Component {
                 <Col span={12}>
                   <FormItem
                       {...formItemLayout}
-                      label="ssn"
+                      label="SSN"
                       labelCol={{span: 4, offset: 4}}
                       wrapperCol={{span: 14}}
                   >
                     {getFieldDecorator('ssn', {
                         initialValue: baseData.base_info.ssn || '',
                         rules: [{
-                            required: true, message: '请输入您的ssn!',
+                            required: true, message: '请输入您的SSN!',
                         }],
                     })(
                         <Input type="text" size="large" style={{width: 240}} />

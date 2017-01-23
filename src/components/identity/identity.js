@@ -47,6 +47,11 @@ class Identity extends React.Component {
                 'country': country
             }))
         }
+        if(e.target.value == '1' && state.us != '1'){
+            this.setState({
+                can_next:false
+            })
+        }
         if (e.target.value == '2' && state.cn == '1') {
             investor_type = 1
             country = '中国'

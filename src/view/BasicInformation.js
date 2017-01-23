@@ -17,7 +17,7 @@ class BasicInformation extends React.Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 if(this.props.getsProfile.base_profile.passport_url==null){
-                    alert(1)
+                    alert('请上传您的护照证件')
                     return false
                 }
                 this.props.changeIndex(e)

@@ -17,7 +17,37 @@ class AddressInformation extends React.Component {
 
     handleSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
+            let baseProp=this.props.getsProfile
             if (!err) {
+                if(
+                    baseProp.base_profile.investor_type=='1'&&
+                    baseProp.base_profile.id_card_url==null)
+                {
+                    alert('请上传您的身份证证件')
+                    return false
+                }
+                if(baseProp.base_profile.investor_type=='2'){
+                    if(baseProp.AddressType=='drive'&&
+                        baseProp.base_profile.driving_license_url==null)
+                    {
+                        alert('请上传您的驾照证件')
+                        return false
+                    }
+                    if(baseProp.AddressType=='bill'&&
+                        baseProp.base_profile.bill_url==null)
+                    {
+                        alert('请上传您的水电账单')
+                        return false
+                    }
+                }
+
+                if(
+                    baseProp.base_profile.investor_type=='99'&&
+                    baseProp.base_profile.bill_url==null)
+                {
+                    alert('请上传您的水电账单')
+                    return false
+                }
                 this.props.changeIndex(e)
             }
         });
