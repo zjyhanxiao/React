@@ -8,6 +8,9 @@ class BasicPlate extends React.Component {
 
     constructor(props) {
         super(props)
+        this.state={
+            second:true
+        }
     }
 
     showModal = () => {
@@ -130,14 +133,14 @@ class BasicPlate extends React.Component {
               <Col span={3} offset={2}><span style={{fontWeight: '600'}}>有效期</span></Col>
               <Col span={6}><p>{data&&data.passport_expire_date!=null?data.passport_expire_date:''}</p></Col>
             </Row>
-              {data.passport_expired ?
+              {/*{data.passport_expired ?
                   <Row style={{}}>
                     <Col span={20} offset={2}><p style={{color: '#fe593e'}}>护照证件已经失效，请重新<a
                         style={{color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>上传</a></p></Col>
                   </Row>
                   :
                   ''
-              }
+              }*/}
 
 
               {
@@ -149,14 +152,14 @@ class BasicPlate extends React.Component {
                           <Col span={3} offset={2}><span style={{fontWeight: '600'}}>有效期</span></Col>
                           <Col span={6}><p>{data&&data.id_card_expire_date!=null?data.id_card_expire_date: ''}</p></Col>
                         </Row>
-                                {data.id_card_expired ?
+                                {/*{data.id_card_expired ?
                                     <Row style={{}}>
                                       <Col span={20} offset={2}><p style={{color: '#fe593e'}}>身份证证件已经失效，请重新<a
                                           style={{color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>上传</a></p></Col>
 
                                     </Row>
                                     : ''
-                                }
+                                }*/}
                       </div>
                       :
                       ''
