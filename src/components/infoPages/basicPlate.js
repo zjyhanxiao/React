@@ -1,5 +1,6 @@
 import React from 'react';
 import {Modal, Button, Row, Col} from 'antd';
+import moment from 'moment'
 import {updateProfile,getOccupation} from '../../Redux/actions/index'
 import BasicInformation from '../../view/BasicInformation'
 
@@ -32,7 +33,28 @@ class BasicPlate extends React.Component {
     }
 
     render() {
-        const data=this.props.getsProfile.base_profile
+        const data=this.props.getsProfile.base_profile||null
+        let id_card_expired = true, driving_license_expired = true, bill_expired = true, passport_expired = true
+        if (data != null && data.id_card_expire_date != '' && data.id_card_expire_date != null && data.id_card_expire_date != undefined) {
+            if (moment(data.id_card_expire_date).fromNow().split('ago').length > 0) {
+                id_card_expired = false
+            }
+        }
+        if (data != null && data.driving_license_expire_date != '' && data.driving_license_expire_date != null && data.driving_license_expire_date != undefined) {
+            if (moment(data.driving_license_expire_date).fromNow().split('ago').length > 0) {
+                driving_license_expired = false
+            }
+        }
+        if (data != null && data.bill_expired != '' && data.bill_expired != null && data.bill_expired != undefined) {
+            if (moment(moment(bill_expired).add(90, 'days').format('YYYY-MM-DD')).fromNow().split('ago').length > 0) {
+                bill_expired = false
+            }
+        }
+        if (data != null && data.passport_expire_date != '' && data.passport_expire_date != null && data.passport_expire_date != undefined) {
+            if (moment(data.id_card_expire_date).fromNow().split('ago').length > 0) {
+                passport_expired = false
+            }
+        }
         return (
             <div style={{width: '100%', background: '#fff', overflow: 'hidden'}}>
 
@@ -133,14 +155,14 @@ class BasicPlate extends React.Component {
               <Col span={3} offset={2}><span style={{fontWeight: '600'}}>有效期</span></Col>
               <Col span={6}><p>{data&&data.passport_expire_date!=null?data.passport_expire_date:''}</p></Col>
             </Row>
-              {/*{data.passport_expired ?
+              {!passport_expired ?
                   <Row style={{}}>
                     <Col span={20} offset={2}><p style={{color: '#fe593e'}}>护照证件已经失效，请重新<a
                         style={{color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>上传</a></p></Col>
                   </Row>
                   :
                   ''
-              }*/}
+              }
 
 
               {
@@ -152,14 +174,14 @@ class BasicPlate extends React.Component {
                           <Col span={3} offset={2}><span style={{fontWeight: '600'}}>有效期</span></Col>
                           <Col span={6}><p>{data&&data.id_card_expire_date!=null?data.id_card_expire_date: ''}</p></Col>
                         </Row>
-                                {/*{data.id_card_expired ?
+                                {!id_card_expired ?
                                     <Row style={{}}>
                                       <Col span={20} offset={2}><p style={{color: '#fe593e'}}>身份证证件已经失效，请重新<a
                                           style={{color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>上传</a></p></Col>
 
                                     </Row>
                                     : ''
-                                }*/}
+                                }
                       </div>
                       :
                       ''

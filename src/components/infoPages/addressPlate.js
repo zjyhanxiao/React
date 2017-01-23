@@ -1,5 +1,6 @@
 import React from 'react';
 import {Modal, Button, Row, Col} from 'antd';
+import moment from 'moment'
 import {updateProfile,getState,getCity,getCounty,changeAddressType} from '../../Redux/actions/index'
 import AddressProof from '../../view/AddressProof'
 
@@ -63,21 +64,33 @@ class AddressPlate extends React.Component {
 
     render() {
         const data=this.props.getsProfile.base_profile
+        let id_card_expired = true, driving_license_expired = true, bill_expired = true, passport_expired = true
+        if (data != null && data.id_card_expire_date != '' && data.id_card_expire_date != null && data.id_card_expire_date != undefined) {
+            if (moment(data.id_card_expire_date).fromNow().split('ago').length > 0) {
+                id_card_expired = false
+            }
+        }
+        if (data != null && data.driving_license_expire_date != '' && data.driving_license_expire_date != null && data.driving_license_expire_date != undefined) {
+            if (moment(data.driving_license_expire_date).fromNow().split('ago').length > 0) {
+                driving_license_expired = false
+            }
+        }
+        if (data != null && data.bill_expired != '' && data.bill_expired != null && data.bill_expired != undefined) {
+            if (moment(moment(bill_expired).add(90, 'days').format('YYYY-MM-DD')).fromNow().split('ago').length > 0) {
+                bill_expired = false
+            }
+        }
+        if (data != null && data.passport_expire_date != '' && data.passport_expire_date != null && data.passport_expire_date != undefined) {
+            if (moment(data.id_card_expire_date).fromNow().split('ago').length > 0) {
+                passport_expired = false
+            }
+        }
         return (
             <div style={{width: '100%', background: '#fff', overflow: 'hidden'}}>
 
               <Row style={{paddingTop: '30px'}}>
                 <Col span={12} offset={2}>
                   <p style={{fontWeight: '900', fontSize: '16px'}}>地址&nbsp;
-
-
-                    {/*{data!=undefined&&data.investor_type!=undefined?data.investor_type == 1?*/}
-                      {/*<span style={{fontWeight: '100', fontSize: '12px'}}>由于产品需要，您所填写的中文地址我们已经自动的为您转换为英文地址。</span>*/}
-                      {/*:*/}
-                      {/*''*/}
-                        {/*:''*/}
-                    {/*}*/}
-
                   </p>
                 </Col>
                 <Col span={1} offset={7}>
@@ -85,16 +98,6 @@ class AddressPlate extends React.Component {
                 </Col>
               </Row>
 
-
-
-{/*        <Row style={{paddingTop: '30px'}}>
-          <Col span={4} offset={2}>
-            <p style={{fontWeight: '900', fontSize: '16px'}}>地址</p>
-          </Col>
-          <Col span={1} offset={15}>
-            <a style={{marginBottom: '-5px', color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>修改</a>
-          </Col>
-        </Row>*/}
 
 
 
@@ -142,12 +145,28 @@ class AddressPlate extends React.Component {
                 :
                 ''
               }
-                {this.state.a ?
+                {data.investor_type==1 && !id_card_expired
+                    ?
                     <Row style={{}}>
                       <Col span={20} offset={2}><p style={{color: '#fe593e'}}>地址证明已经失效，请重新<a
                           style={{color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>上传</a></p></Col>
                     </Row>
-                    : ''}
+                    :
+                    data.investor_type==2 && (!bill_expired||!driving_license_expired)?
+                        <Row style={{}}>
+                          <Col span={20} offset={2}><p style={{color: '#fe593e'}}>地址证明已经失效，请重新<a
+                              style={{color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>上传</a></p></Col>
+                        </Row>
+                        :
+                        data.investor_type==99 && !bill_expired
+                            ?
+                            <Row style={{}}>
+                              <Col span={20} offset={2}><p style={{color: '#fe593e'}}>地址证明已经失效，请重新<a
+                                  style={{color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>上传</a></p></Col>
+                            </Row>
+                            :
+                    ''
+                }
 
       </div>
         );
