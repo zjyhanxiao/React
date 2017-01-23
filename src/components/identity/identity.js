@@ -157,7 +157,9 @@ class Identity extends React.Component {
                     dispatch(getState({country: this.props.getsProfile.base_profile.address_cn.country}))
                     dispatch(saveFields('base_info',{
                         ...this.props.getsProfile.base_profile.base_info,
-                        nationality:'中国'
+                        nationality:'中国',
+                        country_of_tax_residency:'中国',
+                        foreign_tax_number:'CN N/A'
                     }))
                 }
                 if (this.props.getsProfile.base_profile.investor_type == 2) {

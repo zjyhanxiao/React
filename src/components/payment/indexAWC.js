@@ -31,9 +31,9 @@ class IndexAWC extends React.Component {
     handleSubmit(e) {
         const {dispatch} = this.props
         let data = {}
-        if($('#achAgreement').length>0){
+        if ($('#achAgreement').length > 0) {
             $('#achAgreement .achAgreement').remove()
-            if(!$('#achAgreement input').is(':checked')){
+            if (!$('#achAgreement input').is(':checked')) {
                 $('#achAgreement').after('<div class="achAgreement" style="color: red;margin-left: 12.5%; margin-top: -15px;">提示:请认真阅读并勾选以上协议</div>')
             }
             return false
@@ -94,7 +94,7 @@ class IndexAWC extends React.Component {
         if ((baseData.is_ach_enabled) && baseData.is_receive_bank_enabled && baseData.is_check_enabled) {
             tabBar = 123
         }
-        if ((!baseData.is_ach_enabled ||!bank && baseData.is_ach_enabled) && baseData.is_receive_bank_enabled && baseData.is_check_enabled) {
+        if ((!baseData.is_ach_enabled || !bank && baseData.is_ach_enabled) && baseData.is_receive_bank_enabled && baseData.is_check_enabled) {
             tabBar = 23
         }
         if ((bank && baseData.is_ach_enabled) && !baseData.is_receive_bank_enabled && baseData.is_check_enabled) {
@@ -106,13 +106,13 @@ class IndexAWC extends React.Component {
         if ((bank && baseData.is_ach_enabled) && !baseData.is_receive_bank_enabled && !baseData.is_check_enabled) {
             tabBar = 1
         }
-        if ((!baseData.is_ach_enabled ||!bank && baseData.is_ach_enabled) && baseData.is_receive_bank_enabled && !baseData.is_check_enabled) {
+        if ((!baseData.is_ach_enabled || !bank && baseData.is_ach_enabled) && baseData.is_receive_bank_enabled && !baseData.is_check_enabled) {
             tabBar = 2
         }
-        if ((!baseData.is_ach_enabled ||!bank && baseData.is_ach_enabled) && !baseData.is_receive_bank_enabled && baseData.is_check_enabled) {
+        if ((!baseData.is_ach_enabled || !bank && baseData.is_ach_enabled) && !baseData.is_receive_bank_enabled && baseData.is_check_enabled) {
             tabBar = 3
         }
-        if ((!baseData.is_ach_enabled ||!bank && baseData.is_ach_enabled) && !baseData.is_receive_bank_enabled && !baseData.is_check_enabled) {
+        if ((!baseData.is_ach_enabled || !bank && baseData.is_ach_enabled) && !baseData.is_receive_bank_enabled && !baseData.is_check_enabled) {
             tabBar = 'no payment'
         }
         let itemWidth, marginLeft
@@ -149,37 +149,37 @@ class IndexAWC extends React.Component {
                     }
                     {tabBar == 2 || tabBar == 12 || tabBar == 23 || tabBar == 123 ?
                         <div className={tabBar == 2 || tabBar == 23 ? 'active' : ''}
-                            style={{
-                            width: itemWidth,
-                            height: '60px',
-                            background: '#ffffff',
-                            float: 'left',
-                            marginLeft: marginLeft,
-                            textAlign: 'center',
-                            lineHeight: '60px',
-                            fontSize: '18px',
-                            color: '#c9c9c9',
-                            border: '3px solid #ffffff',
-                            borderRadius: '4px 4px 0 0',
-                            boxShadow: '0px 5px 0px #888888'
-                        }} name='wire' onClick={this.handleClick.bind(this)}>银行电汇 / Wire</div>
+                             style={{
+                                 width: itemWidth,
+                                 height: '60px',
+                                 background: '#ffffff',
+                                 float: 'left',
+                                 marginLeft: marginLeft,
+                                 textAlign: 'center',
+                                 lineHeight: '60px',
+                                 fontSize: '18px',
+                                 color: '#c9c9c9',
+                                 border: '3px solid #ffffff',
+                                 borderRadius: '4px 4px 0 0',
+                                 boxShadow: '0px 5px 0px #888888'
+                             }} name='wire' onClick={this.handleClick.bind(this)}>银行电汇 / Wire</div>
                         : ''
                     }
                     {tabBar == 3 || tabBar == 13 || tabBar == 23 || tabBar == 123 ?
                         <div className={tabBar == 3 ? 'active' : ''}
-                            style={{
-                            width: itemWidth,
-                            height: '60px',
-                            background: '#ffffff',
-                            float: 'left',
-                            marginLeft: marginLeft,
-                            textAlign: 'center',
-                            lineHeight: '60px',
-                            fontSize: '18px',
-                            color: '#c9c9c9',
-                            border: '3px solid #ffffff',
-                            borderRadius: '4px 4px 0 0'
-                        }} name='check' onClick={this.handleClick.bind(this)}>支票 / Check</div>
+                             style={{
+                                 width: itemWidth,
+                                 height: '60px',
+                                 background: '#ffffff',
+                                 float: 'left',
+                                 marginLeft: marginLeft,
+                                 textAlign: 'center',
+                                 lineHeight: '60px',
+                                 fontSize: '18px',
+                                 color: '#c9c9c9',
+                                 border: '3px solid #ffffff',
+                                 borderRadius: '4px 4px 0 0'
+                             }} name='check' onClick={this.handleClick.bind(this)}>支票 / Check</div>
                         : ''
                     }
 
@@ -217,7 +217,18 @@ class IndexAWC extends React.Component {
 
             <div style={{width: '900px', margin: '0 auto', textAlign: 'center', background: '#ffffff'}}>
               <Row style={{paddingTop: '50px', paddingBottom: '40px'}}>
-                <Col span={8} offset={8}>
+                  <Col span={3} offset={6}>
+                      <Button style={{
+                          width: '120px',
+                          height: '50px',
+                          borderRadius: '30px',
+                          background: '#223976',
+                          color: '#fff',
+                          fontSize: '18px'
+                      }} type="primary" htmlType="submit" name="two" onClick={this.props.changeP}
+                              size="large">上一步</Button>
+                  </Col>
+                <Col span={3} offset={6}>
                   <Button style={{
                       width: '120px',
                       height: '50px',
