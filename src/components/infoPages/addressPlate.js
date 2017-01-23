@@ -144,20 +144,20 @@ class AddressPlate extends React.Component {
                 :
                 ''
               }
-                {data.investor_type==1 && !id_card_expired
+                {data&&data.investor_type==1 && !id_card_expired
                     ?
                     <Row style={{}}>
                       <Col span={20} offset={2}><p style={{color: '#fe593e'}}>地址证明已经失效，请重新<a
                           style={{color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>上传</a></p></Col>
                     </Row>
                     :
-                    data.investor_type==2 && (!bill_expired||!driving_license_expired)?
+                    data&&data.investor_type==2 && (!bill_expired||!driving_license_expired)?
                         <Row style={{}}>
                           <Col span={20} offset={2}><p style={{color: '#fe593e'}}>地址证明已经失效，请重新<a
                               style={{color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>上传</a></p></Col>
                         </Row>
                         :
-                        data.investor_type==99 && !bill_expired
+                        data&&data.investor_type==99 && !bill_expired
                             ?
                             <Row style={{}}>
                               <Col span={20} offset={2}><p style={{color: '#fe593e'}}>地址证明已经失效，请重新<a
