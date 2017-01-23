@@ -33,7 +33,7 @@ class ACH extends React.Component {
             <p style={{fontWeight: '600'}}>账户名</p>
           </Col>
           <Col span={14}>
-            <p> {baseData != undefined ? baseData.first_name + baseData.last_name : ''} </p>
+            <p> {baseData != undefined ? baseData.first_name + ' ' + baseData.last_name : ''} </p>
           </Col>
         </Row>
         <Row style={{marginTop: '15px'}}>
