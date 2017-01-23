@@ -23,7 +23,7 @@ class IndexAWC extends React.Component {
         this.state = {
             ach: false,
             wire: false,
-            Check: false,
+            check: false,
             current: ''
         }
     }
@@ -35,8 +35,8 @@ class IndexAWC extends React.Component {
             $('#achAgreement .achAgreement').remove()
             if (!$('#achAgreement input').is(':checked')) {
                 $('#achAgreement').after('<div class="achAgreement" style="color: red;margin-left: 12.5%; margin-top: -15px;">提示:请认真阅读并勾选以上协议</div>')
+                return false
             }
-            return false
         }
         let Payment = this.props.getsProfile.Payment
         data.payment_method = this.state.current != '' ? this.state.current : Payment.is_ach_enabled ? 'ach' : Payment.is_receive_bank_enabled ? 'wire' : Payment.is_check_enabled ? 'check' : ''

@@ -66,7 +66,12 @@ class BasicPassport extends React.Component {
                             wrapperCol={{span: 14}}
                         >
                             {getFieldDecorator('passport_expire_date', {
-                              initialValue: this.props.getsProfile.base_profile.passport_expire_date!=null?moment(this.props.getsProfile.base_profile.passport_expire_date):null,
+                              initialValue: this.props.getsProfile.base_profile.passport_expire_date != null &&
+                              this.props.getsProfile.base_profile.passport_expire_date!=''
+                                  ?
+                                  moment(this.props.getsProfile.base_profile.passport_expire_date)
+                                  :
+                                  null,
                                 rules: [{type: 'object', required: true, message: '请输入日期!'}],
                             })(
                                 <DatePicker disabledDate={this.props.disabledDate} size="large" style={{width: 240}} />
@@ -78,7 +83,6 @@ class BasicPassport extends React.Component {
 
                 <FormItem style={{width: 346, margin: '0 auto'}}>
                     {getFieldDecorator('passport_url', {
-                      initialValue: this.props.getsProfile.base_profile.passport_url||null,
                         rules: [{ required:false, message: '请上传证件!'}]
                     })(
                         <Uploader {...data} cardUrl={this.props.getsProfile.base_profile.passport_url} />

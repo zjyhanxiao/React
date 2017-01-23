@@ -20,7 +20,7 @@ class Docs extends React.Component {
     render() {
         let docs = this.props.getsProfile.Doc||[]
         // let a = [1,2,3,4,5,7,8,9,0]
-        let baseInfo=JSON.stringify({...this.props.getsProfile.base_profile})
+        let baseInfo=JSON.stringify({...this.props.getsProfile.base_profile,signature:null,spouse_signature:null})
         let invest_amount=this.props.getsProfile.invest_amount
         let docItem = docs!=[]? docs.map(function (item, index) {
                 let hrefUrl=item.need_mapped?'/subdoc.html?document_id='+item.id+'&invest_amount='+invest_amount+'&user_Info='+baseInfo: item.url

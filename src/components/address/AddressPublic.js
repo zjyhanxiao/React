@@ -68,7 +68,17 @@ class AddressPublic extends React.Component {
                 wrapperCol={{span: 14}}
             >
               {getFieldDecorator('file_type', {
-                  initialValue: base_data.driving_license_url != null ? 'drive' : base_data.bill_url != null ? 'bill' : 'drive',
+                  initialValue: base_data.driving_license_url != null &&
+                  base_data.driving_license_url != ''
+                      ?
+                      'drive'
+                      :
+                      base_data.bill_url != null &&
+                      base_data.bill_url != ''
+                          ?
+                          'bill'
+                          :
+                          'drive',
                   rules: [{
                       type: 'string',
                       required: true,
@@ -91,7 +101,19 @@ class AddressPublic extends React.Component {
                 wrapperCol={{span: 14}}
             >
               {getFieldDecorator(this.props.getsProfile.AddressType == 'bill' ? 'bill_expire_date' : 'driving_license_expire_date', {
-                  initialValue: this.props.getsProfile.AddressType == 'bill' && base_data.bill_expire_date != null ? moment(base_data.bill_expire_date) : this.props.getsProfile.AddressType == 'drive' && base_data.driving_license_expire_date != null ? moment(base_data.driving_license_expire_date) : null,
+                  initialValue: this.props.getsProfile.AddressType == 'bill' &&
+                  base_data.bill_expire_date != null &&
+                  base_data.bill_expire_date != ''
+                      ?
+                      moment(base_data.bill_expire_date)
+                      :
+                      this.props.getsProfile.AddressType == 'drive' &&
+                      base_data.driving_license_expire_date != null &&
+                      base_data.driving_license_expire_date != ''
+                          ?
+                          moment(base_data.driving_license_expire_date)
+                          :
+                          null,
                   rules: [{type: 'object', required: true, message: '请输入日期!'}],
               })(
                   <DatePicker size="large" style={{width: 240}} />
@@ -104,11 +126,20 @@ class AddressPublic extends React.Component {
                 <Col span={8} offset={8}>
                   <FormItem style={{width: 346, margin: '0 auto'}}>
                     {getFieldDecorator(this.props.getsProfile.AddressType == 'bill' ? 'bill_url' : 'driving_license_url', {
-                        initialValue: this.props,
                         rules: [{required: false, message: '请上传证件!'}]
                     })(
                         <Uploader {...this.props}
-                                  cardUrl={base_data.driving_license_url != null ? base_data.driving_license_url : base_data.bill_url != null ? base_data.bill_url : null} />
+                                  cardUrl={base_data.driving_license_url != null &&
+                                  base_data.driving_license_url != ''
+                                      ?
+                                      base_data.driving_license_url
+                                      :
+                                      base_data.bill_url != null &&
+                                      base_data.bill_url != ''
+                                          ?
+                                          base_data.bill_url
+                                          :
+                                          null} />
                     )}
                   </FormItem>
                 </Col>

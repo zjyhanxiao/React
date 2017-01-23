@@ -32,8 +32,8 @@ class BankInformation extends React.Component {
     }
 
     handleSubmit(e) {
+        e.preventDefault();
         let pro = this.props.getsProfile.base_profile
-
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 const {dispatch}=this.props
@@ -60,13 +60,11 @@ class BankInformation extends React.Component {
                 }
             }
         });
-        e.preventDefault();
     }
 
     changeSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                const {dispatch}=this.props
                 let pro = this.props.getsProfile.base_profile
                 if (
                     (pro.bank_non_us.middle_bank_address != null &&
