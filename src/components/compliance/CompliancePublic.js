@@ -168,7 +168,7 @@ class CompliancePublic extends React.Component {
               initialValue: baseData.with_spouse||false,
               defaultChecked: false
           })(
-              <Checkbox style={{color: '#223976'}} checked={baseData.with_spouse?'true':'false'} onChange={this.onChange.bind(this)}>我的审查资料包括配偶信息</Checkbox>
+              <Checkbox style={{color: '#223976'}} checked={baseData.with_spouse?true:false} onChange={this.onChange.bind(this)}>我的审查资料包括配偶信息</Checkbox>
           )}
 
         </FormItem>
