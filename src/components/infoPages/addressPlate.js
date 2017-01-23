@@ -10,7 +10,6 @@ class AddressPlate extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            a: false,
             third: true,
             is_single:true
         }
