@@ -5,6 +5,7 @@ import {updateProfile,getOccupation} from '../../Redux/actions/index'
 import BasicInformation from '../../view/BasicInformation'
 
 
+let id_card_expired = true, driving_license_expired = true, bill_expired = true, passport_expired = true
 class BasicPlate extends React.Component {
 
     constructor(props) {
@@ -34,25 +35,33 @@ class BasicPlate extends React.Component {
 
     render() {
         const data=this.props.getsProfile.base_profile||null
-        let id_card_expired = true, driving_license_expired = true, bill_expired = true, passport_expired = true
-        if (data != null && data.id_card_expire_date != '' && data.id_card_expire_date != null && data.id_card_expire_date != undefined) {
-            if (moment(data.id_card_expire_date).fromNow().split('ago').length > 1) {
+        if (data && data.id_card_expire_date != '' && data.id_card_expire_date != null) {
+            if (moment(data.id_card_expire_date).fromNow().split('ago').length > 1
+            ) {
                 id_card_expired = false
+            } else {
+                id_card_expired = true
             }
         }
-        if (data != null && data.driving_license_expire_date != '' && data.driving_license_expire_date != null && data.driving_license_expire_date != undefined) {
+        if (data && data.driving_license_expire_date != '' && data.driving_license_expire_date != null) {
             if (moment(data.driving_license_expire_date).fromNow().split('ago').length > 1) {
                 driving_license_expired = false
+            } else {
+                driving_license_expired = true
             }
         }
-        if (data != null && data.bill_expired != '' && data.bill_expired != null && data.bill_expired != undefined) {
-            if (moment(moment(bill_expired).add(90, 'days').format('YYYY-MM-DD')).fromNow().split('ago').length > 1) {
+        if (data && data.bill_expire_date != '' && data.bill_expire_date != null) {
+            if (moment(moment(data.bill_expire_date).add(90, 'days').format('YYYY-MM-DD', 'en')).fromNow().split('ago').length > 1) {
                 bill_expired = false
+            } else {
+                bill_expired = true
             }
         }
-        if (data != null && data.passport_expire_date != '' && data.passport_expire_date != null && data.passport_expire_date != undefined) {
-            if (moment(data.id_card_expire_date).fromNow().split('ago').length > 1) {
+        if (data && data.passport_expire_date != '' && data.passport_expire_date != null) {
+            if (moment(data.passport_expire_date).fromNow().split('ago').length > 1) {
                 passport_expired = false
+            } else {
+                passport_expired = true
             }
         }
         return (

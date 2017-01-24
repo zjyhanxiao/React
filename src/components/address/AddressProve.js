@@ -73,7 +73,7 @@ class AddressProve extends React.Component {
                 labelCol={{span: 2, offset: 8}}
                 wrapperCol={{span: 12}}
             >
-              {getFieldDecorator(data.investor_type == 1?'id_card_expire_date':'bill_expire_date', {
+              {getFieldDecorator(data&&data.investor_type == 1?'id_card_expire_date':'bill_expire_date', {
                   initialValue: data.investor_type == 1&&
                   data.id_card_expire_date!=null&&
                   data.id_card_expire_date!=''
