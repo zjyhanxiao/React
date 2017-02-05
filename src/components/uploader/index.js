@@ -45,7 +45,7 @@ class Avatar extends React.Component {
     }
 
     render() {
-        const imageUrl = this.state.fileList.imageUrl
+        const imageUrl = this.props.cardUrl||this.state.fileList.imageUrl
         const newImage = this.state.fileList.thumbUrl?this.state.fileList.thumbUrl: this.state.fileList.url;
         return (
             <Upload

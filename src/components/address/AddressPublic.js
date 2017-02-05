@@ -29,16 +29,15 @@ class AddressPublic extends React.Component {
             if (base_data && base_data.driving_license_url != null && base_data.driving_license_url != '') {
                 addressPhoto = base_data.driving_license_url
             } else {
-                addressPhoto = null
+                addressPhoto = 'https://test.meixincn.com/static/version_1.9/dist/meixin_invest/img/shengfenzhen.png'
             }
         } else if(this.props.getsProfile.AddressType == 'bill') {
             if (base_data && base_data.bill_url != null && base_data.bill_url != '') {
                 addressPhoto = base_data.bill_url
             } else {
-                addressPhoto = null
+                addressPhoto = 'https://test.meixincn.com/static/version_1.9/dist/meixin_invest/img/shengfenzhen.png'
             }
         }
-        console.log('addressPhoto:'+addressPhoto)
         const formItemLayout = {
             labelCol: {span: 6},
             wrapperCol: {span: 14},
@@ -52,7 +51,7 @@ class AddressPublic extends React.Component {
         return (
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
 
-
+                {addressPhoto}
         <FormItem>
           <Row style={{paddingTop: '30px'}}>
             <Col span={3} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体'}}>地址证明上传</h2></Col>
