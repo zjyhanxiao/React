@@ -1,7 +1,7 @@
 import React, {Component, PropTypes}from 'react';
 import {Form, Row, Col, Button} from 'antd';
 import {connect} from 'react-redux'
-import {saveFields} from '../Redux/actions/index'
+import {saveFields,fetchPosts,updateProfile} from '../Redux/actions/index'
 import AddressChina from '../components/address/AddressChina';
 import AddressOther from '../components/address/AddressOther';
 import AddressProve from '../components/address/AddressProve';
@@ -70,12 +70,19 @@ class AddressInformation extends React.Component {
     changeSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
+                let data = {...this.props.getsProfile.base_profile}
+                const {dispatch}=this.props
+                dispatch(updateProfile(data))
                 this.props.handleCancel()
             }
         });
         e.preventDefault();
     }
-
+    cancelChange(){
+        const {dispatch}=this.props
+        dispatch(fetchPosts())
+        this.props.handleCancel()
+    }
     disabledDate(current) {
         // can not select days before today and today
         return current && current.valueOf() < Date.now() - 90 * 24 * 60 * 60 * 1000;
@@ -86,9 +93,6 @@ class AddressInformation extends React.Component {
         return current && current.valueOf() < Date.now() - 1 * 24 * 60 * 60 * 1000;
     }
 
-    success() {
-        console.log('success')
-    }
 
     render() {
         // const {getFieldDecorator} = this.props.form;
@@ -137,7 +141,7 @@ class AddressInformation extends React.Component {
                                 background: '#ffffff',
                                 color: '#223976',
                                 fontSize: '18px'
-                            }} type="primary" name="second" onClick={this.props.handleCancel} size="large">取消</Button>
+                            }} type="primary" name="second" onClick={this.cancelChange.bind(this)} size="large">取消</Button>
                           </Col>
 
                           <Col span={3} offset={6}>

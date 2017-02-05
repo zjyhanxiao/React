@@ -9,11 +9,6 @@ class IdentityConfirmation extends React.Component {
     super(props)
   }
 
-
-  success(){
-    console.log('success')
-  }
-
   render() {
     const {getFieldDecorator} = this.props.form;
     const formItemLayout = {

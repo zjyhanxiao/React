@@ -1,7 +1,7 @@
 import React, {Component, PropTypes}from 'react';
 import {Form, Row, Col, Button} from 'antd';
 import {connect} from 'react-redux'
-import {saveFields,changeComplete} from '../Redux/actions/index'
+import {saveFields,changeComplete,fetchPosts,updateProfile} from '../Redux/actions/index'
 import CompliancePublic from '../components/compliance/CompliancePublic'
 
 
@@ -27,15 +27,19 @@ class ComplianceReview extends React.Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 // console.log('Received values of form: ', JSON.stringify(values));
+                let data = {...this.props.getsProfile.base_profile}
+                const {dispatch}=this.props
+                dispatch(updateProfile(data))
                 this.props.handleCancel()
                 /*const {dispatch} = this.props
                  dispatch(updateProfile(values, this.success))*/
             }
         });
     }
-
-    success() {
-        console.log('success')
+    cancelChange(){
+        const {dispatch}=this.props
+        dispatch(fetchPosts())
+        this.props.handleCancel()
     }
 
     render() {
@@ -72,7 +76,7 @@ class ComplianceReview extends React.Component {
                         background: '#ffffff',
                         color: '#223976',
                         fontSize: '18px'
-                    }} type="primary" name="fourth" onClick={this.props.handleCancel} size="large">取消</Button>
+                    }} type="primary" name="fourth" onClick={this.cancelChange.bind(this)} size="large">取消</Button>
                   </Col>
 
                   <Col span={3} offset={6}>

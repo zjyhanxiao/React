@@ -1,7 +1,7 @@
 import React, {Component, PropTypes}from 'react';
 import {Form, Row, Col, Button, Radio} from 'antd';
 import {connect} from 'react-redux'
-import {saveFields, changeComplete} from '../Redux/actions/index'
+import {saveFields, changeComplete,fetchPosts,updateProfile} from '../Redux/actions/index'
 import BankFast from '../components/bank/BankFast'
 import BanknoUSA from '../components/bank/BanknoUSA'
 import BankUSA from '../components/bank/BankUSA'
@@ -81,13 +81,16 @@ class BankInformation extends React.Component {
                         have_middle_bank: 1
                     }));
                 }
+                const {dispatch}=this.props
+                dispatch(updateProfile(pro))
                 this.props.handleCancel()
             }
         });
     }
-
-    success() {
-        console.log('success')
+    cancelChange(){
+        const {dispatch}=this.props
+        dispatch(fetchPosts())
+        this.props.handleCancel()
     }
 
     render() {
@@ -170,7 +173,7 @@ class BankInformation extends React.Component {
                       background: '#ffffff',
                       color: '#223976',
                       fontSize: '18px'
-                  }} type="primary" name="third" onClick={this.props.handleCancel} size="large">取消</Button>
+                  }} type="primary" name="third" onClick={this.cancelChange.bind(this)} size="large">取消</Button>
                 </Col>
 
                 <Col span={3} offset={6}>

@@ -1,7 +1,7 @@
 import React, {Component, PropTypes}from 'react';
 import {Form, Row, Col, Button} from 'antd';
 import {connect} from 'react-redux'
-import {saveFields} from '../Redux/actions/index'
+import {saveFields,updateProfile,fetchPosts} from '../Redux/actions/index'
 import BasicInfoUC from '../components/basic/BasicInfoUC'
 import BasicInfoH from '../components/basic/BasicInfoH'
 import Basicpassport from '../components/basic/Basicpassport'
@@ -29,10 +29,18 @@ class BasicInformation extends React.Component {
     changeSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
+                let data = {...this.props.getsProfile.base_profile}
+                const {dispatch}=this.props
+                dispatch(updateProfile(data))
                 this.props.handleCancel()
             }
         });
         e.preventDefault();
+    }
+    cancelChange(){
+        const {dispatch}=this.props
+        dispatch(fetchPosts())
+        this.props.handleCancel()
     }
 
     birth_date(current) {
@@ -114,7 +122,7 @@ class BasicInformation extends React.Component {
                               background: '#ffffff',
                               color: '#223976',
                               fontSize: '18px'
-                          }} type="primary" name="first" onClick={this.props.handleCancel} size="large">取消</Button>
+                          }} type="primary" name="first" onClick={this.cancelChange.bind(this)} size="large">取消</Button>
                         </Col>
 
                         <Col span={3} offset={6}>

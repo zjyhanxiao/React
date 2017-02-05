@@ -53,7 +53,7 @@ class ConfirmInvestment extends React.Component {
         /*if(data.signature==null||(data.investor_type==2&&data.accreditation.with_spouse==true)){
 
          }*/
-        dispatch(updateProfile(data, this.success))
+        dispatch(updateProfile(data))
 
         this.props.changeP(e)
 
