@@ -10,7 +10,8 @@ class CompliancePlate extends React.Component {
     super(props);
     this.state = {
         fifth:true,
-        is_single:true
+        is_single:true,
+        modelKey:1
     }
   }
 
@@ -27,6 +28,7 @@ class CompliancePlate extends React.Component {
   handleCancel = (e) => {
     this.setState({
       visible: false,
+        modelKey:this.state.modelKey+1
     });
   }
 
@@ -42,7 +44,7 @@ class CompliancePlate extends React.Component {
             <span style={{marginBottom:'-5px',color:'#159bd6',cursor:'pointer'}} onClick={this.showModal}>修改</span>
           </Col>
         </Row>
-    <Modal title="" visible={this.state.visible}
+    <Modal title="" visible={this.state.visible} key={'compliance'+this.state.modelKey}
            closable={false} footer={''} width={900}>
       <ComplianceReview {...this.state} handleCancel={this.handleCancel}/>
     </Modal>

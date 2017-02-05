@@ -12,7 +12,8 @@ class AddressPlate extends React.Component {
         super(props);
         this.state = {
             third: true,
-            is_single: true
+            is_single: true,
+            modelKey:1,
         }
     }
 
@@ -58,6 +59,7 @@ class AddressPlate extends React.Component {
         console.log(e);
         this.setState({
             visible: false,
+            modelKey:this.state.modelKey+1
         });
 
     }
@@ -109,7 +111,7 @@ class AddressPlate extends React.Component {
 
 
 
-    <Modal title="" visible={this.state.visible}
+    <Modal title="" visible={this.state.visible} key={'address'+this.state.modelKey}
            closable={false} footer={''} width={900}>
       <AddressProof {...this.state} handleCancel={this.handleCancel} />
     </Modal>

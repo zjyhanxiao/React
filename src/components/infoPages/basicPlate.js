@@ -11,7 +11,8 @@ class BasicPlate extends React.Component {
     constructor(props) {
         super(props)
         this.state={
-            second:true
+            second:true,
+            modelKey:1,
         }
     }
 
@@ -19,7 +20,7 @@ class BasicPlate extends React.Component {
         const {dispatch} = this.props
         dispatch(getOccupation({industry: this.props.getsProfile.base_profile.base_info.industry}))
         this.setState({
-            visible: true,
+            visible: true
         });
     }
     handleOk = () => {
@@ -30,6 +31,7 @@ class BasicPlate extends React.Component {
     handleCancel = (e) => {
       this.setState({
         visible: false,
+          modelKey:this.state.modelKey+1
       });
     }
 
@@ -80,7 +82,7 @@ class BasicPlate extends React.Component {
                 <a style={{marginBottom: '-5px', color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>修改</a>
               </Col>
             </Row>
-      <Modal title="" visible={this.state.visible}
+      <Modal title="" visible={this.state.visible} key={'basic'+this.state.modelKey}
              closable={false} footer={''} width={900}>
         <BasicInformation {...this.state} {...this.props} handleCancel={this.handleCancel} />
       </Modal>
