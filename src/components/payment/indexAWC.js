@@ -31,7 +31,7 @@ class IndexAWC extends React.Component {
     handleSubmit(e) {
         const {dispatch} = this.props
         let data = {}
-        if ($('#achAgreement').length > 0) {
+        if ($('#achAgreement').length > 0&&this.state.current=='ach') {
             $('#achAgreement .achAgreement').remove()
             if (!$('#achAgreement input').is(':checked')) {
                 $('#achAgreement').after('<div class="achAgreement" style="color: red;margin-left: 12.5%; margin-top: -15px;">提示:请认真阅读并勾选以上协议</div>')
