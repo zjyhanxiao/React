@@ -20,8 +20,8 @@ export const isComplete = () => {
 
             success: json => dispatch(isCompleteSuccess(json)),
             complete:function (XHR, TS) {
-                console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
-                console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)
+                /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
+                console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)*/
             }
 
         })
@@ -51,8 +51,8 @@ export const getProduct = (id) => {
 
             success: json => dispatch(getProductSuccess(json)),
             complete:function (XHR, TS) {
-                console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
-                console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)
+                /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
+                console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)*/
             }
 
         })
