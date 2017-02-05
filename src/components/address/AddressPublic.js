@@ -21,10 +21,24 @@ class AddressPublic extends React.Component {
     }
 
 
-
     render() {
         const {getFieldDecorator} = this.props.getFieldDecorator;
         const base_data = this.props.getsProfile.base_profile
+        let addressPhoto = null
+        if (this.props.getsProfile.AddressType == 'drive') {
+            if (base_data && base_data.driving_license_url != null && base_data.driving_license_url != '') {
+                addressPhoto = base_data.driving_license_url
+            } else {
+                addressPhoto = null
+            }
+        } else if(this.props.getsProfile.AddressType == 'bill') {
+            if (base_data && base_data.bill_url != null && base_data.bill_url != '') {
+                addressPhoto = base_data.bill_url
+            } else {
+                addressPhoto = null
+            }
+        }
+        console.log('addressPhoto:'+addressPhoto)
         const formItemLayout = {
             labelCol: {span: 6},
             wrapperCol: {span: 14},
@@ -60,13 +74,11 @@ class AddressPublic extends React.Component {
                 wrapperCol={{span: 14}}
             >
               {getFieldDecorator('file_type', {
-                  initialValue: base_data.driving_license_url != null &&
-                  base_data.driving_license_url != ''
+                  initialValue: this.props.getsProfile.AddressType == 'drive'
                       ?
                       'drive'
                       :
-                      base_data.bill_url != null &&
-                      base_data.bill_url != ''
+                      this.props.getsProfile.AddressType == 'bill'
                           ?
                           'bill'
                           :
@@ -93,15 +105,11 @@ class AddressPublic extends React.Component {
                 wrapperCol={{span: 14}}
             >
               {getFieldDecorator(this.props.getsProfile.AddressType == 'bill' ? 'bill_expire_date' : 'driving_license_expire_date', {
-                  initialValue: this.props.getsProfile.AddressType == 'bill' &&
-                  base_data.bill_expire_date != null &&
-                  base_data.bill_expire_date != ''
+                  initialValue: this.props.getsProfile.AddressType == 'bill' && base_data.bill_expire_date != '' && base_data.bill_expire_date != null
                       ?
                       moment(base_data.bill_expire_date)
                       :
-                      this.props.getsProfile.AddressType == 'drive' &&
-                      base_data.driving_license_expire_date != null &&
-                      base_data.driving_license_expire_date != ''
+                      this.props.getsProfile.AddressType == 'drive' && base_data.driving_license_expire_date != '' && base_data.driving_license_expire_date != null
                           ?
                           moment(base_data.driving_license_expire_date)
                           :
@@ -118,31 +126,19 @@ class AddressPublic extends React.Component {
                 <Col span={8} offset={8}>
                   <FormItem style={{width: 346, margin: '0 auto'}}>
                     {getFieldDecorator(this.props.getsProfile.AddressType == 'bill' ? 'bill_url' : 'driving_license_url', {
-                        initialValue: this.props.getsProfile.base_profile.bill_url != null &&
-                        this.props.getsProfile.base_profile.bill_url!=''
+                        initialValue: this.props.getsProfile.AddressType == 'bill'
                             ?
                             this.props.getsProfile.base_profile.bill_url
                             :
-                            this.props.getsProfile.base_profile.driving_license_url != null &&
-                            this.props.getsProfile.base_profile.driving_license_url!=''
+                            this.props.getsProfile.AddressType == 'drive'
                                 ?
                                 this.props.getsProfile.base_profile.driving_license_url
                                 :
-                            null,
+                                null,
                         rules: [{required: false, message: '请上传证件!'}]
                     })(
                         <Uploader {...this.props}
-                                  cardUrl={base_data.driving_license_url != null &&
-                                  base_data.driving_license_url != ''
-                                      ?
-                                      base_data.driving_license_url
-                                      :
-                                      base_data.bill_url != null &&
-                                      base_data.bill_url != ''
-                                          ?
-                                          base_data.bill_url
-                                          :
-                                          null} />
+                                  cardUrl={addressPhoto} />
                     )}
                   </FormItem>
                 </Col>
