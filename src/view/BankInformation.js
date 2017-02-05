@@ -112,7 +112,7 @@ class BankInformation extends React.Component {
             }}>
 
                 <div style={{display: this.state.bankState ? 'block' : 'none'}}><BankFast
-                    hideBank={this.hideBank} /></div>
+                    hideBank={this.hideBank} {...this.props} /></div>
         <Form horizontal style={{display: this.state.bankState ? 'none' : 'block'}}>
 
 

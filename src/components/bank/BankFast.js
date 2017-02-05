@@ -21,6 +21,13 @@ class BankFast extends React.Component {
             const {dispatch}=this.props
             let baseBank=this.props.getsProfile.Bank
             this.props.getsProfile.base_profile.bank_type == 'US' ?
+                this.props.form.setFieldsValue({
+                    account_type:baseBank['2'][this.state.size].account_type,
+                    bank_address:baseBank['2'][this.state.size].bank_address,
+                    account_number:null,
+                    bank_name:baseBank['2'][this.state.size].bank_name_en,
+                    routing_number:baseBank['2'][this.state.size].routing_number
+                })&&
                 dispatch(saveFields('bank_us', {
                     ...this.props.getsProfile.base_profile.bank_us,
                     account_type:baseBank['2'][this.state.size].account_type,
@@ -29,6 +36,16 @@ class BankFast extends React.Component {
                     bank_name:baseBank['2'][this.state.size].bank_name_en,
                     routing_number:baseBank['2'][this.state.size].routing_number
                 })) :
+                this.props.form.setFieldsValue({
+                    bank_address:baseBank['1'][this.state.size].bank_address,
+                    account_number:null,
+                    bank_name:baseBank['1'][this.state.size].bank_name_en,
+                    have_middle_bank:1,
+                    middle_bank_address:baseBank['1'][this.state.size].middle_bank_address,
+                    middle_bank_name:baseBank['1'][this.state.size].middle_bank_name,
+                    middle_bank_swift_code:baseBank['1'][this.state.size].middle_bank_swift_code,
+                    swift_code:baseBank['1'][this.state.size].bank_swift_code
+                })&&
                 dispatch(saveFields('bank_non_us', {
                     ...this.props.getsProfile.base_profile.bank_non_us,
                     bank_address:baseBank['1'][this.state.size].bank_address,
