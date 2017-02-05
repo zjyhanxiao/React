@@ -50,8 +50,6 @@ class AddressPublic extends React.Component {
         };
         return (
             <div style={{width: 900, background: '#fff', overflow: 'hidden'}}>
-
-                {addressPhoto}
         <FormItem>
           <Row style={{paddingTop: '30px'}}>
             <Col span={3} offset={2}><h2 style={{color: '#159bd6', fontFamily: '宋体'}}>地址证明上传</h2></Col>
