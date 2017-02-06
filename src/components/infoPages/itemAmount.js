@@ -109,7 +109,7 @@ class ItemAmount extends React.Component {
                         width: '220px',
                         height: '40px',
                         color: '#ff6600',
-                        fontSize: '20px',
+                        fontSize: '18px',
                         border: '1px solid #cccccc',
                         borderRadius: '5px'
                     }}>
@@ -120,7 +120,7 @@ class ItemAmount extends React.Component {
                                         display: 'inline',
                                         width: '200px',
                                         height: '37px',
-                                        fontSize: '20px',
+                                        fontSize: '18px',
                                         color: '#ff6600',
                                         border: 'none',
                                         outline: 'none',

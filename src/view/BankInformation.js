@@ -55,6 +55,8 @@ class BankInformation extends React.Component {
                     this.props.changeIndex(e)
                 } else {
                     const {dispatch}=this.props
+                    dispatch(updateProfile(pro))
+                    dispatch(fetchPosts())
                     dispatch(changeComplete(true))
                     this.props.handleOk(e);
                 }

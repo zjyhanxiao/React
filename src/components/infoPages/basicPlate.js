@@ -72,7 +72,7 @@ class BasicPlate extends React.Component {
           <div>
             <Row style={{paddingTop: '30px'}}>
               <Col span={12} offset={2}>
-                <p style={{fontWeight: '900', fontSize: '16px'}}>基本信息&nbsp;&nbsp;<span style={{fontWeight: '100', fontSize: '12px'}}>（
+                <p style={{fontWeight: '900', fontSize: '16px'}}>基本信息&nbsp;&nbsp;<span style={{fontWeight: '300', fontSize: '12px'}}>（
                       {data&&data.first_name!=null?data.first_name:''} {data&&data.last_name!=null?data.last_name:''}
                       , {data&&data.investor_type!=null?data.investor_type == 1 ? '非美国-中国大陆投资人' : '':''}{data&&data.investor_type!=null?data.investor_type == 2 ? '美国投资人' : '':''}{data&&data.investor_type!=null?data.investor_type == 99 ? '非美国-其他国家 / 港澳台地区投资人' : '':''}
                       ）</span>

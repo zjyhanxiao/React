@@ -15,7 +15,10 @@ class ComplianceReview extends React.Component {
     handleSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
+                let pro = this.props.getsProfile.base_profile
                 const {dispatch}=this.props
+                dispatch(updateProfile(pro))
+                dispatch(fetchPosts())
                 dispatch(changeComplete(true))
                 this.props.handleOk(e);
             }
