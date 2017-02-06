@@ -61,7 +61,7 @@ class ComplianceSpouse extends React.Component {
 
           <FormItem>
             <Row style={{paddingTop: '0px'}}>
-              <Col span={20} offset={2}><p style={{color: '#223976', textAlign: 'center'}}>请完成一下配偶相关信息</p></Col>
+              <Col span={20} offset={2}><p style={{color: '#223976', textAlign: 'center'}}>请完成以下配偶信息</p></Col>
             </Row>
           </FormItem>
           <Row>

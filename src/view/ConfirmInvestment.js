@@ -81,7 +81,7 @@ class ConfirmInvestment extends React.Component {
               <Signature id='signature' getSignature={this.signature} {...this.props}
                          mode={{
                              people: '投资人签名',
-                             notice: '请注意：您的签名必须与已上传的证件上所提供的签名。'
+                             notice: '请注意：您的签名必须与已上传的证件上所提供的签名一致。'
                          }}
               />
 
