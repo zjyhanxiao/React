@@ -89,7 +89,7 @@ class AddressProve extends React.Component {
                       null,
                   rules: [{type: 'object', required: true, message: '请输入日期!'}],
               })(
-                  <DatePicker disabledDate={this.props.disabledDate} size="large" style={{width: 220}} />
+                  <DatePicker disabledDate={data&&data.investor_type == 1?this.props.expire_date:this.props.disabledDate} size="large" style={{width: 220}} />
               )}
             </FormItem>
           </Row>

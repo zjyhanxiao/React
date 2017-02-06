@@ -74,7 +74,7 @@ class BasicPassport extends React.Component {
                                   null,
                                 rules: [{type: 'object', required: true, message: '请输入日期!'}],
                             })(
-                                <DatePicker size="large" style={{width: 240}} />
+                                <DatePicker disabledDate={this.props.disabledDate} size="large" style={{width: 240}} />
                             )}
                         </FormItem>
                     </Col>

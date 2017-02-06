@@ -277,6 +277,7 @@ export const fetchPosts = () => {
             type: 'get',
             url: url,
             data: '',
+            async: false,
             contentType: "application/json; charset=utf-8",
             headers: {
                 "mx_token": cookie.load('mx_token'),
@@ -305,6 +306,7 @@ export const updateProfile = (data, success) => {
             //baseUrl + '/web/invest/user_info_confirm',
             // url: 'https://api.meixinglobal.com/web/profile/update',
             data: JSON.stringify(data),
+            async: false,
             contentType: "application/json; charset=utf-8",
             headers: {
                 "mx_token": cookie.load('mx_token'),
