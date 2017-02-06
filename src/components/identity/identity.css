@@ -8,7 +8,7 @@
   background: #ffffff;
   color: #223976;
 }
-.active{
+#app .active{
   border-top: 3px solid #223976!important;
   color: #223976!important;
 }
