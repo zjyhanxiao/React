@@ -71,7 +71,46 @@ class AddressInformation extends React.Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 let data = {...this.props.getsProfile.base_profile}
-                const {dispatch}=this.props
+                if (
+                    baseProp.base_profile.investor_type == '1' &&
+                    baseProp.base_profile.id_card_url == null) {
+                    alert('请上传您的身份证证件')
+                    return false
+                }
+                if (baseProp.base_profile.investor_type == '2') {
+                    if (baseProp.AddressType == 'drive') {
+                        if (baseProp.base_profile.driving_license_url == null
+                            ||
+                            baseProp.base_profile.driving_license_url == ''
+                        ) {
+                            alert('请上传您的驾照证件')
+                            return false
+                        }
+                        dispatch(saveFields('bill_url',null))
+                        dispatch(saveFields('bill_number',null))
+                        dispatch(saveFields('bill_expire_date',null))
+                    }
+
+                    if (baseProp.AddressType == 'bill') {
+                        if (baseProp.base_profile.bill_url == null
+                            ||
+                            baseProp.base_profile.bill_url == '')
+                        {
+                            alert('请上传您的水电账单')
+                            return false
+                        }
+                        dispatch(saveFields('driving_license_url',null))
+                        dispatch(saveFields('driving_license_number',null))
+                        dispatch(saveFields('driving_license_expire_date',null))
+                    }
+                }
+
+                if (
+                    baseProp.base_profile.investor_type == '99' &&
+                    baseProp.base_profile.bill_url == null) {
+                    alert('请上传您的水电账单')
+                    return false
+                }
                 dispatch(updateProfile(data))
                 this.props.handleCancel()
             }
