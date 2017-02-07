@@ -33,6 +33,7 @@ class ComplianceReview extends React.Component {
                 let data = {...this.props.getsProfile.base_profile}
                 const {dispatch}=this.props
                 dispatch(updateProfile(data))
+                dispatch(fetchPosts())
                 this.props.handleCancel()
                 /*const {dispatch} = this.props
                  dispatch(updateProfile(values, this.success))*/
@@ -40,8 +41,6 @@ class ComplianceReview extends React.Component {
         });
     }
     cancelChange(){
-        const {dispatch}=this.props
-        dispatch(fetchPosts())
         this.props.handleCancel()
     }
 

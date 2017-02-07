@@ -85,6 +85,7 @@ class BankInformation extends React.Component {
                 }
                 const {dispatch}=this.props
                 dispatch(updateProfile(pro))
+                dispatch(fetchPosts())
                 this.props.handleCancel()
             }
         });
@@ -288,13 +289,13 @@ BankInformation = Form.create({
 
         }
     },/* mapPropsToFields(props) {
-        return {
-            bank_type: {
-                ...props.getsProfile.base_profile.bank_type,
-                value: props.getsProfile.base_profile.bank_type,
-            }
-        };
-    }*/
+     return {
+     bank_type: {
+     ...props.getsProfile.base_profile.bank_type,
+     value: props.getsProfile.base_profile.bank_type,
+     }
+     };
+     }*/
 })(BankInformation);
 
 BankInformation.defaultProps = {};

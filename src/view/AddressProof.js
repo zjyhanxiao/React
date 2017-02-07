@@ -114,6 +114,7 @@ class AddressInformation extends React.Component {
                     return false
                 }
                 dispatch(updateProfile(data))
+                dispatch(fetchPosts())
                 this.props.handleCancel()
             }
         });
@@ -121,8 +122,6 @@ class AddressInformation extends React.Component {
     }
     cancelChange(){
         this.props.handleCancel()
-        const {dispatch}=this.props
-        dispatch(fetchPosts())
     }
     disabledDate(current) {
         // can not select days before today and today

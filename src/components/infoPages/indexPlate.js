@@ -27,7 +27,6 @@ class IndexPlate extends React.Component {
 
     render() {
         let data = this.props.getsProfile.base_profile
-        alert(!(data && (data.passport_expired || data.bill_expired || data.driving_license_expired || data.id_card_expired)))
         return (
             <div style={{
                 width: '100%',

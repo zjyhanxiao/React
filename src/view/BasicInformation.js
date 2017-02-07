@@ -32,14 +32,13 @@ class BasicInformation extends React.Component {
                 let data = {...this.props.getsProfile.base_profile}
                 const {dispatch}=this.props
                 dispatch(updateProfile(data))
+                dispatch(fetchPosts())
                 this.props.handleCancel()
             }
         });
         e.preventDefault();
     }
     cancelChange(){
-        const {dispatch}=this.props
-        dispatch(fetchPosts())
         this.props.handleCancel()
     }
 
