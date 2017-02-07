@@ -19,7 +19,7 @@ class IndexPlate extends React.Component {
             alert('投资金额必须为' + this.props.getsProfile.Product.invest_par_value + '的整数倍')
             return false
         }
-        if (this.props.getsProfile.invest_amount < this.props.getsProfile.Product.invest_par_value) {
+        if (this.props.getsProfile.invest_amount < this.props.getsProfile.Product.minimum_invest_amount) {
             alert('投资金额不能少于' + this.props.getsProfile.Product.minimum_invest_amount)
             return false
         }
