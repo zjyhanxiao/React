@@ -41,6 +41,8 @@ class ComplianceReview extends React.Component {
         });
     }
     cancelChange(){
+        const {dispatch}=this.props
+        dispatch(fetchPosts())
         this.props.handleCancel()
     }
 

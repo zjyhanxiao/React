@@ -121,6 +121,8 @@ class AddressInformation extends React.Component {
         e.preventDefault();
     }
     cancelChange(){
+        const {dispatch}=this.props
+        dispatch(fetchPosts())
         this.props.handleCancel()
     }
     disabledDate(current) {
