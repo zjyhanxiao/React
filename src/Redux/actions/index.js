@@ -20,8 +20,11 @@ export const isComplete = () => {
 
             success: json => dispatch(isCompleteSuccess(json)),
             complete:function (XHR, TS) {
+                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                    window.location='/login.html'
+                }
                 /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
-                console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)*/
+                 console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)*/
             }
 
         })
@@ -51,8 +54,11 @@ export const getProduct = (id) => {
 
             success: json => dispatch(getProductSuccess(json)),
             complete:function (XHR, TS) {
+                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                    window.location='/login.html'
+                }
                 /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
-                console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)*/
+                 console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)*/
             }
 
         })
@@ -120,7 +126,15 @@ export const getCountry = (data) => {
                 "mx_secret": cookie.load('mx_secret')
             },
 
-            success: json => dispatch(getCountrySuccess(json))
+            success: json => dispatch(getCountrySuccess(json)),
+
+            complete:function (XHR, TS) {
+                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                    window.location='/login.html'
+                }
+                /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
+                 console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)*/
+            }
 
         })
     }
@@ -140,7 +154,14 @@ export const getState = (data) => {
                 "mx_secret": cookie.load('mx_secret')
             },
 
-            success: json => dispatch(getStateSuccess(json))
+            success: json => dispatch(getStateSuccess(json)),
+            complete:function (XHR, TS) {
+                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                    window.location='/login.html'
+                }
+                /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
+                 console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)*/
+            }
 
         })
     }
@@ -160,7 +181,14 @@ export const getCity = (data) => {
                 "mx_secret": cookie.load('mx_secret')
             },
 
-            success: json => dispatch(getCitySuccess(json))
+            success: json => dispatch(getCitySuccess(json)),
+            complete:function (XHR, TS) {
+                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                    window.location='/login.html'
+                }
+                /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
+                 console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)*/
+            }
 
         })
     }
@@ -180,7 +208,14 @@ export const getCounty = (data) => {
                 "mx_secret": cookie.load('mx_secret')
             },
 
-            success: json => dispatch(getCountySuccess(json))
+            success: json => dispatch(getCountySuccess(json)),
+            complete:function (XHR, TS) {
+                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                    window.location='/login.html'
+                }
+                /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
+                 console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)*/
+            }
 
         })
     }
@@ -200,7 +235,14 @@ export const getIndustry = (data) => {
                 "mx_secret": cookie.load('mx_secret')
             },
 
-            success: json => dispatch(getIndustrySuccess(json))
+            success: json => dispatch(getIndustrySuccess(json)),
+            complete:function (XHR, TS) {
+                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                    window.location='/login.html'
+                }
+                /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
+                 console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)*/
+            }
 
         })
     }
@@ -227,7 +269,14 @@ export const getOccupation = (data) => {
                 "mx_secret": cookie.load('mx_secret')
             },
 
-            success: json => dispatch(getOccupationSuccess(json))
+            success: json => dispatch(getOccupationSuccess(json)),
+            complete:function (XHR, TS) {
+                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                    window.location='/login.html'
+                }
+                /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
+                 console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)*/
+            }
 
         })
     }
@@ -256,7 +305,14 @@ export const getBank = (data) => {
                 "mx_secret": cookie.load('mx_secret')
             },
 
-            success: json => dispatch(getBankSuccess(json,data))
+            success: json => dispatch(getBankSuccess(json,data)),
+            complete:function (XHR, TS) {
+                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                    window.location='/login.html'
+                }
+                /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
+                 console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)*/
+            }
 
         })
     }
@@ -284,7 +340,14 @@ export const fetchPosts = () => {
                 "mx_secret": cookie.load('mx_secret')
             },
 
-            success: json => dispatch(receivePosts(json))
+            success: json => dispatch(receivePosts(json)),
+            complete:function (XHR, TS) {
+                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                    window.location='/login.html'
+                }
+                /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
+                 console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)*/
+            }
 
         })
     }
@@ -315,6 +378,14 @@ export const updateProfile = (data, success) => {
 
             success: function (res) {
                 success&&success()
+            },
+
+            complete:function (XHR, TS) {
+                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                    window.location='/login.html'
+                }
+                /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
+                 console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)*/
             }
         })
     }
@@ -336,6 +407,14 @@ export const updateSignature = (data, success) => {
 
             success: function (res) {
                 success&&success()
+            },
+
+            complete:function (XHR, TS) {
+                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                    window.location='/login.html'
+                }
+                /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
+                 console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)*/
             }
         })
     }
@@ -355,6 +434,14 @@ export const createOrder = (data, success) => {
 
             success: function (res) {
                 success&&success()
+            },
+
+            complete:function (XHR, TS) {
+                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                    window.location='/login.html'
+                }
+                /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
+                 console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)*/
             }
         })
     }
@@ -400,56 +487,70 @@ export const updateUploader = (path, key) => {
 }
 //  获取支付信息
 export const getPayment = ( data ) => {
-  return dispatch => {
-    $.ajax({
-      type: 'get',
-      url: baseUrl+'/web/product/payment_list/'+data.product_id,
-      // url: 'https://gl-api2.meixincn.com/web/product/payment_list/{product_id}',
-      data: data,
-      contentType: "application/json; charset=utf-8",
-      headers: {
-        "mx_token": cookie.load('mx_token'),
-        "mx_secret": cookie.load('mx_secret')
-      },
+    return dispatch => {
+        $.ajax({
+            type: 'get',
+            url: baseUrl+'/web/product/payment_list/'+data.product_id,
+            // url: 'https://gl-api2.meixincn.com/web/product/payment_list/{product_id}',
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "mx_token": cookie.load('mx_token'),
+                "mx_secret": cookie.load('mx_secret')
+            },
 
-      success: json => dispatch(getPaymentSuccess(json))
+            success: json => dispatch(getPaymentSuccess(json)),
+            complete:function (XHR, TS) {
+                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                    window.location='/login.html'
+                }
+                /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
+                 console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)*/
+            }
 
-    })
-  }
+        })
+    }
 }
 //  获取支付信息成功
 const getPaymentSuccess = (json) => {
-  return {
-    type: types.GET_PAYMENT,
-    json
-  }
+    return {
+        type: types.GET_PAYMENT,
+        json
+    }
 }
 
 //  获取文档信息
 export const getDocument = ( data ) => {
-  return dispatch => {
-    $.ajax({
-      type: 'get',
-      url: baseUrl+'/web/product_document/get',
-      // url: 'https://gl-api2.meixincn.com/web/product_document/get',,
-      data: data,
-      contentType: "application/json; charset=utf-8",
-      headers: {
-        "mx_token": cookie.load('mx_token'),
-        "mx_secret": cookie.load('mx_secret')
-      },
+    return dispatch => {
+        $.ajax({
+            type: 'get',
+            url: baseUrl+'/web/product_document/get',
+            // url: 'https://gl-api2.meixincn.com/web/product_document/get',,
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            headers: {
+                "mx_token": cookie.load('mx_token'),
+                "mx_secret": cookie.load('mx_secret')
+            },
 
-      success: json => dispatch(getDocumentSuccess(json))
+            success: json => dispatch(getDocumentSuccess(json)),
+            complete:function (XHR, TS) {
+                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                    window.location='/login.html'
+                }
+                /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
+                 console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+TS)*/
+            }
 
-    })
-  }
+        })
+    }
 }
 //  获取文档信息成功
 const getDocumentSuccess = (json) => {
-  return {
-    type: types.GET_DOCUMENT,
-    json
-  }
+    return {
+        type: types.GET_DOCUMENT,
+        json
+    }
 }
 //  获取文档信息成功
 export const changeComplete = (val) => {
