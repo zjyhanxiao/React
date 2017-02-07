@@ -8,7 +8,6 @@ import CompliancePlate from './compliancePlate'
 
 import $ from 'jquery'
 
-let id_card_expired = false, driving_license_expired = false, bill_expired = false, passport_expired = false
 class IndexPlate extends React.Component {
     constructor(props) {
         super(props);
@@ -28,35 +27,7 @@ class IndexPlate extends React.Component {
 
     render() {
         let data = this.props.getsProfile.base_profile
-        if (data && data.id_card_expire_date != '' && data.id_card_expire_date != null) {
-            if (moment(data.id_card_expire_date).fromNow().split('ago').length > 1
-            ) {
-                id_card_expired = true
-            } else {
-                id_card_expired = false
-            }
-        }
-        if (data && data.driving_license_expire_date != '' && data.driving_license_expire_date != null) {
-            if (moment(data.driving_license_expire_date).fromNow().split('ago').length > 1) {
-                driving_license_expired = true
-            } else {
-                driving_license_expired = false
-            }
-        }
-        if (data && data.bill_expire_date != '' && data.bill_expire_date != null) {
-            if (moment(moment(data.bill_expire_date).add(90, 'days').format('YYYY-MM-DD', 'en')).fromNow().split('ago').length > 1) {
-                bill_expired = true
-            } else {
-                bill_expired = false
-            }
-        }
-        if (data && data.passport_expire_date != '' && data.passport_expire_date != null) {
-            if (moment(data.passport_expire_date).fromNow().split('ago').length > 1) {
-                passport_expired = true
-            } else {
-                passport_expired = false
-            }
-        }
+        alert(!(data && (data.passport_expired || data.bill_expired || data.driving_license_expired || data.id_card_expired)))
         return (
             <div style={{
                 width: '100%',
@@ -88,12 +59,12 @@ class IndexPlate extends React.Component {
                 height: '50px',
                 borderRadius: '30px',
                 background: '#223976',
-                //background: !(passport_expired || bill_expired || driving_license_expired || id_card_expired) ? '#223976' : '#ccc',
+                background: (data && (data.passport_expired || data.bill_expired || data.driving_license_expired || data.id_card_expired)) ? '#ccc' : '#223976',
                 color: '#fff',
                 fontSize: '18px'
             }} type="primary" htmlType="submit" name="two" onClick={this.handleClick.bind(this)}
                     size="large"
-            //        disabled={!(passport_expired || bill_expired || driving_license_expired || id_card_expired) ? '' : 'disabled'}
+                    disabled={(data && (data.passport_expired || data.bill_expired || data.driving_license_expired || data.id_card_expired)) ? 'disabled' :'' }
             >下一步</Button>
           </Col>
         </Row>

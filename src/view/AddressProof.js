@@ -72,6 +72,7 @@ class AddressInformation extends React.Component {
             let baseProp = this.props.getsProfile
             if (!err) {
                 let data = {...this.props.getsProfile.base_profile}
+                const {dispatch}=this.props
                 if (
                     baseProp.base_profile.investor_type == '1' &&
                     baseProp.base_profile.id_card_url == null) {
@@ -119,9 +120,9 @@ class AddressInformation extends React.Component {
         e.preventDefault();
     }
     cancelChange(){
+        this.props.handleCancel()
         const {dispatch}=this.props
         dispatch(fetchPosts())
-        this.props.handleCancel()
     }
     disabledDate(current) {
         // can not select days before today and today
