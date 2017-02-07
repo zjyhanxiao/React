@@ -20,7 +20,7 @@ export const isComplete = () => {
 
             success: json => dispatch(isCompleteSuccess(json)),
             complete:function (XHR, TS) {
-                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                if(JSON.parse(XHR.responseText).msg == 'auth failed'){
                     window.location='/login.html'
                 }
                 /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
@@ -54,7 +54,7 @@ export const getProduct = (id) => {
 
             success: json => dispatch(getProductSuccess(json)),
             complete:function (XHR, TS) {
-                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                if(JSON.parse(XHR.responseText).msg == 'auth failed'){
                     window.location='/login.html'
                 }
                 /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
@@ -129,7 +129,7 @@ export const getCountry = (data) => {
             success: json => dispatch(getCountrySuccess(json)),
 
             complete:function (XHR, TS) {
-                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                if(JSON.parse(XHR.responseText).msg == 'auth failed'){
                     window.location='/login.html'
                 }
                 /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
@@ -156,7 +156,7 @@ export const getState = (data) => {
 
             success: json => dispatch(getStateSuccess(json)),
             complete:function (XHR, TS) {
-                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                if(JSON.parse(XHR.responseText).msg == 'auth failed'){
                     window.location='/login.html'
                 }
                 /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
@@ -183,7 +183,7 @@ export const getCity = (data) => {
 
             success: json => dispatch(getCitySuccess(json)),
             complete:function (XHR, TS) {
-                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                if(JSON.parse(XHR.responseText).msg == 'auth failed'){
                     window.location='/login.html'
                 }
                 /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
@@ -210,7 +210,7 @@ export const getCounty = (data) => {
 
             success: json => dispatch(getCountySuccess(json)),
             complete:function (XHR, TS) {
-                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                if(JSON.parse(XHR.responseText).msg == 'auth failed'){
                     window.location='/login.html'
                 }
                 /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
@@ -237,7 +237,7 @@ export const getIndustry = (data) => {
 
             success: json => dispatch(getIndustrySuccess(json)),
             complete:function (XHR, TS) {
-                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                if(JSON.parse(XHR.responseText).msg == 'auth failed'){
                     window.location='/login.html'
                 }
                 /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
@@ -271,7 +271,7 @@ export const getOccupation = (data) => {
 
             success: json => dispatch(getOccupationSuccess(json)),
             complete:function (XHR, TS) {
-                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                if(JSON.parse(XHR.responseText).msg == 'auth failed'){
                     window.location='/login.html'
                 }
                 /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
@@ -307,7 +307,7 @@ export const getBank = (data) => {
 
             success: json => dispatch(getBankSuccess(json,data)),
             complete:function (XHR, TS) {
-                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                if(JSON.parse(XHR.responseText).msg == 'auth failed'){
                     window.location='/login.html'
                 }
                 /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
@@ -342,7 +342,7 @@ export const fetchPosts = () => {
 
             success: json => dispatch(receivePosts(json)),
             complete:function (XHR, TS) {
-                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                if(JSON.parse(XHR.responseText).msg == 'auth failed'){
                     window.location='/login.html'
                 }
                 /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
@@ -381,7 +381,7 @@ export const updateProfile = (data, success) => {
             },
 
             complete:function (XHR, TS) {
-                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                if(JSON.parse(XHR.responseText).msg == 'auth failed'){
                     window.location='/login.html'
                 }
                 /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
@@ -410,7 +410,7 @@ export const updateSignature = (data, success) => {
             },
 
             complete:function (XHR, TS) {
-                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                if(JSON.parse(XHR.responseText).msg == 'auth failed'){
                     window.location='/login.html'
                 }
                 /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
@@ -437,7 +437,7 @@ export const createOrder = (data, success) => {
             },
 
             complete:function (XHR, TS) {
-                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                if(JSON.parse(XHR.responseText).msg == 'auth failed'){
                     window.location='/login.html'
                 }
                 /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
@@ -501,7 +501,7 @@ export const getPayment = ( data ) => {
 
             success: json => dispatch(getPaymentSuccess(json)),
             complete:function (XHR, TS) {
-                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                if(JSON.parse(XHR.responseText).msg == 'auth failed'){
                     window.location='/login.html'
                 }
                 /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
@@ -535,7 +535,7 @@ export const getDocument = ( data ) => {
 
             success: json => dispatch(getDocumentSuccess(json)),
             complete:function (XHR, TS) {
-                if(XHR.responseText.code==-1&XHR.responseText.msg=='auth failed'){
+                if(JSON.parse(XHR.responseText).msg == 'auth failed'){
                     window.location='/login.html'
                 }
                 /*console.log('AAAAAAAAAAAAAAAAAAAAAAAA'+JSON.stringify(XHR))
