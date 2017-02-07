@@ -8,7 +8,7 @@ import CompliancePlate from './compliancePlate'
 
 import $ from 'jquery'
 
-let id_card_expired = true, driving_license_expired = true, bill_expired = true, passport_expired = true
+let id_card_expired = false, driving_license_expired = false, bill_expired = false, passport_expired = false
 class IndexPlate extends React.Component {
     constructor(props) {
         super(props);
@@ -31,30 +31,30 @@ class IndexPlate extends React.Component {
         if (data && data.id_card_expire_date != '' && data.id_card_expire_date != null) {
             if (moment(data.id_card_expire_date).fromNow().split('ago').length > 1
             ) {
-                id_card_expired = false
-            } else {
                 id_card_expired = true
+            } else {
+                id_card_expired = false
             }
         }
         if (data && data.driving_license_expire_date != '' && data.driving_license_expire_date != null) {
             if (moment(data.driving_license_expire_date).fromNow().split('ago').length > 1) {
-                driving_license_expired = false
-            } else {
                 driving_license_expired = true
+            } else {
+                driving_license_expired = false
             }
         }
         if (data && data.bill_expire_date != '' && data.bill_expire_date != null) {
             if (moment(moment(data.bill_expire_date).add(90, 'days').format('YYYY-MM-DD', 'en')).fromNow().split('ago').length > 1) {
-                bill_expired = false
-            } else {
                 bill_expired = true
+            } else {
+                bill_expired = false
             }
         }
         if (data && data.passport_expire_date != '' && data.passport_expire_date != null) {
             if (moment(data.passport_expire_date).fromNow().split('ago').length > 1) {
-                passport_expired = false
-            } else {
                 passport_expired = true
+            } else {
+                passport_expired = false
             }
         }
         return (
@@ -87,12 +87,14 @@ class IndexPlate extends React.Component {
                 width: '120px',
                 height: '50px',
                 borderRadius: '30px',
-                background: passport_expired && bill_expired && driving_license_expired && id_card_expired ? '#223976' : '#ccc',
+                background: '#223976',
+                //background: !(passport_expired || bill_expired || driving_license_expired || id_card_expired) ? '#223976' : '#ccc',
                 color: '#fff',
                 fontSize: '18px'
             }} type="primary" htmlType="submit" name="two" onClick={this.handleClick.bind(this)}
                     size="large"
-                    disabled={passport_expired && bill_expired && driving_license_expired && id_card_expired ? '' : 'disabled'}>下一步</Button>
+            //        disabled={!(passport_expired || bill_expired || driving_license_expired || id_card_expired) ? '' : 'disabled'}
+            >下一步</Button>
           </Col>
         </Row>
 

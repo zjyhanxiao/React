@@ -65,8 +65,6 @@ class InformationConfirmation extends React.Component {
         dispatch(isComplete())
         let data={}
         data.product_id = product_id
-        data.mx_token = cookie.load('mx_token')
-        data.mx_secret = cookie.load('mx_secret')
         dispatch(getDocument(data))
         dispatch(getPayment(data))
         dispatch(fetchPosts())

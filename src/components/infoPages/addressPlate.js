@@ -5,7 +5,7 @@ import {updateProfile, getState, getCity, getCounty, changeAddressType} from '..
 import AddressProof from '../../view/AddressProof'
 
 
-let id_card_expired = true, driving_license_expired = true, bill_expired = true, passport_expired = true
+// let id_card_expired = false, driving_license_expired = false, bill_expired = false, passport_expired = false
 class AddressPlate extends React.Component {
 
     constructor(props) {
@@ -69,30 +69,30 @@ class AddressPlate extends React.Component {
         if (data && data.id_card_expire_date != '' && data.id_card_expire_date != null) {
             if (moment(data.id_card_expire_date).fromNow().split('ago').length > 1
             ) {
-                id_card_expired = false
-            } else {
                 id_card_expired = true
+            } else {
+                id_card_expired = false
             }
         }
         if (data && data.driving_license_expire_date != '' && data.driving_license_expire_date != null) {
             if (moment(data.driving_license_expire_date).fromNow().split('ago').length > 1) {
-                driving_license_expired = false
-            } else {
                 driving_license_expired = true
+            } else {
+                driving_license_expired = false
             }
         }
         if (data && data.bill_expire_date != '' && data.bill_expire_date != null) {
             if (moment(moment(data.bill_expire_date).add(90, 'days').format('YYYY-MM-DD', 'en')).fromNow().split('ago').length > 1) {
-                bill_expired = false
-            } else {
                 bill_expired = true
+            } else {
+                bill_expired = false
             }
         }
         if (data && data.passport_expire_date != '' && data.passport_expire_date != null) {
             if (moment(data.passport_expire_date).fromNow().split('ago').length > 1) {
-                passport_expired = false
-            } else {
                 passport_expired = true
+            } else {
+                passport_expired = false
             }
         }
         return (
@@ -155,20 +155,20 @@ class AddressPlate extends React.Component {
                         :
                         ''
                 }
-                {data && data.investor_type == 1 && !id_card_expired
+                {data && data.investor_type == 1 && id_card_expired
                     ?
                     <Row style={{}}>
                       <Col span={20} offset={2}><p style={{color: '#fe593e'}}>地址证明已经失效，请重新<a
                           style={{color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>上传</a></p></Col>
                     </Row>
                     :
-                    data && data.investor_type == 2 && (!bill_expired || !driving_license_expired) ?
+                    data && data.investor_type == 2 && (bill_expired || driving_license_expired) ?
                         <Row style={{}}>
                           <Col span={20} offset={2}><p style={{color: '#fe593e'}}>地址证明已经失效，请重新<a
                               style={{color: '#159bd6', cursor: 'pointer'}} onClick={this.showModal}>上传</a></p></Col>
                         </Row>
                         :
-                        data && data.investor_type == 99 && !bill_expired
+                        data && data.investor_type == 99 && bill_expired
                             ?
                             <Row style={{}}>
                               <Col span={20} offset={2}><p style={{color: '#fe593e'}}>地址证明已经失效，请重新<a

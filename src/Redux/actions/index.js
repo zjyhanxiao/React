@@ -14,8 +14,8 @@ export const isComplete = () => {
             data: '',
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": cookie.load('mx_token'),
-                "mx_secret": cookie.load('mx_secret')
+                "mx_token": cookie.load('mx_token')||'4778f2817a98bc13a13008d2d25aed2e',
+                "mx_secret": cookie.load('mx_secret')||'a14b1b7698e6bc4cc01899c6b8a95a9b'
             },
 
             success: json => dispatch(isCompleteSuccess(json)),
@@ -48,8 +48,8 @@ export const getProduct = (id) => {
             data: {product_id: id},
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": cookie.load('mx_token'),
-                "mx_secret": cookie.load('mx_secret')
+                "mx_token": cookie.load('mx_token')||'4778f2817a98bc13a13008d2d25aed2e',
+                "mx_secret": cookie.load('mx_secret')||'a14b1b7698e6bc4cc01899c6b8a95a9b'
             },
 
             success: json => dispatch(getProductSuccess(json)),
@@ -122,8 +122,8 @@ export const getCountry = (data) => {
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": cookie.load('mx_token'),
-                "mx_secret": cookie.load('mx_secret')
+                "mx_token": cookie.load('mx_token')||'4778f2817a98bc13a13008d2d25aed2e',
+                "mx_secret": cookie.load('mx_secret')||'a14b1b7698e6bc4cc01899c6b8a95a9b'
             },
 
             success: json => dispatch(getCountrySuccess(json)),
@@ -150,8 +150,8 @@ export const getState = (data) => {
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": cookie.load('mx_token'),
-                "mx_secret": cookie.load('mx_secret')
+                "mx_token": cookie.load('mx_token')||'4778f2817a98bc13a13008d2d25aed2e',
+                "mx_secret": cookie.load('mx_secret')||'a14b1b7698e6bc4cc01899c6b8a95a9b'
             },
 
             success: json => dispatch(getStateSuccess(json)),
@@ -177,8 +177,8 @@ export const getCity = (data) => {
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": cookie.load('mx_token'),
-                "mx_secret": cookie.load('mx_secret')
+                "mx_token": cookie.load('mx_token')||'4778f2817a98bc13a13008d2d25aed2e',
+                "mx_secret": cookie.load('mx_secret')||'a14b1b7698e6bc4cc01899c6b8a95a9b'
             },
 
             success: json => dispatch(getCitySuccess(json)),
@@ -204,8 +204,8 @@ export const getCounty = (data) => {
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": cookie.load('mx_token'),
-                "mx_secret": cookie.load('mx_secret')
+                "mx_token": cookie.load('mx_token')||'4778f2817a98bc13a13008d2d25aed2e',
+                "mx_secret": cookie.load('mx_secret')||'a14b1b7698e6bc4cc01899c6b8a95a9b'
             },
 
             success: json => dispatch(getCountySuccess(json)),
@@ -231,8 +231,8 @@ export const getIndustry = (data) => {
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": cookie.load('mx_token'),
-                "mx_secret": cookie.load('mx_secret')
+                "mx_token": cookie.load('mx_token')||'4778f2817a98bc13a13008d2d25aed2e',
+                "mx_secret": cookie.load('mx_secret')||'a14b1b7698e6bc4cc01899c6b8a95a9b'
             },
 
             success: json => dispatch(getIndustrySuccess(json)),
@@ -265,8 +265,8 @@ export const getOccupation = (data) => {
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": cookie.load('mx_token'),
-                "mx_secret": cookie.load('mx_secret')
+                "mx_token": cookie.load('mx_token')||'4778f2817a98bc13a13008d2d25aed2e',
+                "mx_secret": cookie.load('mx_secret')||'a14b1b7698e6bc4cc01899c6b8a95a9b'
             },
 
             success: json => dispatch(getOccupationSuccess(json)),
@@ -301,8 +301,8 @@ export const getBank = (data) => {
             data: data,
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": cookie.load('mx_token'),
-                "mx_secret": cookie.load('mx_secret')
+                "mx_token": cookie.load('mx_token')||'4778f2817a98bc13a13008d2d25aed2e',
+                "mx_secret": cookie.load('mx_secret')||'a14b1b7698e6bc4cc01899c6b8a95a9b'
             },
 
             success: json => dispatch(getBankSuccess(json,data)),
@@ -336,8 +336,8 @@ export const fetchPosts = () => {
             async: false,
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": cookie.load('mx_token'),
-                "mx_secret": cookie.load('mx_secret')
+                "mx_token": cookie.load('mx_token')||'4778f2817a98bc13a13008d2d25aed2e',
+                "mx_secret": cookie.load('mx_secret')||'a14b1b7698e6bc4cc01899c6b8a95a9b'
             },
 
             success: json => dispatch(receivePosts(json)),
@@ -372,8 +372,8 @@ export const updateProfile = (data, success) => {
             async: false,
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": cookie.load('mx_token'),
-                "mx_secret": cookie.load('mx_secret')
+                "mx_token": cookie.load('mx_token')||'4778f2817a98bc13a13008d2d25aed2e',
+                "mx_secret": cookie.load('mx_secret')||'a14b1b7698e6bc4cc01899c6b8a95a9b'
             },
 
             success: function (res) {
@@ -401,8 +401,8 @@ export const updateSignature = (data, success) => {
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": cookie.load('mx_token'),
-                "mx_secret": cookie.load('mx_secret')
+                "mx_token": cookie.load('mx_token')||'4778f2817a98bc13a13008d2d25aed2e',
+                "mx_secret": cookie.load('mx_secret')||'a14b1b7698e6bc4cc01899c6b8a95a9b'
             },
 
             success: function (res) {
@@ -428,8 +428,8 @@ export const createOrder = (data, success) => {
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": cookie.load('mx_token'),
-                "mx_secret": cookie.load('mx_secret')
+                "mx_token": cookie.load('mx_token')||'4778f2817a98bc13a13008d2d25aed2e',
+                "mx_secret": cookie.load('mx_secret')||'a14b1b7698e6bc4cc01899c6b8a95a9b'
             },
 
             success: function (res) {
@@ -495,8 +495,8 @@ export const getPayment = ( data ) => {
             data: data,
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": cookie.load('mx_token'),
-                "mx_secret": cookie.load('mx_secret')
+                "mx_token": cookie.load('mx_token')||'4778f2817a98bc13a13008d2d25aed2e',
+                "mx_secret": cookie.load('mx_secret')||'a14b1b7698e6bc4cc01899c6b8a95a9b'
             },
 
             success: json => dispatch(getPaymentSuccess(json)),
@@ -529,8 +529,8 @@ export const getDocument = ( data ) => {
             data: data,
             contentType: "application/json; charset=utf-8",
             headers: {
-                "mx_token": cookie.load('mx_token'),
-                "mx_secret": cookie.load('mx_secret')
+                "mx_token": cookie.load('mx_token')||'4778f2817a98bc13a13008d2d25aed2e',
+                "mx_secret": cookie.load('mx_secret')||'a14b1b7698e6bc4cc01899c6b8a95a9b'
             },
 
             success: json => dispatch(getDocumentSuccess(json)),
