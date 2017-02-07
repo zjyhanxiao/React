@@ -5,7 +5,7 @@ import {updateProfile, getState, getCity, getCounty, changeAddressType} from '..
 import AddressProof from '../../view/AddressProof'
 
 
-// let id_card_expired = false, driving_license_expired = false, bill_expired = false, passport_expired = false
+let id_card_expired = false, driving_license_expired = false, bill_expired = false, passport_expired = false
 class AddressPlate extends React.Component {
 
     constructor(props) {

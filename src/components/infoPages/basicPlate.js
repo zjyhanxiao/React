@@ -5,7 +5,7 @@ import {updateProfile,getOccupation} from '../../Redux/actions/index'
 import BasicInformation from '../../view/BasicInformation'
 
 
-// let id_card_expired = false, driving_license_expired = false, bill_expired = false, passport_expired = false
+let id_card_expired = false, driving_license_expired = false, bill_expired = false, passport_expired = false
 class BasicPlate extends React.Component {
 
     constructor(props) {
