@@ -69,6 +69,7 @@ class AddressInformation extends React.Component {
 
     changeSubmit(e) {
         this.props.form.validateFieldsAndScroll((err, values) => {
+            let baseProp = this.props.getsProfile
             if (!err) {
                 let data = {...this.props.getsProfile.base_profile}
                 if (
