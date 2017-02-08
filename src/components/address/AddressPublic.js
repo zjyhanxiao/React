@@ -29,13 +29,13 @@ class AddressPublic extends React.Component {
             if (base_data && base_data.driving_license_url != null && base_data.driving_license_url != '') {
                 addressPhoto = base_data.driving_license_url
             } else {
-                addressPhoto = 'https://test.meixincn.com/static/version_1.9/dist/meixin_invest/img/shengfenzhen.png'
+                addressPhoto = 'https://s1.meixinglobal.com/vendor/img/632251586752810327.png'
             }
         } else if(this.props.getsProfile.AddressType == 'bill') {
             if (base_data && base_data.bill_url != null && base_data.bill_url != '') {
                 addressPhoto = base_data.bill_url
             } else {
-                addressPhoto = 'https://test.meixincn.com/static/version_1.9/dist/meixin_invest/img/shengfenzhen.png'
+                addressPhoto = 'https://s1.meixinglobal.com/vendor/img/632251586752810327.png'
             }
         }
         const formItemLayout = {

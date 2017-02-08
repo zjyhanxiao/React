@@ -9,16 +9,16 @@ import ItemAmount from './ItemAmount';
 
 class ItemName extends React.Component {
 
-  constructor() {
-    super();
-    this.state = {
-      a:true,
+    constructor() {
+        super();
+        this.state = {
+            a:true,
+        }
     }
-  }
 
-  render() {
-    return (
-      <div style={{width:'100%',height:'220px',background:'url(https://test.meixincn.com/static/version_1.9/dist/meixin_invest/img/building.jpg)'}}>
+    render() {
+        return (
+            <div style={{width:'100%',height:'220px',background:'url(https://s1.meixinglobal.com/vendor/img/582226841158163711.jpg)'}}>
         <Row>
           <Col span={6} offset={16} style={{textAlign:'center',marginTop:'60px',color:'#223976'}}>
             <span style={{fontSize:'28px',color:'#223976'}}>{this.props.name}</span>
@@ -31,8 +31,8 @@ class ItemName extends React.Component {
           </Col>
         </Row>
       </div>
-    );
-  }
+        );
+    }
 }
 
 ItemName.defaultProps = {};
