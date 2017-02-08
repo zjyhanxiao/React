@@ -12,3 +12,4 @@ label[for='debt_amount']{
 .ant-input-group-addon{
   width: 70px;
 }
+.ant-radio-group-large .ant-radio-button-wrapper{line-height: 20px;}

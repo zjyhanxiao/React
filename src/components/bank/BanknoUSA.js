@@ -55,7 +55,7 @@ class BanknoUSA extends React.Component {
                     required: true, message: '请输入您的银行名称！',
                   }],
                 })(
-                  <Input type="text" size="large" style={{}}/>
+                  <Input type="text" placeholder="标准银行名称 (英语)" size="large" style={{}}/>
                 )}
               </FormItem>
             </Col>
@@ -66,7 +66,7 @@ class BanknoUSA extends React.Component {
           <Row>
             <FormItem
               {...formItemLayout}
-              label="银行地址 / Bank addresss"
+              label="银行地址 / Bank address"
               labelCol={{span: 4,offset: 2}}
               wrapperCol={{span: 16}}
             >
@@ -76,7 +76,7 @@ class BanknoUSA extends React.Component {
                   required: true, message: '请填写您的银行地址！'
                 }],
               })(
-                <Input type="textarea" style={{width: '100%',height:88,resize:'none'}} />
+                <Input type="textarea" placeholder="标准银行地址 (英语)" style={{width: '100%',height:88,resize:'none'}} />
               )}
             </FormItem>
           </Row>
@@ -93,7 +93,7 @@ class BanknoUSA extends React.Component {
                   required: true, message: '请输入SwiftCode!',
                 }],
               })(
-                <Input type="text" size="large" style={{}}/>
+                <Input type="text" placeholder="8位或11位字母数字组合" size="large" style={{}}/>
               )}
             </FormItem>
           </Row>
@@ -139,7 +139,7 @@ class BanknoUSA extends React.Component {
                 required: false, message: '请输入您的指定的中间行名称！',
               }],
             })(
-              <Input type="text" size="large" style={{}}/>
+              <Input type="text" placeholder="标准银行名称 (英语)" size="large" style={{}}/>
             )}
           </FormItem>
           <FormItem
@@ -154,7 +154,7 @@ class BanknoUSA extends React.Component {
                 required: false, message: '请输入您的指定的中间行地址！',
               }],
             })(
-              <Input type="textarea" size="large" style={{height:'80px',resize:'none'}}/>
+              <Input type="textarea" placeholder="标准银行地址 (英语)" size="large" style={{height:'80px',resize:'none'}}/>
             )}
           </FormItem>
           <FormItem
@@ -169,7 +169,7 @@ class BanknoUSA extends React.Component {
                 required: false, message: '请输入中间行Swiftcode',
               }],
             })(
-              <Input type="text" size="large" style={{}}/>
+              <Input type="text" placeholder="8位或11位字母数字组合" size="large" style={{}}/>
             )}
           </FormItem>
 

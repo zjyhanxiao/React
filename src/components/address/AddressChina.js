@@ -153,7 +153,8 @@ class AddressChina extends React.Component {
                         required: true, message: '请填写您的详细地址!'
                     }],
                 })(
-                    <Input type="textarea" style={{width: 240, height: 88, resize: 'none'}} />
+                    <Input type="textarea" placeholder="请用中文填写
+比如：幸福里小区23号楼A单元423号" style={{width: 240, height: 88, resize: 'none'}} />
                 )}
               </FormItem></Row>
               <Row><FormItem
@@ -168,7 +169,7 @@ class AddressChina extends React.Component {
                         required: true, message: '请输入邮编!',
                     }, {pattern: /^[0-9]+$/i, message: '请输入数字!',}],
                 })(
-                    <Input type="text" size="large" style={{width: 240}} />
+                    <Input type="text" placeholder="XXXXXX" size="large" style={{width: 240}} />
                 )}
               </FormItem></Row>
             </Col>

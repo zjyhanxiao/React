@@ -55,6 +55,7 @@ const IndexButton = React.createClass({
                 }
             }
         )
+        document.body.scrollTop=0
         event.preventDefault();
     },
 /*    handleCancel(e) {

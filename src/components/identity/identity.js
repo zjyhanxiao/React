@@ -5,6 +5,7 @@ import {getState,saveFields,changeAddressType} from '../../Redux/actions/index'
 import {bindActionCreators} from 'redux'
 import {changeInvestorType} from '../../Redux/actions/index'
 import {Form, Input, Row, Col, Button, Radio} from 'antd';
+import $ from 'jquery'
 
 const FormItem = Form.Item;
 const RadioGroup = Radio.Group;
@@ -168,6 +169,16 @@ class Identity extends React.Component {
                         ...this.props.getsProfile.base_profile.accreditation,
                         type:'INCOME'
                     }))
+                    dispatch(saveFields('base_info',{
+                        ...this.props.getsProfile.base_profile.base_info,
+                        nationality:'',
+                        country_of_tax_residency:'',
+                        foreign_tax_number:''
+                    }))
+/*                    dispatch(saveFields('address_non_cn',{
+                        ...this.props.getsProfile.base_profile.address_non_cn,
+                        country:'美国'
+                    }))*/
 
                     if(this.props.getsProfile.base_profile.bill_url!=null&&this.props.getsProfile.base_profile.bill_url!=''){
                         dispatch(changeAddressType('bill'))
@@ -177,13 +188,20 @@ class Identity extends React.Component {
                 }
                 if (this.props.getsProfile.base_profile.investor_type == 99) {
                     dispatch(getState({country: this.props.getsProfile.base_profile.address_non_cn.country}))
-                    dispatch(saveFields('accreditation',{
+                    dispatch(saveFields('base_info',{
+                        ...this.props.getsProfile.base_profile.base_info,
+                        nationality:'',
+                        country_of_tax_residency:'',
+                        foreign_tax_number:''
+                    }))
+                    /*dispatch(saveFields('accreditation',{
                         ...this.props.getsProfile.base_profile.accreditation,
                         type:'INCOME'
-                    }))
+                    }))*/
                 }
 
                 dispatch(saveFields('bank_type','NON_US'))
+                document.getElementsByClassName('ant-modal-wrap')[0].scrollTop=0
                 this.props.changeIndex(e)
                 // const { dispatch } = this.props
                 // dispatch(updateProfile(this.props.getsProfile.base_profile,this.success))

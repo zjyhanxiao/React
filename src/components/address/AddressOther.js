@@ -59,7 +59,7 @@ class AddressOther extends React.Component {
 
           <FormItem>
             <Row>
-              <Col span={14}><p style={{textAlign: 'center', lineHeight: '14px', color: "#ff6600"}}>请注意：您必须填写您的住宅地址（非 P.O.BOX 或 in-care-of 地址）</p></Col>
+              <Col span={14}><p style={{textAlign: 'center', lineHeight: '14px', color: "#ff6600"}}>您必须使用英文填写您的住宅地址（非 P.O.BOX 或 in-care-of 地址）</p></Col>
             </Row>
           </FormItem>
           <Row>
@@ -75,7 +75,7 @@ class AddressOther extends React.Component {
                   initialValue: '美国',
                   rules: [{
                       type: 'string',
-                      required: true,
+                      required: false,
                       message: '请选择您所在的国家！'
                   }],
               })(
@@ -138,7 +138,7 @@ class AddressOther extends React.Component {
                       required: false, message: '请输入您所在的地址！',},{
                       pattern: /^[a-z0-9 \,\.\-\']+$/i, message: "请输入英文",}],
               })(
-                  <Input type="text" size="large" style={{}} />
+                  <Input type="text" placeholder="选填" size="large" style={{}} />
               )}
             </FormItem>
           </Row>
@@ -195,8 +195,8 @@ class AddressOther extends React.Component {
               {getFieldDecorator('postal_code', {
                   initialValue: baseData.postal_code||'',
                   rules: [{
-                      required: true, message: '请输入您的邮编!',
-                  }, {pattern: /^[0-9]+$/i, message: '请输入数字!',}],
+                      required: false, message: '请输入您的邮编!',
+                  }],
               })(
                   <Input type="text" size="large" style={{}} />
               )}

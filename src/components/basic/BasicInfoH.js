@@ -230,10 +230,10 @@ class BasicInfoH extends React.Component {
                               initialValue: baseData.base_info.foreign_tax_number||'',
                                 //initialValue: this.props.passport_code,
                                 rules: [{
-                                    required: true, message: '请输入您的纳税号！',
+                                    required: false, message: '请输入您的纳税号！',
                                 }],
                             })(
-                                <Input type="text" size="large" style={{width: 240}}/>
+                                <Input type="text" placeholder="如选择的纳税国没有税号则无需填写" size="large" style={{width: 240}}/>
                             )}
                         </FormItem>
                     </Col>

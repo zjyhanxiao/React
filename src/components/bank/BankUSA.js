@@ -65,7 +65,7 @@ class BankUSA extends React.Component {
                     required: true, message: '请输入您的银行名称！',
                   }],
                 })(
-                  <Input type="text" size="large" style={{}}/>
+                  <Input type="text" placeholder="标准银行名称 (英语)" size="large" style={{}}/>
                 )}
               </FormItem>
             </Col>
@@ -76,7 +76,7 @@ class BankUSA extends React.Component {
           <Row>
             <FormItem
               {...formItemLayout}
-              label="银行地址 / Bank addresss"
+              label="银行地址 / Bank address"
               labelCol={{span: 4,offset: 2}}
               wrapperCol={{span: 16}}
             >
@@ -86,7 +86,7 @@ class BankUSA extends React.Component {
                   required: true, message: '请填写您的银行地址!'
                 }],
               })(
-                <Input type="textarea" style={{width: '100%',height:88,resize:'none'}} />
+                <Input type="textarea" placeholder="标准银行地址 (英语)" style={{width: '100%',height:88,resize:'none'}} />
               )}
             </FormItem>
           </Row>
@@ -103,7 +103,7 @@ class BankUSA extends React.Component {
                 required: true, message: '请输入ABA / Routing number',
               }],
             })(
-              <Input type="text" size="large" style={{}}/>
+              <Input type="text" placeholder="9位数字" size="large" style={{}}/>
             )}
           </FormItem>
         </Row>
@@ -140,9 +140,11 @@ class BankUSA extends React.Component {
             }],
           })(
             <Radio.Group onChange={this.handleSizeChange} style={{width:'100%',height:'32px'}}>
-              <Radio.Button value="Checking" style={{width:'40%',height:'32px',borderRadius:'32px',textAlign:'center',float:'left'}}>Checking</Radio.Button>
+              <Radio.Button value="Checking" style={{width:'40%',height:'32px',borderRadius:'32px', paddingTop:5,
+                  textAlign:'center',float:'left'}}>Checking</Radio.Button>
               <div style={{width:'20%',height:'32px',float:'left'}}></div>
-              <Radio.Button value="Savings" style={{width:'40%',height:'32px',borderRadius:'32px',textAlign:'center',float:'left'}}>Savings</Radio.Button>
+              <Radio.Button value="Savings" style={{width:'40%',height:'32px',borderRadius:'32px', paddingTop:5,
+                  textAlign:'center',float:'left'}}>Savings</Radio.Button>
             </Radio.Group>
           )}
         </FormItem>

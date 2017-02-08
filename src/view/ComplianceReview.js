@@ -20,6 +20,7 @@ class ComplianceReview extends React.Component {
                 dispatch(updateProfile(pro))
                 dispatch(fetchPosts())
                 dispatch(changeComplete(true))
+                document.getElementsByClassName('ant-modal-wrap')[0].scrollTop=0
                 this.props.handleOk(e);
             }
         })
@@ -34,6 +35,7 @@ class ComplianceReview extends React.Component {
                 const {dispatch}=this.props
                 dispatch(updateProfile(data))
                 dispatch(fetchPosts())
+                document.getElementsByClassName('ant-modal-wrap')[0].scrollTop=0
                 this.props.handleCancel()
                 /*const {dispatch} = this.props
                  dispatch(updateProfile(values, this.success))*/

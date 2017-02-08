@@ -103,8 +103,8 @@ class BankFast extends React.Component {
               <img style={{width: '100%',}} src={data.bank_url} alt="" />
             </div>
             <div style={{width: 170, height: 55, position: 'absolute', top: '15px', right: '0px'}}>
-              <p style={{lineHeight: '1.5'}}>{data.bank_name_cn}</p>
-              <p style={{lineHeight: '1.5'}}>{data.bank_name_en}</p>
+              <p style={{lineHeight: '1.5', marginBottom:0}}>{data.bank_name_cn}</p>
+              <p style={{lineHeight: '1.5', marginBottom:0}}>{data.bank_name_en}</p>
             </div>
 
           </Radio.Button>)

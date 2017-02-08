@@ -131,7 +131,7 @@ class BasicInfoUC extends React.Component {
                             required: true, message: '请输入您的SSN!',
                         }],
                     })(
-                        <Input type="text" size="large" style={{width: 240}} />
+                        <Input type="text" placeholder='XXX-XX-XXXX' size="large" style={{width: 240}} />
                     )}
                   </FormItem>
                 </Col>

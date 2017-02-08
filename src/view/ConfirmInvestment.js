@@ -22,7 +22,7 @@ class ConfirmInvestment extends React.Component {
             document.getElementById('spouse_signature').style.border = '1px dotted #999'
         }
         if ($('#Docs').find('input[type="checkbox"]:checked').length != this.props.getsProfile.Doc.length) {
-            let dom = $('<div class="docs-error" style="margin-left: 8.33333333%; margin-top: 15px; color: red">提示:请认真阅读并勾选以上所有文件</div>')
+            let dom = $('<div class="docs-error" style="margin-left: 8.33333333%; margin-top: 15px; color: red">请认真阅读并勾选以上所有文件</div>')
             $('#Docs').after(dom)
             canNext = false
         }
@@ -46,6 +46,7 @@ class ConfirmInvestment extends React.Component {
             canNext = false
         }
         if (!canNext) {
+            document.body.scrollTop=300
             return false
         }
         data.signature = this.props.getsProfile.base_profile.signature || null;
@@ -55,6 +56,7 @@ class ConfirmInvestment extends React.Component {
          }*/
         dispatch(updateProfile(data))
 
+        document.body.scrollTop=0
         this.props.changeP(e)
 
     }

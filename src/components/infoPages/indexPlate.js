@@ -22,6 +22,7 @@ class IndexPlate extends React.Component {
             alert('投资金额不能少于' + this.props.getsProfile.Product.minimum_invest_amount)
             return false
         }
+        document.body.scrollTop=0
         this.props.changeP(e)
     }
 

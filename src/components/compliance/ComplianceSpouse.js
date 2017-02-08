@@ -79,7 +79,7 @@ class ComplianceSpouse extends React.Component {
                         message: '请输入您配偶姓的汉语拼音!',
                     }, {pattern: /^[a-z \,\.\-\']+$/i, message: '请输入汉语拼音!',}],
                 })(
-                    <Input type='text' size='large' style={{width: 240}} />
+                    <Input type='text' placeholder="姓的汉语拼音" size='large' style={{width: 240}} />
                 )}
               </FormItem>
             </Col>
@@ -98,7 +98,7 @@ class ComplianceSpouse extends React.Component {
                     }, {pattern: /^[a-z \,\.\-\']+$/i,
                         message: '请输入汉语拼音!',}],
                 })(
-                    <Input type='text' size='large' style={{width: 240}} />
+                    <Input type='text' placeholder="名的汉语拼音" size='large' style={{width: 240}} />
                 )}
               </FormItem>
             </Col>

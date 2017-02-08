@@ -60,6 +60,7 @@ class BankInformation extends React.Component {
                     dispatch(changeComplete(true))
                     this.props.handleOk(e);
                 }
+                document.getElementsByClassName('ant-modal-wrap')[0].scrollTop=0
             }
         });
     }
@@ -86,6 +87,7 @@ class BankInformation extends React.Component {
                 const {dispatch}=this.props
                 dispatch(updateProfile(pro))
                 dispatch(fetchPosts())
+                document.getElementsByClassName('ant-modal-wrap')[0].scrollTop=0
                 this.props.handleCancel()
             }
         });
@@ -146,6 +148,7 @@ class BankInformation extends React.Component {
                        height: '32px',
                        borderRadius: '32px',
                        textAlign: 'center',
+                       paddingTop:5,
                        float: 'left'
                    }}>非美国银行</Radio.Button>
                     <div style={{width: '100px', float: 'left', textAlign: 'center'}}>OR</div>
@@ -154,6 +157,7 @@ class BankInformation extends React.Component {
                        height: '32px',
                        borderRadius: '32px',
                        textAlign: 'center',
+                       paddingTop:5,
                        float: 'left'
                    }}>美国银行</Radio.Button>
 

@@ -23,6 +23,7 @@ class BasicInformation extends React.Component {
                 this.props.changeIndex(e)
             }
         });
+        document.getElementsByClassName('ant-modal-wrap')[0].scrollTop=0
         e.preventDefault();
     }
 
@@ -36,6 +37,8 @@ class BasicInformation extends React.Component {
                 this.props.handleCancel()
             }
         });
+
+        document.getElementsByClassName('ant-modal-wrap')[0].scrollTop=0
         e.preventDefault();
     }
     cancelChange(){

@@ -15,7 +15,7 @@ class GoldenWay extends React.Component {
         <p style={{width: '100%', textAlign:'center',color:'#159bd6',fontSize:'20px',margin:'50px 0'}}>选择入金方式</p>
         <IndexAWC changeP={this.props.changeP} {...this.props} />
 
-        <p style={{width: '100%', textAlign:'center'}}>如有疑问，请邮件联系invest@meixinfinance.com。</p>
+        <p style={{width: '100%', lineHeight:5, textAlign:'center'}}>如有疑问，请邮件联系invest@meixinfinance.com。</p>
 
       </div>
     );
