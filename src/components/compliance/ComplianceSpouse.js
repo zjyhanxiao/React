@@ -27,10 +27,10 @@ class ComplianceSpouse extends React.Component {
         });
     }
 
-/*    countryChange(e) {
-        let country = e.split('%%')[0]
+    /*    countryChange(e) {
+     let country = e.split('%%')[0]
 
-    }*/
+     }*/
 
     render() {
         let baseData = this.props.getsProfile.base_profile.accreditation
@@ -47,13 +47,13 @@ class ComplianceSpouse extends React.Component {
         };
 
 
-/*        const prefixSelector = getFieldDecorator('prefix', {
-            initialValue: '中国',
-        })(
-            <Select className="icp-selector"  onChange={this.countryChange.bind(this)}>
-                {countyData}
-      </Select>
-        );*/
+        /*        const prefixSelector = getFieldDecorator('prefix', {
+         initialValue: '中国',
+         })(
+         <Select className="icp-selector"  onChange={this.countryChange.bind(this)}>
+         {countyData}
+         </Select>
+         );*/
 
 
         return (
@@ -116,7 +116,7 @@ class ComplianceSpouse extends React.Component {
                     rules: [{required: baseData.with_spouse?true:false,
                         message: '请输入您配偶的电话号码！'}],
                 })(
-                    <Input style={{width: 240}} placeholder="输入格式（+86 13800138000）" />
+                    <Input style={{width: 240}} placeholder="输入格式输入格式（+1 4088567231）" />
                 )}
               </FormItem>
             </Col>

@@ -2,7 +2,7 @@ import fetch from 'isomorphic-fetch'
 import cookie from 'react-cookie'
 import *as types from './ActionTypes'
 import $ from 'jquery'
-const baseUrl = 'https://api.meixinglobal.com:442'
+const baseUrl = 'https://api.meixinglobal.com'
 // const baseUrl = 'https://gl-api2.meixincn.com'
 // 用户信息是否完善
 export const isComplete = () => {

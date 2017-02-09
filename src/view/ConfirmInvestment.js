@@ -91,7 +91,7 @@ class ConfirmInvestment extends React.Component {
                     <Signature id='spouse_signature' getSignature={this.signature} {...this.props}
                                mode={{
                                    people: '配偶签名',
-                                   notice: '温馨提示：此处必须有您配偶亲自签名。'
+                                   notice: '请注意：此处必须有您配偶亲自签名。'
                                }}
                     />
                     :

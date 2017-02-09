@@ -9,40 +9,40 @@ import BankInformation from '../../view/BankInformation'
 
 class BankPlate extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-        fourth:true,
-        is_single:true,
-        modelKey:1
+    constructor(props) {
+        super(props);
+        this.state = {
+            fourth:true,
+            is_single:true,
+            modelKey:1
+        }
     }
-  }
 
-  showModal = () => {
-    this.setState({
-      visible: true,
-    });
-  }
-  handleOk = () => {
-    this.setState({
-      visible: false,
-    });
-  }
-  handleCancel = (e) => {
-    this.setState({
-      visible: false,
-        modelKey:this.state.modelKey+1
-    });
-  }
+    showModal = () => {
+        this.setState({
+            visible: true,
+        });
+    }
+    handleOk = () => {
+        this.setState({
+            visible: false,
+        });
+    }
+    handleCancel = (e) => {
+        this.setState({
+            visible: false,
+            modelKey:this.state.modelKey+1
+        });
+    }
 
-  render() {
-      const data=this.props.getsProfile.base_profile
-    return (
-      <div style={{width: '100%', background: '#fff', overflow: 'hidden'}}>
+    render() {
+        const data=this.props.getsProfile.base_profile
+        return (
+            <div style={{width: '100%', background: '#fff', overflow: 'hidden'}}>
         <Row style={{paddingTop: '30px'}}>
           <Col span={14} offset={2}>
             <p style={{fontWeight: '900', fontSize: '16px'}}>银行信息&nbsp;&nbsp;
-                <span style={{fontWeight: '300', fontSize: '12px',color:'#ff6600'}}>如您将采用ACH自动扣款功能，此处需填写美国银行，如需更换请点击修改。</span>
+              <span style={{fontWeight: '300', fontSize: '12px',color:'#ff6600'}}>如您将采用ACH自动扣款功能，此处需填写美国银行，如需更换请点击修改。</span>
 
             </p>
           </Col>
@@ -65,15 +65,15 @@ class BankPlate extends React.Component {
 
 
 
-        {data!=undefined&&data.bank_type!=undefined&&data.bank_type == 'US'?
-            <div>
+                {data!=undefined&&data.bank_type!=undefined&&data.bank_type == 'US'?
+                    <div>
               <Row style={{marginTop:'5px'}}>
                 <Col span={4} offset={2}><span style={{fontWeight:'600'}}>银行名称</span></Col>
                 <Col span={16}><p>{data!=undefined&&data.bank_us.bank_name!=undefined?data.bank_us.bank_name:''}</p></Col>
               </Row>
               <Row style={{marginTop:'5px'}}>
               <Col span={4} offset={2}><span style={{fontWeight:'600'}}>银行地址</span></Col>
-              <Col span={16}><p>{data!=undefined&&data.bank_us.bank_address!=undefined?data.bank_us.bank_address:''}</p></Col>
+              <Col span={16}><p>{data!=undefined&&data.bank_us.bank_address!=undefined?data.bank_us.bank_address.replace(/\r\n|\r|\n/, ', '):''}</p></Col>
               </Row>
               <Row style={{marginTop:'5px'}}>
               <Col span={4} offset={2}><span style={{fontWeight:'600'}}>ABA / routing #</span></Col>
@@ -88,15 +88,15 @@ class BankPlate extends React.Component {
               <Col span={16}><p>{data!=undefined&&data.bank_us.account_number!=undefined?data.bank_us.account_number.replace(/^\d+(\d{4})$/, "****************$1"):''}</p></Col>
               </Row>
             </div>
-            :
-            <div>
+                    :
+                    <div>
               <Row style={{marginTop:'5px'}}>
                 <Col span={4} offset={2}><span style={{fontWeight:'600'}}>银行名称</span></Col>
                 <Col span={16}><p>{data!=undefined&&data.bank_non_us.bank_name!=undefined?data.bank_non_us.bank_name:''}</p></Col>
               </Row>
               <Row style={{marginTop:'5px'}}>
                 <Col span={4} offset={2}><span style={{fontWeight:'600'}}>银行地址</span></Col>
-                <Col span={16}><p>{data!=undefined&&data.bank_non_us.bank_address!=undefined?data.bank_non_us.bank_address:''}</p></Col>
+                <Col span={16}><p>{data!=undefined&&data.bank_non_us.bank_address!=undefined?data.bank_non_us.bank_address.replace(/\r\n|\r|\n/, ', '):''}</p></Col>
               </Row>
               <Row style={{marginTop:'5px'}}>
                 <Col span={4} offset={2}><span style={{fontWeight:'600'}}>Swiftcode</span></Col>
@@ -110,31 +110,31 @@ class BankPlate extends React.Component {
                 <Col span={4} offset={2}><span style={{fontWeight:'600'}}>账户号</span></Col>
                 <Col span={16}><p>{data!=undefined&&data.bank_non_us.account_number!=undefined?data.bank_non_us.account_number.replace(/^\d+(\d{4})$/, "****************$1"):''}</p></Col>
               </Row>
-                {data!=undefined&&data.bank_non_us.have_middle_bank==1?
-                    <div>
+                        {data!=undefined&&data.bank_non_us.have_middle_bank==1?
+                            <div>
                         <Row style={{marginTop:'5px'}}>
                           <Col span={4} offset={2}><span style={{fontWeight:'600'}}>中间行名称</span></Col>
                           <Col span={16}><p>{data!=undefined&&data.bank_non_us.middle_bank_name!=undefined?data.bank_non_us.middle_bank_name:''}</p></Col>
                         </Row>
                         <Row style={{marginTop:'5px'}}>
                           <Col span={4} offset={2}><span style={{fontWeight:'600'}}>中间行地址</span></Col>
-                          <Col span={16}><p>{data!=undefined&&data.bank_non_us.middle_bank_address!=undefined?data.bank_non_us.middle_bank_address:''}</p></Col>
+                          <Col span={16}><p>{data!=undefined&&data.bank_non_us.middle_bank_address!=undefined?data.bank_non_us.middle_bank_address.replace(/\r\n|\r|\n/, ', '):''}</p></Col>
                         </Row>
                         <Row style={{marginTop:'5px',marginBottom:'20px'}}>
                           <Col span={4} offset={2}><span style={{fontWeight:'600'}}>中间行Swiftcode</span></Col>
                           <Col span={16}><p>{data!=undefined&&data.bank_non_us.middle_bank_swift_code!=undefined?data.bank_non_us.middle_bank_swift_code:''}</p></Col>
                         </Row>
                     </div>
-                    :''}
+                            :''}
             </div>
-        }
+                }
 
 
 
 
       </div>
-    );
-  }
+        );
+    }
 }
 
 BankPlate.defaultProps = {};
