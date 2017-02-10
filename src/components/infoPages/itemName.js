@@ -18,7 +18,7 @@ class ItemName extends React.Component {
 
     render() {
         return (
-            <div style={{width:'100%',height:'220px',background:'url(https://s1.meixinglobal.com/vendor/img/582226841158163711.jpg)'}}>
+            <div style={{width:'100%',height:'220px',background:'url(https://www.meixinfinance.com/vendor/img/building.jpg)'}}>
         <Row>
           <Col span={6} offset={16} style={{textAlign:'center',marginTop:'60px',color:'#223976'}}>
             <span style={{fontSize:'28px',color:'#223976'}}>{this.props.name}</span>

@@ -76,6 +76,10 @@ class BankPlate extends React.Component {
               <Col span={16}><p>{data!=undefined&&data.bank_us.bank_address!=undefined?data.bank_us.bank_address.replace(/\r\n|\r|\n/, ', '):''}</p></Col>
               </Row>
               <Row style={{marginTop:'5px'}}>
+              <Col span={4} offset={2}><span style={{fontWeight:'600'}}>Swiftcode</span></Col>
+              <Col span={16}><p>{data!=undefined&&data.bank_us.swift_code!=undefined?data.bank_us.swift_code:''}</p></Col>
+              </Row>
+              <Row style={{marginTop:'5px'}}>
               <Col span={4} offset={2}><span style={{fontWeight:'600'}}>ABA / routing #</span></Col>
               <Col span={16}><p>{data!=undefined&&data.bank_us.routing_number!=undefined?data.bank_us.routing_number:''}</p></Col>
               </Row>
