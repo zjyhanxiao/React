@@ -57,7 +57,7 @@ class CompliancePlate extends React.Component {
           {data&&data.accreditation.type=='INCOME'?
               <Row style={{margin:'10px 0',}}>
                   <Col span={20} offset={2}>
-                    <p style={{width:'100%',color:'#999999'}}>您选择了收入审查
+                    <p style={{width:'100%',color:'#555'}}>您选择了收入审查
               {data&&data.accreditation.with_spouse==true?'，您填写的配偶信息如下：':''}
               </p>
                   </Col>
@@ -66,7 +66,7 @@ class CompliancePlate extends React.Component {
           data&&data.accreditation.type=='NET_WORTH'?
               <Row style={{margin:'10px 0',}}>
                   <Col span={20} offset={2}>
-                    <p style={{width:'100%',color:'#999999'}}>您选择了净值审查
+                    <p style={{width:'100%',color:'#555'}}>您选择了净值审查
                     {data&&data.accreditation.with_spouse==true?'，您填写的配偶信息如下：':''}
                   </p>
                   </Col>

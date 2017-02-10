@@ -55,7 +55,7 @@ const IndexButton = React.createClass({
                 }
             }
         )
-        document.body.scrollTop=0
+        document.getElementsByClassName('ant-modal-wrap')[0].scrollTop=0
         event.preventDefault();
     },
 /*    handleCancel(e) {

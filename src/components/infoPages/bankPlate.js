@@ -42,7 +42,7 @@ class BankPlate extends React.Component {
         <Row style={{paddingTop: '30px'}}>
           <Col span={14} offset={2}>
             <p style={{fontWeight: '900', fontSize: '16px'}}>银行信息&nbsp;&nbsp;
-              <span style={{fontWeight: '300', fontSize: '12px',color:'#ff6600'}}>如您将采用ACH自动扣款功能，此处需填写美国银行，如需更换请点击修改。</span>
+              <span style={{fontWeight: '300', fontSize: '12px',color:'#ff6600'}}>{data&&data.bank_type=='NON_US'?'如您将采用ACH自动扣款功能，此处需填写美国银行，如需更换请点击修改。':''}</span>
 
             </p>
           </Col>

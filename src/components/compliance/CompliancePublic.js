@@ -196,7 +196,7 @@ class CompliancePublic extends React.Component {
             <Row style={{}}>
               <Col span={20} offset={2}><p
                   style={{color: '#ff6600', fontFamily: '宋体', marginTop: '2px', lineHeight: '12px'}}>
-                注：如您需要向美信金融递交上述合格投资人证明材料，请您用邮件发送至invest@meixinfinance.com。</p></Col>
+                注：若您在过去的90天内没有验证合格投资人的身份，我们将与您联系沟通具体验证的操作。请注意查收邮件。</p></Col>
             </Row>
           </FormItem>
       </div>

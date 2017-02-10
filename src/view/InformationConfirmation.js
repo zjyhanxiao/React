@@ -52,7 +52,7 @@ class InformationConfirmation extends React.Component {
             }
         )
 
-        document.body.scrollTop=0
+        document.getElementsByClassName('ant-modal-wrap')[0].scrollTop=0
         event.preventDefault();
     }
 

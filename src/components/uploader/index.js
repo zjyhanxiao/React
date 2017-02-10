@@ -12,11 +12,15 @@ function getBase64(img, callback) {
 }
 
 function beforeUpload(file) {
+    const isJPG = file.type === 'image/jpeg' ||  file.type === 'image/png' ||  file.type === 'image/jpg' ||  file.type === 'image/bmp' ||  file.type === 'image/tiff' ||  file.type === 'image/gif';
+    if (!isJPG) {
+        message.error('请上传图片!');
+    }
     const isLt8M = file.size / 1024 / 1024 < 8;
     if (!isLt8M) {
-        message.error('Image must smaller than 8MB!');
+        message.error('请上传小于 8MB 的图片!');
     }
-    return isLt8M;
+    return isJPG&&isLt8M;
 }
 
 class Avatar extends React.Component {

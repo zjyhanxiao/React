@@ -53,6 +53,7 @@ class IndexPlate extends React.Component {
                     textAlign: 'center',
                     background: '#ffffff'
                 }}>
+                    <p style={{marginBottom:50,textAlign:'left', marginLeft:'8.33333333%',color:'#828282'}}>订单状态的更新通知将发送到您的电话：{data.phone} / 邮箱：{data.email}。</p>
           <Col span={8} offset={8}>
             <Button style={{
                 width: '120px',
