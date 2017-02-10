@@ -129,7 +129,7 @@ class BasicInfoUC extends React.Component {
                         initialValue: baseData.base_info.ssn || '',
                         rules: [{
                             required: true, message: '请输入您的SSN!',
-                        }],
+                        }, {pattern: /^\d{3}-?\d{2}-?\d{4}$/, message: 'SSN格式请使用XXX-XX-XXXX!',}],
                     })(
                         <Input type="text" placeholder='XXX-XX-XXXX' size="large" style={{width: 240}} />
                     )}
