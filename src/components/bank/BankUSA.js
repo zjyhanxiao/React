@@ -91,6 +91,23 @@ class BankUSA extends React.Component {
             </FormItem>
           </Row>
           <Row>
+            <FormItem
+                {...formItemLayout}
+                label="Swiftcode"
+                labelCol={{span: 4,offset: 2}}
+                wrapperCol={{span: 16}}
+            >
+              {getFieldDecorator('swift_code', {
+                  initialValue: baseData.swift_code || '',
+                  rules: [{
+                      required: true, message: '请输入SwiftCode!',
+                  }],
+              })(
+                  <Input type="text" placeholder="8位或11位字母数字组合" size="large" style={{}}/>
+              )}
+            </FormItem>
+          </Row>
+          <Row>
           <FormItem
             {...formItemLayout}
             label="ABA / Routing number"

@@ -26,7 +26,8 @@ class BankFast extends React.Component {
                     bank_address:baseBank['2'][this.state.size].bank_address,
                     account_number:null,
                     bank_name:baseBank['2'][this.state.size].bank_name_en,
-                    routing_number:baseBank['2'][this.state.size].routing_number
+                    routing_number:baseBank['2'][this.state.size].routing_number,
+                    swift_code:baseBank['2'][this.state.size].bank_swift_code
                 }) :
                 this.props.form.setFieldsValue({
                     bank_address:baseBank['1'][this.state.size].bank_address,
