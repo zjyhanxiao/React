@@ -52,7 +52,7 @@ class Avatar extends React.Component {
                 className="avatar-uploader"
                 name="file"
                 showUploadList={false}
-                action="https://api1.meixinglobal.com/web/upload/private"
+                action="https://prod-gl-api.meixincn.com/web/upload/private"
                 beforeUpload={beforeUpload}
                 onChange={this.handleChange}
             >
