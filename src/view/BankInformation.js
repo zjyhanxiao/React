@@ -264,7 +264,8 @@ BankInformation = Form.create({
                         key == 'account_type' ||
                         key == 'bank_address' ||
                         key == 'bank_name' ||
-                        key == 'routing_number'
+                        key == 'routing_number'||
+                        key == 'swift_code'
                     ) {
                         props.dispatch(saveFields('bank_us', {
                             ...props.getsProfile.base_profile.bank_us,
